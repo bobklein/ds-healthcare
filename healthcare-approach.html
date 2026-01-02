@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Approach: The Complete Value Chain for Healthcare AI | Digital Scientists</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dsBlue: '#304FFF',
+                        dsBlack: '#050505',
+                        dsGray: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        h1, h2, h3 { letter-spacing: -0.02em; }
+        
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-white text-dsBlack antialiased">
+
+    <!-- Simple CSS Hover Navigation - No JavaScript Required -->
+<style>
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-menu { 
+        display: none; 
+        position: absolute; 
+        top: 100%; 
+        left: 0; 
+        padding-top: 8px;
+        z-index: 100;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu.right-aligned { left: auto; right: 0; }
+</style>
+
+<nav class="fixed w-full z-50 bg-white border-b border-gray-100">
+    <div class="max-w-screen-xl mx-auto px-6">
+        <div class="h-20 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="ds-healthcare-v3-updated.html" class="flex flex-col">
+                <div class="text-lg font-bold uppercase tracking-wider leading-none">
+                    Digital<br><span class="text-dsBlue">Scientists</span>
+                </div>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center gap-2">
+                
+                <!-- Healthcare -->
+                <div class="nav-dropdown">
+                    <a href="ds-healthcare-v3-updated.html" class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack">
+                        Healthcare
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-56">
+                            <a href="ds-healthcare-v3-updated.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Healthcare Overview</a>
+                            <a href="healthcare-approach.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Our Approach</a>
+                            <hr class="my-2 border-gray-100">
+                            <a href="healthcare-assessment.html" class="block px-3 py-2 text-sm font-medium text-dsBlue hover:bg-blue-50 rounded-lg">Get AI Assessment →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Solutions -->
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        AI Solutions
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-72">
+                            <p class="px-3 py-1 text-xs font-medium text-gray-400 uppercase">Frameworks</p>
+                            <a href="healthcare-ai-documentation-automation.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Documentation Automation</span>
+                                <span class="block text-xs text-dsBlue">Fastest Payback</span>
+                            </a>
+                            <a href="healthcare-ai-back-office-agents.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Back-Office Agents</span>
+                                <span class="block text-xs text-dsBlue">Highest ROI</span>
+                            </a>
+                            <a href="healthcare-ai-virtual-care-assistants.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Virtual Care Assistants</span>
+                                <span class="block text-xs text-dsBlue">Proven at Scale</span>
+                            </a>
+                            <a href="healthcare-ai-intelligent-scheduling.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Intelligent Scheduling</span>
+                                <span class="block text-xs text-dsBlue">Quick Win</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Domains -->
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        Domains
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-56">
+                            <a href="healthcare-domains-mds-pdpm.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">MDS / PDPM</a>
+                            <a href="healthcare-domains-raf-hcc-coding.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">RAF / HCC Coding</a>
+                            <a href="healthcare-domains-revenue-cycle-ai.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Revenue Cycle AI</a>
+                            <a href="healthcare-domains-value-based-care.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Value-Based Care</a>
+                            <a href="healthcare-domains-ambient-scribes.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Ambient Scribes</a>
+                            <a href="healthcare-domains-ehr-integrations.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">EHR Integrations</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Markets -->
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        Markets
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-56">
+                            <a href="healthcare-markets-skilled-nursing.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Skilled Nursing</a>
+                            <a href="healthcare-markets-home-health-hospice.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Home Health & Hospice</a>
+                            <a href="healthcare-markets-senior-living.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Senior Living</a>
+                            <a href="healthcare-markets-health-systems.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Health Systems</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work -->
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        Work
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu right-aligned">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-64">
+                            <a href="work-never-alone.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">NeverAlone</span>
+                                <span class="block text-xs text-gray-500">26K patients, 7 states</span>
+                            </a>
+                            <a href="work-communicare-mds.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">CommuniCare MDS</span>
+                                <span class="block text-xs text-gray-500">$10M+ PDPM recovered</span>
+                            </a>
+                            <a href="work-raf-hcc-coding.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">RAF/HCC Coding</span>
+                                <span class="block text-xs text-gray-500">$10M+ improvements</span>
+                            </a>
+                            <a href="work-healthcontext-ai.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">HealthContext.AI</span>
+                                <span class="block text-xs text-gray-500">45→5 min documentation</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <a href="healthcare-assessment.html" class="ml-3 bg-dsBlue text-white px-5 py-2 text-sm font-medium rounded-full hover:bg-gray-900 transition">
+                    Get Assessment
+                </a>
+            </div>
+
+            <!-- Mobile: Simple Links -->
+            <div class="md:hidden">
+                <a href="healthcare-assessment.html" class="bg-dsBlue text-white px-4 py-2 text-sm font-medium rounded-full">
+                    Menu
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-16 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-3xl fade-up">
+                <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
+                    <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                    Our Approach
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dsBlack mb-6 leading-[1.1]">
+                    The Complete Value Chain for Healthcare AI
+                </h1>
+                
+                <p class="text-xl text-gray-600 leading-relaxed mb-4">
+                    95% of healthcare AI projects never reach production. Not because the technology doesn't work-because vendors only solve part of the problem.
+                </p>
+                <p class="text-xl text-gray-600 leading-relaxed mb-8">
+                    We deliver the complete 8-step value chain: from messy healthcare data to measurable outcomes. That's why we have a 100% production rate while the industry average is 5%.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- The Problem Section -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Problem with Partial Solutions</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    Why most healthcare AI projects fail.
+                </h2>
+                <p class="text-gray-600">
+                    Most vendors stop at steps 1-2 (data + algorithms). They ignore steps 3-8-the 70% that determines actual success.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                    <span class="text-red-500 text-lg mb-3 block">X</span>
+                    <h3 class="font-semibold text-dsBlack mb-2">Dev Shops</h3>
+                    <p class="text-gray-500 text-sm">Write code, throw it over the wall. No healthcare expertise. No implementation support. No accountability for results.</p>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                    <span class="text-red-500 text-lg mb-3 block">X</span>
+                    <h3 class="font-semibold text-dsBlack mb-2">AI Vendors</h3>
+                    <p class="text-gray-500 text-sm">Sell tools, wish you luck. Built for demos, not your EHR. No integration, no adoption support, no workflow fit.</p>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                    <span class="text-red-500 text-lg mb-3 block">X</span>
+                    <h3 class="font-semibold text-dsBlack mb-2">Consultants</h3>
+                    <p class="text-gray-500 text-sm">Advise forever, never transfer knowledge. Strategy without delivery. Beautiful decks that never become working software.</p>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                    <span class="text-red-500 text-lg mb-3 block">X</span>
+                    <h3 class="font-semibold text-dsBlack mb-2">Offshore Vendors</h3>
+                    <p class="text-gray-500 text-sm">Build cheap, miss compliance. Timezone gaps, quality issues, HIPAA concerns. No on-site discovery possible.</p>
+                </div>
+            </div>
+
+            <div class="mt-12 p-6 bg-white border border-gray-200 rounded-xl fade-up">
+                <div class="flex flex-col md:flex-row md:items-center gap-6">
+                    <div class="flex-1">
+                        <p class="text-dsBlack font-medium mb-2">The industry failure rate tells the story:</p>
+                        <p class="text-gray-600">95% of enterprise AI solutions never reach production. Over 2/3 of AI transformations fall short of expectations. The problem isn't the technology-it's incomplete solutions.</p>
+                    </div>
+                    <div class="text-center px-8 py-4 bg-dsGray rounded-xl">
+                        <span class="text-4xl font-bold text-dsBlack">5%</span>
+                        <p class="text-gray-500 text-sm">Industry production rate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The 8-Step Value Chain -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-16 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Complete Value Chain</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    8 steps from messy data to measurable outcomes.
+                </h2>
+                <p class="text-gray-600">
+                    Each step is tailored for healthcare. Each addresses a common failure pattern. Together, they explain our 100% production rate.
+                </p>
+            </div>
+
+            <!-- Step 1 -->
+            <div class="mb-16 fade-up">
+                <div class="flex items-start gap-6">
+                    <div class="w-12 h-12 bg-dsBlue rounded-xl flex items-center justify-center text-white font-bold shrink-0">1</div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-dsBlack mb-3">Healthcare Data Foundation</h3>
+                        <p class="text-gray-600 mb-4">
+                            Clean, structure, and prepare your messy healthcare data. Most projects assume data is ready-it never is. We start with data reality, not assumptions.
+                        </p>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mt-6">
+                            <div class="bg-dsGray p-4 rounded-lg">
+                                <p class="text-sm font-medium text-dsBlack mb-2">What this means in healthcare:</p>
+                                <p class="text-gray-600 text-sm">PHI handling with HIPAA compliance from day one. Multi-source integration: EHR + claims + labs + medications. Data quality assessment across facilities. Real-time pipelines for clinical decision support. Audit trails and access controls built in.</p>
+                            </div>
+                            <div class="border border-gray-200 p-4 rounded-lg">
+                                <p class="text-sm font-medium text-red-600 mb-2">Common failure pattern:</p>
+                                <p class="text-gray-600 text-sm">Projects launch assuming data is clean and accessible. Discovery: data lives in 5 systems, quality varies by facility, no one owns data governance. Project stalls at month 3.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="mb-16 fade-up">
+                <div class="flex items-start gap-6">
+                    <div class="w-12 h-12 bg-dsBlue rounded-xl flex items-center justify-center text-white font-bold shrink-0">2</div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-dsBlack mb-3">Responsible AI Build</h3>
+                        <p class="text-gray-600 mb-4">
+                            Custom solutions with transparency and explainability. Clinicians don't trust black boxes. Every recommendation must be audit-defensible.
+                        </p>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mt-6">
+                            <div class="bg-dsGray p-4 rounded-lg">
+                                <p class="text-sm font-medium text-dsBlack mb-2">What this means in healthcare:</p>
+                                <p class="text-gray-600 text-sm">Peer-reviewed methodologies (CMS models). 90%+ diagnosis accuracy, validated. Every recommendation linked to source documentation. Audit-defensible AI for compliance reviews.</p>
+                            </div>
+                            <div class="border border-gray-200 p-4 rounded-lg">
+                                <p class="text-sm font-medium text-red-600 mb-2">Common failure pattern:</p>
+                                <p class="text-gray-600 text-sm">AI vendor ships impressive demo. Clinicians ask "why did it recommend this?" No answer. Trust evaporates. Tool sits unused. Subscription renewed but ROI = zero.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="mb-16 fade-up">
+                <div class="flex items-start gap-6">
+                    <div class="w-12 h-12 bg-dsBlue rounded-xl flex items-center justify-center text-white font-bold shrink-0">3</div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-dsBlack mb-3">EHR Integration</h3>
+                        <p class="text-gray-600 mb-4">
+                            Wrap around existing systems seamlessly. You can't rip and replace your EHR. We integrate with what you have.
+                        </p>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mt-6">
+                            <div class="bg-dsGray p-4 rounded-lg">
+                                <p class="text-sm font-medium text-dsBlack mb-2">What this means in healthcare:</p>
+                                <p class="text-gray-600 text-sm">PointClickCare, Epic, Gehrimed, Elation-proven integrations. Bidirectional data flows (not just read-only). Workflow-embedded (no separate login, no duplicate entry). Real-time triggers for clinical decision points.</p>
+                            </div>
+                            <div class="border border-gray-200 p-4 rounded-lg">
+                                <p class="text-sm font-medium text-red-600 mb-2">Common failure pattern:</p>
+                                <p class="text-gray-600 text-sm">Vendor promises "easy integration." Reality: 6-month integration project, requires separate login, staff enters data twice. Adoption collapses under workflow friction.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="mb-16 fade-up">
+                <div class="flex items-start gap-6">
+                    <div class="w-12 h-12 bg-dsBlue rounded-xl flex items-center justify-center text-white font-bold shrink-0">4</div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-dsBlack mb-3">Co-Design with Care Teams</h3>
+                        <p class="text-gray-600 mb-4">
+                            Build WITH your teams, not imposed on them. Requirements defined in conference rooms fail. Real understanding comes from being there.
+                        </p>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mt-6">
+                            <div class="bg-dsGray p-4 rounded-lg">
+                                <p class="text-sm font-medium text-dsBlack mb-2">What this means in healthcare:</p>
+                                <p class="text-gray-600 text-sm">40+ hours shadowing MDS coordinators, clinicians, staff. Workflow observation before requirements. Clinician feedback loops throughout development. Staff own the solution from day one.</p>
+                            </div>
+                            <div class="border border-gray-200 p-4 rounded-lg">
+                                <p class="text-sm font-medium text-red-600 mb-2">Common failure pattern:</p>
+                                <p class="text-gray-600 text-sm">IT defines requirements. Vendor builds to spec. Go-live: "This doesn't match how we actually work." Expensive change orders. Staff resentment. Tool becomes shelfware.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="mb-16 fade-up">
+                <div class="flex items-start gap-6">
+                    <div class="w-12 h-12 bg-dsBlue rounded-xl flex items-center justify-center text-white font-bold shrink-0">5</div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-dsBlack mb-3">Production Deployment</h3>
+                        <p class="text-gray-600 mb-4">
+                            Deploy and provide go-live support. We don't disappear at deployment. The hardest part comes after the code is written.
+                        </p>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mt-6">
+                            <div class="bg-dsGray p-4 rounded-lg">
+                                <p class="text-sm font-medium text-dsBlack mb-2">What this means in healthcare:</p>
+                                <p class="text-gray-600 text-sm">Phased rollout: pilot facility→multi-facility→enterprise. Go-live support with on-site presence. Issue triage and rapid resolution. Performance monitoring dashboards. 24/7 support for clinical operations.</p>
+                            </div>
+                            <div class="border border-gray-200 p-4 rounded-lg">
+                                <p class="text-sm font-medium text-red-600 mb-2">Common failure pattern:</p>
+                                <p class="text-gray-600 text-sm">"Deploy and disappear"-vendor hands off, support ticket queue. Problems emerge. No one on-site. Issues escalate. Leadership loses confidence. Project labeled "failed."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 6 -->
+            <div class="mb-16 fade-up">
+                <div class="flex items-start gap-6">
+                    <div class="w-12 h-12 bg-dsBlue rounded-xl flex items-center justify-center text-white font-bold shrink-0">6</div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-dsBlack mb-3">Clinical Change Management</h3>
+                        <p class="text-gray-600 mb-4">
+                            Drive adoption through your organization. Technology adoption is a people problem, not a technical problem. This is the 70% most vendors ignore.
+                        </p>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mt-6">
+                            <div class="bg-dsGray p-4 rounded-lg">
+                                <p class="text-sm font-medium text-dsBlack mb-2">What this means in healthcare:</p>
+                                <p class="text-gray-600 text-sm">Training programs for clinicians and staff. Super-user identification and empowerment. Resistance management (clinicians are skeptical of AI). Communication strategy for organization-wide adoption.</p>
+                            </div>
+                            <div class="border border-gray-200 p-4 rounded-lg">
+                                <p class="text-sm font-medium text-red-600 mb-2">Common failure pattern:</p>
+                                <p class="text-gray-600 text-sm">"If we build it, they will use it"-never true in healthcare. No training budget. No change champions. Clinicians route around the tool. Usage: 15%. ROI: nonexistent.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 7 -->
+            <div class="mb-16 fade-up">
+                <div class="flex items-start gap-6">
+                    <div class="w-12 h-12 bg-dsBlue rounded-xl flex items-center justify-center text-white font-bold shrink-0">7</div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-dsBlack mb-3">Flexible Exit</h3>
+                        <p class="text-gray-600 mb-4">
+                            Either ongoing support OR transfer to your internal team. No vendor lock-in. You control the long-term relationship.
+                        </p>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mt-6">
+                            <div class="bg-dsGray p-4 rounded-lg">
+                                <p class="text-sm font-medium text-dsBlack mb-2">What this means in healthcare:</p>
+                                <p class="text-gray-600 text-sm">Your IP, your choice. Knowledge transfer protocols. Documentation for internal maintenance. Option: ongoing partnership for continuous optimization. Option: full handoff to internal team.</p>
+                            </div>
+                            <div class="border border-gray-200 p-4 rounded-lg">
+                                <p class="text-sm font-medium text-red-600 mb-2">Common failure pattern:</p>
+                                <p class="text-gray-600 text-sm">Vendor lock-in creates dependency. Costs escalate annually. Can't switch-too much institutional knowledge trapped with vendor. Hostage to renewal negotiations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 8 -->
+            <div class="fade-up">
+                <div class="flex items-start gap-6">
+                    <div class="w-12 h-12 bg-dsBlue rounded-xl flex items-center justify-center text-white font-bold shrink-0">8</div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-dsBlack mb-3">KPI Accountability</h3>
+                        <p class="text-gray-600 mb-4">
+                            Contractually tied to measurable outcomes. Your success = our success. Not promises-accountability.
+                        </p>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mt-6">
+                            <div class="bg-dsGray p-4 rounded-lg">
+                                <p class="text-sm font-medium text-dsBlack mb-2">What this means in healthcare:</p>
+                                <p class="text-gray-600 text-sm">KPIs tied to reimbursement outcomes (PDPM, RAF, denial rates). Financial analyst validated, not vendor estimates. Transparent reporting dashboards. Course correction protocols if targets aren't met.</p>
+                            </div>
+                            <div class="border border-gray-200 p-4 rounded-lg">
+                                <p class="text-sm font-medium text-red-600 mb-2">Common failure pattern:</p>
+                                <p class="text-gray-600 text-sm">Vendor promises "20% efficiency improvement." No baseline. No measurement. Year-end: "We think it's working?" No data. No accountability. Next year: same vendor, same promises.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 p-4 border-2 border-dsBlue rounded-lg bg-blue-50/30">
+                            <p class="text-dsBlack font-medium">Our proof:</p>
+                            <p class="text-gray-600">$10M PDPM recovered. $2M quality incentives. $10M+ RAF improvements. Financial analyst calculated, not marketing estimates.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Where This Has Worked -->
+    <section class="py-20 px-6 bg-dsBlack text-white">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Proof: Where This Has Worked</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
+                    The complete value chain in action.
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="border border-gray-700 rounded-xl p-6 fade-up">
+                    <span class="text-xs text-gray-500 uppercase tracking-wider">MDS Optimization</span>
+                    <h3 class="font-bold text-white mt-2 mb-4">CommuniCare Health Services</h3>
+                    <div class="space-y-3 mb-6">
+                        <div>
+                            <span class="text-2xl font-bold text-dsBlue">$10M</span>
+                            <p class="text-gray-400 text-sm">PDPM Revenue</p>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold text-white">$2M</span>
+                            <p class="text-gray-400 text-sm">Quality Incentives</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">8-step value chain: 40+ hours shadowing MDS coordinators→co-designed solution→production across multiple states→contractual KPI accountability.</p>
+                </div>
+                
+                <div class="border border-gray-700 rounded-xl p-6 fade-up">
+                    <span class="text-xs text-gray-500 uppercase tracking-wider">Risk Adjustment</span>
+                    <h3 class="font-bold text-white mt-2 mb-4">RAF / HCC Coding</h3>
+                    <div class="space-y-3 mb-6">
+                        <div>
+                            <span class="text-2xl font-bold text-dsBlue">$10M+</span>
+                            <p class="text-gray-400 text-sm">Improvements</p>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold text-white">90%+</span>
+                            <p class="text-gray-400 text-sm">Diagnosis Accuracy</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">8-step value chain: Multi-source data integration→peer-reviewed CMS models→explainable AI→7-state deployment→measurable outcomes.</p>
+                </div>
+                
+                <div class="border border-gray-700 rounded-xl p-6 fade-up">
+                    <span class="text-xs text-gray-500 uppercase tracking-wider">Platform Transformation</span>
+                    <h3 class="font-bold text-white mt-2 mb-4">NeverAlone</h3>
+                    <div class="space-y-3 mb-6">
+                        <div>
+                            <span class="text-2xl font-bold text-dsBlue">26,000+</span>
+                            <p class="text-gray-400 text-sm">Patients Served</p>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold text-white">7 States</span>
+                            <p class="text-gray-400 text-sm">Platform Scale</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">8-step value chain: 90-day MVP→Salesforce replacement→18-month transformation→7-state production platform. We operate this daily.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The 2026 Window -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-up">
+                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The 2026 Window</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
+                        Why timing matters for healthcare AI.
+                    </h2>
+                    <p class="text-gray-600 mb-4">
+                        18-month implementation cycles mean decisions made in Q1 2026 determine who's operational by mid-2027. Organizations that wait until Q3 2026 won't reach production until 2028-12+ months behind early movers.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        Learning-capable AI systems create compounding competitive advantages. Your data trains your system. Your workflows shape your solution. Early movers establish switching costs that late movers can't overcome.
+                    </p>
+                    <p class="text-gray-600">
+                        The organizations crossing the "GenAI Divide" in 2026 will have custom, learning-capable systems deeply embedded in their operations. Those who wait will spend years catching up-if they can catch up at all.
+                    </p>
+                </div>
+                
+                <div class="fade-up">
+                    <div class="bg-dsGray p-8 rounded-xl">
+                        <h3 class="font-semibold text-dsBlack mb-6">Q1 2026 Start vs. Q3 2026 Start</h3>
+                        
+                        <div class="space-y-4 mb-6">
+                            <p class="text-sm text-gray-600"><strong class="text-dsBlack">Q1 2026 Start:</strong></p>
+                            <div class="pl-4 border-l-2 border-dsBlue text-sm text-gray-600">
+                                Feb-Mar: Assessment + scoping<br>
+                                Apr-Jun: Pilot deployment<br>
+                                Jul-Dec: Multi-facility expansion<br>
+                                Jan 2027: Full production, ROI flowing
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <p class="text-sm text-gray-600"><strong class="text-dsBlack">Q3 2026 Start:</strong></p>
+                            <div class="pl-4 border-l-2 border-gray-300 text-sm text-gray-600">
+                                Oct-Nov: Assessment + scoping<br>
+                                Dec-Feb: Holiday delays<br>
+                                Mar 2027: Pilot maybe starts<br>
+                                Sep 2027: Full production-<span class="text-red-600">12+ months behind</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-6 bg-dsBlue text-white">
+        <div class="max-w-screen-xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 fade-up">Ready to see how the complete value chain applies to your organization?</h2>
+            <p class="text-blue-100 mb-8 max-w-2xl mx-auto fade-up">
+                30-minute discovery call. No pitch. Just honest assessment of what's possible-and whether we're the right partner.
+            </p>
+            <a href="/healthcare/assessment" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition fade-up">
+                Schedule AI Opportunity Assessment
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-gray-200">
+        <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+            <p>© 2007 - 2026 Digital Scientists, LLC.</p>
+            <div class="flex gap-6 mt-4 md:mt-0">
+                <a href="#" class="hover:text-dsBlack transition">Privacy Policy</a>
+                <a href="#" class="hover:text-dsBlack transition">LinkedIn</a>
+                <a href="tel:4046543855" class="text-dsBlue hover:underline">404.654.3855</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Animation -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    });
+
+
+    
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Value-Based Care Technology | Healthcare Domain Expertise | Digital Scientists</title>
+    <meta name="description" content="Technology solutions for value-based care success. SNF VBP, ACO REACH, MSSP, quality measures. Custom AI for risk adjustment, quality reporting, and care coordination.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dsBlue: '#304FFF',
+                        dsBlack: '#050505',
+                        dsGray: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        h1, h2, h3 { letter-spacing: -0.02em; }
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-white text-dsBlack antialiased">
+
+    <!-- Simple CSS Hover Navigation - No JavaScript Required -->
+<style>
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-menu { 
+        display: none; 
+        position: absolute; 
+        top: 100%; 
+        left: 0; 
+        padding-top: 8px;
+        z-index: 100;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu.right-aligned { left: auto; right: 0; }
+</style>
+
+<nav class="fixed w-full z-50 bg-white border-b border-gray-100">
+    <div class="max-w-screen-xl mx-auto px-6">
+        <div class="h-20 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="ds-healthcare-v3-updated.html" class="flex flex-col">
+                <div class="text-lg font-bold uppercase tracking-wider leading-none">
+                    Digital<br><span class="text-dsBlue">Scientists</span>
+                </div>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center gap-2">
+                
+                <!-- Healthcare -->
+                <div class="nav-dropdown">
+                    <a href="ds-healthcare-v3-updated.html" class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack">
+                        Healthcare
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-56">
+                            <a href="ds-healthcare-v3-updated.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Healthcare Overview</a>
+                            <a href="healthcare-approach.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Our Approach</a>
+                            <hr class="my-2 border-gray-100">
+                            <a href="healthcare-assessment.html" class="block px-3 py-2 text-sm font-medium text-dsBlue hover:bg-blue-50 rounded-lg">Get AI Assessment →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Solutions -->
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        AI Solutions
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-72">
+                            <p class="px-3 py-1 text-xs font-medium text-gray-400 uppercase">Frameworks</p>
+                            <a href="healthcare-ai-documentation-automation.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Documentation Automation</span>
+                                <span class="block text-xs text-dsBlue">Fastest Payback</span>
+                            </a>
+                            <a href="healthcare-ai-back-office-agents.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Back-Office Agents</span>
+                                <span class="block text-xs text-dsBlue">Highest ROI</span>
+                            </a>
+                            <a href="healthcare-ai-virtual-care-assistants.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Virtual Care Assistants</span>
+                                <span class="block text-xs text-dsBlue">Proven at Scale</span>
+                            </a>
+                            <a href="healthcare-ai-intelligent-scheduling.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Intelligent Scheduling</span>
+                                <span class="block text-xs text-dsBlue">Quick Win</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Domains -->
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        Domains
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-56">
+                            <a href="healthcare-domains-mds-pdpm.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">MDS / PDPM</a>
+                            <a href="healthcare-domains-raf-hcc-coding.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">RAF / HCC Coding</a>
+                            <a href="healthcare-domains-revenue-cycle-ai.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Revenue Cycle AI</a>
+                            <a href="healthcare-domains-value-based-care.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Value-Based Care</a>
+                            <a href="healthcare-domains-ambient-scribes.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Ambient Scribes</a>
+                            <a href="healthcare-domains-ehr-integrations.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">EHR Integrations</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Markets -->
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        Markets
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-56">
+                            <a href="healthcare-markets-skilled-nursing.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Skilled Nursing</a>
+                            <a href="healthcare-markets-home-health-hospice.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Home Health & Hospice</a>
+                            <a href="healthcare-markets-senior-living.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Senior Living</a>
+                            <a href="healthcare-markets-health-systems.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Health Systems</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work -->
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        Work
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu right-aligned">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-64">
+                            <a href="work-never-alone.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">NeverAlone</span>
+                                <span class="block text-xs text-gray-500">26K patients, 7 states</span>
+                            </a>
+                            <a href="work-communicare-mds.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">CommuniCare MDS</span>
+                                <span class="block text-xs text-gray-500">$10M+ PDPM recovered</span>
+                            </a>
+                            <a href="work-raf-hcc-coding.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">RAF/HCC Coding</span>
+                                <span class="block text-xs text-gray-500">$10M+ improvements</span>
+                            </a>
+                            <a href="work-healthcontext-ai.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">HealthContext.AI</span>
+                                <span class="block text-xs text-gray-500">45→5 min documentation</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <a href="healthcare-assessment.html" class="ml-3 bg-dsBlue text-white px-5 py-2 text-sm font-medium rounded-full hover:bg-gray-900 transition">
+                    Get Assessment
+                </a>
+            </div>
+
+            <!-- Mobile: Simple Links -->
+            <div class="md:hidden">
+                <a href="healthcare-assessment.html" class="bg-dsBlue text-white px-4 py-2 text-sm font-medium rounded-full">
+                    Menu
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-16 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-3xl fade-up">
+                <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
+                    <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                    Healthcare Domain Expertise
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dsBlack mb-6 leading-[1.1]">
+                    Value-Based Care Technology
+                </h1>
+                
+                <p class="text-xl text-gray-600 leading-relaxed mb-8">
+                    The shift from fee-for-service to value-based care isn't optional anymore. CMS is accelerating the transition, and organizations without the technology infrastructure to manage risk, track quality, and coordinate care will fall behind. We build the platforms that make value-based care profitable.
+                </p>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    <div class="border border-gray-200 rounded-xl p-4">
+                        <span class="text-2xl font-bold text-dsBlue">SNF VBP</span>
+                        <p class="text-gray-500 text-sm">Program Optimization</p>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl p-4">
+                        <span class="text-2xl font-bold text-dsBlack">ACO REACH</span>
+                        <p class="text-gray-500 text-sm">Performance Support</p>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl p-4">
+                        <span class="text-2xl font-bold text-dsBlack">$10M+</span>
+                        <p class="text-gray-500 text-sm">RAF Improvements</p>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl p-4">
+                        <span class="text-2xl font-bold text-dsBlack">7 States</span>
+                        <p class="text-gray-500 text-sm">VBC Platform Scale</p>
+                    </div>
+                </div>
+                
+                <a href="/healthcare/assessment" class="inline-flex items-center gap-2 bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">
+                    Assess Your VBC Technology Needs
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- What Is Value-Based Care -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-3xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Understanding VBC Technology</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
+                    Technology that aligns incentives with outcomes
+                </h2>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <div class="fade-up">
+                    <p class="text-gray-600 mb-6">
+                        Value-based care models reward healthcare organizations for keeping patients healthy, not just treating them when they're sick. This fundamental shift requires new capabilities: risk stratification, care gap identification, quality measure tracking, and shared savings calculations.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        Most EHRs weren't designed for value-based care. They capture clinical data but don't surface the insights needed to manage populations, identify at-risk patients, or optimize quality scores. Custom technology bridges this gap.
+                    </p>
+                    <p class="text-gray-600">
+                        We've built VBC platforms that operate at scale-26,000+ patients across 7 states. Our solutions integrate with existing EHRs, aggregate data from multiple sources, and deliver the actionable intelligence that value-based success requires.
+                    </p>
+                </div>
+                
+                <div class="fade-up">
+                    <div class="bg-white border border-gray-200 rounded-xl p-6">
+                        <h3 class="font-semibold text-dsBlack mb-4">VBC Programs We Support</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue text-lg mt-0.5">*</span>
+                                <div>
+                                    <p class="text-dsBlack font-medium">SNF VBP (Skilled Nursing Facility Value-Based Purchasing)</p>
+                                    <p class="text-gray-500 text-sm">Readmission reduction, quality measure optimization, incentive payment maximization.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue text-lg mt-0.5">*</span>
+                                <div>
+                                    <p class="text-dsBlack font-medium">ACO REACH</p>
+                                    <p class="text-gray-500 text-sm">Risk adjustment, care coordination, quality reporting, shared savings optimization.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue text-lg mt-0.5">*</span>
+                                <div>
+                                    <p class="text-dsBlack font-medium">MSSP (Medicare Shared Savings Program)</p>
+                                    <p class="text-gray-500 text-sm">Population health management, quality measure performance, cost benchmarking.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue text-lg mt-0.5">*</span>
+                                <div>
+                                    <p class="text-dsBlack font-medium">Medicare Advantage (MA-SNP, D-SNP)</p>
+                                    <p class="text-gray-500 text-sm">RAF optimization, HEDIS measures, Star Ratings performance.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Challenge -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Challenge</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    Why value-based care is hard without the right technology
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                    <h3 class="font-semibold text-dsBlack mb-3">Data Fragmentation</h3>
+                    <p class="text-gray-500 text-sm">Patient data lives in multiple systems-EHRs, claims, labs, pharmacies. Without integration, you can't see the full picture of patient health and utilization.</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                    <h3 class="font-semibold text-dsBlack mb-3">Risk Adjustment Complexity</h3>
+                    <p class="text-gray-500 text-sm">Accurate risk adjustment requires capturing all relevant diagnoses, ensuring proper documentation, and understanding HCC coding hierarchies.</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                    <h3 class="font-semibold text-dsBlack mb-3">Quality Measure Tracking</h3>
+                    <p class="text-gray-500 text-sm">Dozens of quality measures with different numerators, denominators, and exclusions. Manual tracking is error-prone and resource-intensive.</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                    <h3 class="font-semibold text-dsBlack mb-3">Care Gap Identification</h3>
+                    <p class="text-gray-500 text-sm">Proactive care requires knowing which patients need what interventions. Without real-time visibility, gaps slip through.</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                    <h3 class="font-semibold text-dsBlack mb-3">Attribution Challenges</h3>
+                    <p class="text-gray-500 text-sm">Understanding which patients you're responsible for, reconciling attribution lists, and managing patient alignment.</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                    <h3 class="font-semibold text-dsBlack mb-3">Financial Modeling</h3>
+                    <p class="text-gray-500 text-sm">Predicting shared savings, modeling different scenarios, understanding where you stand against benchmarks throughout the year.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Solution -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Our Solution</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    Custom VBC platforms built for your model
+                </h2>
+                <p class="text-gray-600">
+                    We build value-based care technology that addresses your specific program requirements, integrates with your existing systems, and delivers the insights your teams need to succeed.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white border border-gray-200 rounded-xl p-8 fade-up">
+                    <h3 class="text-xl font-bold text-dsBlack mb-4">Population Health Management</h3>
+                    <p class="text-gray-600 mb-4">
+                        Unified view of your patient population with risk stratification, care gap identification, and panel management tools. Know which patients need attention and why.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 text-sm">
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Risk stratification algorithms</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Care gap identification and tracking</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Patient panel management</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Utilization monitoring and alerts</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-xl p-8 fade-up">
+                    <h3 class="text-xl font-bold text-dsBlack mb-4">Quality Measure Performance</h3>
+                    <p class="text-gray-600 mb-4">
+                        Real-time tracking of quality measures with drill-down to individual patients. Understand performance drivers and identify improvement opportunities.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 text-sm">
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Automated measure calculation</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Performance trending and forecasting</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Patient-level measure status</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Exclusion and exception tracking</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-xl p-8 fade-up">
+                    <h3 class="text-xl font-bold text-dsBlack mb-4">Risk Adjustment Optimization</h3>
+                    <p class="text-gray-600 mb-4">
+                        AI-powered risk adjustment that identifies documentation opportunities, validates coding accuracy, and ensures you capture the true risk profile of your population.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 text-sm">
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>HCC gap identification</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Documentation improvement alerts</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>RAF score tracking and forecasting</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Audit-ready documentation</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-xl p-8 fade-up">
+                    <h3 class="text-xl font-bold text-dsBlack mb-4">Care Coordination Platform</h3>
+                    <p class="text-gray-600 mb-4">
+                        Tools that support care teams in managing high-risk patients, coordinating transitions, and closing care gaps. Workflow integration, not another standalone system.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 text-sm">
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Care plan management</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Task assignment and tracking</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Transition of care support</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Provider communication tools</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proof Points -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Proven Results</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    VBC platform success at scale
+                </h2>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="border border-gray-200 rounded-xl overflow-hidden fade-up">
+                    <div class="bg-dsGray h-48 flex items-center justify-center">
+                        <span class="text-gray-400 text-sm">Image: NeverAlone VBC Platform</span>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-gray-400 uppercase tracking-wider">Featured: NeverAlone</span>
+                        <h3 class="font-bold text-dsBlack mt-1 mb-3">Virtual Care for Value-Based Success</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            We built and operate NeverAlone-a 24/7 virtual care platform serving value-based care organizations across 7 states. The platform enables treatment-in-place, reducing costly hospital transfers.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <span class="text-xl font-bold text-dsBlue">26,000+</span>
+                                <p class="text-gray-500 text-xs">Patients Served</p>
+                            </div>
+                            <div>
+                                <span class="text-xl font-bold text-dsBlack">96%</span>
+                                <p class="text-gray-500 text-xs">Treat-in-Place Rate</p>
+                            </div>
+                            <div>
+                                <span class="text-xl font-bold text-dsBlack">7 States</span>
+                                <p class="text-gray-500 text-xs">Production Scale</p>
+                            </div>
+                            <div>
+                                <span class="text-xl font-bold text-dsBlack">32%</span>
+                                <p class="text-gray-500 text-xs">Cost Reduction</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-xl overflow-hidden fade-up">
+                    <div class="bg-dsGray h-48 flex items-center justify-center">
+                        <span class="text-gray-400 text-sm">Image: RAF/HCC Platform</span>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-gray-400 uppercase tracking-wider">Risk Adjustment Excellence</span>
+                        <h3 class="font-bold text-dsBlack mt-1 mb-3">RAF Optimization at Scale</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Our risk adjustment platform has delivered $10M+ in improvements across 20,000+ patients. Accurate RAF scoring is foundational to value-based care success.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <span class="text-xl font-bold text-dsBlue">$10M+</span>
+                                <p class="text-gray-500 text-xs">RAF Improvements</p>
+                            </div>
+                            <div>
+                                <span class="text-xl font-bold text-dsBlack">90%+</span>
+                                <p class="text-gray-500 text-xs">Diagnosis Accuracy</p>
+                            </div>
+                            <div>
+                                <span class="text-xl font-bold text-dsBlack">20K+</span>
+                                <p class="text-gray-500 text-xs">Patients</p>
+                            </div>
+                            <div>
+                                <span class="text-xl font-bold text-dsBlack">245</span>
+                                <p class="text-gray-500 text-xs">Providers</p>
+                            </div>
+                        </div>
+                        <a href="/healthcare/domains/raf-hcc-coding" class="inline-flex items-center gap-2 text-dsBlue text-sm font-medium mt-4 hover:gap-3 transition-all">
+                            Learn about RAF/HCC AI <span>→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration -->
+    <section class="py-20 px-6 bg-dsBlack text-white">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Integration</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
+                    Built to work with your existing systems
+                </h2>
+                <p class="text-gray-400">
+                    Value-based care technology must aggregate data from multiple sources and integrate with clinical workflows. We have production experience with the platforms healthcare organizations use.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-gray-900 rounded-xl p-6 fade-up">
+                    <h3 class="font-semibold text-white mb-2">EHR Systems</h3>
+                    <p class="text-gray-400 text-sm">PointClickCare, Epic, Gehrimed, Elation-bidirectional clinical data integration.</p>
+                </div>
+                <div class="bg-gray-900 rounded-xl p-6 fade-up">
+                    <h3 class="font-semibold text-white mb-2">Claims Data</h3>
+                    <p class="text-gray-400 text-sm">Medicare, Medicaid, commercial payer claims for utilization and cost analysis.</p>
+                </div>
+                <div class="bg-gray-900 rounded-xl p-6 fade-up">
+                    <h3 class="font-semibold text-white mb-2">HIE/ADT Feeds</h3>
+                    <p class="text-gray-400 text-sm">Real-time admission, discharge, and transfer notifications for care coordination.</p>
+                </div>
+                <div class="bg-gray-900 rounded-xl p-6 fade-up">
+                    <h3 class="font-semibold text-white mb-2">Quality Registries</h3>
+                    <p class="text-gray-400 text-sm">Integration with CMS quality programs and registry reporting requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Domains -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Expertise</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3">
+                    Often combined with
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="/healthcare/domains/raf-hcc-coding" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                    <h3 class="font-bold text-dsBlack mb-2 group-hover:text-dsBlue transition">RAF / HCC Coding</h3>
+                    <p class="text-gray-500 text-sm mb-4">Accurate risk adjustment is foundational to VBC success. Our RAF platform has delivered $10M+ in improvements.</p>
+                    <span class="text-dsBlue text-sm font-medium group-hover:underline">Learn more→</span>
+                </a>
+                <a href="/healthcare/ai-solutions/virtual-care-assistants" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                    <h3 class="font-bold text-dsBlack mb-2 group-hover:text-dsBlue transition">Virtual Care Assistants</h3>
+                    <p class="text-gray-500 text-sm mb-4">24/7 virtual care enables treatment-in-place and reduces costly hospital transfers-critical for VBC economics.</p>
+                    <span class="text-dsBlue text-sm font-medium group-hover:underline">Learn more→</span>
+                </a>
+                <a href="/healthcare/domains/mds-pdpm" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                    <h3 class="font-bold text-dsBlack mb-2 group-hover:text-dsBlue transition">MDS / PDPM Optimization</h3>
+                    <p class="text-gray-500 text-sm mb-4">For SNFs in value-based models, MDS accuracy drives both PDPM revenue and quality measure performance.</p>
+                    <span class="text-dsBlue text-sm font-medium group-hover:underline">Learn more→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <!-- Related AI Solutions -->
+    <section class="py-16 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="mb-8 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related AI Solutions</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-dsBlack mt-2">AI frameworks that power this domain.</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <a href="healthcare-ai-back-office-agents.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-bold text-dsBlack">Back-Office Agents</h3>
+                        <span class="text-xs font-medium text-dsBlue">Highest ROI</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-3">Risk stratification and quality measure tracking.</p>
+                    <span class="text-dsBlue text-sm font-medium">Learn More →</span>
+                </a>
+                <a href="healthcare-ai-virtual-care-assistants.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-bold text-dsBlack">Virtual Care Assistants</h3>
+                        <span class="text-xs font-medium text-dsBlue">Proven at Scale</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-3">Remote monitoring to prevent readmissions.</p>
+                    <span class="text-dsBlue text-sm font-medium">Learn More →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 bg-dsBlue text-white">
+        <div class="max-w-screen-xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 fade-up">Ready to build your VBC technology platform?</h2>
+            <p class="text-blue-100 mb-8 max-w-2xl mx-auto fade-up">
+                Let's assess your value-based care technology needs and identify where custom solutions can drive performance.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-up">
+                <a href="/healthcare/assessment" class="inline-flex items-center justify-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition">
+                    Schedule VBC Technology Assessment
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+            </div>
+            <p class="text-blue-200 text-sm mt-6 fade-up">Or call: <a href="tel:4046543855" class="text-white hover:underline">404.654.3855</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-gray-200">
+        <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+            <p>© 2007 - 2026 Digital Scientists, LLC.</p>
+            <div class="flex gap-6 mt-4 md:mt-0">
+                <a href="#" class="hover:text-dsBlack transition">Privacy Policy</a>
+                <a href="#" class="hover:text-dsBlack transition">LinkedIn</a>
+                <a href="tel:4046543855" class="text-dsBlue hover:underline">404.654.3855</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Animation -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    });
+
+
+    
+
+    </script>
+
+</body>
+</html>

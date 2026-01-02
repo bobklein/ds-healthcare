@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeverAlone Virtual Care Platform | Digital Scientists Case Study</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dsBlue: '#304FFF',
+                        dsBlack: '#050505',
+                        dsGray: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #f5f5f5;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="bg-white text-dsBlack antialiased">
+
+    <!-- Simple CSS Hover Navigation - No JavaScript Required -->
+<style>
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-menu { 
+        display: none; 
+        position: absolute; 
+        top: 100%; 
+        left: 0; 
+        padding-top: 8px;
+        z-index: 100;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu.right-aligned { left: auto; right: 0; }
+</style>
+
+<nav class="fixed w-full z-50 bg-white border-b border-gray-100">
+    <div class="max-w-screen-xl mx-auto px-6">
+        <div class="h-20 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="ds-healthcare-v3-updated.html" class="flex flex-col">
+                <div class="text-lg font-bold uppercase tracking-wider leading-none">
+                    Digital<br><span class="text-dsBlue">Scientists</span>
+                </div>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center gap-2">
+                
+                <!-- Healthcare -->
+                <div class="nav-dropdown">
+                    <a href="ds-healthcare-v3-updated.html" class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack">
+                        Healthcare
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-56">
+                            <a href="ds-healthcare-v3-updated.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Healthcare Overview</a>
+                            <a href="healthcare-approach.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Our Approach</a>
+                            <hr class="my-2 border-gray-100">
+                            <a href="healthcare-assessment.html" class="block px-3 py-2 text-sm font-medium text-dsBlue hover:bg-blue-50 rounded-lg">Get AI Assessment →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Solutions -->
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        AI Solutions
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-72">
+                            <p class="px-3 py-1 text-xs font-medium text-gray-400 uppercase">Frameworks</p>
+                            <a href="healthcare-ai-documentation-automation.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Documentation Automation</span>
+                                <span class="block text-xs text-dsBlue">Fastest Payback</span>
+                            </a>
+                            <a href="healthcare-ai-back-office-agents.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Back-Office Agents</span>
+                                <span class="block text-xs text-dsBlue">Highest ROI</span>
+                            </a>
+                            <a href="healthcare-ai-virtual-care-assistants.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Virtual Care Assistants</span>
+                                <span class="block text-xs text-dsBlue">Proven at Scale</span>
+                            </a>
+                            <a href="healthcare-ai-intelligent-scheduling.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Intelligent Scheduling</span>
+                                <span class="block text-xs text-dsBlue">Quick Win</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Domains -->
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        Domains
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-56">
+                            <a href="healthcare-domains-mds-pdpm.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">MDS / PDPM</a>
+                            <a href="healthcare-domains-raf-hcc-coding.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">RAF / HCC Coding</a>
+                            <a href="healthcare-domains-revenue-cycle-ai.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Revenue Cycle AI</a>
+                            <a href="healthcare-domains-value-based-care.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Value-Based Care</a>
+                            <a href="healthcare-domains-ambient-scribes.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Ambient Scribes</a>
+                            <a href="healthcare-domains-ehr-integrations.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">EHR Integrations</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Markets -->
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        Markets
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-56">
+                            <a href="healthcare-markets-skilled-nursing.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Skilled Nursing</a>
+                            <a href="healthcare-markets-home-health-hospice.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Home Health & Hospice</a>
+                            <a href="healthcare-markets-senior-living.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Senior Living</a>
+                            <a href="healthcare-markets-health-systems.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Health Systems</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work -->
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        Work
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu right-aligned">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-64">
+                            <a href="work-never-alone.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">NeverAlone</span>
+                                <span class="block text-xs text-gray-500">26K patients, 7 states</span>
+                            </a>
+                            <a href="work-communicare-mds.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">CommuniCare MDS</span>
+                                <span class="block text-xs text-gray-500">$10M+ PDPM recovered</span>
+                            </a>
+                            <a href="work-raf-hcc-coding.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">RAF/HCC Coding</span>
+                                <span class="block text-xs text-gray-500">$10M+ improvements</span>
+                            </a>
+                            <a href="work-healthcontext-ai.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">HealthContext.AI</span>
+                                <span class="block text-xs text-gray-500">45→5 min documentation</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <a href="healthcare-assessment.html" class="ml-3 bg-dsBlue text-white px-5 py-2 text-sm font-medium rounded-full hover:bg-gray-900 transition">
+                    Get Assessment
+                </a>
+            </div>
+
+            <!-- Mobile: Simple Links -->
+            <div class="md:hidden">
+                <a href="healthcare-assessment.html" class="bg-dsBlue text-white px-4 py-2 text-sm font-medium rounded-full">
+                    Menu
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+    <!-- Hero -->
+    <header class="pt-32 pb-16 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <div class="fade-up">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Case Study</span>
+                        <span class="text-xs text-gray-400">*</span>
+                        <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">We Built & Operate</span>
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl font-bold text-dsBlack mb-6 leading-tight">
+                        NeverAlone
+                    </h1>
+                    
+                    <p class="text-xl text-gray-600 mb-8">
+                        24/7 virtual care platform serving 26,000+ patients across 7 states. We didn't just build this-we operate it in production every day.
+                    </p>
+                    
+                    <!-- Key Stats -->
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="border border-gray-200 rounded-xl p-4">
+                            <span class="text-3xl font-bold text-dsBlue">26,000+</span>
+                            <p class="text-gray-500 text-sm">Patients Served</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-4">
+                            <span class="text-3xl font-bold text-dsBlack">96%</span>
+                            <p class="text-gray-500 text-sm">Treat-in-Place Rate</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-4">
+                            <span class="text-3xl font-bold text-dsBlack">7</span>
+                            <p class="text-gray-500 text-sm">States</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-4">
+                            <span class="text-3xl font-bold text-dsBlack">32%</span>
+                            <p class="text-gray-500 text-sm">Cost Reduction</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video -->
+                <div class="fade-up">
+                    <div class="video-container bg-gray-200">
+                        <!-- Replace src with actual NeverAlone video -->
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="text-gray-400 text-sm">Video: NeverAlone Platform Demo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- The Challenge -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-3xl fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Challenge</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
+                    Skilled nursing facilities needed 24/7 clinical coverage without unsustainable staffing costs.
+                </h2>
+                
+                <p class="text-gray-600 mb-6">
+                    CommuniCare Health Services, one of the nation's largest post-acute care providers, faced a challenge common across the industry: residents needed around-the-clock access to clinical assessment, but staffing constraints made traditional models unsustainable.
+                </p>
+                
+                <p class="text-gray-600 mb-6">
+                    The consequences were significant. Unnecessary hospital transfers drove up costs and disrupted continuity of care. After-hours clinical questions went unanswered until morning. Families worried about their loved ones during night shifts. And facilities struggled to provide the level of responsiveness that residents deserved.
+                </p>
+                
+                <p class="text-gray-600">
+                    They needed a solution that could extend clinical reach without proportionally extending payroll-technology that augmented their care teams rather than replacing them.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6 mt-12">
+                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                    <span class="text-3xl font-bold text-dsBlack">24/7</span>
+                    <h3 class="font-semibold text-dsBlack mt-2 mb-2">Coverage Required</h3>
+                    <p class="text-gray-500 text-sm">Residents need clinical access around the clock, not just during business hours.</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                    <span class="text-3xl font-bold text-dsBlack">High</span>
+                    <h3 class="font-semibold text-dsBlack mt-2 mb-2">Transfer Rates</h3>
+                    <p class="text-gray-500 text-sm">Unnecessary hospital transfers disrupting care and increasing costs.</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                    <span class="text-3xl font-bold text-dsBlack">Multi-State</span>
+                    <h3 class="font-semibold text-dsBlack mt-2 mb-2">Scale Needed</h3>
+                    <p class="text-gray-500 text-sm">Solution had to work across diverse facilities and state regulations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Solution -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                <div class="fade-up">
+                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Solution</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
+                        A complete virtual care platform built from the ground up.
+                    </h2>
+                    
+                    <p class="text-gray-600 mb-6">
+                        We didn't implement an off-the-shelf telehealth solution. We built NeverAlone as a custom platform designed specifically for the post-acute care environment-addressing the unique clinical, operational, and regulatory requirements of skilled nursing facilities.
+                    </p>
+                    
+                    <p class="text-gray-600 mb-6">
+                        The platform provides 24/7 access to clinical assessment through video visits with licensed practitioners. But it goes beyond simple video calls. NeverAlone integrates with facility EHRs, supports care coordination workflows, and enables treatment-in-place for conditions that would otherwise result in hospital transfers.
+                    </p>
+                    
+                    <p class="text-gray-600">
+                        Most importantly, we operate what we built. This isn't a handoff-Digital Scientists runs the NeverAlone platform in production, serving real patients every day across seven states.
+                    </p>
+                </div>
+                
+                <div class="fade-up">
+                    <div class="bg-dsGray rounded-xl p-8">
+                        <h3 class="font-semibold text-dsBlack mb-6">Platform Capabilities</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue text-lg mt-0.5">Y</span>
+                                <div>
+                                    <p class="text-dsBlack font-medium">24/7 Video Visits</p>
+                                    <p class="text-gray-500 text-sm">On-demand access to licensed clinicians, any time of day or night.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue text-lg mt-0.5">Y</span>
+                                <div>
+                                    <p class="text-dsBlack font-medium">EHR Integration</p>
+                                    <p class="text-gray-500 text-sm">Bidirectional data flow with PointClickCare and other systems.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue text-lg mt-0.5">Y</span>
+                                <div>
+                                    <p class="text-dsBlack font-medium">Treatment-in-Place Protocols</p>
+                                    <p class="text-gray-500 text-sm">Clinical decision support for treating conditions without hospital transfer.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue text-lg mt-0.5">Y</span>
+                                <div>
+                                    <p class="text-dsBlack font-medium">Care Coordination</p>
+                                    <p class="text-gray-500 text-sm">Seamless handoffs between virtual and on-site clinical teams.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue text-lg mt-0.5">Y</span>
+                                <div>
+                                    <p class="text-dsBlack font-medium">Family Communication</p>
+                                    <p class="text-gray-500 text-sm">Keep families informed about their loved ones' care.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue text-lg mt-0.5">Y</span>
+                                <div>
+                                    <p class="text-dsBlack font-medium">Multi-State Compliance</p>
+                                    <p class="text-gray-500 text-sm">Built for regulatory requirements across different jurisdictions.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="py-20 px-6 bg-dsBlack text-white">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Results</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
+                    From regional pilot to 7-state platform in 18 months.
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="border border-gray-700 rounded-xl p-6 fade-up">
+                    <span class="text-4xl font-bold text-dsBlue">26,000+</span>
+                    <p class="text-gray-400 mt-2">Patients Served</p>
+                    <p class="text-gray-500 text-sm mt-1">Across skilled nursing facilities in seven states</p>
+                </div>
+                <div class="border border-gray-700 rounded-xl p-6 fade-up">
+                    <span class="text-4xl font-bold text-white">96%</span>
+                    <p class="text-gray-400 mt-2">Treat-in-Place Rate</p>
+                    <p class="text-gray-500 text-sm mt-1">Conditions managed without hospital transfer</p>
+                </div>
+                <div class="border border-gray-700 rounded-xl p-6 fade-up">
+                    <span class="text-4xl font-bold text-white">32%</span>
+                    <p class="text-gray-400 mt-2">Cost Reduction</p>
+                    <p class="text-gray-500 text-sm mt-1">Lower per-patient care delivery costs</p>
+                </div>
+                <div class="border border-gray-700 rounded-xl p-6 fade-up">
+                    <span class="text-4xl font-bold text-white">7</span>
+                    <p class="text-gray-400 mt-2">States</p>
+                    <p class="text-gray-500 text-sm mt-1">Multi-state regulatory compliance achieved</p>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 fade-up">
+                <div>
+                    <h3 class="font-semibold text-white mb-4">Clinical Impact</h3>
+                    <div class="space-y-3 text-gray-300">
+                        <p>96% of clinical issues resolved without hospital transfer, maintaining continuity of care and reducing disruption for residents.</p>
+                        <p>24/7 clinical access means no condition goes unaddressed overnight. Families have peace of mind knowing care is always available.</p>
+                        <p>Treatment-in-place protocols developed for common conditions, ensuring consistent, evidence-based care across facilities.</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white mb-4">Business Impact</h3>
+                    <div class="space-y-3 text-gray-300">
+                        <p>32% reduction in per-patient care delivery costs through avoided transfers and optimized clinical resource allocation.</p>
+                        <p>Platform enabled geographic expansion-from regional provider to 7-state footprint with consistent care delivery.</p>
+                        <p>Salesforce eliminated and replaced with custom CRM, reducing subscription costs and creating a strategic technology asset.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Did It: 8-Step Value Chain -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">How We Did It</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    The complete value chain in action.
+                </h2>
+                <p class="text-gray-600">
+                    NeverAlone demonstrates our complete 8-step approach-from initial data foundation through ongoing operational partnership.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 bg-dsBlue text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                        <h3 class="font-semibold text-dsBlack">Data Foundation</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">Built data pipelines integrating clinical information from multiple EHR systems across facilities. Created unified patient views enabling consistent care regardless of location.</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 bg-dsBlue text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                        <h3 class="font-semibold text-dsBlack">Responsible AI Build</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">Developed clinical decision support with full transparency. Every recommendation traces to clinical evidence, supporting (not replacing) clinician judgment.</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 bg-dsBlue text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                        <h3 class="font-semibold text-dsBlack">EHR Integration</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">Bidirectional integration with PointClickCare and other systems. Virtual visit documentation flows directly into patient records-no duplicate entry, no gaps.</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 bg-dsBlue text-white rounded-full flex items-center justify-center text-sm font-bold">4</span>
+                        <h3 class="font-semibold text-dsBlack">Co-Design</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">Built alongside clinical staff who would use the platform daily. Workflows designed around how care is actually delivered, not how we assumed it should be.</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 bg-dsBlue text-white rounded-full flex items-center justify-center text-sm font-bold">5</span>
+                        <h3 class="font-semibold text-dsBlack">Implementation</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">Phased rollout from pilot facility to multi-state deployment. On-site go-live support at each new location. Issues resolved in real-time, not through support tickets.</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 bg-dsBlue text-white rounded-full flex items-center justify-center text-sm font-bold">6</span>
+                        <h3 class="font-semibold text-dsBlack">Change Management</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">Training programs for facility staff. Super-user identification and support. Addressed resistance by demonstrating value-staff became advocates when they saw residents benefit.</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 bg-dsBlue text-white rounded-full flex items-center justify-center text-sm font-bold">7</span>
+                        <h3 class="font-semibold text-dsBlack">Ongoing Partnership</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">We didn't hand off and disappear. Digital Scientists continues to operate the NeverAlone platform, continuously improving based on clinical feedback and operational data.</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-8 h-8 bg-dsBlue text-white rounded-full flex items-center justify-center text-sm font-bold">8</span>
+                        <h3 class="font-semibold text-dsBlack">KPI Accountability</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">Success measured in patient outcomes-96% treat-in-place rate, 32% cost reduction, 26,000+ patients served. These aren't marketing claims; they're operational metrics we track daily.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Timeline</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    18 months from vision to 7-state platform.
+                </h2>
+            </div>
+            
+            <div class="relative fade-up">
+                <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gray-300"></div>
+                
+                <div class="space-y-8">
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right">
+                            <span class="text-dsBlue font-medium">March 2021</span>
+                            <h3 class="font-bold text-dsBlack">90-Day MVP Launch</h3>
+                            <p class="text-gray-600 text-sm">First working version deployed. Pilot facility began serving patients through virtual care platform.</p>
+                        </div>
+                        <div class="hidden md:block w-4 h-4 bg-dsBlue rounded-full relative z-10"></div>
+                        <div class="md:w-1/2 md:pl-12"></div>
+                    </div>
+                    
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12"></div>
+                        <div class="hidden md:block w-4 h-4 bg-dsBlue rounded-full relative z-10"></div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <span class="text-dsBlue font-medium">June 2021</span>
+                            <h3 class="font-bold text-dsBlack">Pilot Validation</h3>
+                            <p class="text-gray-600 text-sm">Clinical outcomes validated. Treat-in-place protocols refined based on real patient data.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right">
+                            <span class="text-dsBlue font-medium">January 2022</span>
+                            <h3 class="font-bold text-dsBlack">Salesforce Replaced</h3>
+                            <p class="text-gray-600 text-sm">Custom CRM deployed, eliminating subscription costs and creating integrated technology ecosystem.</p>
+                        </div>
+                        <div class="hidden md:block w-4 h-4 bg-dsBlue rounded-full relative z-10"></div>
+                        <div class="md:w-1/2 md:pl-12"></div>
+                    </div>
+                    
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12"></div>
+                        <div class="hidden md:block w-4 h-4 bg-dsBlue rounded-full relative z-10"></div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <span class="text-dsBlue font-medium">June 2022</span>
+                            <h3 class="font-bold text-dsBlack">Complete Ecosystem</h3>
+                            <p class="text-gray-600 text-sm">Full platform operational-virtual care, CRM, analytics, and integrations working as unified system.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right">
+                            <span class="text-dsBlue font-medium">Today</span>
+                            <h3 class="font-bold text-dsBlack">7-State Platform</h3>
+                            <p class="text-gray-600 text-sm">26,000+ patients served. 96% treat-in-place rate. National expansion planned.</p>
+                        </div>
+                        <div class="hidden md:block w-4 h-4 bg-dsBlue rounded-full relative z-10"></div>
+                        <div class="md:w-1/2 md:pl-12"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why It Worked -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Why It Worked</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    We eat our own cooking.
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 fade-up">
+                <div>
+                    <h3 class="font-bold text-dsBlack mb-3">We Operate, Not Just Build</h3>
+                    <p class="text-gray-600">
+                        NeverAlone isn't a project we delivered and walked away from. We run this platform in production every day. When something breaks at 2 AM, we fix it-because our patients depend on it.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-dsBlack mb-3">Built for Healthcare Reality</h3>
+                    <p class="text-gray-600">
+                        Post-acute care has unique requirements-state regulations, EHR integration, clinical workflows, family communication. We built for this reality, not a generic telehealth use case.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-dsBlack mb-3">Continuous Improvement</h3>
+                    <p class="text-gray-600">
+                        Because we operate the platform, we see what works and what doesn't. Every day brings new learnings that get incorporated into the next release. The platform improves continuously.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Work -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="flex justify-between items-end mb-12 fade-up">
+                <div>
+                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Work</span>
+                    <h2 class="text-3xl font-bold text-dsBlack mt-3">More proof points.</h2>
+                </div>
+                <a href="/work" class="hidden md:inline-flex items-center gap-2 text-dsBlue font-medium hover:underline">
+                    View All Work→
+                </a>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="/work/communicare-mds" class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition fade-up">
+                    <div class="bg-gray-100 h-40 flex items-center justify-center">
+                        <span class="text-gray-400 text-sm">MDS / PDPM Case Study</span>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-gray-400 uppercase tracking-wider">Revenue Optimization</span>
+                        <h3 class="font-bold text-dsBlack mt-1 mb-2">MDS / PDPM AI</h3>
+                        <p class="text-dsBlue font-medium">$10M+ PDPM Revenue→</p>
+                    </div>
+                </a>
+                
+                <a href="/work/raf-hcc-coding" class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition fade-up">
+                    <div class="bg-gray-100 h-40 flex items-center justify-center">
+                        <span class="text-gray-400 text-sm">RAF / HCC Case Study</span>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-gray-400 uppercase tracking-wider">Risk Adjustment</span>
+                        <h3 class="font-bold text-dsBlack mt-1 mb-2">RAF / HCC Coding</h3>
+                        <p class="text-dsBlue font-medium">$10M+ Improvements→</p>
+                    </div>
+                </a>
+                
+                <a href="/work/healthcontext-ai" class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition fade-up">
+                    <div class="bg-gray-100 h-40 flex items-center justify-center">
+                        <span class="text-gray-400 text-sm">HealthContext.AI</span>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-gray-400 uppercase tracking-wider">Documentation</span>
+                        <h3 class="font-bold text-dsBlack mt-1 mb-2">HealthContext.AI</h3>
+                        <p class="text-dsBlue font-medium">45→5 min per visit→</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 px-6 bg-dsBlue text-white">
+        <div class="max-w-screen-xl mx-auto text-center fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to build your virtual care platform?</h2>
+            <p class="text-blue-100 mb-8 max-w-2xl mx-auto">
+                Whether you need 24/7 clinical coverage, treatment-in-place capabilities, or a complete care coordination platform-we've done it at scale.
+            </p>
+            <a href="/healthcare/assessment" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition">
+                Discuss Your Virtual Care Opportunity
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-gray-200">
+        <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+            <p>© 2007 - 2026 Digital Scientists, LLC.</p>
+            <div class="flex gap-6 mt-4 md:mt-0">
+                <a href="#" class="hover:text-dsBlack transition">Privacy Policy</a>
+                <a href="#" class="hover:text-dsBlack transition">LinkedIn</a>
+                <a href="tel:4046543855" class="text-dsBlue hover:underline">404.654.3855</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Animation -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    });
+
+
+    
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Back-Office Agents | Healthcare AI Solutions | Digital Scientists</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dsBlue: '#304FFF',
+                        dsBlack: '#050505',
+                        dsGray: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        h1, h2, h3 { letter-spacing: -0.02em; }
+        
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-white text-dsBlack antialiased">
+
+    <!-- Simple CSS Hover Navigation - No JavaScript Required -->
+<style>
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-menu { 
+        display: none; 
+        position: absolute; 
+        top: 100%; 
+        left: 0; 
+        padding-top: 8px;
+        z-index: 100;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu.right-aligned { left: auto; right: 0; }
+</style>
+
+<nav class="fixed w-full z-50 bg-white border-b border-gray-100">
+    <div class="max-w-screen-xl mx-auto px-6">
+        <div class="h-20 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="ds-healthcare-v3-updated.html" class="flex flex-col">
+                <div class="text-lg font-bold uppercase tracking-wider leading-none">
+                    Digital<br><span class="text-dsBlue">Scientists</span>
+                </div>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center gap-2">
+                
+                <!-- Healthcare -->
+                <div class="nav-dropdown">
+                    <a href="ds-healthcare-v3-updated.html" class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack">
+                        Healthcare
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-56">
+                            <a href="ds-healthcare-v3-updated.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Healthcare Overview</a>
+                            <a href="healthcare-approach.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Our Approach</a>
+                            <hr class="my-2 border-gray-100">
+                            <a href="healthcare-assessment.html" class="block px-3 py-2 text-sm font-medium text-dsBlue hover:bg-blue-50 rounded-lg">Get AI Assessment →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Solutions -->
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        AI Solutions
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-72">
+                            <p class="px-3 py-1 text-xs font-medium text-gray-400 uppercase">Frameworks</p>
+                            <a href="healthcare-ai-documentation-automation.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Documentation Automation</span>
+                                <span class="block text-xs text-dsBlue">Fastest Payback</span>
+                            </a>
+                            <a href="healthcare-ai-back-office-agents.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Back-Office Agents</span>
+                                <span class="block text-xs text-dsBlue">Highest ROI</span>
+                            </a>
+                            <a href="healthcare-ai-virtual-care-assistants.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Virtual Care Assistants</span>
+                                <span class="block text-xs text-dsBlue">Proven at Scale</span>
+                            </a>
+                            <a href="healthcare-ai-intelligent-scheduling.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Intelligent Scheduling</span>
+                                <span class="block text-xs text-dsBlue">Quick Win</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Domains -->
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        Domains
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-56">
+                            <a href="healthcare-domains-mds-pdpm.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">MDS / PDPM</a>
+                            <a href="healthcare-domains-raf-hcc-coding.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">RAF / HCC Coding</a>
+                            <a href="healthcare-domains-revenue-cycle-ai.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Revenue Cycle AI</a>
+                            <a href="healthcare-domains-value-based-care.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Value-Based Care</a>
+                            <a href="healthcare-domains-ambient-scribes.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Ambient Scribes</a>
+                            <a href="healthcare-domains-ehr-integrations.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">EHR Integrations</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Markets -->
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        Markets
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-56">
+                            <a href="healthcare-markets-skilled-nursing.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Skilled Nursing</a>
+                            <a href="healthcare-markets-home-health-hospice.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Home Health & Hospice</a>
+                            <a href="healthcare-markets-senior-living.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Senior Living</a>
+                            <a href="healthcare-markets-health-systems.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Health Systems</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work -->
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        Work
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu right-aligned">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-64">
+                            <a href="work-never-alone.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">NeverAlone</span>
+                                <span class="block text-xs text-gray-500">26K patients, 7 states</span>
+                            </a>
+                            <a href="work-communicare-mds.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">CommuniCare MDS</span>
+                                <span class="block text-xs text-gray-500">$10M+ PDPM recovered</span>
+                            </a>
+                            <a href="work-raf-hcc-coding.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">RAF/HCC Coding</span>
+                                <span class="block text-xs text-gray-500">$10M+ improvements</span>
+                            </a>
+                            <a href="work-healthcontext-ai.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">HealthContext.AI</span>
+                                <span class="block text-xs text-gray-500">45→5 min documentation</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <a href="healthcare-assessment.html" class="ml-3 bg-dsBlue text-white px-5 py-2 text-sm font-medium rounded-full hover:bg-gray-900 transition">
+                    Get Assessment
+                </a>
+            </div>
+
+            <!-- Mobile: Simple Links -->
+            <div class="md:hidden">
+                <a href="healthcare-assessment.html" class="bg-dsBlue text-white px-4 py-2 text-sm font-medium rounded-full">
+                    Menu
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-16 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-3xl fade-up">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">AI Solution Framework</span>
+                    <span class="bg-blue-100 text-dsBlue text-xs font-medium px-2 py-1 rounded">Highest ROI</span>
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dsBlack mb-6 leading-[1.1]">
+                    45-day revenue cycles. 12% denial rates. Back-office is bleeding you dry.
+                </h1>
+                
+                <p class="text-xl text-gray-600 leading-relaxed mb-8">
+                    50% of AI budgets go to sales and marketing. But back-office automation delivers the fastest, clearest ROI. Revenue cycle, coding, scheduling, intake-these are the workflows where AI agents create hard dollar returns within the calendar year.
+                </p>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">45→28</span>
+                    <p class="text-gray-500 text-sm mt-1">Days Revenue Cycle</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlue">12→4%</span>
+                    <p class="text-gray-500 text-sm mt-1">Denial Rate Reduction</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">200-300</span>
+                    <p class="text-gray-500 text-sm mt-1">EBITDA bps Improvement</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">30-40%</span>
+                    <p class="text-gray-500 text-sm mt-1">Admin Cost Reduction</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- The Problem -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Problem</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    Administrative overhead is eating your margins.
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                    <span class="text-4xl font-bold text-dsBlack">45 days</span>
+                    <h3 class="font-semibold text-dsBlack mt-3 mb-2">Revenue cycle length</h3>
+                    <p class="text-gray-500 text-sm">Cash tied up in A/R while you wait. Working capital that could be deployed elsewhere. And the longer claims age, the less likely you are to collect.</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                    <span class="text-4xl font-bold text-dsBlack">12%</span>
+                    <h3 class="font-semibold text-dsBlack mt-3 mb-2">Denial rates</h3>
+                    <p class="text-gray-500 text-sm">Every denial is revenue delayed or lost. Appeals take staff time. Many denials are preventable with better front-end processes and coding accuracy.</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                    <span class="text-4xl font-bold text-dsBlack">15-20%</span>
+                    <h3 class="font-semibold text-dsBlack mt-3 mb-2">Admin overhead</h3>
+                    <p class="text-gray-500 text-sm">Back-office costs consuming margin. Manual processes that don't scale. Staff doing repetitive work that should be automated.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Solution -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-up">
+                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Solution</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
+                        AI agents that work your back-office 24/7.
+                    </h2>
+                    <p class="text-gray-600 mb-4">
+                        Intelligent agents that handle revenue cycle tasks, coding assistance, scheduling optimization, and intake processing. Not chatbots-actual workflow automation that processes transactions, makes decisions, and escalates exceptions.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        These agents learn your specific payer rules, contract terms, and denial patterns. They prioritize A/R based on collectability. They catch coding errors before claims go out. They identify the 12% of claims likely to deny-before you submit them.
+                    </p>
+                    <p class="text-gray-600">
+                        Custom-built for your environment. Your payer mix. Your EHR. Your workflows. Not a generic tool that requires you to change how you work-AI that adapts to how you actually operate.
+                    </p>
+                </div>
+                
+                <div class="fade-up">
+                    <div class="bg-dsGray h-80 rounded-xl flex items-center justify-center">
+                        <span class="text-gray-400 text-sm">Image: Back-office automation dashboard</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Insight -->
+    <section class="py-20 px-6 bg-dsBlack text-white">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-3xl fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Strategic Insight</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-6">
+                    Back-office beats front-office for AI ROI.
+                </h2>
+                <p class="text-gray-300 mb-4">
+                    Industry data shows 50% of AI budgets go to sales and marketing. But back-office automation delivers faster payback and clearer cost reduction. Why?
+                </p>
+                <div class="grid md:grid-cols-2 gap-6 mt-8">
+                    <div class="border border-gray-700 rounded-xl p-6">
+                        <p class="text-white font-medium mb-2">Front-office AI:</p>
+                        <p class="text-gray-400 text-sm">Theoretical revenue gains. Hard to measure. Long feedback loops. Success depends on customer behavior you don't control.</p>
+                    </div>
+                    <div class="border-2 border-dsBlue rounded-xl p-6">
+                        <p class="text-white font-medium mb-2">Back-office AI:</p>
+                        <p class="text-gray-400 text-sm">Direct cost reduction. Measurable from day one. Short feedback loops. Success depends on processes you control. $2-10M annually in BPO elimination potential.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Use Cases</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    Where back-office AI delivers.
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="border border-gray-200 rounded-xl p-8 fade-up">
+                    <h3 class="text-xl font-bold text-dsBlack mb-3">Revenue Cycle Management</h3>
+                    <p class="text-gray-600 mb-4">
+                        A/R prioritization based on collectability scoring. Denial prediction before submission. Automated appeals for common denial patterns. Contract term interpretation for billing accuracy.
+                    </p>
+                    <p class="text-dsBlue text-sm font-medium">Impact: 45→28 days, millions in faster collections</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-8 fade-up">
+                    <h3 class="text-xl font-bold text-dsBlack mb-3">RAF / HCC Coding</h3>
+                    <p class="text-gray-600 mb-4">
+                        Risk adjustment accuracy for Medicare Advantage and value-based care. Documentation gaps identified. Diagnosis recommendations with supporting evidence. Higher ICD/HCC recapture rates.
+                    </p>
+                    <p class="text-dsBlue text-sm font-medium">Impact: $10M+ improvements, 90%+ accuracy</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-8 fade-up">
+                    <h3 class="text-xl font-bold text-dsBlack mb-3">Scheduling & Capacity</h3>
+                    <p class="text-gray-600 mb-4">
+                        Predictive no-show management with automated fill. Route optimization for home health. Patient acuity matching to staff capabilities. Capacity utilization optimization.
+                    </p>
+                    <p class="text-dsBlue text-sm font-medium">Impact: 15% visit completion improvement, 20% less drive time</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-8 fade-up">
+                    <h3 class="text-xl font-bold text-dsBlack mb-3">Intake & Eligibility</h3>
+                    <p class="text-gray-600 mb-4">
+                        Insurance verification automation. Prior authorization status tracking. Assessment scheduling coordination. Referral source management and follow-up.
+                    </p>
+                    <p class="text-dsBlue text-sm font-medium">Impact: Faster admissions, fewer coverage surprises</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proof Points -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Proof Points</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3">
+                    Back-office results we've delivered.
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white border border-gray-200 rounded-xl p-8 fade-up">
+                    <span class="text-xs text-gray-400 uppercase tracking-wider">MDS / PDPM Optimization</span>
+                    <h3 class="font-bold text-dsBlack mt-2 mb-4">CommuniCare Health Services</h3>
+                    <div class="space-y-3 mb-4">
+                        <div>
+                            <span class="text-2xl font-bold text-dsBlue">$10M</span>
+                            <p class="text-gray-500 text-sm">PDPM Revenue (2 states, annualized)</p>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold text-dsBlack">$2M</span>
+                            <p class="text-gray-500 text-sm">Quality Incentives</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm">AI-assisted MDS assessment tool that identifies documentation gaps, suggests diagnosis codes, and optimizes PDPM scoring. Financial analyst validated ROI.</p>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-xl p-8 fade-up">
+                    <span class="text-xs text-gray-400 uppercase tracking-wider">Risk Adjustment</span>
+                    <h3 class="font-bold text-dsBlack mt-2 mb-4">RAF / HCC Coding Platform</h3>
+                    <div class="space-y-3 mb-4">
+                        <div>
+                            <span class="text-2xl font-bold text-dsBlue">$10M+</span>
+                            <p class="text-gray-500 text-sm">Risk Adjustment Improvements</p>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold text-dsBlack">90%+</span>
+                            <p class="text-gray-500 text-sm">Diagnosis Accuracy</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm">20K+ patients, 7 states, 245 providers. Peer-reviewed CMS models. Every recommendation linked to source documentation. Audit-defensible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Model -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">ROI Model</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    EBITDA improvement you can measure.
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                    <h3 class="font-semibold text-dsBlack mb-3">Revenue Cycle Impact</h3>
+                    <p class="text-gray-600 text-sm mb-4">Faster A/R turns = better working capital. Reduced denials = higher net collections. Contract compliance = capturing what you're owed.</p>
+                    <p class="text-dsBlue font-medium">200-300 bps EBITDA</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                    <h3 class="font-semibold text-dsBlack mb-3">Cost Reduction</h3>
+                    <p class="text-gray-600 text-sm mb-4">Reduced administrative staff requirements. BPO elimination potential. Lower external agency spend.</p>
+                    <p class="text-dsBlue font-medium">30-40% admin reduction</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                    <h3 class="font-semibold text-dsBlack mb-3">Risk Adjustment</h3>
+                    <p class="text-gray-600 text-sm mb-4">Higher RAF scores = higher MA payments. Better HCC capture = accurate risk profiles. Audit-defensible documentation.</p>
+                    <p class="text-dsBlue font-medium">$10M+ improvement potential</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Solutions -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Solutions</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3">
+                    Often combined with...
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="/healthcare/ai-solutions/documentation-automation" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                    <span class="text-xs text-green-600 font-medium uppercase tracking-wider">Fastest Payback</span>
+                    <h3 class="font-bold text-dsBlack mt-2 mb-2 group-hover:text-dsBlue transition">AI Documentation Automation</h3>
+                    <p class="text-gray-500 text-sm">45→5 min per visit. Clinician time recovery.</p>
+                </a>
+                
+                <a href="/healthcare/ai-solutions/virtual-care-assistants" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                    <span class="text-xs text-dsBlue font-medium uppercase tracking-wider">Proven at Scale</span>
+                    <h3 class="font-bold text-dsBlack mt-2 mb-2 group-hover:text-dsBlue transition">Virtual Care Assistants</h3>
+                    <p class="text-gray-500 text-sm">RPM, medication management, patient support.</p>
+                </a>
+                
+                <a href="/healthcare/ai-solutions/intelligent-scheduling" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                    <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Quick Win</span>
+                    <h3 class="font-bold text-dsBlack mt-2 mb-2 group-hover:text-dsBlue transition">Intelligent Scheduling</h3>
+                    <p class="text-gray-500 text-sm">Route optimization, no-show prediction.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-6 bg-dsBlue text-white">
+        <div class="max-w-screen-xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 fade-up">See how back-office AI applies to your revenue cycle.</h2>
+            <p class="text-blue-100 mb-8 max-w-2xl mx-auto fade-up">
+                30-minute discovery call to understand your back-office challenges and quantify the opportunity. Calendar year ROI is possible.
+            </p>
+            <a href="/healthcare/assessment" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition fade-up">
+                Schedule AI Opportunity Assessment
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-gray-200">
+        <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+            <p>© 2007 - 2026 Digital Scientists, LLC.</p>
+            <div class="flex gap-6 mt-4 md:mt-0">
+                <a href="#" class="hover:text-dsBlack transition">Privacy Policy</a>
+                <a href="#" class="hover:text-dsBlack transition">LinkedIn</a>
+                <a href="tel:4046543855" class="text-dsBlue hover:underline">404.654.3855</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Animation -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    });
+
+
+    
+
+    </script>
+
+</body>
+</html>
