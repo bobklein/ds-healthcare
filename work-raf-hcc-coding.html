@@ -26,15 +26,8 @@
     <style>
         body { font-family: 'Inter', system-ui, sans-serif; }
         h1, h2, h3 { letter-spacing: -0.02em; }
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        
+        
     </style>
 </head>
 <body class="bg-white text-dsBlack antialiased">
@@ -195,7 +188,7 @@
     <!-- Hero Section -->
     <header class="pt-32 pb-16 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-3xl fade-up">
+            <div class="max-w-3xl">
                 <div class="flex items-center gap-3 mb-6">
                     <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Case Study</span>
                     <span class="text-xs text-gray-400">*</span>
@@ -212,7 +205,7 @@
             </div>
             
             <!-- Results Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 fade-up">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="border border-gray-200 rounded-xl p-6">
                     <span class="text-3xl md:text-4xl font-bold text-dsBlue">$10M+</span>
                     <p class="text-gray-500 text-sm mt-1">RAF Improvements</p>
@@ -236,7 +229,7 @@
     <!-- Hero Image -->
     <section class="px-6 pb-20">
         <div class="max-w-screen-xl mx-auto">
-            <div class="bg-dsGray rounded-xl h-80 flex items-center justify-center fade-up">
+            <div class="bg-dsGray rounded-xl h-80 flex items-center justify-center">
                 <span class="text-gray-400 text-sm">Image: RAF/HCC coding platform dashboard</span>
             </div>
         </div>
@@ -246,7 +239,7 @@
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12">
-                <div class="fade-up">
+                <div >
                     <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Challenge</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
                         Millions in missed risk adjustment from incomplete coding.
@@ -259,7 +252,7 @@
                     </p>
                 </div>
                 
-                <div class="fade-up">
+                <div >
                     <div class="bg-white border border-gray-200 rounded-xl p-8">
                         <h3 class="font-semibold text-dsBlack mb-4">The Risk Adjustment Challenge</h3>
                         <div class="space-y-4">
@@ -301,7 +294,7 @@
     <!-- The Solution -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Solution</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     AI-powered risk adjustment with explainable recommendations.
@@ -312,7 +305,7 @@
             </div>
 
             <div class="grid lg:grid-cols-2 gap-8">
-                <div class="border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="border border-gray-200 rounded-xl p-8">
                     <div class="bg-dsGray h-48 rounded-lg flex items-center justify-center mb-6">
                         <span class="text-gray-400 text-sm">Image: Patient risk profile interface</span>
                     </div>
@@ -328,7 +321,7 @@
                     </div>
                 </div>
                 
-                <div class="border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="border border-gray-200 rounded-xl p-8">
                     <div class="bg-dsGray h-48 rounded-lg flex items-center justify-center mb-6">
                         <span class="text-gray-400 text-sm">Image: Provider workflow interface</span>
                     </div>
@@ -344,7 +337,7 @@
                     </div>
                 </div>
                 
-                <div class="border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="border border-gray-200 rounded-xl p-8">
                     <div class="bg-dsGray h-48 rounded-lg flex items-center justify-center mb-6">
                         <span class="text-gray-400 text-sm">Image: Analytics dashboard</span>
                     </div>
@@ -360,7 +353,7 @@
                     </div>
                 </div>
                 
-                <div class="border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="border border-gray-200 rounded-xl p-8">
                     <div class="bg-dsGray h-48 rounded-lg flex items-center justify-center mb-6">
                         <span class="text-gray-400 text-sm">Image: Audit defense interface</span>
                     </div>
@@ -382,7 +375,7 @@
     <!-- Technical Approach -->
     <section class="py-20 px-6 bg-dsBlack text-white">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Technical Approach</span>
                 <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
                     Responsible AI with explainability at the core.
@@ -393,22 +386,22 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="border border-gray-800 rounded-xl p-6 fade-up">
+                <div class="border border-gray-800 rounded-xl p-6">
                     <h3 class="font-semibold text-white mb-3">Peer-Reviewed Methodology</h3>
                     <p class="text-gray-400 text-sm">AI models built on CMS HCC scoring methodology. Not black-box predictions-transparent, validated approaches.</p>
                 </div>
                 
-                <div class="border border-gray-800 rounded-xl p-6 fade-up">
+                <div class="border border-gray-800 rounded-xl p-6">
                     <h3 class="font-semibold text-white mb-3">Evidence Linking</h3>
                     <p class="text-gray-400 text-sm">Every recommendation tied to specific clinical documentation. Auditors can trace from code to evidence in seconds.</p>
                 </div>
                 
-                <div class="border border-gray-800 rounded-xl p-6 fade-up">
+                <div class="border border-gray-800 rounded-xl p-6">
                     <h3 class="font-semibold text-white mb-3">Multi-Source Integration</h3>
                     <p class="text-gray-400 text-sm">EHR data, lab results, medications, claims history-all combined for comprehensive patient view.</p>
                 </div>
                 
-                <div class="border border-gray-800 rounded-xl p-6 fade-up">
+                <div class="border border-gray-800 rounded-xl p-6">
                     <h3 class="font-semibold text-white mb-3">Continuous Learning</h3>
                     <p class="text-gray-400 text-sm">Platform improves with feedback. Provider corrections and audit results feed back into the model.</p>
                 </div>
@@ -419,7 +412,7 @@
     <!-- The Results -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Results</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     $10M+ in improvements across 7 states.
@@ -430,7 +423,7 @@
             </div>
 
             <div class="grid lg:grid-cols-3 gap-8">
-                <div class="bg-dsGray rounded-xl p-8 fade-up">
+                <div class="bg-dsGray rounded-xl p-8">
                     <h3 class="text-sm font-medium text-dsBlue uppercase tracking-wider mb-4">Financial Impact</h3>
                     <div class="space-y-4">
                         <div>
@@ -448,7 +441,7 @@
                     </div>
                 </div>
                 
-                <div class="bg-dsGray rounded-xl p-8 fade-up">
+                <div class="bg-dsGray rounded-xl p-8">
                     <h3 class="text-sm font-medium text-dsBlue uppercase tracking-wider mb-4">Clinical Impact</h3>
                     <div class="space-y-4">
                         <div>
@@ -466,7 +459,7 @@
                     </div>
                 </div>
                 
-                <div class="bg-dsGray rounded-xl p-8 fade-up">
+                <div class="bg-dsGray rounded-xl p-8">
                     <h3 class="text-sm font-medium text-dsBlue uppercase tracking-wider mb-4">Scale</h3>
                     <div class="space-y-4">
                         <div>
@@ -491,7 +484,7 @@
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="fade-up">
+                <div >
                     <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Integration</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
                         Wrapped around existing EHR systems.
@@ -521,7 +514,7 @@
                     </div>
                 </div>
                 
-                <div class="fade-up">
+                <div >
                     <div class="bg-white border border-gray-200 rounded-xl p-8">
                         <h3 class="font-semibold text-dsBlack mb-4">Why Integration Matters for RAF</h3>
                         <div class="space-y-4 text-gray-600">
@@ -563,7 +556,7 @@
     <!-- Related Work -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="flex justify-between items-end mb-12 fade-up">
+            <div class="flex justify-between items-end mb-12">
                 <div>
                     <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Work</span>
                     <h2 class="text-3xl font-bold text-dsBlack mt-3">More healthcare results.</h2>
@@ -574,7 +567,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
-                <a href="/work/communicare-mds" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition fade-up">
+                <a href="/work/communicare-mds" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
                     <div class="bg-dsGray h-40 flex items-center justify-center">
                         <span class="text-gray-400 text-sm">Image: MDS Optimization Platform</span>
                     </div>
@@ -586,7 +579,7 @@
                     </div>
                 </a>
                 
-                <a href="/work/never-alone" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition fade-up">
+                <a href="/work/never-alone" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
                     <div class="bg-dsGray h-40 flex items-center justify-center">
                         <span class="text-gray-400 text-sm">Image: NeverAlone Platform</span>
                     </div>
@@ -604,11 +597,11 @@
     <!-- CTA Section -->
     <section class="py-20 px-6 bg-dsBlue text-white">
         <div class="max-w-screen-xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 fade-up">What's your risk adjustment opportunity?</h2>
-            <p class="text-blue-100 mb-8 max-w-2xl mx-auto fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">What's your risk adjustment opportunity?</h2>
+            <p class="text-blue-100 mb-8 max-w-2xl mx-auto">
                 If missed HCCs are costing you millions in RAF revenue, let's talk. 30-minute call to assess your opportunity.
             </p>
-            <a href="/healthcare/assessment" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition fade-up">
+            <a href="/healthcare/assessment" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition">
                 Schedule Assessment Call
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>

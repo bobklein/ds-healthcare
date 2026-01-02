@@ -26,15 +26,8 @@
     <style>
         body { font-family: 'Inter', system-ui, sans-serif; }
         h1, h2, h3 { letter-spacing: -0.02em; }
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        
+        
     </style>
 </head>
 <body class="bg-white text-dsBlack antialiased">
@@ -195,7 +188,7 @@
     <!-- Hero Section -->
     <header class="pt-32 pb-16 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-3xl fade-up">
+            <div class="max-w-3xl">
                 <div class="flex items-center gap-3 mb-6">
                     <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Case Study</span>
                     <span class="text-xs text-gray-400">*</span>
@@ -212,7 +205,7 @@
             </div>
             
             <!-- Results Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 fade-up">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="border border-gray-200 rounded-xl p-6">
                     <span class="text-3xl md:text-4xl font-bold text-dsBlue">$10M+</span>
                     <p class="text-gray-500 text-sm mt-1">PDPM Revenue Recovered</p>
@@ -236,7 +229,7 @@
     <!-- Hero Image -->
     <section class="px-6 pb-20">
         <div class="max-w-screen-xl mx-auto">
-            <div class="bg-dsGray rounded-xl h-80 flex items-center justify-center fade-up">
+            <div class="bg-dsGray rounded-xl h-80 flex items-center justify-center">
                 <span class="text-gray-400 text-sm">Image: CommuniCare MDS optimization platform interface</span>
             </div>
         </div>
@@ -246,7 +239,7 @@
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12">
-                <div class="fade-up">
+                <div >
                     <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Challenge</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
                         Millions in revenue leakage from incomplete MDS assessments.
@@ -259,7 +252,7 @@
                     </p>
                 </div>
                 
-                <div class="fade-up">
+                <div >
                     <div class="bg-white border border-gray-200 rounded-xl p-8">
                         <h3 class="font-semibold text-dsBlack mb-4">Before DS</h3>
                         <div class="space-y-4">
@@ -301,7 +294,7 @@
     <!-- The Solution -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Solution</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     AI-powered MDS assistant built with-not for-MDS coordinators.
@@ -312,7 +305,7 @@
             </div>
 
             <div class="grid lg:grid-cols-3 gap-8">
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
                     <div class="bg-dsGray h-40 rounded-lg flex items-center justify-center mb-4">
                         <span class="text-gray-400 text-sm">Image: Diagnosis recommendations</span>
                     </div>
@@ -322,7 +315,7 @@
                     </p>
                 </div>
                 
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
                     <div class="bg-dsGray h-40 rounded-lg flex items-center justify-center mb-4">
                         <span class="text-gray-400 text-sm">Image: Pre-submission validation</span>
                     </div>
@@ -332,7 +325,7 @@
                     </p>
                 </div>
                 
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
                     <div class="bg-dsGray h-40 rounded-lg flex items-center justify-center mb-4">
                         <span class="text-gray-400 text-sm">Image: Quality analytics dashboard</span>
                     </div>
@@ -348,7 +341,7 @@
     <!-- How the 8-Step Value Chain Delivered -->
     <section class="py-20 px-6 bg-dsBlack text-white">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Our Approach</span>
                 <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
                     How the complete value chain delivered $12M in results.
@@ -359,49 +352,49 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="border border-gray-800 rounded-xl p-6 fade-up">
+                <div class="border border-gray-800 rounded-xl p-6">
                     <div class="text-dsBlue font-bold mb-2">Step 1</div>
                     <h3 class="font-semibold text-white mb-2">Data Foundation</h3>
                     <p class="text-gray-400 text-sm">Integrated clinical data from PointClickCare across multiple facilities. Cleaned and structured medication records, lab results, and clinical notes into AI-ready format.</p>
                 </div>
                 
-                <div class="border border-gray-800 rounded-xl p-6 fade-up">
+                <div class="border border-gray-800 rounded-xl p-6">
                     <div class="text-dsBlue font-bold mb-2">Step 2</div>
                     <h3 class="font-semibold text-white mb-2">Responsible AI Build</h3>
                     <p class="text-gray-400 text-sm">Built AI using peer-reviewed CMS scoring models. Every recommendation explainable and linked to source documentation. 90%+ diagnosis accuracy validated.</p>
                 </div>
                 
-                <div class="border border-gray-800 rounded-xl p-6 fade-up">
+                <div class="border border-gray-800 rounded-xl p-6">
                     <div class="text-dsBlue font-bold mb-2">Step 3</div>
                     <h3 class="font-semibold text-white mb-2">EHR Integration</h3>
                     <p class="text-gray-400 text-sm">Seamless PointClickCare integration. AI recommendations surface within existing workflow-no separate login, no duplicate data entry.</p>
                 </div>
                 
-                <div class="border border-gray-800 rounded-xl p-6 fade-up">
+                <div class="border border-gray-800 rounded-xl p-6">
                     <div class="text-dsBlue font-bold mb-2">Step 4</div>
                     <h3 class="font-semibold text-white mb-2">Co-Design</h3>
                     <p class="text-gray-400 text-sm">40+ hours shadowing MDS coordinators before writing code. Weekly feedback sessions throughout development. They own the solution because they helped create it.</p>
                 </div>
                 
-                <div class="border border-gray-800 rounded-xl p-6 fade-up">
+                <div class="border border-gray-800 rounded-xl p-6">
                     <div class="text-dsBlue font-bold mb-2">Step 5</div>
                     <h3 class="font-semibold text-white mb-2">Implementation</h3>
                     <p class="text-gray-400 text-sm">Phased rollout starting with pilot facilities. On-site go-live support. Rapid issue resolution. No "deploy and disappear."</p>
                 </div>
                 
-                <div class="border border-gray-800 rounded-xl p-6 fade-up">
+                <div class="border border-gray-800 rounded-xl p-6">
                     <div class="text-dsBlue font-bold mb-2">Step 6</div>
                     <h3 class="font-semibold text-white mb-2">Change Management</h3>
                     <p class="text-gray-400 text-sm">Training programs for MDS coordinators. Super-user identification. Resistance addressed head-on. Adoption from day one-not months later.</p>
                 </div>
                 
-                <div class="border border-gray-800 rounded-xl p-6 fade-up">
+                <div class="border border-gray-800 rounded-xl p-6">
                     <div class="text-dsBlue font-bold mb-2">Step 7</div>
                     <h3 class="font-semibold text-white mb-2">Ongoing Partnership</h3>
                     <p class="text-gray-400 text-sm">Continuous optimization based on CMS updates and CommuniCare feedback. System improves over time. Learning from their data creates competitive advantage.</p>
                 </div>
                 
-                <div class="border border-gray-800 rounded-xl p-6 fade-up">
+                <div class="border border-gray-800 rounded-xl p-6">
                     <div class="text-dsBlue font-bold mb-2">Step 8</div>
                     <h3 class="font-semibold text-white mb-2">KPI Accountability</h3>
                     <p class="text-gray-400 text-sm">$10M PDPM + $2M quality incentives-financial analyst calculated, not vendor estimates. Transparent reporting. Results that speak for themselves.</p>
@@ -413,7 +406,7 @@
     <!-- The Results -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Results</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Financial analyst calculated. Not vendor estimates.
@@ -424,7 +417,7 @@
             </div>
 
             <div class="grid lg:grid-cols-2 gap-12">
-                <div class="fade-up">
+                <div >
                     <h3 class="font-semibold text-dsBlack mb-4">Financial Impact</h3>
                     <div class="space-y-4">
                         <div class="bg-dsGray rounded-xl p-6">
@@ -453,7 +446,7 @@
                     </div>
                 </div>
                 
-                <div class="fade-up">
+                <div >
                     <h3 class="font-semibold text-dsBlack mb-4">Operational Impact</h3>
                     <div class="space-y-4">
                         <div class="bg-dsGray rounded-xl p-6">
@@ -488,7 +481,7 @@
     <!-- Why It Worked -->
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Why It Worked</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     40+ hours shadowing before writing code.
@@ -499,21 +492,21 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <h3 class="font-semibold text-dsBlack mb-3">We embedded with MDS coordinators</h3>
                     <p class="text-gray-600 text-sm">
                         Before writing a single line of code, our team spent 40+ hours shadowing MDS coordinators. Watching their actual workflow. Understanding their pain points. Learning their language.
                     </p>
                 </div>
                 
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <h3 class="font-semibold text-dsBlack mb-3">We built for audit defense</h3>
                     <p class="text-gray-600 text-sm">
                         Every AI recommendation is linked to supporting clinical documentation. When auditors ask "why did you capture this diagnosis?"-there's an answer ready. Defensible from day one.
                     </p>
                 </div>
                 
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <h3 class="font-semibold text-dsBlack mb-3">We drove adoption, not just deployment</h3>
                     <p class="text-gray-600 text-sm">
                         Change management isn't an afterthought. We trained coordinators, identified super-users, addressed resistance head-on. The solution works because people actually use it.
@@ -526,7 +519,7 @@
     <!-- Related Work -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="flex justify-between items-end mb-12 fade-up">
+            <div class="flex justify-between items-end mb-12">
                 <div>
                     <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Work</span>
                     <h2 class="text-3xl font-bold text-dsBlack mt-3">More healthcare results.</h2>
@@ -537,7 +530,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
-                <a href="/work/raf-hcc-coding" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition fade-up">
+                <a href="/work/raf-hcc-coding" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
                     <div class="bg-dsGray h-40 flex items-center justify-center">
                         <span class="text-gray-400 text-sm">Image: RAF/HCC Coding Platform</span>
                     </div>
@@ -549,7 +542,7 @@
                     </div>
                 </a>
                 
-                <a href="/work/never-alone" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition fade-up">
+                <a href="/work/never-alone" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
                     <div class="bg-dsGray h-40 flex items-center justify-center">
                         <span class="text-gray-400 text-sm">Image: NeverAlone Platform</span>
                     </div>
@@ -567,11 +560,11 @@
     <!-- CTA Section -->
     <section class="py-20 px-6 bg-dsBlue text-white">
         <div class="max-w-screen-xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 fade-up">What's your MDS optimization opportunity?</h2>
-            <p class="text-blue-100 mb-8 max-w-2xl mx-auto fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">What's your MDS optimization opportunity?</h2>
+            <p class="text-blue-100 mb-8 max-w-2xl mx-auto">
                 If missed diagnoses are costing you millions in PDPM reimbursement, let's talk. 30-minute call to assess your opportunity.
             </p>
-            <a href="/healthcare/assessment" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition fade-up">
+            <a href="/healthcare/assessment" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition">
                 Schedule Assessment Call
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>

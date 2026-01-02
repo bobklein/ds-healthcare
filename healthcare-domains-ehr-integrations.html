@@ -26,15 +26,8 @@
     <style>
         body { font-family: 'Inter', system-ui, sans-serif; }
         h1, h2, h3 { letter-spacing: -0.02em; }
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        
+        
     </style>
 </head>
 <body class="bg-white text-dsBlack antialiased">
@@ -195,7 +188,7 @@
     <!-- Hero Section -->
     <header class="pt-32 pb-16 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-3xl fade-up">
+            <div class="max-w-3xl">
                 <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
                     <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
                     Healthcare Domain Expertise
@@ -239,7 +232,7 @@
     <!-- Why Integration Is Hard -->
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-3xl mb-12 fade-up">
+            <div class="max-w-3xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Reality</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
                     EHR integration is the hardest part of healthcare technology
@@ -247,7 +240,7 @@
             </div>
             
             <div class="grid lg:grid-cols-2 gap-12 items-start">
-                <div class="fade-up">
+                <div >
                     <p class="text-gray-600 mb-6">
                         Most healthcare AI pilots fail at integration. The AI works in demos. The models are accurate. But when it's time to connect to the EHR, everything breaks down. API limitations, data format mismatches, authentication complexity, workflow timing-the challenges compound.
                     </p>
@@ -259,7 +252,7 @@
                     </p>
                 </div>
                 
-                <div class="fade-up">
+                <div >
                     <div class="bg-white border border-gray-200 rounded-xl p-6">
                         <h3 class="font-semibold text-dsBlack mb-4">Why EHR Integration Fails</h3>
                         <div class="space-y-4">
@@ -301,7 +294,7 @@
     <!-- EHR Platforms -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Our Integration Experience</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Production integrations with major EHR platforms
@@ -312,7 +305,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="border border-gray-200 rounded-xl p-8">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center">
                             <span class="text-dsBlue font-bold">PCC</span>
@@ -334,7 +327,7 @@
                     </ul>
                 </div>
 
-                <div class="border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="border border-gray-200 rounded-xl p-8">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center">
                             <span class="text-dsBlack font-bold">Epic</span>
@@ -356,7 +349,7 @@
                     </ul>
                 </div>
 
-                <div class="border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="border border-gray-200 rounded-xl p-8">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center">
                             <span class="text-dsBlack font-bold">GHR</span>
@@ -378,7 +371,7 @@
                     </ul>
                 </div>
 
-                <div class="border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="border border-gray-200 rounded-xl p-8">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center">
                             <span class="text-dsBlack font-bold">EH</span>
@@ -406,7 +399,7 @@
     <!-- Integration Patterns -->
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Integration Patterns</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     How we approach EHR integration
@@ -414,32 +407,32 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <h3 class="font-semibold text-dsBlack mb-3">Bidirectional Data Flows</h3>
                     <p class="text-gray-500 text-sm mb-4">Read from EHR to inform AI. Write back to EHR to close the loop. No copy-paste, no manual data entry.</p>
                     <div class="text-sm text-dsBlue font-medium">Pull patient data, push documentation</div>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <h3 class="font-semibold text-dsBlack mb-3">Real-Time Event Triggers</h3>
                     <p class="text-gray-500 text-sm mb-4">ADT notifications, order events, documentation saves-trigger AI actions at the right moment in clinical workflow.</p>
                     <div class="text-sm text-dsBlue font-medium">Event-driven architecture</div>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <h3 class="font-semibold text-dsBlack mb-3">Batch Synchronization</h3>
                     <p class="text-gray-500 text-sm mb-4">When real-time isn't needed or available, batch processes keep data synchronized on appropriate schedules.</p>
                     <div class="text-sm text-dsBlue font-medium">Nightly, hourly, or on-demand</div>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <h3 class="font-semibold text-dsBlack mb-3">Workflow Embedding</h3>
                     <p class="text-gray-500 text-sm mb-4">AI tools appear within existing EHR workflows-not as separate applications requiring context switching.</p>
                     <div class="text-sm text-dsBlue font-medium">Seamless user experience</div>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <h3 class="font-semibold text-dsBlack mb-3">Error Handling & Recovery</h3>
                     <p class="text-gray-500 text-sm mb-4">Healthcare integrations must be reliable. Comprehensive error handling, retry logic, and failure notifications.</p>
                     <div class="text-sm text-dsBlue font-medium">Production-grade reliability</div>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <h3 class="font-semibold text-dsBlack mb-3">Audit Trails</h3>
                     <p class="text-gray-500 text-sm mb-4">Every data access, every write, every modification logged. Compliance-ready audit documentation.</p>
                     <div class="text-sm text-dsBlue font-medium">HIPAA audit requirements</div>
@@ -451,7 +444,7 @@
     <!-- Compliance -->
     <section class="py-20 px-6 bg-dsBlack text-white">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Compliance</span>
                 <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
                     Healthcare compliance built in
@@ -462,22 +455,22 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-gray-900 rounded-xl p-6 fade-up">
+                <div class="bg-gray-900 rounded-xl p-6">
                     <span class="text-xl font-bold text-dsBlue">HIPAA</span>
                     <h3 class="font-semibold text-white mt-2 mb-2">Compliant by Design</h3>
                     <p class="text-gray-400 text-sm">PHI handling, encryption, access controls-HIPAA requirements embedded in architecture.</p>
                 </div>
-                <div class="bg-gray-900 rounded-xl p-6 fade-up">
+                <div class="bg-gray-900 rounded-xl p-6">
                     <span class="text-xl font-bold text-white">HL7/FHIR</span>
                     <h3 class="font-semibold text-white mt-2 mb-2">Standards Compliant</h3>
                     <p class="text-gray-400 text-sm">Healthcare interoperability standards for structured data exchange.</p>
                 </div>
-                <div class="bg-gray-900 rounded-xl p-6 fade-up">
+                <div class="bg-gray-900 rounded-xl p-6">
                     <span class="text-xl font-bold text-white">SOC 2</span>
                     <h3 class="font-semibold text-white mt-2 mb-2">Security Controls</h3>
                     <p class="text-gray-400 text-sm">Enterprise security controls and documentation.</p>
                 </div>
-                <div class="bg-gray-900 rounded-xl p-6 fade-up">
+                <div class="bg-gray-900 rounded-xl p-6">
                     <span class="text-xl font-bold text-white">BAA</span>
                     <h3 class="font-semibold text-white mt-2 mb-2">Business Associates</h3>
                     <p class="text-gray-400 text-sm">BAAs in place for PHI handling responsibilities.</p>
@@ -489,7 +482,7 @@
     <!-- Why DS -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Why Digital Scientists</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Integration expertise you can't get from generic vendors
@@ -497,7 +490,7 @@
             </div>
 
             <div class="grid lg:grid-cols-2 gap-12 items-start">
-                <div class="fade-up">
+                <div >
                     <p class="text-gray-600 mb-6">
                         We're not a generic software shop that did a healthcare project once. We've built production integrations serving 26,000+ patients across 7 states. We operate NeverAlone daily-which means we deal with EHR integration challenges in production, not just development.
                     </p>
@@ -509,7 +502,7 @@
                     </p>
                 </div>
                 
-                <div class="space-y-4 fade-up">
+                <div class="space-y-4">
                     <div class="border-2 border-dsBlue rounded-xl p-6 bg-blue-50/30">
                         <h3 class="font-semibold text-dsBlack mb-2">What We Bring</h3>
                         <ul class="space-y-3 text-gray-600 text-sm">
@@ -547,7 +540,7 @@
     <!-- Related Solutions -->
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Solutions That Require Integration</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3">
                     Every solution we build integrates with your EHR
@@ -555,19 +548,19 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <a href="/healthcare/ai-solutions/documentation-automation" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <a href="/healthcare/ai-solutions/documentation-automation" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
                     <h3 class="font-bold text-dsBlack mb-2 group-hover:text-dsBlue transition">Documentation Automation</h3>
                     <p class="text-gray-500 text-sm">AI-generated documentation flows directly to your EHR.</p>
                 </a>
-                <a href="/healthcare/domains/mds-pdpm" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <a href="/healthcare/domains/mds-pdpm" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
                     <h3 class="font-bold text-dsBlack mb-2 group-hover:text-dsBlue transition">MDS / PDPM</h3>
                     <p class="text-gray-500 text-sm">MDS data extraction and recommendation integration with PointClickCare.</p>
                 </a>
-                <a href="/healthcare/ai-solutions/virtual-care-assistants" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <a href="/healthcare/ai-solutions/virtual-care-assistants" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
                     <h3 class="font-bold text-dsBlack mb-2 group-hover:text-dsBlue transition">Virtual Care</h3>
                     <p class="text-gray-500 text-sm">Virtual care encounters documented back to resident/patient records.</p>
                 </a>
-                <a href="/healthcare/ai-solutions/back-office-agents" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <a href="/healthcare/ai-solutions/back-office-agents" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
                     <h3 class="font-bold text-dsBlack mb-2 group-hover:text-dsBlue transition">Back-Office AI</h3>
                     <p class="text-gray-500 text-sm">Revenue cycle AI connected to billing and clinical systems.</p>
                 </a>
@@ -579,12 +572,12 @@
     <!-- Related AI Solutions -->
     <section class="py-16 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="mb-8 fade-up">
+            <div class="mb-8">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related AI Solutions</span>
                 <h2 class="text-2xl md:text-3xl font-bold text-dsBlack mt-2">AI frameworks that power this domain.</h2>
             </div>
             <div class="grid md:grid-cols-2 gap-6">
-                <a href="healthcare-ai-documentation-automation.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <a href="healthcare-ai-documentation-automation.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
                     <div class="flex justify-between items-start mb-3">
                         <h3 class="font-bold text-dsBlack">Documentation Automation</h3>
                         <span class="text-xs font-medium text-dsBlue">Fastest Payback</span>
@@ -592,7 +585,7 @@
                     <p class="text-gray-600 text-sm mb-3">Seamless documentation flow into your EHR.</p>
                     <span class="text-dsBlue text-sm font-medium">Learn More →</span>
                 </a>
-                <a href="healthcare-ai-back-office-agents.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <a href="healthcare-ai-back-office-agents.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
                     <div class="flex justify-between items-start mb-3">
                         <h3 class="font-bold text-dsBlack">Back-Office Agents</h3>
                         <span class="text-xs font-medium text-dsBlue">Highest ROI</span>
@@ -606,17 +599,17 @@
 
     <section class="py-20 px-6 bg-dsBlue text-white">
         <div class="max-w-screen-xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 fade-up">Ready to discuss your integration needs?</h2>
-            <p class="text-blue-100 mb-8 max-w-2xl mx-auto fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to discuss your integration needs?</h2>
+            <p class="text-blue-100 mb-8 max-w-2xl mx-auto">
                 Let's assess your EHR integration requirements and design a solution that works with your existing systems.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-up">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="/healthcare/assessment" class="inline-flex items-center justify-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition">
                     Schedule Integration Assessment
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </a>
             </div>
-            <p class="text-blue-200 text-sm mt-6 fade-up">Or call: <a href="tel:4046543855" class="text-white hover:underline">404.654.3855</a></p>
+            <p class="text-blue-200 text-sm mt-6">Or call: <a href="tel:4046543855" class="text-white hover:underline">404.654.3855</a></p>
         </div>
     </section>
 

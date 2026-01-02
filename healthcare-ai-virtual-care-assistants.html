@@ -26,15 +26,8 @@
         body { font-family: 'Inter', system-ui, sans-serif; }
         h1, h2, h3 { letter-spacing: -0.02em; }
         
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        
+        
     </style>
 </head>
 <body class="bg-white text-dsBlack antialiased">
@@ -195,7 +188,7 @@
     <!-- Hero Section -->
     <header class="pt-32 pb-16 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-3xl fade-up">
+            <div class="max-w-3xl">
                 <div class="flex items-center gap-3 mb-6">
                     <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">AI Solution Framework</span>
                     <span class="bg-purple-100 text-purple-700 text-xs font-medium px-2 py-1 rounded">Proven at Scale</span>
@@ -211,7 +204,7 @@
             </div>
 
             <!-- Stats Row -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 fade-up">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="border border-gray-200 rounded-xl p-6">
                     <span class="text-3xl md:text-4xl font-bold text-dsBlue">26,000+</span>
                     <p class="text-gray-500 text-sm mt-1">Patients Served</p>
@@ -236,13 +229,13 @@
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="fade-up">
+                <div >
                     <div class="bg-gray-200 h-80 rounded-xl flex items-center justify-center">
                         <span class="text-gray-400 text-sm">Video: NeverAlone Platform Demo</span>
                     </div>
                 </div>
                 
-                <div class="fade-up">
+                <div >
                     <div class="flex items-center gap-3 mb-4">
                         <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Featured: We Built & Operate This</span>
                     </div>
@@ -284,7 +277,7 @@
     <!-- The Problem -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Problem</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     The workforce crisis is real. And it's not improving.
@@ -292,17 +285,17 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
                     <span class="text-4xl font-bold text-dsBlack">Severe</span>
                     <h3 class="font-semibold text-dsBlack mt-3 mb-2">Staff shortages</h3>
                     <p class="text-gray-500 text-sm">Demand significantly exceeds capacity across SNFs, home health, hospice, senior living. You can't hire fast enough.</p>
                 </div>
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
                     <span class="text-4xl font-bold text-dsBlack">40%</span>
                     <h3 class="font-semibold text-dsBlack mt-3 mb-2">After-hours calls</h3>
                     <p class="text-gray-500 text-sm">Caregivers and families calling nurses at all hours. Burnout accelerates. Staff leave for less stressful jobs.</p>
                 </div>
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
                     <span class="text-4xl font-bold text-dsBlack">High</span>
                     <h3 class="font-semibold text-dsBlack mt-3 mb-2">Hospital transfers</h3>
                     <p class="text-gray-500 text-sm">Without 24/7 clinical support, patients get sent to the ER for issues that could be managed in place. Costly for everyone.</p>
@@ -314,7 +307,7 @@
     <!-- The Solution -->
     <section class="py-20 px-6 bg-dsBlack text-white">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Solution</span>
                 <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
                     Extend capacity without extending headcount.
@@ -325,19 +318,19 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="border border-gray-700 rounded-xl p-6 fade-up">
+                <div class="border border-gray-700 rounded-xl p-6">
                     <h3 class="font-semibold text-white mb-3">Remote Patient Monitoring</h3>
                     <p class="text-gray-400 text-sm">AI-powered vitals monitoring with early warning systems. Catches deterioration before it becomes an emergency. Reduces hospital transfers by identifying issues early.</p>
                 </div>
-                <div class="border border-gray-700 rounded-xl p-6 fade-up">
+                <div class="border border-gray-700 rounded-xl p-6">
                     <h3 class="font-semibold text-white mb-3">Medication Management</h3>
                     <p class="text-gray-400 text-sm">Conversational AI for medication adherence. Reminder systems, side effect monitoring, refill coordination. Improved adherence: 65%→88%.</p>
                 </div>
-                <div class="border border-gray-700 rounded-xl p-6 fade-up">
+                <div class="border border-gray-700 rounded-xl p-6">
                     <h3 class="font-semibold text-white mb-3">Caregiver Support</h3>
                     <p class="text-gray-400 text-sm">24/7 AI chatbots for caregiver questions. Answers routine questions, escalates clinical concerns. 40% reduction in after-hours nurse calls.</p>
                 </div>
-                <div class="border border-gray-700 rounded-xl p-6 fade-up">
+                <div class="border border-gray-700 rounded-xl p-6">
                     <h3 class="font-semibold text-white mb-3">Treatment-in-Place</h3>
                     <p class="text-gray-400 text-sm">Virtual clinical support for acute episodes. Avoid unnecessary hospital transfers. 96% treat-in-place rate proven at scale.</p>
                 </div>
@@ -348,7 +341,7 @@
     <!-- Use Cases -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Use Cases</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Virtual care across the continuum.
@@ -356,7 +349,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="border border-gray-200 rounded-xl p-8">
                     <h3 class="text-xl font-bold text-dsBlack mb-3">Skilled Nursing Facilities</h3>
                     <p class="text-gray-600 mb-4">
                         24/7 virtual clinical support for after-hours issues. Early warning systems for condition changes. Treatment-in-place protocols to avoid unnecessary transfers.
@@ -364,7 +357,7 @@
                     <p class="text-dsBlue text-sm font-medium">Impact: 96% treat-in-place rate, reduced ER transfers</p>
                 </div>
                 
-                <div class="border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="border border-gray-200 rounded-xl p-8">
                     <h3 class="text-xl font-bold text-dsBlack mb-3">Home Health & Hospice</h3>
                     <p class="text-gray-600 mb-4">
                         Remote monitoring between visits. Family caregiver support chatbots. Medication adherence programs. Symptom tracking with AI triage.
@@ -372,7 +365,7 @@
                     <p class="text-dsBlue text-sm font-medium">Impact: 3x patient capacity per nurse</p>
                 </div>
                 
-                <div class="border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="border border-gray-200 rounded-xl p-8">
                     <h3 class="text-xl font-bold text-dsBlack mb-3">Chronic Care Management</h3>
                     <p class="text-gray-600 mb-4">
                         Continuous engagement for chronic conditions. Vitals monitoring, medication management, lifestyle support. Generates CCM revenue while improving outcomes.
@@ -380,7 +373,7 @@
                     <p class="text-dsBlue text-sm font-medium">Impact: CCM revenue capture, 25% readmission reduction</p>
                 </div>
                 
-                <div class="border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="border border-gray-200 rounded-xl p-8">
                     <h3 class="text-xl font-bold text-dsBlack mb-3">Value-Based Care Programs</h3>
                     <p class="text-gray-600 mb-4">
                         Population health monitoring at scale. Risk stratification and proactive outreach. Quality measure support. Shared savings optimization.
@@ -394,7 +387,7 @@
     <!-- ROI Model -->
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">ROI Model</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Capacity without headcount.
@@ -402,17 +395,17 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <h3 class="font-semibold text-dsBlack mb-3">Clinical Capacity</h3>
                     <p class="text-gray-600 text-sm mb-4">Enable nurses to manage 3x more patients remotely. Not replacing staff-extending their reach to more patients.</p>
                     <p class="text-dsBlue font-medium">3x patient capacity</p>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <h3 class="font-semibold text-dsBlack mb-3">Cost Avoidance</h3>
                     <p class="text-gray-600 text-sm mb-4">Avoided hospital transfers. Reduced after-hours staffing costs. Fewer readmission penalties.</p>
                     <p class="text-dsBlue font-medium">32% cost reduction</p>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <h3 class="font-semibold text-dsBlack mb-3">Quality Improvement</h3>
                     <p class="text-gray-600 text-sm mb-4">Better medication adherence (65%→88%). 25% readmission reduction. Treatment-in-place success.</p>
                     <p class="text-dsBlue font-medium">96% treat-in-place</p>
@@ -424,7 +417,7 @@
     <!-- Technology -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Technology</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Platform capabilities.
@@ -432,19 +425,19 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
                     <h3 class="font-semibold text-dsBlack mb-3">Telehealth</h3>
                     <p class="text-gray-600 text-sm">Video visits, secure messaging, virtual consultations. HIPAA compliant. Mobile and tablet access.</p>
                 </div>
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
                     <h3 class="font-semibold text-dsBlack mb-3">AI Triage</h3>
                     <p class="text-gray-600 text-sm">Intelligent symptom assessment. Risk scoring. Escalation protocols. Routes to right level of care.</p>
                 </div>
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
                     <h3 class="font-semibold text-dsBlack mb-3">Remote Monitoring</h3>
                     <p class="text-gray-600 text-sm">Device integration. Vitals tracking. Alert systems. Early warning detection.</p>
                 </div>
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
                     <h3 class="font-semibold text-dsBlack mb-3">EHR Integration</h3>
                     <p class="text-gray-600 text-sm">PointClickCare, Epic, Gehrimed. Bidirectional data flow. Workflow embedded.</p>
                 </div>
@@ -455,7 +448,7 @@
     <!-- Related Solutions -->
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Solutions</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3">
                     Often combined with...
@@ -463,19 +456,19 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
-                <a href="/healthcare/ai-solutions/documentation-automation" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <a href="/healthcare/ai-solutions/documentation-automation" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
                     <span class="text-xs text-green-600 font-medium uppercase tracking-wider">Fastest Payback</span>
                     <h3 class="font-bold text-dsBlack mt-2 mb-2 group-hover:text-dsBlue transition">AI Documentation Automation</h3>
                     <p class="text-gray-500 text-sm">45→5 min per visit. Reduce documentation burden.</p>
                 </a>
                 
-                <a href="/healthcare/ai-solutions/back-office-agents" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <a href="/healthcare/ai-solutions/back-office-agents" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
                     <span class="text-xs text-dsBlue font-medium uppercase tracking-wider">Highest ROI</span>
                     <h3 class="font-bold text-dsBlack mt-2 mb-2 group-hover:text-dsBlue transition">Intelligent Back-Office Agents</h3>
                     <p class="text-gray-500 text-sm">Revenue cycle, coding, scheduling automation.</p>
                 </a>
                 
-                <a href="/healthcare/ai-solutions/intelligent-scheduling" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <a href="/healthcare/ai-solutions/intelligent-scheduling" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
                     <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Quick Win</span>
                     <h3 class="font-bold text-dsBlack mt-2 mb-2 group-hover:text-dsBlue transition">Intelligent Scheduling</h3>
                     <p class="text-gray-500 text-sm">Route optimization, capacity matching.</p>
@@ -487,11 +480,11 @@
     <!-- CTA Section -->
     <section class="py-20 px-6 bg-dsBlue text-white">
         <div class="max-w-screen-xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 fade-up">See how virtual care can extend your clinical capacity.</h2>
-            <p class="text-blue-100 mb-8 max-w-2xl mx-auto fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">See how virtual care can extend your clinical capacity.</h2>
+            <p class="text-blue-100 mb-8 max-w-2xl mx-auto">
                 30-minute discovery call to understand your workforce challenges and explore how virtual care can help. We operate NeverAlone-we know what it takes.
             </p>
-            <a href="/healthcare/assessment" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition fade-up">
+            <a href="/healthcare/assessment" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition">
                 Schedule AI Opportunity Assessment
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>

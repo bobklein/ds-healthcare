@@ -26,15 +26,8 @@
         body { font-family: 'Inter', system-ui, sans-serif; }
         h1, h2, h3 { letter-spacing: -0.02em; }
         
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        
+        
     </style>
 </head>
 <body class="bg-white text-dsBlack antialiased">
@@ -195,7 +188,7 @@
     <!-- Hero Section -->
     <header class="pt-32 pb-16 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-3xl fade-up">
+            <div class="max-w-3xl">
                 <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
                     <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
                     Healthcare AI Opportunity Assessment
@@ -247,7 +240,7 @@
     <!-- What You Get -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">What You Get</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     From discovery call to production roadmap.
@@ -258,28 +251,28 @@
             </div>
 
             <div class="grid md:grid-cols-4 gap-6">
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
                     <div class="w-10 h-10 bg-dsGray rounded-lg flex items-center justify-center text-dsBlue font-bold mb-4">1</div>
                     <h3 class="font-semibold text-dsBlack mb-2">Discovery Call</h3>
                     <p class="text-gray-500 text-sm mb-3">30 minutes. Understand your situation, challenges, and goals. No pitch.</p>
                     <span class="text-dsBlue text-sm font-medium">Free</span>
                 </div>
                 
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
                     <div class="w-10 h-10 bg-dsGray rounded-lg flex items-center justify-center text-dsBlue font-bold mb-4">2</div>
                     <h3 class="font-semibold text-dsBlack mb-2">Month-Long Assessment</h3>
                     <p class="text-gray-500 text-sm mb-3">Deep dive: data landscape, workflow observation, opportunity quantification.</p>
                     <span class="text-dsBlue text-sm font-medium">$15-25K</span>
                 </div>
                 
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
                     <div class="w-10 h-10 bg-dsGray rounded-lg flex items-center justify-center text-dsBlue font-bold mb-4">3</div>
                     <h3 class="font-semibold text-dsBlack mb-2">Blueprint & Business Case</h3>
                     <p class="text-gray-500 text-sm mb-3">Detailed roadmap, ROI model, implementation plan. Executive-ready.</p>
                     <span class="text-gray-400 text-sm">Included</span>
                 </div>
                 
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
                     <div class="w-10 h-10 bg-dsGray rounded-lg flex items-center justify-center text-dsBlue font-bold mb-4">4</div>
                     <h3 class="font-semibold text-dsBlack mb-2">Build Decision</h3>
                     <p class="text-gray-500 text-sm mb-3">Full engagement proposal with timeline, investment, and KPI accountability.</p>
@@ -292,7 +285,7 @@
     <!-- What We Assess -->
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">What We Assess</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Four dimensions that determine AI success.
@@ -303,7 +296,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-8">
                     <h3 class="text-xl font-bold text-dsBlack mb-3">Data Landscape</h3>
                     <p class="text-gray-600 mb-4">
                         What data do you actually have? Where does it live? What's the quality? Most organizations overestimate data readiness. We assess EHR data, claims data, operational data, and integration points to understand what's truly available.
@@ -311,7 +304,7 @@
                     <p class="text-gray-500 text-sm">Includes: Data inventory, quality assessment, integration mapping, PHI handling review</p>
                 </div>
                 
-                <div class="bg-white border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-8">
                     <h3 class="text-xl font-bold text-dsBlack mb-3">Workflow Analysis</h3>
                     <p class="text-gray-600 mb-4">
                         Requirements defined in conference rooms fail. We observe actual workflows on-site. We shadow MDS coordinators, clinicians, and staff to understand how work really happens-not how the org chart says it should.
@@ -319,7 +312,7 @@
                     <p class="text-gray-500 text-sm">Includes: On-site observation, staff interviews, pain point mapping, process documentation</p>
                 </div>
                 
-                <div class="bg-white border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-8">
                     <h3 class="text-xl font-bold text-dsBlack mb-3">Opportunity Quantification</h3>
                     <p class="text-gray-600 mb-4">
                         Vendor estimates aren't good enough. We build ROI models with your actual numbers-financial analyst methodology, not marketing math. PDPM revenue potential, documentation time savings, denial rate improvements-quantified.
@@ -327,7 +320,7 @@
                     <p class="text-gray-500 text-sm">Includes: ROI modeling, payback analysis, opportunity prioritization, risk assessment</p>
                 </div>
                 
-                <div class="bg-white border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-8">
                     <h3 class="text-xl font-bold text-dsBlack mb-3">Technical Feasibility</h3>
                     <p class="text-gray-600 mb-4">
                         Can we actually build this? EHR integrations, compliance requirements, security constraints. We've done production integrations with PointClickCare, Epic, Gehrimed, Elation. We know what's possible-and what's not.
@@ -341,7 +334,7 @@
     <!-- Who This Is For -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Who This Is For</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     This assessment is ideal if you...
@@ -349,7 +342,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-12">
-                <div class="fade-up">
+                <div >
                     <h3 class="font-semibold text-dsBlack mb-4">Organization Profile</h3>
                     <div class="space-y-3">
                         <div class="flex items-start gap-3">
@@ -371,7 +364,7 @@
                     </div>
                 </div>
                 
-                <div class="fade-up">
+                <div >
                     <h3 class="font-semibold text-dsBlack mb-4">Strategic Priorities</h3>
                     <div class="space-y-3">
                         <div class="flex items-start gap-3">
@@ -394,7 +387,7 @@
                 </div>
             </div>
 
-            <div class="mt-12 p-6 bg-dsGray rounded-xl fade-up">
+            <div class="mt-12 p-6 bg-dsGray rounded-xl">
                 <h3 class="font-semibold text-dsBlack mb-2">Decision-Maker Roles</h3>
                 <p class="text-gray-600">This assessment is designed for CEOs, CFOs, COOs, and CTOs who can authorize strategic technology investments. We need decision-makers in the room-not just influencers gathering information.</p>
             </div>
@@ -404,7 +397,7 @@
     <!-- What Makes Us Different -->
     <section class="py-20 px-6 bg-dsBlack text-white">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">What Makes Us Different</span>
                 <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
                     Why our assessments lead to production-not shelfware.
@@ -412,21 +405,21 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="fade-up">
+                <div >
                     <h3 class="font-semibold text-white mb-3">On-Site Discovery</h3>
                     <p class="text-gray-400">
                         We're in your facilities, observing workflows, interviewing staff. Offshore vendors can't do this. Conference room requirements fail. Real understanding comes from being there.
                     </p>
                 </div>
                 
-                <div class="fade-up">
+                <div >
                     <h3 class="font-semibold text-white mb-3">Healthcare Expertise</h3>
                     <p class="text-gray-400">
                         We're not learning healthcare on your dime. We understand PDPM, RAF scoring, MDS assessments, value-based care. We've done the integrations. We know the compliance requirements.
                     </p>
                 </div>
                 
-                <div class="fade-up">
+                <div >
                     <h3 class="font-semibold text-white mb-3">100% Production Rate</h3>
                     <p class="text-gray-400">
                         4 healthcare solutions deployed. Every single one in production. Industry average is 5%. The difference? We assess thoroughly before building-and we own the complete value chain.
@@ -439,7 +432,7 @@
     <!-- Proof Points -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">What Assessments Have Led To</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3">
                     Real results from organizations like yours.
@@ -447,7 +440,7 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
                     <span class="text-xs text-gray-400 uppercase tracking-wider">MDS Optimization</span>
                     <h3 class="font-bold text-dsBlack mt-2 mb-4">CommuniCare Health Services</h3>
                     <div class="space-y-3">
@@ -462,7 +455,7 @@
                     </div>
                 </div>
                 
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
                     <span class="text-xs text-gray-400 uppercase tracking-wider">Virtual Care Platform</span>
                     <h3 class="font-bold text-dsBlack mt-2 mb-4">NeverAlone</h3>
                     <div class="space-y-3">
@@ -477,7 +470,7 @@
                     </div>
                 </div>
                 
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
                     <span class="text-xs text-gray-400 uppercase tracking-wider">Risk Adjustment</span>
                     <h3 class="font-bold text-dsBlack mt-2 mb-4">RAF / HCC Coding</h3>
                     <div class="space-y-3">
@@ -499,7 +492,7 @@
     <section id="schedule" class="py-20 px-6 bg-dsBlue text-white">
         <div class="max-w-screen-xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="fade-up">
+                <div >
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to assess your AI opportunity?</h2>
                     <p class="text-blue-100 mb-6">
                         30-minute discovery call. No pitch. Just honest conversation about your situation and whether there's an opportunity worth exploring.
@@ -511,7 +504,7 @@
                     </div>
                 </div>
                 
-                <div class="bg-white p-8 rounded-xl text-dsBlack fade-up">
+                <div class="bg-white p-8 rounded-xl text-dsBlack">
                     <form class="space-y-4">
                         <div class="grid grid-cols-2 gap-4">
                             <div>

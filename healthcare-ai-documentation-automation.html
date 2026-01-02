@@ -26,15 +26,8 @@
         body { font-family: 'Inter', system-ui, sans-serif; }
         h1, h2, h3 { letter-spacing: -0.02em; }
         
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        
+        
     </style>
 </head>
 <body class="bg-white text-dsBlack antialiased">
@@ -195,7 +188,7 @@
     <!-- Hero Section -->
     <header class="pt-32 pb-16 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-3xl fade-up">
+            <div class="max-w-3xl">
                 <div class="flex items-center gap-3 mb-6">
                     <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">AI Solution Framework</span>
                     <span class="bg-green-100 text-green-700 text-xs font-medium px-2 py-1 rounded">Fastest Payback</span>
@@ -211,7 +204,7 @@
             </div>
 
             <!-- Stats Row -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 fade-up">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="border border-gray-200 rounded-xl p-6">
                     <span class="text-3xl md:text-4xl font-bold text-dsBlack">45→5</span>
                     <p class="text-gray-500 text-sm mt-1">Minutes Per Visit</p>
@@ -235,7 +228,7 @@
     <!-- The Problem -->
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Problem</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Documentation is eating your capacity.
@@ -243,17 +236,17 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <span class="text-4xl font-bold text-dsBlack">3+ hrs</span>
                     <h3 class="font-semibold text-dsBlack mt-3 mb-2">Daily documentation time</h3>
                     <p class="text-gray-500 text-sm">Clinicians spend more time on charting than on direct patient care. This is the #1 driver of burnout and turnover.</p>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <span class="text-4xl font-bold text-dsBlack">45 min</span>
                     <h3 class="font-semibold text-dsBlack mt-3 mb-2">Per home health visit</h3>
                     <p class="text-gray-500 text-sm">OASIS assessments, care plans, visit notes-each visit generates substantial paperwork. That's time not seeing patients.</p>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <span class="text-4xl font-bold text-dsBlack">High</span>
                     <h3 class="font-semibold text-dsBlack mt-3 mb-2">Turnover from burnout</h3>
                     <p class="text-gray-500 text-sm">Your best clinicians leave because they went into healthcare to care for patients-not to be data entry clerks.</p>
@@ -266,7 +259,7 @@
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="fade-up">
+                <div >
                     <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Solution</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
                         AI that documents while clinicians care.
@@ -282,7 +275,7 @@
                     </p>
                 </div>
                 
-                <div class="fade-up">
+                <div >
                     <div class="bg-dsGray h-80 rounded-xl flex items-center justify-center">
                         <span class="text-gray-400 text-sm">Image: Clinician using voice-enabled documentation</span>
                     </div>
@@ -294,7 +287,7 @@
     <!-- Use Cases -->
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Use Cases</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Where documentation automation delivers.
@@ -302,7 +295,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-8">
                     <h3 class="text-xl font-bold text-dsBlack mb-3">Home Health & Hospice</h3>
                     <p class="text-gray-600 mb-4">
                         OASIS assessments auto-generated from patient encounters. Care plans drafted from assessment data. Visit notes completed before the clinician leaves the home.
@@ -310,7 +303,7 @@
                     <p class="text-dsBlue text-sm font-medium">Impact: 45 min→5 min documentation per visit</p>
                 </div>
                 
-                <div class="bg-white border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-8">
                     <h3 class="text-xl font-bold text-dsBlack mb-3">Skilled Nursing Facilities</h3>
                     <p class="text-gray-600 mb-4">
                         Voice-enabled documentation for CNAs and nurses. Shift reports generated automatically. MDS assessment support documentation. ADL records completed in real-time.
@@ -318,7 +311,7 @@
                     <p class="text-dsBlue text-sm font-medium">Impact: Staff spend time on residents, not computers</p>
                 </div>
                 
-                <div class="bg-white border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-8">
                     <h3 class="text-xl font-bold text-dsBlack mb-3">Personal Care & Home Care</h3>
                     <p class="text-gray-600 mb-4">
                         ADL documentation via mobile. Timesheet automation with visit verification. Care plan updates from caregiver observations. Family communication logs.
@@ -326,7 +319,7 @@
                     <p class="text-dsBlue text-sm font-medium">Impact: Reduce administrative burden for caregivers</p>
                 </div>
                 
-                <div class="bg-white border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-8">
                     <h3 class="text-xl font-bold text-dsBlack mb-3">Outpatient & Clinic Settings</h3>
                     <p class="text-gray-600 mb-4">
                         Visit notes from patient conversations. Pre-charting from intake data. Referral letters and patient communications. Follow-up documentation.
@@ -340,7 +333,7 @@
     <!-- Technology -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Technology</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     What's under the hood.
@@ -348,21 +341,21 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
                     <h3 class="font-semibold text-dsBlack mb-3">Speech Recognition</h3>
                     <p class="text-gray-600 text-sm">Medical-grade speech-to-text optimized for clinical terminology, accents, and noisy environments. HIPAA-compliant processing.</p>
                 </div>
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
                     <h3 class="font-semibold text-dsBlack mb-3">Clinical NLP</h3>
                     <p class="text-gray-600 text-sm">Natural language processing trained on clinical documentation. Understands medical context, extracts structured data, maps to appropriate fields.</p>
                 </div>
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
                     <h3 class="font-semibold text-dsBlack mb-3">EHR Integration</h3>
                     <p class="text-gray-600 text-sm">Bidirectional integration with PointClickCare, Epic, Gehrimed, Elation. Documentation flows directly into your system-no separate login.</p>
                 </div>
             </div>
 
-            <div class="mt-8 p-6 bg-dsGray rounded-xl fade-up">
+            <div class="mt-8 p-6 bg-dsGray rounded-xl">
                 <p class="text-dsBlack font-medium mb-2">Compliance built in:</p>
                 <p class="text-gray-600">HIPAA compliant. PHI handling with audit trails. Access controls and encryption. BAAs in place. Built for healthcare from day one-not retrofitted consumer technology.</p>
             </div>
@@ -372,7 +365,7 @@
     <!-- ROI Model -->
     <section class="py-20 px-6 bg-dsBlack text-white">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">ROI Model</span>
                 <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
                     Calendar year payback. Hard dollar returns.
@@ -380,7 +373,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="fade-up">
+                <div >
                     <h3 class="font-semibold text-white mb-4">How value is calculated:</h3>
                     <div class="space-y-4">
                         <div class="border-l-2 border-dsBlue pl-4">
@@ -398,7 +391,7 @@
                     </div>
                 </div>
                 
-                <div class="fade-up">
+                <div >
                     <h3 class="font-semibold text-white mb-4">Typical payback timeline:</h3>
                     <div class="bg-gray-900 rounded-xl p-6">
                         <div class="space-y-4">
@@ -429,7 +422,7 @@
     <!-- Related Solutions -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Solutions</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3">
                     Often combined with...
@@ -437,19 +430,19 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
-                <a href="/healthcare/ai-solutions/back-office-agents" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <a href="/healthcare/ai-solutions/back-office-agents" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
                     <span class="text-xs text-dsBlue font-medium uppercase tracking-wider">Highest ROI</span>
                     <h3 class="font-bold text-dsBlack mt-2 mb-2 group-hover:text-dsBlue transition">Intelligent Back-Office Agents</h3>
                     <p class="text-gray-500 text-sm">Revenue cycle, coding, scheduling automation. 200-300 bps EBITDA improvement.</p>
                 </a>
                 
-                <a href="/healthcare/ai-solutions/virtual-care-assistants" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <a href="/healthcare/ai-solutions/virtual-care-assistants" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
                     <span class="text-xs text-dsBlue font-medium uppercase tracking-wider">Proven at Scale</span>
                     <h3 class="font-bold text-dsBlack mt-2 mb-2 group-hover:text-dsBlue transition">Virtual Care Assistants</h3>
                     <p class="text-gray-500 text-sm">RPM, medication management, 24/7 patient support. 26K+ patients served.</p>
                 </a>
                 
-                <a href="/healthcare/ai-solutions/intelligent-scheduling" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <a href="/healthcare/ai-solutions/intelligent-scheduling" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
                     <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Quick Win</span>
                     <h3 class="font-bold text-dsBlack mt-2 mb-2 group-hover:text-dsBlue transition">Intelligent Scheduling</h3>
                     <p class="text-gray-500 text-sm">Route optimization, no-show prediction, capacity matching.</p>
@@ -461,11 +454,11 @@
     <!-- CTA Section -->
     <section class="py-20 px-6 bg-dsBlue text-white">
         <div class="max-w-screen-xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 fade-up">See how documentation automation applies to your organization.</h2>
-            <p class="text-blue-100 mb-8 max-w-2xl mx-auto fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">See how documentation automation applies to your organization.</h2>
+            <p class="text-blue-100 mb-8 max-w-2xl mx-auto">
                 30-minute discovery call to understand your documentation burden and assess the opportunity. No pitch-just honest conversation.
             </p>
-            <a href="/healthcare/assessment" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition fade-up">
+            <a href="/healthcare/assessment" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition">
                 Schedule AI Opportunity Assessment
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>

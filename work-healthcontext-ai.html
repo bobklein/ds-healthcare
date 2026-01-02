@@ -24,15 +24,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', system-ui, sans-serif; }
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        
+        
     </style>
 </head>
 <body class="bg-white text-dsBlack antialiased">
@@ -193,7 +186,7 @@
     <!-- Hero -->
     <header class="pt-32 pb-16 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-3xl fade-up">
+            <div class="max-w-3xl">
                 <div class="flex items-center gap-3 mb-4">
                     <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Case Study</span>
                     <span class="text-xs text-gray-400">*</span>
@@ -210,7 +203,7 @@
             </div>
             
             <!-- Key Stats -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 fade-up">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="border border-gray-200 rounded-xl p-6">
                     <span class="text-3xl md:text-4xl font-bold text-dsBlue">45→5</span>
                     <p class="text-gray-500 text-sm mt-1">Minutes Per Visit</p>
@@ -234,7 +227,7 @@
     <!-- The Problem -->
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-3xl fade-up">
+            <div class="max-w-3xl">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Challenge</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
                     Clinicians spending more time on paperwork than patients.
@@ -254,17 +247,17 @@
             </div>
             
             <div class="grid md:grid-cols-3 gap-6 mt-12">
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <span class="text-3xl font-bold text-dsBlack">45 min</span>
                     <h3 class="font-semibold text-dsBlack mt-2 mb-2">Per Visit Documentation</h3>
                     <p class="text-gray-500 text-sm">Often exceeding the time spent with the patient themselves.</p>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <span class="text-3xl font-bold text-dsBlack">High</span>
                     <h3 class="font-semibold text-dsBlack mt-2 mb-2">Clinician Burnout</h3>
                     <p class="text-gray-500 text-sm">Paperwork burden driving turnover and job dissatisfaction.</p>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <span class="text-3xl font-bold text-dsBlack">Limited</span>
                     <h3 class="font-semibold text-dsBlack mt-2 mb-2">Patient Capacity</h3>
                     <p class="text-gray-500 text-sm">Can't see more patients when documentation consumes the day.</p>
@@ -277,7 +270,7 @@
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-16 items-start">
-                <div class="fade-up">
+                <div >
                     <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Solution</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
                         Ambient AI documentation built for clinical reality.
@@ -296,7 +289,7 @@
                     </p>
                 </div>
                 
-                <div class="fade-up">
+                <div >
                     <div class="bg-dsGray rounded-xl p-8">
                         <h3 class="font-semibold text-dsBlack mb-6">How It Works</h3>
                         
@@ -346,7 +339,7 @@
     <!-- Use Cases -->
     <section class="py-20 px-6 bg-dsBlack text-white">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Use Cases</span>
                 <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
                     Designed for the complexity of post-acute documentation.
@@ -354,7 +347,7 @@
             </div>
             
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="border border-gray-700 rounded-xl p-6 fade-up">
+                <div class="border border-gray-700 rounded-xl p-6">
                     <h3 class="font-bold text-white mb-3">Home Health & Hospice</h3>
                     <p class="text-gray-400 mb-4">
                         OASIS assessments, visit notes, care plans, and coordination documentation-all generated from natural clinician-patient conversations.
@@ -371,7 +364,7 @@
                     </div>
                 </div>
                 
-                <div class="border border-gray-700 rounded-xl p-6 fade-up">
+                <div class="border border-gray-700 rounded-xl p-6">
                     <h3 class="font-bold text-white mb-3">Skilled Nursing</h3>
                     <p class="text-gray-400 mb-4">
                         MDS section documentation, shift reports, progress notes, and incident documentation captured and structured automatically.
@@ -388,7 +381,7 @@
                     </div>
                 </div>
                 
-                <div class="border border-gray-700 rounded-xl p-6 fade-up">
+                <div class="border border-gray-700 rounded-xl p-6">
                     <h3 class="font-bold text-white mb-3">Personal Care</h3>
                     <p class="text-gray-400 mb-4">
                         ADL documentation, timesheets, care coordination notes-captured by caregivers during service delivery, no post-visit paperwork.
@@ -405,7 +398,7 @@
                     </div>
                 </div>
                 
-                <div class="border border-gray-700 rounded-xl p-6 fade-up">
+                <div class="border border-gray-700 rounded-xl p-6">
                     <h3 class="font-bold text-white mb-3">Behavioral Health</h3>
                     <p class="text-gray-400 mb-4">
                         Session notes, treatment plans, outcome documentation-captured during therapeutic interaction while clinician remains fully present.
@@ -428,7 +421,7 @@
     <!-- Results -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Results</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Give clinicians their time back.
@@ -436,7 +429,7 @@
             </div>
             
             <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <div class="fade-up">
+                <div >
                     <h3 class="font-bold text-dsBlack mb-4">Time Recovery</h3>
                     <div class="space-y-4">
                         <div class="flex justify-between items-center py-3 border-b border-gray-200">
@@ -454,7 +447,7 @@
                     </div>
                 </div>
                 
-                <div class="fade-up">
+                <div >
                     <h3 class="font-bold text-dsBlack mb-4">Capacity Increase</h3>
                     <div class="space-y-4">
                         <div class="flex justify-between items-center py-3 border-b border-gray-200">
@@ -473,7 +466,7 @@
                 </div>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-6 fade-up">
+            <div class="grid md:grid-cols-3 gap-6">
                 <div class="border border-gray-200 rounded-xl p-6">
                     <h4 class="font-semibold text-dsBlack mb-2">Documentation Quality</h4>
                     <p class="text-gray-600 text-sm">
@@ -499,7 +492,7 @@
     <!-- How We Built It -->
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">How We Built It</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     The complete value chain at work.
@@ -507,7 +500,7 @@
             </div>
             
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <div class="flex items-center gap-3 mb-4">
                         <span class="w-8 h-8 bg-dsBlue text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
                         <h3 class="font-semibold text-dsBlack">Data Foundation</h3>
@@ -515,7 +508,7 @@
                     <p class="text-gray-600 text-sm">Trained on healthcare-specific terminology, documentation standards, and regulatory requirements. Clinical context built into the foundation.</p>
                 </div>
                 
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <div class="flex items-center gap-3 mb-4">
                         <span class="w-8 h-8 bg-dsBlue text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
                         <h3 class="font-semibold text-dsBlack">Responsible AI Build</h3>
@@ -523,7 +516,7 @@
                     <p class="text-gray-600 text-sm">Transparent generation process. Clinicians see source conversations, can trace any generated content. Human review and approval required.</p>
                 </div>
                 
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <div class="flex items-center gap-3 mb-4">
                         <span class="w-8 h-8 bg-dsBlue text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
                         <h3 class="font-semibold text-dsBlack">EHR Integration</h3>
@@ -531,7 +524,7 @@
                     <p class="text-gray-600 text-sm">Direct integration with documentation workflows-notes flow into patient records without duplicate entry or copy-paste.</p>
                 </div>
                 
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <div class="flex items-center gap-3 mb-4">
                         <span class="w-8 h-8 bg-dsBlue text-white rounded-full flex items-center justify-center text-sm font-bold">4</span>
                         <h3 class="font-semibold text-dsBlack">Co-Design</h3>
@@ -539,7 +532,7 @@
                     <p class="text-gray-600 text-sm">Built alongside clinicians who document daily. Workflows designed around actual practice patterns, not theoretical best practices.</p>
                 </div>
                 
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <div class="flex items-center gap-3 mb-4">
                         <span class="w-8 h-8 bg-dsBlue text-white rounded-full flex items-center justify-center text-sm font-bold">5</span>
                         <h3 class="font-semibold text-dsBlack">Implementation</h3>
@@ -547,7 +540,7 @@
                     <p class="text-gray-600 text-sm">Phased rollout with hands-on support. Training, troubleshooting, and optimization at each stage.</p>
                 </div>
                 
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <div class="flex items-center gap-3 mb-4">
                         <span class="w-8 h-8 bg-dsBlue text-white rounded-full flex items-center justify-center text-sm font-bold">6</span>
                         <h3 class="font-semibold text-dsBlack">Change Management</h3>
@@ -562,7 +555,7 @@
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-16 items-start">
-                <div class="fade-up">
+                <div >
                     <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Technology</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
                         Built for healthcare, not adapted from consumer AI.
@@ -577,7 +570,7 @@
                     </p>
                 </div>
                 
-                <div class="fade-up">
+                <div >
                     <div class="space-y-4">
                         <div class="border border-gray-200 rounded-xl p-6">
                             <h4 class="font-semibold text-dsBlack mb-2">Clinical NLP</h4>
@@ -604,7 +597,7 @@
     <!-- ROI Model -->
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">ROI Model</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Calendar year payback.
@@ -614,7 +607,7 @@
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-6 fade-up">
+            <div class="grid md:grid-cols-3 gap-6">
                 <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <h4 class="font-semibold text-dsBlack mb-4">Time Value</h4>
                     <div class="space-y-3">
@@ -675,7 +668,7 @@
     <!-- Related Work -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="flex justify-between items-end mb-12 fade-up">
+            <div class="flex justify-between items-end mb-12">
                 <div>
                     <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Work</span>
                     <h2 class="text-3xl font-bold text-dsBlack mt-3">More proof points.</h2>
@@ -686,7 +679,7 @@
             </div>
             
             <div class="grid md:grid-cols-3 gap-6">
-                <a href="/work/never-alone" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition fade-up">
+                <a href="/work/never-alone" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
                     <div class="bg-dsGray h-40 flex items-center justify-center">
                         <span class="text-gray-400 text-sm">NeverAlone Platform</span>
                     </div>
@@ -697,7 +690,7 @@
                     </div>
                 </a>
                 
-                <a href="/work/communicare-mds" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition fade-up">
+                <a href="/work/communicare-mds" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
                     <div class="bg-dsGray h-40 flex items-center justify-center">
                         <span class="text-gray-400 text-sm">MDS / PDPM Case Study</span>
                     </div>
@@ -708,7 +701,7 @@
                     </div>
                 </a>
                 
-                <a href="/work/raf-hcc-coding" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition fade-up">
+                <a href="/work/raf-hcc-coding" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
                     <div class="bg-dsGray h-40 flex items-center justify-center">
                         <span class="text-gray-400 text-sm">RAF / HCC Case Study</span>
                     </div>
@@ -724,7 +717,7 @@
 
     <!-- CTA -->
     <section class="py-20 px-6 bg-dsBlue text-white">
-        <div class="max-w-screen-xl mx-auto text-center fade-up">
+        <div class="max-w-screen-xl mx-auto text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to give your clinicians their time back?</h2>
             <p class="text-blue-100 mb-8 max-w-2xl mx-auto">
                 Documentation automation delivers the fastest payback of any healthcare AI investment. Let's calculate your opportunity.

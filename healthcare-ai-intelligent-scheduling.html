@@ -26,15 +26,8 @@
         body { font-family: 'Inter', system-ui, sans-serif; }
         h1, h2, h3 { letter-spacing: -0.02em; }
         
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        
+        
     </style>
 </head>
 <body class="bg-white text-dsBlack antialiased">
@@ -195,7 +188,7 @@
     <!-- Hero Section -->
     <header class="pt-32 pb-16 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-3xl fade-up">
+            <div class="max-w-3xl">
                 <div class="flex items-center gap-3 mb-6">
                     <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">AI Solution Framework</span>
                     <span class="bg-gray-200 text-gray-700 text-xs font-medium px-2 py-1 rounded">Quick Win</span>
@@ -211,7 +204,7 @@
             </div>
 
             <!-- Stats Row -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 fade-up">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="border border-gray-200 rounded-xl p-6">
                     <span class="text-3xl md:text-4xl font-bold text-dsBlue">15%</span>
                     <p class="text-gray-500 text-sm mt-1">Visit Completion Improvement</p>
@@ -236,7 +229,7 @@
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="fade-up">
+                <div >
                     <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Why Quick Win</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
                         Start here. Build momentum. Prove AI works.
@@ -252,7 +245,7 @@
                     </p>
                 </div>
                 
-                <div class="fade-up">
+                <div >
                     <div class="bg-white border border-gray-200 rounded-xl p-8">
                         <h3 class="font-semibold text-dsBlack mb-6">Why scheduling works as first AI project:</h3>
                         <div class="space-y-4">
@@ -294,7 +287,7 @@
     <!-- The Problem -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Problem</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Manual scheduling can't optimize at scale.
@@ -302,17 +295,17 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
                     <span class="text-4xl font-bold text-dsBlack">15-20%</span>
                     <h3 class="font-semibold text-dsBlack mt-3 mb-2">No-show rates</h3>
                     <p class="text-gray-500 text-sm">Every no-show is a slot you can't fill. Staff sitting idle. Revenue gone. And you couldn't predict which patients would skip.</p>
                 </div>
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
                     <span class="text-4xl font-bold text-dsBlack">Hours</span>
                     <h3 class="font-semibold text-dsBlack mt-3 mb-2">Wasted on the road</h3>
                     <p class="text-gray-500 text-sm">Home health staff driving inefficient routes. Criss-crossing territories. Time in cars instead of with patients.</p>
                 </div>
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
                     <span class="text-4xl font-bold text-dsBlack">Mismatch</span>
                     <h3 class="font-semibold text-dsBlack mt-3 mb-2">Staff to patient needs</h3>
                     <p class="text-gray-500 text-sm">Complex patients assigned to new staff. Specialists doing routine visits. Capacity not matched to acuity.</p>
@@ -324,7 +317,7 @@
     <!-- The Solution -->
     <section class="py-20 px-6 bg-dsBlack text-white">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Solution</span>
                 <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
                     AI that optimizes every dimension of scheduling.
@@ -335,19 +328,19 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="border border-gray-700 rounded-xl p-6 fade-up">
+                <div class="border border-gray-700 rounded-xl p-6">
                     <h3 class="font-semibold text-white mb-3">No-Show Prediction</h3>
                     <p class="text-gray-400 text-sm">ML models trained on your historical patterns. Identifies which patients are likely to miss. Enables proactive interventions, strategic overbooking, and automatic backfill.</p>
                 </div>
-                <div class="border border-gray-700 rounded-xl p-6 fade-up">
+                <div class="border border-gray-700 rounded-xl p-6">
                     <h3 class="font-semibold text-white mb-3">Route Optimization</h3>
                     <p class="text-gray-400 text-sm">Geographic clustering of visits. Traffic-aware routing. Minimize drive time, maximize patient time. Especially impactful for home health.</p>
                 </div>
-                <div class="border border-gray-700 rounded-xl p-6 fade-up">
+                <div class="border border-gray-700 rounded-xl p-6">
                     <h3 class="font-semibold text-white mb-3">Capacity Matching</h3>
                     <p class="text-gray-400 text-sm">Patient acuity matched to staff skills and experience. Complex patients get experienced clinicians. Routine visits distributed efficiently.</p>
                 </div>
-                <div class="border border-gray-700 rounded-xl p-6 fade-up">
+                <div class="border border-gray-700 rounded-xl p-6">
                     <h3 class="font-semibold text-white mb-3">Dynamic Rebalancing</h3>
                     <p class="text-gray-400 text-sm">Real-time adjustments for cancellations. Automatic rescheduling. Fill gaps as they appear. Keep utilization high.</p>
                 </div>
@@ -358,7 +351,7 @@
     <!-- Use Cases -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Use Cases</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Where intelligent scheduling delivers.
@@ -366,7 +359,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="border border-gray-200 rounded-xl p-8">
                     <h3 class="text-xl font-bold text-dsBlack mb-3">Home Health & Hospice</h3>
                     <p class="text-gray-600 mb-4">
                         Route optimization is the obvious win-20% less driving. But also: predictive no-shows, territory balancing, and skill-based assignment. Clinicians see more patients with less windshield time.
@@ -374,7 +367,7 @@
                     <p class="text-dsBlue text-sm font-medium">Impact: 20% drive time reduction, more visits per day</p>
                 </div>
                 
-                <div class="border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="border border-gray-200 rounded-xl p-8">
                     <h3 class="text-xl font-bold text-dsBlack mb-3">Outpatient Clinics</h3>
                     <p class="text-gray-600 mb-4">
                         No-show prediction enables smarter overbooking. Wait time reduction through better slot sizing. Provider utilization optimization. Patient satisfaction improvement.
@@ -382,7 +375,7 @@
                     <p class="text-dsBlue text-sm font-medium">Impact: 15% more completed visits, reduced patient wait times</p>
                 </div>
                 
-                <div class="border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="border border-gray-200 rounded-xl p-8">
                     <h3 class="text-xl font-bold text-dsBlack mb-3">Skilled Nursing Facilities</h3>
                     <p class="text-gray-600 mb-4">
                         Therapy scheduling optimization. Dining and activity coordination. Staff shift optimization. Physician rounding schedules. Multiple scheduling dimensions, one intelligent system.
@@ -390,7 +383,7 @@
                     <p class="text-dsBlue text-sm font-medium">Impact: Improved therapy minutes, better staff utilization</p>
                 </div>
                 
-                <div class="border border-gray-200 rounded-xl p-8 fade-up">
+                <div class="border border-gray-200 rounded-xl p-8">
                     <h3 class="text-xl font-bold text-dsBlack mb-3">Multi-Site Operations</h3>
                     <p class="text-gray-600 mb-4">
                         Resource sharing across locations. Float pool optimization. Demand balancing between facilities. Centralized visibility with local flexibility.
@@ -404,7 +397,7 @@
     <!-- ROI Model -->
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">ROI Model</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Fast payback. Measurable impact.
@@ -412,24 +405,24 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <h3 class="font-semibold text-dsBlack mb-3">Revenue Recovery</h3>
                     <p class="text-gray-600 text-sm mb-4">More completed visits from same scheduled slots. Reduced no-show impact. Better slot utilization.</p>
                     <p class="text-dsBlue font-medium">15% visit completion improvement</p>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <h3 class="font-semibold text-dsBlack mb-3">Cost Reduction</h3>
                     <p class="text-gray-600 text-sm mb-4">Less time driving. Less overtime from poor scheduling. Better staff utilization.</p>
                     <p class="text-dsBlue font-medium">20% drive time reduction</p>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
                     <h3 class="font-semibold text-dsBlack mb-3">Capacity Unlock</h3>
                     <p class="text-gray-600 text-sm mb-4">See more patients without adding staff. Time recovered from driving and gaps goes to patient care.</p>
                     <p class="text-dsBlue font-medium">More patients, same headcount</p>
                 </div>
             </div>
 
-            <div class="mt-8 p-6 bg-white border border-gray-200 rounded-xl fade-up">
+            <div class="mt-8 p-6 bg-white border border-gray-200 rounded-xl">
                 <p class="text-dsBlack font-medium mb-2">Typical implementation timeline:</p>
                 <p class="text-gray-600">3 months from kickoff to production. Month 1: Data integration and model training. Month 2: Pilot with one team or location. Month 3: Rollout and optimization. Results visible quickly-often within weeks of pilot launch.</p>
             </div>
@@ -439,7 +432,7 @@
     <!-- Related Solutions -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
+            <div class="max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">What's Next</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3">
                     After scheduling, where do you go?
@@ -447,19 +440,19 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
-                <a href="/healthcare/ai-solutions/documentation-automation" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <a href="/healthcare/ai-solutions/documentation-automation" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
                     <span class="text-xs text-green-600 font-medium uppercase tracking-wider">Fastest Payback</span>
                     <h3 class="font-bold text-dsBlack mt-2 mb-2 group-hover:text-dsBlue transition">AI Documentation Automation</h3>
                     <p class="text-gray-500 text-sm">Now that you have more visits, reduce documentation burden. 45→5 min per visit.</p>
                 </a>
                 
-                <a href="/healthcare/ai-solutions/back-office-agents" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <a href="/healthcare/ai-solutions/back-office-agents" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
                     <span class="text-xs text-dsBlue font-medium uppercase tracking-wider">Highest ROI</span>
                     <h3 class="font-bold text-dsBlack mt-2 mb-2 group-hover:text-dsBlue transition">Intelligent Back-Office Agents</h3>
                     <p class="text-gray-500 text-sm">Scheduling proven? Apply AI to revenue cycle. 200-300 bps EBITDA improvement.</p>
                 </a>
                 
-                <a href="/healthcare/ai-solutions/virtual-care-assistants" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <a href="/healthcare/ai-solutions/virtual-care-assistants" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
                     <span class="text-xs text-purple-600 font-medium uppercase tracking-wider">Proven at Scale</span>
                     <h3 class="font-bold text-dsBlack mt-2 mb-2 group-hover:text-dsBlue transition">Virtual Care Assistants</h3>
                     <p class="text-gray-500 text-sm">Extend clinical capacity without more headcount. 3x patients per nurse.</p>
@@ -471,11 +464,11 @@
     <!-- CTA Section -->
     <section class="py-20 px-6 bg-dsBlue text-white">
         <div class="max-w-screen-xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 fade-up">Ready for a quick win?</h2>
-            <p class="text-blue-100 mb-8 max-w-2xl mx-auto fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready for a quick win?</h2>
+            <p class="text-blue-100 mb-8 max-w-2xl mx-auto">
                 30-minute discovery call to understand your scheduling challenges and assess the opportunity. Start small, prove value, build momentum.
             </p>
-            <a href="/healthcare/assessment" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition fade-up">
+            <a href="/healthcare/assessment" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition">
                 Schedule AI Opportunity Assessment
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
