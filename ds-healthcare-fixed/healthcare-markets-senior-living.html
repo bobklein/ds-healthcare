@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior Living Technology Solutions | Digital Scientists</title>
+    <meta name="description" content="Custom technology solutions for senior living communities, CCRCs, and assisted living. Resident engagement, family communication, and operational efficiency.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dsBlue: '#304FFF',
+                        dsBlack: '#050505',
+                        dsGray: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        h1, h2, h3 { letter-spacing: -0.02em; }
+        
+        
+    </style>
+</head>
+<body class="bg-white text-dsBlack antialiased">
+
+    <!-- Simple CSS Hover Navigation - No JavaScript Required -->
+<style>
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-menu { 
+        display: none; 
+        position: absolute; 
+        top: 100%; 
+        left: 0; 
+        padding-top: 8px;
+        z-index: 100;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu.right-aligned { left: auto; right: 0; }
+</style>
+
+<nav class="fixed w-full z-50 bg-white border-b border-gray-100">
+    <div class="max-w-screen-xl mx-auto px-6">
+        <div class="h-20 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="ds-healthcare-v3-updated.html" class="flex flex-col">
+                <div class="text-lg font-bold uppercase tracking-wider leading-none">
+                    Digital<br><span class="text-dsBlue">Scientists</span>
+                </div>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center gap-2">
+                
+                <!-- Healthcare -->
+                <div class="nav-dropdown">
+                    <a href="ds-healthcare-v3-updated.html" class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack">
+                        Healthcare
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-56">
+                            <a href="ds-healthcare-v3-updated.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Healthcare Overview</a>
+                            <a href="healthcare-approach.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Our Approach</a>
+                            <hr class="my-2 border-gray-100">
+                            <a href="healthcare-assessment.html" class="block px-3 py-2 text-sm font-medium text-dsBlue hover:bg-blue-50 rounded-lg">Get AI Assessment →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Solutions -->
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        AI Solutions
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-72">
+                            <p class="px-3 py-1 text-xs font-medium text-gray-400 uppercase">Frameworks</p>
+                            <a href="healthcare-ai-documentation-automation.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Documentation Automation</span>
+                                <span class="block text-xs text-dsBlue">Fastest Payback</span>
+                            </a>
+                            <a href="healthcare-ai-back-office-agents.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Back-Office Agents</span>
+                                <span class="block text-xs text-dsBlue">Highest ROI</span>
+                            </a>
+                            <a href="healthcare-ai-virtual-care-assistants.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Virtual Care Assistants</span>
+                                <span class="block text-xs text-dsBlue">Proven at Scale</span>
+                            </a>
+                            <a href="healthcare-ai-intelligent-scheduling.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Intelligent Scheduling</span>
+                                <span class="block text-xs text-dsBlue">Quick Win</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Domains -->
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        Domains
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-56">
+                            <a href="healthcare-domains-mds-pdpm.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">MDS / PDPM</a>
+                            <a href="healthcare-domains-raf-hcc-coding.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">RAF / HCC Coding</a>
+                            <a href="healthcare-domains-revenue-cycle-ai.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Revenue Cycle AI</a>
+                            <a href="healthcare-domains-value-based-care.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Value-Based Care</a>
+                            <a href="healthcare-domains-ambient-scribes.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Ambient Scribes</a>
+                            <a href="healthcare-domains-ehr-integrations.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">EHR Integrations</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Markets -->
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        Markets
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-56">
+                            <a href="healthcare-markets-skilled-nursing.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Skilled Nursing</a>
+                            <a href="healthcare-markets-home-health-hospice.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Home Health & Hospice</a>
+                            <a href="healthcare-markets-senior-living.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Senior Living</a>
+                            <a href="healthcare-markets-health-systems.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Health Systems</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work -->
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        Work
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu right-aligned">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-64">
+                            <a href="work-never-alone.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">NeverAlone</span>
+                                <span class="block text-xs text-gray-500">26K patients, 7 states</span>
+                            </a>
+                            <a href="work-communicare-mds.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">CommuniCare MDS</span>
+                                <span class="block text-xs text-gray-500">$10M+ PDPM recovered</span>
+                            </a>
+                            <a href="work-raf-hcc-coding.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">RAF/HCC Coding</span>
+                                <span class="block text-xs text-gray-500">$10M+ improvements</span>
+                            </a>
+                            <a href="work-healthcontext-ai.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">HealthContext.AI</span>
+                                <span class="block text-xs text-gray-500">45→5 min documentation</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <a href="healthcare-assessment.html" class="ml-3 bg-dsBlue text-white px-5 py-2 text-sm font-medium rounded-full hover:bg-gray-900 transition">
+                    Get Assessment
+                </a>
+            </div>
+
+            <!-- Mobile: Simple Links -->
+            <div class="md:hidden">
+                <a href="healthcare-assessment.html" class="bg-dsBlue text-white px-4 py-2 text-sm font-medium rounded-full">
+                    Menu
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-16 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-3xl">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Markets We Serve</span>
+                    <span class="text-xs text-gray-400">*</span>
+                    <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">Senior Living</span>
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl font-bold text-dsBlack mb-6 leading-[1.1]">
+                    Technology that enhances the resident experience and operational efficiency.
+                </h1>
+                
+                <p class="text-xl text-gray-600 leading-relaxed mb-8">
+                    Senior living communities face unique challenges: engaging residents across care levels, keeping families connected, managing complex operations, and differentiating in a competitive market. Custom technology solutions help you deliver better experiences while improving operational efficiency.
+                </p>
+                
+                <a href="/healthcare/assessment" class="inline-flex items-center gap-2 bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">
+                    Discuss Your Technology Needs
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Market Challenges -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Senior Living Challenges</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    The experience gap that technology can close.
+                </h2>
+                <p class="text-gray-600">
+                    Today's residents and their families expect connected, personalized experiences. Communities that deliver them win occupancy and referrals.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
+                    <h3 class="font-semibold text-dsBlack mb-3">Resident Engagement</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Keeping residents active, connected, and engaged across different care levels and cognitive abilities. Generic solutions don't account for the diversity of your population.
+                    </p>
+                    <p class="text-dsBlue text-sm font-medium">Custom platforms for your community</p>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
+                    <h3 class="font-semibold text-dsBlack mb-3">Family Communication</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Families want to stay connected but staff can't spend hours on phone calls. They need easy access to updates, photos, care information, and peace of mind.
+                    </p>
+                    <p class="text-dsBlue text-sm font-medium">Digital family portal solutions</p>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
+                    <h3 class="font-semibold text-dsBlack mb-3">Staff Efficiency</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Workforce shortages mean staff need to do more with less. Manual processes, disconnected systems, and paper-based workflows waste valuable time.
+                    </p>
+                    <p class="text-dsBlue text-sm font-medium">Workflow automation</p>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
+                    <h3 class="font-semibold text-dsBlack mb-3">Care Continuum Management</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        CCRCs and multi-level communities need to track residents across independent living, assisted living, memory care, and skilled nursing-often with different systems.
+                    </p>
+                    <p class="text-dsBlue text-sm font-medium">Unified resident journey</p>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
+                    <h3 class="font-semibold text-dsBlack mb-3">Competitive Differentiation</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Prospective residents and families compare communities. Technology can be a differentiator-or a reason they choose a competitor.
+                    </p>
+                    <p class="text-dsBlue text-sm font-medium">Modern resident experience</p>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
+                    <h3 class="font-semibold text-dsBlack mb-3">Data & Reporting</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Leadership needs visibility into operations, quality metrics, and resident satisfaction. Manual reporting is time-consuming and often outdated.
+                    </p>
+                    <p class="text-dsBlue text-sm font-medium">Real-time operational dashboards</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions for Senior Living -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Solutions for Senior Living</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    Custom platforms built for your community.
+                </h2>
+                <p class="text-gray-600">
+                    We build technology solutions tailored to senior living operations-not generic tools that require you to change how you work.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="border border-gray-200 rounded-xl p-8">
+                    <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-dsBlack" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-dsBlack mb-3">Resident Engagement Platforms</h3>
+                    <p class="text-gray-600 mb-4">
+                        Custom applications that keep residents connected, engaged, and active. Activity scheduling, social features, wellness tracking, and content tailored to different cognitive abilities and interests.
+                    </p>
+                    <p class="text-gray-500 text-sm">Increases resident satisfaction and family peace of mind</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-8">
+                    <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-dsBlack" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-dsBlack mb-3">Family Communication Portals</h3>
+                    <p class="text-gray-600 mb-4">
+                        Give families visibility into their loved one's daily life. Photo sharing, activity updates, care notes, medication tracking, and easy communication with staff-reducing phone calls while improving satisfaction.
+                    </p>
+                    <p class="text-gray-500 text-sm">Reduces staff communication burden by 40%+</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-8">
+                    <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-dsBlack" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-dsBlack mb-3">Operations & Workflow Automation</h3>
+                    <p class="text-gray-600 mb-4">
+                        Streamline daily operations from dining services to maintenance requests to staff scheduling. Reduce manual processes, improve response times, and give leadership visibility into operations.
+                    </p>
+                    <p class="text-gray-500 text-sm">Staff efficiency gains of 20-30%</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-8">
+                    <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-dsBlack" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-dsBlack mb-3">Analytics & Reporting Dashboards</h3>
+                    <p class="text-gray-600 mb-4">
+                        Real-time visibility into occupancy, resident satisfaction, quality metrics, and operational KPIs. Custom dashboards that surface the insights leadership needs without manual report generation.
+                    </p>
+                    <p class="text-gray-500 text-sm">Data-driven decision making</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The NeverAlone Connection -->
+    <section class="py-20 px-6 bg-dsBlack text-white">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div >
+                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Our Experience</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-6">
+                        We operate senior care technology at scale.
+                    </h2>
+                    <p class="text-gray-300 mb-6">
+                        NeverAlone is a 24/7 virtual care platform serving 26,000+ patients across 7 states-including residents in skilled nursing and senior living communities. We don't just build technology for senior living; we operate it in production every day.
+                    </p>
+                    <p class="text-gray-300 mb-6">
+                        This operational experience informs everything we build. We understand the realities of senior care: staffing challenges, resident diversity, family expectations, and regulatory requirements.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <span class="text-2xl font-bold text-white">26,000+</span>
+                            <p class="text-gray-400 text-sm">Patients served</p>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold text-dsBlue">96%</span>
+                            <p class="text-gray-400 text-sm">Treat-in-place rate</p>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold text-white">7</span>
+                            <p class="text-gray-400 text-sm">States in production</p>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold text-white">24/7</span>
+                            <p class="text-gray-400 text-sm">Virtual care coverage</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div >
+                    <div class="bg-gray-800 rounded-xl p-8">
+                        <h3 class="font-semibold text-white mb-4">What this means for your community:</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue text-lg">Y</span>
+                                <p class="text-gray-300">We understand senior care operations from the inside-not as outside consultants</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue text-lg">Y</span>
+                                <p class="text-gray-300">Our technology is proven at scale with real residents and real staff</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue text-lg">Y</span>
+                                <p class="text-gray-300">We know what works in senior living environments-and what doesn't</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue text-lg">Y</span>
+                                <p class="text-gray-300">Virtual care integration is something we've already solved</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Types -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Community Types</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    Solutions for every senior living model.
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <h3 class="font-semibold text-dsBlack mb-3">CCRCs / Life Plan Communities</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Unified platforms that track residents across the full continuum-from independent living through skilled nursing-with seamless transitions and consistent family communication.
+                    </p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <h3 class="font-semibold text-dsBlack mb-3">Assisted Living</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Engagement platforms, family portals, and care documentation tools designed for the assisted living care model. Balance independence with appropriate support.
+                    </p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <h3 class="font-semibold text-dsBlack mb-3">Memory Care</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Specialized solutions for memory care communities-family communication becomes even more critical, and technology must be designed for residents with cognitive impairment.
+                    </p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <h3 class="font-semibold text-dsBlack mb-3">Independent Living</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Resident engagement platforms that help active seniors stay connected, participate in community activities, and maintain independence while building community connections.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why DS -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Why Digital Scientists</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    We understand senior living because we operate in it.
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div >
+                    <h3 class="font-semibold text-dsBlack mb-2">Operational Experience</h3>
+                    <p class="text-gray-600 text-sm">NeverAlone serves 26,000+ patients including senior living residents. We understand the operational realities.</p>
+                </div>
+                <div >
+                    <h3 class="font-semibold text-dsBlack mb-2">Custom Solutions</h3>
+                    <p class="text-gray-600 text-sm">Every community is different. We build technology tailored to your operations, your residents, and your brand.</p>
+                </div>
+                <div >
+                    <h3 class="font-semibold text-dsBlack mb-2">Integration Expertise</h3>
+                    <p class="text-gray-600 text-sm">Production experience with senior living EHRs and systems. Seamless integration, not another disconnected tool.</p>
+                </div>
+                <div >
+                    <h3 class="font-semibold text-dsBlack mb-2">Complete Support</h3>
+                    <p class="text-gray-600 text-sm">From initial design through ongoing operation. We can build, transfer, or continue to operate-your choice.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Solutions -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Solutions</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3">
+                    Explore related capabilities.
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="/healthcare/ai-solutions/virtual-care-assistants" class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <h3 class="font-semibold text-dsBlack mb-2">Virtual Care Assistants</h3>
+                    <p class="text-gray-600 text-sm mb-3">24/7 virtual care coverage for your community-the NeverAlone model.</p>
+                    <span class="text-dsBlue text-sm font-medium">Learn more→</span>
+                </a>
+                
+                <a href="/healthcare/domains/ehr-integrations" class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <h3 class="font-semibold text-dsBlack mb-2">EHR Integrations</h3>
+                    <p class="text-gray-600 text-sm mb-3">Seamless integration with your existing systems and workflows.</p>
+                    <span class="text-dsBlue text-sm font-medium">Learn more→</span>
+                </a>
+                
+                <a href="/healthcare/ai-solutions/documentation-automation" class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <h3 class="font-semibold text-dsBlack mb-2">Documentation Automation</h3>
+                    <p class="text-gray-600 text-sm mb-3">Reduce staff documentation burden with AI-powered tools.</p>
+                    <span class="text-dsBlue text-sm font-medium">Learn more→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <!-- AI Solutions for This Market -->
+    <section class="py-16 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="mb-8">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">AI Solution Frameworks</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-dsBlack mt-2">How we solve Senior Living challenges.</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <a href="healthcare-ai-virtual-care-assistants.html" class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-bold text-dsBlack">Virtual Care Assistants</h3>
+                        <span class="text-xs font-medium text-dsBlue">Proven at Scale</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-3">Resident engagement, family communication.</p>
+                    <span class="text-dsBlue text-sm font-medium">Learn More →</span>
+                </a>
+                <a href="healthcare-ai-documentation-automation.html" class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-bold text-dsBlack">Documentation Automation</h3>
+                        <span class="text-xs font-medium text-dsBlue">Fastest Payback</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-3">Care documentation across IL, AL, SNF.</p>
+                    <span class="text-dsBlue text-sm font-medium">Learn More →</span>
+                </a>
+                <a href="healthcare-ai-intelligent-scheduling.html" class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-bold text-dsBlack">Intelligent Scheduling</h3>
+                        <span class="text-xs font-medium text-dsBlue">Quick Win</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-3">Activity scheduling, dining, maintenance.</p>
+                    <span class="text-dsBlue text-sm font-medium">Learn More →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 bg-dsBlue text-white">
+        <div class="max-w-screen-xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to enhance your resident experience?</h2>
+            <p class="text-blue-100 mb-8 max-w-2xl mx-auto">
+                Let's discuss how custom technology can help your senior living community improve resident engagement, family satisfaction, and operational efficiency.
+            </p>
+            <a href="/healthcare/assessment" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition">
+                Schedule Technology Assessment
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <p class="text-blue-200 text-sm mt-4">Or call: <a href="tel:4046543855" class="text-white hover:underline">404.654.3855</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-gray-200">
+        <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+            <p>© 2007 - 2026 Digital Scientists, LLC.</p>
+            <div class="flex gap-6 mt-4 md:mt-0">
+                <a href="#" class="hover:text-dsBlack transition">Privacy Policy</a>
+                <a href="#" class="hover:text-dsBlack transition">LinkedIn</a>
+                <a href="tel:4046543855" class="text-dsBlue hover:underline">404.654.3855</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Animation -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    });
+
+
+    
+
+    </script>
+
+</body>
+</html>
