@@ -290,62 +290,56 @@
     <!-- NeverAlone Featured -->
     <section id="work" class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Product Screenshots -->
-                <div class="relative">
-                    <!-- iPad Screenshot -->
-                    <div class="bg-white p-3 rounded-2xl shadow-xl">
-                        <img src="images/neveralone-ipad.png" 
-                             alt="NeverAlone Care Platform - iPad App" 
-                             class="w-full rounded-xl"
-                             loading="lazy">
-                    </div>
-                    <!-- Mobile Screenshot (overlapping) -->
-                    <div class="absolute -bottom-4 -right-4 w-32 md:w-40 bg-white p-2 rounded-xl shadow-xl">
-                        <img src="images/neveralone-mobile.png" 
-                             alt="NeverAlone Mobile Video Call" 
-                             class="w-full rounded-lg"
-                             loading="lazy">
-                    </div>
-                </div>
-                
-                <!-- Content -->
-                <div >
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Featured Case Study</span>
-                        <span class="text-xs text-gray-400">*</span>
-                        <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">We Built & Operate</span>
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+                <div class="grid lg:grid-cols-2">
+                    <!-- Content -->
+                    <div class="p-8 lg:p-12 flex flex-col justify-center">
+                        <div class="flex items-center gap-2 mb-4 text-sm text-gray-500">
+                            <span>ai,</span>
+                            <span>healthcare,</span>
+                            <span>web</span>
+                        </div>
+                        
+                        <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mb-4 leading-tight">
+                            Never Alone: Scalable Virtual Care for Patients, Providers & Peace of Mind
+                        </h2>
+                        <p class="text-gray-600 mb-8">
+                            Digital Scientists partnered with CommuniCare Health Services to build Never Alone—a one-touch virtual care platform that connects frontline staff to medical professionals in real time, 24/7.
+                        </p>
+                        
+                        <a href="work-never-alone.html" class="inline-flex items-center gap-3 border border-gray-300 rounded-full px-6 py-3 text-sm font-medium uppercase tracking-wider hover:border-dsBlue hover:text-dsBlue transition-colors w-fit">
+                            View Case Study
+                            <span class="w-6 h-6 rounded-full border border-current flex items-center justify-center">→</span>
+                        </a>
                     </div>
                     
-                    <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mb-4">
-                        NeverAlone
-                    </h2>
-                    <p class="text-lg text-gray-600 mb-6">
-                        24/7 virtual care platform serving 26,000+ patients across 7 states. We didn't just build this-we operate it in production every day.
-                    </p>
-                    
-                    <div class="grid grid-cols-2 gap-4 mb-6">
-                        <div>
-                            <span class="text-2xl font-bold text-dsBlack">26,000+</span>
-                            <p class="text-gray-500 text-sm">Patients Served</p>
+                    <!-- Video -->
+                    <div class="relative bg-gradient-to-br from-gray-100 to-gray-200">
+                        <div class="relative h-full min-h-[400px]">
+                            <video id="na-hero-video" class="absolute inset-0 w-full h-full object-cover" poster="images/neveralone-concept.jpg" preload="metadata" playsinline>
+                                <source src="https://digitalscientists.com/wp-content/uploads/2025/08/Never-Alone-Marketing-Video.mp4" type="video/mp4">
+                            </video>
+                            <!-- Play button overlay -->
+                            <div id="na-video-overlay" class="absolute inset-0 flex items-center justify-center bg-black/10 cursor-pointer" onclick="playNAVideo()">
+                                <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                                    <svg class="w-8 h-8 text-dsBlack ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <span class="text-2xl font-bold text-dsBlue">96%</span>
-                            <p class="text-gray-500 text-sm">Treat-in-Place</p>
-                        </div>
-                        <div>
-                            <span class="text-2xl font-bold text-dsBlack">7</span>
-                            <p class="text-gray-500 text-sm">States</p>
-                        </div>
-                        <div>
-                            <span class="text-2xl font-bold text-dsBlack">32%</span>
-                            <p class="text-gray-500 text-sm">Cost Reduction</p>
+                        <!-- Never Alone Logo -->
+                        <div class="absolute bottom-6 right-6 flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2">
+                            <svg class="w-8 h-8" viewBox="0 0 48 48" fill="none">
+                                <circle cx="16" cy="20" r="8" fill="#4CAF50"/>
+                                <circle cx="32" cy="20" r="8" fill="#2196F3"/>
+                                <path d="M24 28c-4 0-7 3-7 7v5h14v-5c0-4-3-7-7-7z" fill="#4CAF50"/>
+                                <path d="M24 28c4 0 7 3 7 7v5H17v-5c0-4 3-7 7-7z" fill="#2196F3" opacity="0.7"/>
+                                <circle cx="24" cy="38" r="4" fill="#00BCD4"/>
+                            </svg>
+                            <span class="text-lg font-bold text-dsBlack">Never Alone</span>
                         </div>
                     </div>
-                    
-                    <a href="work-never-alone.html" class="inline-flex items-center gap-2 text-dsBlue font-medium hover:gap-3 transition-all">
-                        Read Full Case Study <span>→</span>
-                    </a>
                 </div>
             </div>
         </div>
@@ -727,67 +721,163 @@
     })();
     </script>
 
-    <!-- Healthcare Domain Expertise -->
-    <section id="expertise" class="py-20 px-6 bg-dsBlack text-white">
+    <!-- Healthcare Domain Expertise - Redesigned -->
+    <section id="expertise" class="py-20 px-6 bg-white">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="max-w-3xl mb-16">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Healthcare Domain Expertise</span>
-                <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Deep expertise where it matters.
                 </h2>
-                <p class="text-gray-400">
+                <p class="text-gray-600 text-lg">
                     We're not a dev shop that did a healthcare project once. We understand how providers get paid, how care is delivered, and what it takes to ship in regulated environments.
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Post-Acute Care -->
-                <div >
-                    <h3 class="text-sm font-medium text-dsBlue uppercase tracking-wider mb-4">Post-Acute Care - Deep Expertise</h3>
-                    <div class="space-y-3">
-                        <a href="healthcare-domains-mds-pdpm.html" class="flex justify-between items-center py-3 border-b border-gray-800 hover:border-dsBlue transition group">
-                            <div>
-                                <span class="text-white font-medium group-hover:text-dsBlue transition">MDS Assessments / PDPM</span>
-                                <p class="text-gray-500 text-sm">Revenue capture optimization</p>
-                            </div>
-                            <span class="text-dsBlue font-medium">$10M+</span>
-                        </a>
-                        <a href="healthcare-domains-value-based-care.html" class="flex justify-between items-center py-3 border-b border-gray-800 hover:border-dsBlue transition group">
-                            <div>
-                                <span class="text-white font-medium group-hover:text-dsBlue transition">Value-Based Care</span>
-                                <p class="text-gray-500 text-sm">SNF VBP, ACO REACH performance</p>
-                            </div>
-                            <span class="text-gray-600">→</span>
-                        </a>
-                        <a href="healthcare-ai-virtual-care-assistants.html" class="flex justify-between items-center py-3 border-b border-gray-800 hover:border-dsBlue transition group">
-                            <div>
-                                <span class="text-white font-medium group-hover:text-dsBlue transition">Treatment-in-Place</span>
-                                <p class="text-gray-500 text-sm">Hospital transfer avoidance</p>
-                            </div>
-                            <span class="text-dsBlue font-medium">96%</span>
-                        </a>
-                        <a href="healthcare-ai-virtual-care-assistants.html" class="flex justify-between items-center py-3 border-b border-gray-800 hover:border-dsBlue transition group">
-                            <div>
-                                <span class="text-white font-medium group-hover:text-dsBlue transition">Virtual Care / Telehealth</span>
-                                <p class="text-gray-500 text-sm">24/7 coverage without staffing costs</p>
-                            </div>
-                            <span class="text-gray-600">→</span>
-                        </a>
-                    </div>
+            <!-- What We've Built & Operate -->
+            <div class="mb-16">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-3 h-3 bg-dsBlue rounded-full"></div>
+                    <h3 class="text-sm font-semibold text-dsBlack uppercase tracking-wider">What We've Built & Operate in Production</h3>
                 </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- MDS/PDPM -->
+                    <a href="work-communicare-mds.html" class="group bg-dsGray rounded-xl p-6 hover:shadow-lg transition border border-transparent hover:border-dsBlue">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm">
+                                <svg class="w-5 h-5 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                            </div>
+                            <span class="text-2xl font-bold text-dsBlue">$10M+</span>
+                        </div>
+                        <h4 class="font-bold text-dsBlack mb-1 group-hover:text-dsBlue transition">MDS / PDPM Optimization</h4>
+                        <p class="text-gray-500 text-sm mb-3">AI-powered revenue capture for 200+ SNFs</p>
+                        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">View Case Study →</span>
+                    </a>
+                    
+                    <!-- Virtual Care -->
+                    <a href="work-never-alone.html" class="group bg-dsGray rounded-xl p-6 hover:shadow-lg transition border border-transparent hover:border-dsBlue">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm">
+                                <svg class="w-5 h-5 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                            </div>
+                            <span class="text-2xl font-bold text-dsBlue">96%</span>
+                        </div>
+                        <h4 class="font-bold text-dsBlack mb-1 group-hover:text-dsBlue transition">Virtual Care / Telehealth</h4>
+                        <p class="text-gray-500 text-sm mb-3">Treat-in-place rate across 130+ facilities</p>
+                        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">View Case Study →</span>
+                    </a>
+                    
+                    <!-- RAF/HCC -->
+                    <a href="work-raf-hcc-coding.html" class="group bg-dsGray rounded-xl p-6 hover:shadow-lg transition border border-transparent hover:border-dsBlue">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm">
+                                <svg class="w-5 h-5 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                            </div>
+                            <span class="text-2xl font-bold text-dsBlue">26K</span>
+                        </div>
+                        <h4 class="font-bold text-dsBlack mb-1 group-hover:text-dsBlue transition">RAF / HCC Coding</h4>
+                        <p class="text-gray-500 text-sm mb-3">Patients served across 7 states</p>
+                        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">View Case Study →</span>
+                    </a>
+                    
+                    <!-- Ambient AI -->
+                    <a href="work-healthcontext-ai.html" class="group bg-dsGray rounded-xl p-6 hover:shadow-lg transition border border-transparent hover:border-dsBlue">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm">
+                                <svg class="w-5 h-5 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
+                            </div>
+                            <span class="text-2xl font-bold text-dsBlue">45→5</span>
+                        </div>
+                        <h4 class="font-bold text-dsBlack mb-1 group-hover:text-dsBlue transition">Ambient AI Scribes</h4>
+                        <p class="text-gray-500 text-sm mb-3">Minutes per visit documentation time</p>
+                        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">View Case Study →</span>
+                    </a>
+                </div>
+            </div>
 
-                <!-- Horizontal -->
-                <div >
-                    <h3 class="text-sm font-medium text-dsBlue uppercase tracking-wider mb-4">Horizontal Across Healthcare</h3>
-                    <div class="grid grid-cols-2 gap-3">
-                        <a href="healthcare-domains-revenue-cycle-ai.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">Revenue Cycle AI</a>
-                        <a href="healthcare-domains-ambient-scribes.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">Ambient Scribes</a>
-                        <a href="ds-healthcare-v3-updated.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">Patient Engagement</a>
-                        <a href="healthcare-ai-virtual-care-assistants.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">RPM</a>
-                        <a href="ds-healthcare-v3-updated.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">Clinical Decision Support</a>
-                        <a href="ds-healthcare-v3-updated.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">Data Engineering</a>
-                        <a href="healthcare-domains-raf-hcc-coding.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">RAF / HCC Coding</a>
-                        <a href="healthcare-domains-ehr-integrations.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">EHR Integrations</a>
+            <!-- What We Build -->
+            <div>
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-3 h-3 bg-gray-400 rounded-full"></div>
+                    <h3 class="text-sm font-semibold text-dsBlack uppercase tracking-wider">Additional Capabilities</h3>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Post-Acute Deep Dives -->
+                    <div class="border border-gray-200 rounded-xl p-6">
+                        <h4 class="font-bold text-dsBlack mb-4 flex items-center gap-2">
+                            <svg class="w-5 h-5 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                            Post-Acute Care Expertise
+                        </h4>
+                        <div class="grid grid-cols-2 gap-3">
+                            <a href="healthcare-domains-mds-pdpm.html" class="flex items-center gap-2 text-sm text-gray-600 hover:text-dsBlue transition py-2">
+                                <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                                MDS Assessments
+                            </a>
+                            <a href="healthcare-domains-value-based-care.html" class="flex items-center gap-2 text-sm text-gray-600 hover:text-dsBlue transition py-2">
+                                <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                                Value-Based Care
+                            </a>
+                            <a href="healthcare-markets-skilled-nursing.html" class="flex items-center gap-2 text-sm text-gray-600 hover:text-dsBlue transition py-2">
+                                <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                                SNF Operations
+                            </a>
+                            <a href="healthcare-markets-home-health-hospice.html" class="flex items-center gap-2 text-sm text-gray-600 hover:text-dsBlue transition py-2">
+                                <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                                Home Health & Hospice
+                            </a>
+                            <a href="healthcare-markets-senior-living.html" class="flex items-center gap-2 text-sm text-gray-600 hover:text-dsBlue transition py-2">
+                                <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                                Senior Living
+                            </a>
+                            <a href="work-never-alone.html#markets" class="flex items-center gap-2 text-sm text-gray-600 hover:text-dsBlue transition py-2">
+                                <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                                IDD Support
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Horizontal Healthcare -->
+                    <div class="border border-gray-200 rounded-xl p-6">
+                        <h4 class="font-bold text-dsBlack mb-4 flex items-center gap-2">
+                            <svg class="w-5 h-5 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
+                            Horizontal Across Healthcare
+                        </h4>
+                        <div class="grid grid-cols-2 gap-3">
+                            <a href="healthcare-domains-revenue-cycle-ai.html" class="flex items-center gap-2 text-sm text-gray-600 hover:text-dsBlue transition py-2">
+                                <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                                Revenue Cycle AI
+                            </a>
+                            <a href="healthcare-domains-ambient-scribes.html" class="flex items-center gap-2 text-sm text-gray-600 hover:text-dsBlue transition py-2">
+                                <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                                Ambient Scribes
+                            </a>
+                            <a href="healthcare-ai-virtual-care-assistants.html" class="flex items-center gap-2 text-sm text-gray-600 hover:text-dsBlue transition py-2">
+                                <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                                Patient Engagement
+                            </a>
+                            <a href="healthcare-ai-virtual-care-assistants.html" class="flex items-center gap-2 text-sm text-gray-600 hover:text-dsBlue transition py-2">
+                                <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                                Remote Monitoring
+                            </a>
+                            <a href="healthcare-ai-guides-landing.html" class="flex items-center gap-2 text-sm text-gray-600 hover:text-dsBlue transition py-2">
+                                <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                                Clinical Decision Support
+                            </a>
+                            <a href="healthcare-approach.html" class="flex items-center gap-2 text-sm text-gray-600 hover:text-dsBlue transition py-2">
+                                <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                                Data Engineering
+                            </a>
+                            <a href="healthcare-domains-raf-hcc-coding.html" class="flex items-center gap-2 text-sm text-gray-600 hover:text-dsBlue transition py-2">
+                                <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                                RAF / HCC Coding
+                            </a>
+                            <a href="healthcare-domains-ehr-integrations.html" class="flex items-center gap-2 text-sm text-gray-600 hover:text-dsBlue transition py-2">
+                                <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                                EHR Integrations
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1326,8 +1416,32 @@
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     });
 
-
-    
+        // Video player function for Never Alone
+        function playNAVideo() {
+            const video = document.getElementById('na-hero-video');
+            const overlay = document.getElementById('na-video-overlay');
+            
+            if (video && overlay) {
+                overlay.style.opacity = '0';
+                overlay.style.pointerEvents = 'none';
+                video.controls = true;
+                video.play();
+            }
+        }
+        
+        // Show overlay again when video ends
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('na-hero-video');
+            const overlay = document.getElementById('na-video-overlay');
+            
+            if (video && overlay) {
+                video.addEventListener('ended', function() {
+                    overlay.style.opacity = '1';
+                    overlay.style.pointerEvents = 'auto';
+                    video.controls = false;
+                });
+            }
+        });
 
     </script>
 
