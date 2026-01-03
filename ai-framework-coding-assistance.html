@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Medical Coding Assistance | Healthcare AI Framework | Digital Scientists</title>
+    <meta name="description" content="AI-powered coding assistance that analyzes clinical documentation and suggests CPT/ICD-10 codes. Improve coding accuracy by 2-5% and coder productivity by 20-30%.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dsBlue: '#304FFF',
+                        dsBlack: '#050505',
+                        dsGray: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is AI medical coding assistance?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "AI medical coding assistance uses natural language processing to analyze clinical documentation and suggest appropriate CPT, ICD-10, and HCPCS codes. The system highlights supporting evidence from the clinical note, learns from your organization's coding patterns, and flags potential compliance issues—augmenting coders rather than replacing them."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much can AI improve medical coding accuracy?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Organizations typically see 2-5% improvement in coding accuracy, 20-30% improvement in coder productivity, and reduction in both under-coding (missed revenue) and over-coding (compliance risk). For a health system with $50M in professional fees, improved capture can mean $500K-1M annually."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How long does AI coding assistance take to implement?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Implementation typically takes 16-22 weeks: 6-8 weeks for EHR integration and model training on your documentation patterns, 4-6 weeks for workflow integration and coder training, and 6-8 weeks for parallel validation and optimization."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does AI coding replace human coders?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. AI coding assistance augments human coders by suggesting codes and highlighting supporting documentation, but human coders make final decisions. This approach improves productivity and catches missed opportunities while maintaining the clinical judgment that accurate coding requires."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="font-sans text-dsBlack bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-gray-200">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="healthcare-ai-guides-landing.html" class="text-sm font-bold uppercase tracking-wider">
+                    Digital<br>Scientists
+                </a>
+                <div class="flex items-center gap-6">
+                    <a href="healthcare-ai-guides-landing.html" class="text-sm text-gray-600 hover:text-dsBlack">All Frameworks</a>
+                    <a href="ds-healthcare-v3-updated.html" class="text-sm text-gray-600 hover:text-dsBlack">Healthcare AI</a>
+                    <a href="healthcare-assessment.html" class="bg-dsBlue text-white px-4 py-2 text-sm font-medium rounded-full hover:bg-dsBlack transition">Get Assessment</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="pt-24 pb-4 px-6 border-b border-gray-100">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-2 text-sm text-gray-500">
+                <a href="healthcare-ai-guides-landing.html" class="hover:text-dsBlue">AI Frameworks</a>
+                <span>/</span>
+                <span class="text-gray-400">Building Momentum</span>
+                <span>/</span>
+                <span class="text-dsBlack">Coding Assistance</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <header class="py-12 px-6 bg-gradient-to-br from-dsBlack to-gray-800 text-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="bg-amber-500/20 text-amber-300 text-xs font-medium px-3 py-1 rounded-full">Medium Complexity</span>
+                <span class="text-gray-400 text-sm">16-22 weeks to deploy</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Medical Coding Assistance</h1>
+            <p class="text-xl text-gray-300 mb-6">AI that reads clinical notes, suggests codes, and shows its work—augmenting coders to capture more revenue with less effort.</p>
+            <div class="grid grid-cols-3 gap-6 pt-6 border-t border-white/20">
+                <div>
+                    <span class="text-3xl font-bold text-dsBlue">2-5%</span>
+                    <p class="text-gray-400 text-sm">Coding accuracy improvement</p>
+                </div>
+                <div>
+                    <span class="text-3xl font-bold">20-30%</span>
+                    <p class="text-gray-400 text-sm">Coder productivity gain</p>
+                </div>
+                <div>
+                    <span class="text-3xl font-bold">16-22</span>
+                    <p class="text-gray-400 text-sm">Weeks to deploy</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-12 px-6">
+        <div class="max-w-4xl mx-auto">
+            
+            <!-- Problem Section -->
+            <section class="mb-16" id="problem">
+                <h2 class="text-2xl font-bold mb-6">The Problem in Dollar Terms</h2>
+                
+                <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg mb-6">
+                    <h3 class="font-semibold text-red-900 mb-2">The hidden cost of coding variability</h3>
+                    <p class="text-red-800">Studies show coding accuracy rates typically range from 75-90%. For a health system generating $100M in professional fees, even a 2% under-coding rate means <strong>$2M in missed revenue annually</strong>—before considering the compliance risk of over-coding.</p>
+                </div>
+
+                <p class="text-gray-700 mb-4">Medical coding is both art and science. Coders must interpret physician documentation—often incomplete, ambiguous, or written in shorthand—and translate it into the precise CPT, ICD-10, and HCPCS codes that drive reimbursement. The cognitive load is immense, the margin for error is thin, and the consequences are financial.</p>
+
+                <p class="text-gray-700 mb-4">The challenge compounds as documentation grows more complex. A single encounter might require reviewing 20+ pages of clinical notes, lab results, and historical records. Coders face constant pressure to maintain productivity while ensuring accuracy—and the talent shortage means experienced coders are increasingly rare.</p>
+
+                <h3 class="font-semibold text-lg mt-8 mb-4">What AI coding assistance actually does</h3>
+                <p class="text-gray-700 mb-4">An AI coding assistant analyzes clinical documentation and provides:</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
+                    <li><strong>Code suggestions:</strong> Recommended CPT/ICD-10 codes based on documentation content</li>
+                    <li><strong>Evidence highlighting:</strong> Specific text passages that support each suggested code</li>
+                    <li><strong>Missed opportunity alerts:</strong> Documentation that suggests services not yet coded</li>
+                    <li><strong>Compliance flags:</strong> Potential over-coding or documentation gaps before submission</li>
+                    <li><strong>Specificity prompts:</strong> Where additional documentation could support higher-value codes</li>
+                </ul>
+
+                <p class="text-gray-700">The coder remains in control—reviewing suggestions, making final decisions, and applying clinical judgment. The AI handles the documentation search and pattern matching that consumes so much cognitive bandwidth.</p>
+
+                <div class="bg-blue-50 border-l-4 border-dsBlue p-6 rounded-r-lg mt-6">
+                    <h3 class="font-semibold text-blue-900 mb-2">Why custom matters here</h3>
+                    <p class="text-blue-800 text-sm">Every organization has unique documentation patterns. Your physicians' shorthand, your EHR templates, your specialty-specific terminology—generic models miss these. A model trained on your historical coding patterns understands how YOUR documentation translates to codes.</p>
+                </div>
+            </section>
+
+            <!-- Fit Assessment -->
+            <section class="mb-16" id="fit-assessment">
+                <h2 class="text-2xl font-bold mb-6">The 5-Minute Fit Assessment</h2>
+                <p class="text-gray-600 mb-6">Check the boxes that apply. Four or more? This is worth exploring.</p>
+
+                <div class="space-y-4">
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">You code at least 5,000 encounters per month</strong>
+                            <p class="text-gray-600 text-sm">Lower volumes don't generate enough ROI to justify implementation. The math works better at scale.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">You have EHR access to clinical documentation</strong>
+                            <p class="text-gray-600 text-sm">The model needs to read clinical notes. If documentation isn't electronic or accessible, this becomes a much larger project.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">Your coders are bottlenecked, not underutilized</strong>
+                            <p class="text-gray-600 text-sm">If you have excess coding capacity, productivity gains matter less. This shines when demand exceeds supply or you're struggling to hire.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">You have 2+ years of coded encounters for training</strong>
+                            <p class="text-gray-600 text-sm">The model learns from your historical coding decisions. More history = better accuracy for your specific patterns.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">Coders will actually use the suggestions</strong>
+                            <p class="text-gray-600 text-sm">If your coding team is resistant to technology or set in their ways, adoption will suffer. You need champions who will embrace the tool.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">You have baseline metrics to measure against</strong>
+                            <p class="text-gray-600 text-sm">Coding accuracy audits, productivity metrics, denial rates by coding error—you need a "before" to prove the "after."</p>
+                        </div>
+                    </label>
+                </div>
+            </section>
+
+            <!-- What You Need -->
+            <section class="mb-16" id="what-you-need">
+                <h2 class="text-2xl font-bold mb-6">What You Need to Have Ready</h2>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+                        <h3 class="font-semibold text-green-900 mb-3">✓ Required</h3>
+                        <ul class="text-green-800 space-y-2 text-sm">
+                            <li>• EHR access to clinical documentation (notes, H&Ps, procedure notes)</li>
+                            <li>• Historical coded encounters with final code assignments</li>
+                            <li>• Coder workflow that can incorporate AI suggestions</li>
+                            <li>• Compliance sign-off on AI-assisted coding</li>
+                        </ul>
+                    </div>
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                        <h3 class="font-semibold text-blue-900 mb-3">◐ Significantly enhances value</h3>
+                        <ul class="text-blue-800 space-y-2 text-sm">
+                            <li>• Coding audit results (to validate accuracy improvements)</li>
+                            <li>• Denial data linked to coding errors</li>
+                            <li>• CDI query history (shows documentation improvement opportunities)</li>
+                            <li>• Coder-specific productivity metrics</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="font-semibold text-lg mb-4">The compliance consideration</h3>
+                <p class="text-gray-700 mb-4">AI coding assistance raises natural compliance questions. Key principles:</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
+                    <li><strong>Human in the loop:</strong> Coders make final decisions; AI suggests</li>
+                    <li><strong>Audit trail:</strong> Document which codes came from AI suggestions vs. human determination</li>
+                    <li><strong>Validation:</strong> Parallel testing against human-only coding before full deployment</li>
+                    <li><strong>Conservative bias:</strong> Better to miss suggestions than over-code</li>
+                </ul>
+                <p class="text-gray-700">Work with your compliance team early. They'll likely want to see validation data and approve the workflow before go-live.</p>
+            </section>
+
+            <!-- Build vs Buy -->
+            <section class="mb-16" id="build-buy-partner">
+                <h2 class="text-2xl font-bold mb-6">Build vs. Buy vs. Partner</h2>
+
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-3">Build internally when:</h3>
+                        <ul class="text-gray-600 text-sm space-y-2">
+                            <li>• You have NLP/ML expertise with healthcare experience</li>
+                            <li>• You can dedicate 12-18 months to development</li>
+                            <li>• You want complete control over model behavior</li>
+                            <li>• You have resources for ongoing maintenance</li>
+                        </ul>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-3">Buy off-the-shelf when:</h3>
+                        <ul class="text-gray-600 text-sm space-y-2">
+                            <li>• Your specialty and documentation are typical</li>
+                            <li>• You want quick deployment</li>
+                            <li>• You're okay with industry-average suggestions</li>
+                            <li>• Your EHR has vendor-provided coding tools</li>
+                        </ul>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-6 border-dsBlue bg-blue-50/30">
+                        <h3 class="font-semibold mb-3">Partner for custom when:</h3>
+                        <ul class="text-gray-600 text-sm space-y-2">
+                            <li>• Your documentation has unique patterns/terminology</li>
+                            <li>• You want the model trained on YOUR coding decisions</li>
+                            <li>• You need deep EHR integration</li>
+                            <li>• Accuracy matters more than speed</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg">
+                    <h3 class="font-semibold text-amber-900 mb-2">The documentation interpretation challenge</h3>
+                    <p class="text-amber-800 text-sm">Every organization develops its own documentation shortcuts. "SOB" might mean "shortness of breath" or "see original billing." Your physicians have abbreviations, templates, and charting patterns that generic models don't understand. Custom training on your documentation is the difference between useful suggestions and noise.</p>
+                </div>
+            </section>
+
+            <!-- Red Flags -->
+            <section class="mb-16" id="red-flags">
+                <h2 class="text-2xl font-bold mb-6">Red Flags: When to Wait</h2>
+
+                <div class="space-y-4">
+                    <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+                        <h3 class="font-semibold text-red-900 mb-2">Your documentation quality is poor</h3>
+                        <p class="text-red-700 text-sm">If clinical notes are incomplete, templated without customization, or missing key details, AI can't extract what isn't there. Focus on CDI before coding assistance.</p>
+                    </div>
+
+                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-2">You're changing EHR systems</h3>
+                        <p class="text-gray-600 text-sm">Documentation patterns change dramatically with EHR migration. Wait until the new system is stable and you have 12+ months of data.</p>
+                    </div>
+
+                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-2">Your coding team is in transition</h3>
+                        <p class="text-gray-600 text-sm">High turnover, outsourcing changes, or major workflow restructuring? Stabilize first. You need consistent users to adopt and refine the tool.</p>
+                    </div>
+
+                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-2">Compliance hasn't signed off on AI coding</h3>
+                        <p class="text-gray-600 text-sm">Get your compliance and legal teams comfortable with the concept before investing in implementation. Some organizations have philosophical objections that won't change.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Questions to Ask Vendors -->
+            <section class="mb-16" id="questions">
+                <h2 class="text-2xl font-bold mb-6">Questions to Ask Any Vendor</h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-semibold text-dsBlue mb-3">On their model:</h3>
+                        <ul class="text-gray-700 space-y-2 text-sm">
+                            <li>"Does your model train on our historical coding, or just medical literature?"</li>
+                            <li>"How do you handle specialty-specific coding nuances?"</li>
+                            <li>"What's your accuracy rate? How do you measure it?"</li>
+                            <li>"How do you handle ambiguous documentation?"</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-semibold text-dsBlue mb-3">On compliance:</h3>
+                        <ul class="text-gray-700 space-y-2 text-sm">
+                            <li>"How do you ensure suggestions are conservative (avoiding over-coding)?"</li>
+                            <li>"What audit trail do you provide for AI-suggested codes?"</li>
+                            <li>"How do other customers handle compliance sign-off?"</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-semibold text-dsBlue mb-3">On integration:</h3>
+                        <ul class="text-gray-700 space-y-2 text-sm">
+                            <li>"How do suggestions appear in the coder workflow?"</li>
+                            <li>"What EHR integration is required?"</li>
+                            <li>"How do coders provide feedback when suggestions are wrong?"</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ROI Calculator -->
+            <section class="mb-16 bg-dsGray rounded-2xl p-8" id="calculator">
+                <h2 class="text-2xl font-bold mb-6">Quick ROI Estimate</h2>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Annual professional fee revenue ($)</label>
+                        <input type="number" placeholder="50000000" class="w-full border border-gray-300 rounded-lg px-4 py-3">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Estimated under-coding rate (%)</label>
+                        <input type="number" placeholder="2" class="w-full border border-gray-300 rounded-lg px-4 py-3">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Number of coders</label>
+                        <input type="number" placeholder="10" class="w-full border border-gray-300 rounded-lg px-4 py-3">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Expected productivity gain (%)</label>
+                        <input type="number" placeholder="25" class="w-full border border-gray-300 rounded-lg px-4 py-3">
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg p-6 border border-gray-200">
+                    <p class="text-sm text-gray-600 mb-2">Estimated annual value:</p>
+                    <p class="text-3xl font-bold text-dsBlue">$500,000 - $1,250,000</p>
+                    <p class="text-sm text-gray-500 mt-2">Based on $50M revenue, 2% under-coding recovery, plus productivity equivalent of 2-3 FTE coders</p>
+                </div>
+            </section>
+
+            <!-- Related Frameworks -->
+            <section class="mb-16" id="related">
+                <h2 class="text-2xl font-bold mb-6">Related Frameworks</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <a href="ai-framework-cdi-auditor.html" class="border border-gray-200 rounded-lg p-6 hover:border-dsBlue transition group">
+                        <span class="text-xs text-red-600 font-medium">High Complexity</span>
+                        <h3 class="font-semibold mt-2 group-hover:text-dsBlue transition">CDI Auditor</h3>
+                        <p class="text-gray-600 text-sm mt-2">Improve documentation quality before coding—capture more complete, accurate codes.</p>
+                    </a>
+                    <a href="ai-framework-denial-prediction.html" class="border border-gray-200 rounded-lg p-6 hover:border-dsBlue transition group">
+                        <span class="text-xs text-amber-600 font-medium">Medium Complexity</span>
+                        <h3 class="font-semibold mt-2 group-hover:text-dsBlue transition">Denial Prediction</h3>
+                        <p class="text-gray-600 text-sm mt-2">Predict denials before submission—including coding-related issues.</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="bg-dsBlue text-white rounded-2xl p-8 text-center">
+                <h2 class="text-2xl font-bold mb-4">Ready to explore AI coding assistance?</h2>
+                <p class="text-blue-100 mb-6 max-w-xl mx-auto">We'll analyze your documentation patterns and coding workflows to estimate the potential impact.</p>
+                <div class="flex gap-4 justify-center">
+                    <a href="healthcare-assessment.html" class="bg-white text-dsBlack px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition">Get Assessment</a>
+                    <a href="healthcare-ai-guides-landing.html" class="border border-white/30 text-white px-6 py-3 rounded-full font-medium hover:bg-white/10 transition">View All Frameworks</a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dsBlack text-white py-12 px-6 mt-16">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="font-bold text-sm uppercase tracking-wider mb-4">Digital Scientists</h3>
+                    <p class="text-gray-400 text-sm">Custom AI solutions for healthcare organizations.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-sm mb-4">Quick Win Frameworks</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="ar-collection-prioritization.html" class="hover:text-white">A/R Collection Prioritization</a></li>
+                        <li><a href="claim-follow-up-triage.html" class="hover:text-white">Claim Follow-Up Triage</a></li>
+                        <li><a href="payer-contract-interpretation.html" class="hover:text-white">Payer Contract Interpretation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-sm mb-4">Building Momentum</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="ai-framework-no-show-prediction.html" class="hover:text-white">No-Show Prediction</a></li>
+                        <li><a href="ai-framework-denial-prediction.html" class="hover:text-white">Denial Prediction</a></li>
+                        <li><a href="ai-framework-coding-assistance.html" class="hover:text-white">Coding Assistance</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-sm mb-4">Strategic Investments</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="ai-framework-discharge-planning.html" class="hover:text-white">Discharge Planning</a></li>
+                        <li><a href="ai-framework-cdi-auditor.html" class="hover:text-white">CDI Auditor</a></li>
+                        <li><a href="ai-framework-clinical-trials.html" class="hover:text-white">Clinical Trial Matching</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2025 Digital Scientists. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

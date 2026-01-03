@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payer Contract Interpretation | Healthcare AI Frameworks | Digital Scientists</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --blue: #2563eb;
+            --blue-dark: #1d4ed8;
+            --blue-light: #dbeafe;
+            --amber: #f59e0b;
+            --amber-light: #fef3c7;
+            --green: #10b981;
+            --green-light: #d1fae5;
+            --red: #ef4444;
+            --red-light: #fee2e2;
+            --purple: #7c3aed;
+            --purple-light: #ede9fe;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--gray-900);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--black);
+            text-decoration: none;
+            line-height: 1.2;
+        }
+
+        .logo span {
+            display: block;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--black);
+        }
+
+        .nav-links .has-dropdown {
+            position: relative;
+        }
+
+        .nav-links .has-dropdown > a {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .nav-links .has-dropdown > a::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 4px solid currentColor;
+            margin-left: 0.25rem;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: -1rem;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            min-width: 260px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
+            transition: all 0.2s;
+            z-index: 200;
+            list-style: none;
+        }
+
+        .has-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li {
+            padding: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.625rem 1.25rem;
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            font-weight: 400;
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--gray-50);
+            color: var(--black);
+        }
+
+        .dropdown-menu .dropdown-header {
+            padding: 0.625rem 1.25rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .dropdown-menu .divider {
+            height: 1px;
+            background: var(--gray-200);
+            margin: 0.5rem 0;
+        }
+
+        .dropdown-menu .current-page a {
+            color: var(--blue);
+            font-weight: 500;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--blue-dark);
+        }
+
+        .btn-secondary {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gray-800);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gray-700);
+            border: 1px solid var(--gray-300);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gray-400);
+            background: var(--gray-50);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .breadcrumb-list {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            list-style: none;
+            font-size: 0.875rem;
+        }
+
+        .breadcrumb-list a {
+            color: var(--gray-500);
+            text-decoration: none;
+        }
+
+        .breadcrumb-list a:hover {
+            color: var(--gray-700);
+        }
+
+        .breadcrumb-list .separator {
+            color: var(--gray-400);
+        }
+
+        .breadcrumb-list .current {
+            color: var(--gray-900);
+        }
+
+        /* Main Layout */
+        .main-layout {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 4rem;
+        }
+
+        /* Sidebar TOC */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .toc-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--gray-500);
+            margin-bottom: 1rem;
+        }
+
+        .toc-list {
+            list-style: none;
+        }
+
+        .toc-list li {
+            margin-bottom: 0.25rem;
+        }
+
+        .toc-list a {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .toc-list a:hover {
+            color: var(--gray-900);
+            border-left-color: var(--gray-300);
+        }
+
+        .toc-list a.active {
+            color: var(--gray-900);
+            border-left-color: var(--blue);
+            font-weight: 500;
+        }
+
+        /* Content */
+        .content {
+            min-width: 0;
+        }
+
+        .content-header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .content-header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .content-header .subtitle {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            font-style: italic;
+        }
+
+        /* Hero CTA */
+        .hero-cta {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 2rem;
+            align-items: center;
+            background: linear-gradient(135deg, var(--gray-900) 0%, #1a1a2e 100%);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-cta-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.375rem 0.875rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--gray-300);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-cta h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .hero-cta p {
+            color: var(--gray-400);
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-cta .btn-primary {
+            background: var(--white);
+            color: var(--gray-900);
+        }
+
+        .hero-cta .btn-primary:hover {
+            background: var(--gray-100);
+        }
+
+        .hero-cta-graphic {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-cta-graphic svg {
+            width: 100%;
+            max-width: 240px;
+            height: auto;
+        }
+
+        @media (max-width: 900px) {
+            .hero-cta {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-cta-graphic {
+                order: -1;
+            }
+
+            .hero-cta-graphic svg {
+                max-width: 180px;
+            }
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 3rem;
+            scroll-margin-top: 100px;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .section h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        .section p {
+            margin-bottom: 1rem;
+            color: var(--gray-700);
+            line-height: 1.7;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box.blue {
+            background: var(--blue-light);
+            border-left: 4px solid var(--blue);
+        }
+
+        .highlight-box.amber {
+            background: var(--amber-light);
+            border-left: 4px solid var(--amber);
+        }
+
+        .highlight-box.green {
+            background: var(--green-light);
+            border-left: 4px solid var(--green);
+        }
+
+        .highlight-box.red {
+            background: var(--red-light);
+            border-left: 4px solid var(--red);
+        }
+
+        .highlight-box.purple {
+            background: var(--purple-light);
+            border-left: 4px solid var(--purple);
+        }
+
+        .highlight-box h4 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .highlight-box p {
+            font-size: 0.9375rem;
+            margin-bottom: 0;
+        }
+
+        /* Stat Box */
+        .stat-box {
+            background: var(--gray-900);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .stat-box p {
+            color: var(--gray-300);
+            margin-bottom: 0;
+        }
+
+        .stat-box strong {
+            color: var(--white);
+            font-size: 1.25rem;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .checklist-box {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--gray-300);
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .checklist-text {
+            color: var(--gray-700);
+        }
+
+        .checklist-text strong {
+            color: var(--gray-900);
+        }
+
+        /* Questions List */
+        .questions-list {
+            margin: 1.5rem 0;
+        }
+
+        .question-category {
+            margin-bottom: 2rem;
+        }
+
+        .question-category h4 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .question-category ul {
+            list-style: none;
+        }
+
+        .question-category li {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            position: relative;
+            color: var(--gray-600);
+            font-size: 0.9375rem;
+        }
+
+        .question-category li::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            color: var(--gray-400);
+            font-size: 1.25rem;
+            line-height: 1;
+        }
+
+        /* Decision Grid */
+        .decision-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .decision-card {
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .decision-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .decision-card ul {
+            list-style: none;
+        }
+
+        .decision-card li {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            padding: 0.375rem 0;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .decision-card li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--gray-400);
+        }
+
+        /* Assessment Form */
+        .assessment-form {
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .form-section {
+            margin-bottom: 2rem;
+        }
+
+        .form-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-section h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .form-row label {
+            flex: 1;
+            font-size: 0.9375rem;
+            color: var(--gray-700);
+        }
+
+        .form-row input[type="text"] {
+            width: 120px;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 6px;
+            font-size: 0.875rem;
+            text-align: right;
+        }
+
+        .form-options {
+            margin-top: 1rem;
+        }
+
+        .form-option {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+        }
+
+        .form-option input[type="checkbox"],
+        .form-option input[type="radio"] {
+            width: 18px;
+            height: 18px;
+        }
+
+        .form-option label {
+            font-size: 0.9375rem;
+            color: var(--gray-700);
+        }
+
+        /* Related Work */
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .related-card {
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s;
+        }
+
+        .related-card:hover {
+            border-color: var(--gray-300);
+            background: var(--gray-50);
+        }
+
+        .related-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-card p {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-bottom: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gray-900);
+            color: var(--white);
+            border-radius: 12px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .cta-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--white);
+        }
+
+        .cta-section p {
+            color: var(--gray-300);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .cta-section .btn-primary {
+            background: var(--white);
+            color: var(--gray-900);
+        }
+
+        .cta-section .btn-primary:hover {
+            background: var(--gray-100);
+        }
+
+        .cta-section .btn-outline {
+            border-color: var(--gray-600);
+            color: var(--white);
+        }
+
+        .cta-section .btn-outline:hover {
+            background: var(--gray-800);
+            border-color: var(--gray-500);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(4, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .footer-brand h3 span {
+            display: block;
+        }
+
+        .footer-column h4 {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-column a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.8125rem;
+            transition: color 0.2s;
+        }
+
+        .footer-column a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-800);
+        }
+
+        .footer-address {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            font-family: monospace;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.75rem;
+            color: var(--gray-500);
+        }
+
+        .footer-legal a {
+            color: var(--gray-500);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .decision-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content-header h1 {
+                font-size: 1.75rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .cta-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="healthcare-ai-guides-landing.html" class="logo">
+                <span>DIGITAL</span>
+                <span>SCIENTISTS</span>
+            </a>
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Capabilities</a></li>
+                    <li class="has-dropdown">
+                        <a href="healthcare-ai-guides-landing.html">AI Frameworks</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">Revenue Cycle AI</li>
+                            <li><a href="ar-collection-prioritization.html">A/R Collection Prioritization</a></li>
+                            <li><a href="claim-follow-up-triage.html">High-Risk Claim Triage</a></li>
+                            <li class="current-page"><a href="payer-contract-interpretation.html">Payer Contract Interpretation</a></li>
+                            <li class="divider"></li>
+                            <li><a href="healthcare-ai-guides-landing.html">View All Frameworks →</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Work</a></li>
+                    <li><a href="#">Insights</a></li>
+                </ul>
+                <a href="#" class="btn btn-primary">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <ol class="breadcrumb-list">
+            <li><a href="healthcare-ai-guides-landing.html">Healthcare AI Frameworks</a></li>
+            <li class="separator">/</li>
+            <li class="current">Payer Contract Interpretation</li>
+        </ol>
+    </nav>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="toc-title">On this page</div>
+            <ul class="toc-list">
+                <li><a href="#problem" class="active">The Problem in Dollar Terms</a></li>
+                <li><a href="#fit-assessment">5-Minute Fit Assessment</a></li>
+                <li><a href="#what-you-need">What You Need Ready</a></li>
+                <li><a href="#build-buy-partner">Build vs. Buy vs. Partner</a></li>
+                <li><a href="#red-flags">Red Flags: When to Wait</a></li>
+                <li><a href="#questions">Questions to Ask Vendors</a></li>
+                <li><a href="#self-assessment">Self-Assessment</a></li>
+                <li><a href="#related-work">Related Work</a></li>
+            </ul>
+        </aside>
+
+        <!-- Content -->
+        <main class="content">
+            <header class="content-header">
+                <h1>Payer Contract Interpretation & Revenue Recovery</h1>
+                <p class="subtitle">Is AI-Powered Contract Auditing Right for You?</p>
+            </header>
+
+            <!-- Hero CTA -->
+            <div class="hero-cta">
+                <div class="hero-cta-content">
+                    <div class="hero-cta-badge">Free Assessment</div>
+                    <h3>Discover how much revenue your contracts may be leaving behind</h3>
+                    <p>We'll analyze your contract complexity and remittance patterns to estimate potential recovery—with specific citations, not guesswork.</p>
+                    <a href="#" class="btn btn-primary">Schedule a 30-Minute Call →</a>
+                </div>
+                <div class="hero-cta-graphic">
+                    <svg viewBox="0 0 240 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Contract document -->
+                        <rect x="40" y="30" width="100" height="130" rx="4" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+                        <!-- Document header -->
+                        <rect x="50" y="40" width="60" height="8" rx="2" fill="rgba(255,255,255,0.3)"/>
+                        <!-- Document lines -->
+                        <line x1="50" y1="60" x2="130" y2="60" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="50" y1="72" x2="125" y2="72" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="50" y1="84" x2="128" y2="84" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
+                        <!-- Highlighted discrepancy line -->
+                        <rect x="48" y="93" width="85" height="14" rx="2" fill="rgba(251,191,36,0.25)"/>
+                        <line x1="50" y1="100" x2="130" y2="100" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+                        <!-- More lines -->
+                        <line x1="50" y1="116" x2="120" y2="116" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="50" y1="128" x2="115" y2="128" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
+                        <!-- Another highlighted line -->
+                        <rect x="48" y="137" width="70" height="14" rx="2" fill="rgba(34,197,94,0.2)"/>
+                        <line x1="50" y1="144" x2="115" y2="144" stroke="#22c55e" stroke-width="2" stroke-linecap="round"/>
+                        
+                        <!-- AI Scanner beam -->
+                        <rect x="145" y="55" width="4" height="90" rx="2" fill="url(#scanGradient)"/>
+                        <defs>
+                            <linearGradient id="scanGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#3b82f6" stop-opacity="0"/>
+                                <stop offset="50%" stop-color="#3b82f6" stop-opacity="1"/>
+                                <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+                            </linearGradient>
+                        </defs>
+                        
+                        <!-- Results/findings -->
+                        <rect x="160" y="45" width="60" height="28" rx="6" fill="rgba(251,191,36,0.2)" stroke="#fbbf24" stroke-width="1"/>
+                        <text x="175" y="55" fill="#fbbf24" font-size="8" font-weight="600">UNDERPAID</text>
+                        <text x="168" y="67" fill="rgba(255,255,255,0.6)" font-size="10">+$2,340</text>
+                        
+                        <rect x="160" y="83" width="60" height="28" rx="6" fill="rgba(34,197,94,0.15)" stroke="#22c55e" stroke-width="1"/>
+                        <text x="170" y="93" fill="#22c55e" font-size="8" font-weight="600">RECOVERED</text>
+                        <text x="168" y="105" fill="rgba(255,255,255,0.6)" font-size="10">+$1,890</text>
+                        
+                        <!-- Magnifying glass / search indicator -->
+                        <circle cx="185" cy="145" r="16" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>
+                        <line x1="196" y1="156" x2="208" y2="168" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
+                        <text x="178" y="149" fill="#3b82f6" font-size="14" font-weight="bold">$</text>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Problem Section -->
+            <section class="section" id="problem">
+                <h2>The Problem in Dollar Terms</h2>
+                <p>You're almost certainly being underpaid on some percentage of your claims—and you don't know which ones.</p>
+                <p>Payer contracts are dense, multi-hundred-page documents with carve-outs, fee schedule escalators, service-specific provisions, and amendment layers accumulated over years of renegotiation. No human can hold all of that complexity in their head while reviewing thousands of remittances per week.</p>
+                <p>The result: systematic underpayment. Not fraud—just payers applying their interpretation of ambiguous language, and providers lacking the bandwidth to catch every discrepancy.</p>
+
+                <div class="stat-box">
+                    <p>Most healthcare organizations leave <strong>1-3% of net revenue</strong> on the table due to contract underpayment they never identify. For an organization with $50M in net patient revenue, that's <strong>$500K-$1.5M annually</strong>—not in new revenue, but in revenue you've already earned and simply aren't collecting.</p>
+                </div>
+
+                <div class="highlight-box blue">
+                    <h4>What AI-powered contract interpretation does:</h4>
+                    <p>A system ingests your complete payer contract library—PDFs, amendments, fee schedules—and builds a structured understanding of what you should be paid for each service. It then compares every remittance against those contractual terms and flags claims where payment appears below allowable, citing the specific contract language. No more spot-checking. No more "we think they might be underpaying." Systematic identification with documentation ready for appeal.</p>
+                </div>
+
+                <p>The document intelligence challenge here is similar to what we solved in our MDS Optimization work—where NLP scans provider notes and progress reports to surface coding opportunities and flag inconsistencies. The difference is the source material (contracts vs. clinical documentation) and the output (underpayment flags vs. assessment recommendations), but the underlying capability is the same: extracting structured, actionable intelligence from complex healthcare documents.</p>
+            </section>
+
+            <!-- Fit Assessment -->
+            <section class="section" id="fit-assessment">
+                <h2>The 5-Minute Fit Assessment</h2>
+                <p>This solution isn't right for everyone. Check what applies:</p>
+
+                <ul class="checklist">
+                    <li>
+                        <div class="checklist-box"></div>
+                        <div class="checklist-text"><strong>You have multiple payer contracts with different terms</strong><br>If you have one dominant payer with straightforward fee schedules, manual auditing may suffice. The complexity advantage emerges with 5+ contracts, each with unique provisions.</div>
+                    </li>
+                    <li>
+                        <div class="checklist-box"></div>
+                        <div class="checklist-text"><strong>Your contracts include provisions beyond simple fee schedules</strong><br>Carve-outs for specific services, escalators tied to volume or quality metrics, outlier provisions, case rate calculations—this is where underpayment hides.</div>
+                    </li>
+                    <li>
+                        <div class="checklist-box"></div>
+                        <div class="checklist-text"><strong>You don't have dedicated staff auditing every remittance against contracts</strong><br>If you're spot-checking 10% of remittances or only auditing when something looks wrong, you're missing underpayment on the other 90%.</div>
+                    </li>
+                    <li>
+                        <div class="checklist-box"></div>
+                        <div class="checklist-text"><strong>Your contract management is document-based, not structured data</strong><br>If your contracts live in PDFs and Word documents rather than a centralized system that maps payments to terms, there's no way to audit systematically.</div>
+                    </li>
+                    <li>
+                        <div class="checklist-box"></div>
+                        <div class="checklist-text"><strong>You've had successful payment appeals in the past</strong><br>If you've won appeals on underpayment issues, that confirms the problem exists. The question is how much you're missing that you never identified.</div>
+                    </li>
+                    <li>
+                        <div class="checklist-box"></div>
+                        <div class="checklist-text"><strong>Someone owns contract performance</strong><br>You need an internal champion—managed care director, CFO, revenue cycle VP—who cares about contractual reimbursement accuracy and will act on findings.</div>
+                    </li>
+                </ul>
+
+                <div class="highlight-box green">
+                    <p>If you checked 4 or more, this is likely high-value. Fewer than 3 suggests you may have simpler contract structures where manual processes work.</p>
+                </div>
+            </section>
+
+            <!-- What You Need -->
+            <section class="section" id="what-you-need">
+                <h2>What You Need to Have Ready</h2>
+
+                <h3>Your contract library (the raw material)</h3>
+                <p>This solution depends on having your actual contracts—the documents that specify what you're owed. That includes:</p>
+                <ul style="margin: 1rem 0 1rem 1.5rem; color: var(--gray-700);">
+                    <li>Base contracts for each payer</li>
+                    <li>All amendments and addendums</li>
+                    <li>Current fee schedules</li>
+                    <li>Any side letters or negotiated exceptions</li>
+                </ul>
+                <p>Many organizations discover their contract library is incomplete. Finding those missing documents is often step one.</p>
+
+                <h3>Remittance data (the comparison point)</h3>
+                <p>You need electronic remittance data (835s) or detailed payment records that can be matched to contract terms. The more history, the more potential recovery. Most implementations start with 6-12 months of remittance data.</p>
+
+                <h3>No EHR integration required</h3>
+                <p>This is a billing/finance solution. You don't need clinical data. You don't need EHR access. The data sources are contracts (documents) and payments (835s/remittances).</p>
+
+                <h3>Realistic expectations on timeline</h3>
+                <p>Contract ingestion takes time. A typical implementation: 4-6 weeks to process contracts and build the knowledge base, then ongoing comparison against new remittances. Initial findings often surface in weeks, but comprehensive results take 2-3 months.</p>
+
+                <h3>Appeal and recovery capacity</h3>
+                <p>Identifying underpayment is only valuable if you pursue recovery. You need staff (or a partner) who will file appeals, negotiate with payers, and follow through. Some organizations use contract interpretation findings to inform renegotiation rather than individual appeals.</p>
+            </section>
+
+            <!-- Build vs Buy vs Partner -->
+            <section class="section" id="build-buy-partner">
+                <h2>The Build vs. Buy vs. Partner Decision</h2>
+
+                <div class="decision-grid">
+                    <div class="decision-card">
+                        <h4>Build internally if:</h4>
+                        <ul>
+                            <li>You have NLP/document AI expertise in-house</li>
+                            <li>Your contracts are relatively standardized</li>
+                            <li>You're willing to maintain and update the system as contracts change</li>
+                            <li>You want full control over the methodology</li>
+                        </ul>
+                    </div>
+                    <div class="decision-card">
+                        <h4>Buy off-the-shelf if:</h4>
+                        <ul>
+                            <li>Your contracts are similar to the vendor's existing knowledge base</li>
+                            <li>You're comfortable with their interpretation methodology</li>
+                            <li>You want predictable subscription costs</li>
+                            <li>You can accept some false positives</li>
+                        </ul>
+                    </div>
+                    <div class="decision-card">
+                        <h4>Partner for custom if:</h4>
+                        <ul>
+                            <li>Your contracts include unusual or highly negotiated provisions</li>
+                            <li>You want high-precision identification (fewer false positives)</li>
+                            <li>You need help with recovery, not just identification</li>
+                            <li>You want the system to learn from your appeals outcomes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="highlight-box amber">
+                    <h4>Reality check:</h4>
+                    <p>Contract interpretation is a hard NLP problem. The nuance in healthcare payer contracts—nested conditions, cross-referenced fee schedules, effective date complexities—defeats most general-purpose document AI. Building this well takes specialized expertise.</p>
+                </div>
+
+                <p>The limitation of off-the-shelf: tools that haven't seen your specific contracts may misinterpret unique provisions. Your negotiated terms are, by definition, different from industry standard.</p>
+
+                <p>The investment for custom is higher. The precision is also higher. And unlike claims prioritization, this is a domain where your proprietary data—your actual contracts—is genuinely unique. No vendor has trained on your negotiated terms.</p>
+
+                <p>Our work with CommuniCare Advantage involved a similar challenge: making sense of a complex ecosystem. They had 60+ digital products, fragmented data sources, and no systematic way to understand what was happening across their operation. We built a consolidated data environment and PowerBI reporting that gave leadership visibility they'd never had. Contract interpretation requires the same discipline—taking disparate, complex information and creating structured intelligence that drives action.</p>
+
+                <h3>Hybrid approach:</h3>
+                <p>Many organizations start with a sampling exercise: manually audit 100 randomly selected remittances against contract terms. If you find underpayment in 2-5% of claims, the math supports investment. If you find negligible variance, your payers may actually be paying correctly.</p>
+            </section>
+
+            <!-- Red Flags -->
+            <section class="section" id="red-flags">
+                <h2>Red Flags: When to Wait</h2>
+
+                <ul class="checklist">
+                    <li>
+                        <div class="checklist-box"></div>
+                        <div class="checklist-text"><strong>Your contract library is incomplete or disorganized</strong><br>If you can't locate current contracts for your major payers, fix that first. The AI can only interpret contracts you can provide.</div>
+                    </li>
+                    <li>
+                        <div class="checklist-box"></div>
+                        <div class="checklist-text"><strong>You're mid-contract renegotiation</strong><br>If major payer contracts are being renegotiated in the next 6 months, wait. The system will need to re-learn the new terms anyway.</div>
+                    </li>
+                    <li>
+                        <div class="checklist-box"></div>
+                        <div class="checklist-text"><strong>You have no recovery capacity</strong><br>Identifying underpayment without pursuing recovery is an expensive exercise in frustration. Make sure you have staff or partners who will act on findings.</div>
+                    </li>
+                    <li>
+                        <div class="checklist-box"></div>
+                        <div class="checklist-text"><strong>Your major payers use standard rates with minimal negotiation</strong><br>If your top payers are Medicare/Medicaid with standard fee schedules, there's less room for interpretation variance. The complexity advantage emerges with commercially negotiated contracts.</div>
+                    </li>
+                    <li>
+                        <div class="checklist-box"></div>
+                        <div class="checklist-text"><strong>You're in a cash crisis</strong><br>Contract recovery takes time—identifying underpayment, filing appeals, waiting for responses. If you need cash in 30 days, this isn't the lever. This is a 6-12 month play.</div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Questions to Ask -->
+            <section class="section" id="questions">
+                <h2>Questions to Ask Any Vendor</h2>
+
+                <div class="questions-list">
+                    <div class="question-category">
+                        <h4>On methodology:</h4>
+                        <ul>
+                            <li>How do you handle contract ambiguity? When contract language could be interpreted multiple ways, how does your system decide?"</li>
+                            <li>What's your false positive rate? What percentage of flagged underpayments turn out to be correct payments on investigation?"</li>
+                            <li>How do you handle amendments and fee schedule updates? Does someone need to manually input changes?"</li>
+                            <li>Show me how you interpret a complex provision—walk me through your reasoning."</li>
+                        </ul>
+                    </div>
+
+                    <div class="question-category">
+                        <h4>On your specific contracts:</h4>
+                        <ul>
+                            <li>Have you worked with contracts from [our major payers] before?"</li>
+                            <li>What happens when you encounter provisions you haven't seen?"</li>
+                            <li>Can I see example interpretations from contracts similar to ours?"</li>
+                        </ul>
+                    </div>
+
+                    <div class="question-category">
+                        <h4>On implementation:</h4>
+                        <ul>
+                            <li>What format do you need contracts in? Can you handle scanned PDFs or only text-searchable?"</li>
+                            <li>How long until we see first findings? How long until comprehensive results?"</li>
+                            <li>What does the output look like? A list of underpaid claims? Documentation for appeals?"</li>
+                        </ul>
+                    </div>
+
+                    <div class="question-category">
+                        <h4>On results:</h4>
+                        <ul>
+                            <li>What's the typical recovery rate for organizations similar to ours?"</li>
+                            <li>Can you share a reference where you identified $X in underpayment? Can I call them?"</li>
+                            <li>Do you help with appeals, or just identification?"</li>
+                            <li>Are you willing to tie compensation to recovery, not just identification?"</li>
+                        </ul>
+                    </div>
+
+                    <div class="question-category">
+                        <h4>On sustainability:</h4>
+                        <ul>
+                            <li>When contracts change, what's the process to update the system?"</li>
+                            <li>Who owns the contract interpretations you develop—us or you?"</li>
+                            <li>What happens if a payer disputes your interpretation?"</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Self Assessment -->
+            <section class="section" id="self-assessment">
+                <h2>Where to Start: The Self-Assessment</h2>
+
+                <div class="assessment-form">
+                    <div class="form-section">
+                        <h4>Size your exposure:</h4>
+                        <div class="form-row">
+                            <label>1. How many distinct payer contracts do you have?</label>
+                            <input type="text" placeholder="___">
+                        </div>
+                        <div class="form-row">
+                            <label>2. What's your total annual commercial payer revenue?</label>
+                            <input type="text" placeholder="$___">
+                        </div>
+                        <div class="form-row">
+                            <label>3. When did you last systematically audit payments against contract terms?</label>
+                            <input type="text" placeholder="___">
+                        </div>
+                        <p style="margin-top: 1rem;">4. What percentage of contract provisions include complexity beyond basic fee schedules?</p>
+                        <div class="form-options">
+                            <div class="form-option">
+                                <input type="radio" name="complexity" id="straightforward">
+                                <label for="straightforward">Most contracts are straightforward fee schedules</label>
+                            </div>
+                            <div class="form-option">
+                                <input type="radio" name="complexity" id="some-complex">
+                                <label for="some-complex">Some contracts have carve-outs, escalators, or case rate provisions</label>
+                            </div>
+                            <div class="form-option">
+                                <input type="radio" name="complexity" id="most-complex">
+                                <label for="most-complex">Most contracts include complex provisions</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h4>Assess your current process:</h4>
+                        <p>5. How do you currently identify potential underpayment?</p>
+                        <div class="form-options">
+                            <div class="form-option">
+                                <input type="checkbox" id="audit-sample">
+                                <label for="audit-sample">We audit a sample of remittances regularly</label>
+                            </div>
+                            <div class="form-option">
+                                <input type="checkbox" id="investigate-low">
+                                <label for="investigate-low">We investigate when payment amounts seem low</label>
+                            </div>
+                            <div class="form-option">
+                                <input type="checkbox" id="rely-payers">
+                                <label for="rely-payers">We primarily rely on payers to pay correctly</label>
+                            </div>
+                            <div class="form-option">
+                                <input type="checkbox" id="automated">
+                                <label for="automated">We have automated contract management with systematic comparison</label>
+                            </div>
+                        </div>
+                        <div class="form-row" style="margin-top: 1rem;">
+                            <label>6. How often do you file appeals for contractual underpayment?</label>
+                            <input type="text" placeholder="___/month">
+                        </div>
+                        <div class="form-row">
+                            <label>7. What's your success rate on those appeals?</label>
+                            <input type="text" placeholder="___%">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h4>Estimate your opportunity:</h4>
+                        <p>Industry benchmarks suggest 1-3% of commercial payments include some degree of contract interpretation variance. For many organizations, 30-50% of identified underpayment is recoverable through appeals.</p>
+                        <p style="margin-top: 1rem;">For an organization with $30M in commercial revenue:</p>
+                        <ul style="margin: 1rem 0 1rem 1.5rem; color: var(--gray-700);">
+                            <li>2% potential underpayment = $600K annually</li>
+                            <li>40% recovery rate = <strong>$240K annually</strong></li>
+                            <li>Typical identification in initial analysis: 6-12 months of recoverable underpayment</li>
+                        </ul>
+                        <p>The math changes based on contract complexity, payer mix, and recovery capacity—but for most organizations with significant commercial volume, the numbers work.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Related Work -->
+            <section class="section" id="related-work">
+                <h2>Related Work</h2>
+                <p>Contract interpretation requires document intelligence, data integration, and the ability to surface actionable findings. We've applied these capabilities across healthcare contexts:</p>
+
+                <div class="related-grid">
+                    <a href="#" class="related-card">
+                        <h4>MDS Optimization</h4>
+                        <p>NLP that scans clinical documentation to surface reimbursement opportunities and flag coding inconsistencies. The document intelligence challenge—extracting structured insights from complex healthcare text—is directly analogous to contract interpretation.</p>
+                    </a>
+                    <a href="#" class="related-card">
+                        <h4>CommuniCare Advantage</h4>
+                        <p>Ecosystem audit across 60+ systems, consolidated into a single source of truth with compliance reporting. Demonstrates our ability to make sense of complex, fragmented information environments.</p>
+                    </a>
+                    <a href="#" class="related-card">
+                        <h4>Never Alone Platform</h4>
+                        <p>From MVP to 7-state ecosystem in 18 months, demonstrating our approach to long-term partnership. Contract interpretation isn't a one-time project—it requires ongoing maintenance as contracts change.</p>
+                    </a>
+                    <a href="#" class="related-card">
+                        <h4>McKesson 3PL Portal</h4>
+                        <p>Product blueprint for a next-generation client portal that transformed data access from confusing multi-step exports to intuitive self-service. The challenge—making complex data accessible and actionable—parallels contract interpretation.</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="cta-section">
+                <h2>Ready for a Conversation?</h2>
+                <p>If this framework suggests you have meaningful underpayment exposure, we're happy to discuss what a contract interpretation implementation might look like. We'll start by understanding your contract complexity and payer mix. No pitch on the first call—just an honest assessment.</p>
+                <div class="cta-actions">
+                    <a href="#" class="btn btn-primary">Schedule a 30-minute conversation →</a>
+                    <a href="#" class="btn btn-outline">Download the Contract Complexity Scorecard</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3><span>DIGITAL</span><span>SCIENTISTS</span></h3>
+                    <p style="color: var(--gray-400); font-size: 0.875rem; margin-top: 1rem;">We build custom AI solutions for healthcare organizations. We help finance teams turn complex payer contracts into structured intelligence that identifies underpayment and supports recovery.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Frameworks</h4>
+                    <ul>
+                        <li><a href="ar-collection-prioritization.html">A/R Collection</a></li>
+                        <li><a href="claim-follow-up-triage.html">Claim Triage</a></li>
+                        <li><a href="payer-contract-interpretation.html">Contract Interpretation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Case Studies</h4>
+                    <ul>
+                        <li><a href="#">MDS Optimization</a></li>
+                        <li><a href="#">RAF Score</a></li>
+                        <li><a href="#">Never Alone</a></li>
+                        <li><a href="#">CommuniCare</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">Our story</a></li>
+                        <li><a href="#">Insights</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#">Schedule a call</a></li>
+                        <li><a href="#">404.654.3855</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-address">
+                    21 south main street<br>
+                    alpharetta, ga 30009
+                </div>
+                <div class="footer-legal">
+                    <span>© 1997 - 2025 Digital Scientists, LLC.</span>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

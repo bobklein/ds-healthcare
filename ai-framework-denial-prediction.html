@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Denial Prediction AI | Healthcare AI Framework | Digital Scientists</title>
+    <meta name="description" content="Predict and prevent claim denials before submission. Learn how AI-powered denial prediction can reduce denial rates by 25-50% and cut A/R days by 2-5 days.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dsBlue: '#304FFF',
+                        dsBlack: '#050505',
+                        dsGray: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is claim denial prediction AI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Claim denial prediction AI uses machine learning trained on your historical denial patterns to predict which claims are likely to be denied before submission. The system identifies specific error types—missing documentation, coding mismatches, authorization gaps—allowing staff to correct issues before the claim leaves your organization."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much can AI reduce healthcare claim denials?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Organizations typically see 2-5% improvement in clean claim rate, 25-50% reduction in denial write-offs, and 2-5 day reduction in A/R days. For a health system processing $100M in claims annually with 8% denial rate, this could mean $800K-2M in recovered revenue."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How long does denial prediction AI take to implement?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Implementation typically takes 14-20 weeks: 4-6 weeks for data integration and model training on 2-3 years of historical claims, 4-6 weeks for workflow integration, and 4-8 weeks for parallel testing and optimization."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What data is needed for denial prediction AI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Required: 2-3 years of historical claims with denial outcomes, denial reason codes, and claim details. Beneficial: EHR documentation signals, prior authorization data, and payer contract terms for enhanced accuracy."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="font-sans text-dsBlack bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-gray-200">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="healthcare-ai-guides-landing.html" class="text-sm font-bold uppercase tracking-wider">
+                    Digital<br>Scientists
+                </a>
+                <div class="flex items-center gap-6">
+                    <a href="healthcare-ai-guides-landing.html" class="text-sm text-gray-600 hover:text-dsBlack">All Frameworks</a>
+                    <a href="ds-healthcare-v3-updated.html" class="text-sm text-gray-600 hover:text-dsBlack">Healthcare AI</a>
+                    <a href="healthcare-assessment.html" class="bg-dsBlue text-white px-4 py-2 text-sm font-medium rounded-full hover:bg-dsBlack transition">Get Assessment</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="pt-24 pb-4 px-6 border-b border-gray-100">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-2 text-sm text-gray-500">
+                <a href="healthcare-ai-guides-landing.html" class="hover:text-dsBlue">AI Frameworks</a>
+                <span>/</span>
+                <span class="text-gray-400">Building Momentum</span>
+                <span>/</span>
+                <span class="text-dsBlack">Denial Prediction</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <header class="py-12 px-6 bg-gradient-to-br from-dsBlack to-gray-800 text-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="bg-amber-500/20 text-amber-300 text-xs font-medium px-3 py-1 rounded-full">Medium Complexity</span>
+                <span class="text-gray-400 text-sm">14-20 weeks to deploy</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Claim Denial Prediction</h1>
+            <p class="text-xl text-gray-300 mb-6">Predict which claims will deny before submission—and fix them before they become rework.</p>
+            <div class="grid grid-cols-3 gap-6 pt-6 border-t border-white/20">
+                <div>
+                    <span class="text-3xl font-bold text-dsBlue">25-50%</span>
+                    <p class="text-gray-400 text-sm">Reduction in denial write-offs</p>
+                </div>
+                <div>
+                    <span class="text-3xl font-bold">2-5%</span>
+                    <p class="text-gray-400 text-sm">Clean claim rate improvement</p>
+                </div>
+                <div>
+                    <span class="text-3xl font-bold">2-5</span>
+                    <p class="text-gray-400 text-sm">Days reduction in A/R</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-12 px-6">
+        <div class="max-w-4xl mx-auto">
+            
+            <!-- Problem Section -->
+            <section class="mb-16" id="problem">
+                <h2 class="text-2xl font-bold mb-6">The Problem in Dollar Terms</h2>
+                
+                <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg mb-6">
+                    <h3 class="font-semibold text-red-900 mb-2">The true cost of denials</h3>
+                    <p class="text-red-800">A health system with $100M in annual claims at 8% initial denial rate faces $8M in at-risk revenue. Even with 60% recovery through appeals, that's <strong>$3.2M in write-offs</strong>—plus $25-35 per claim in rework costs. Most of these denials were preventable.</p>
+                </div>
+
+                <p class="text-gray-700 mb-4">The industry average initial denial rate hovers around 5-10%, but here's what the numbers miss: every denied claim costs $25-35 to rework, takes 14-21 additional days to resolve, and still fails 40% of the time on appeal. The real cost isn't the denial—it's the cascade of rework, delayed cash, and eventual write-offs.</p>
+
+                <p class="text-gray-700 mb-4">Most denial prevention today is reactive. You analyze last month's denials, find patterns, update your scrubbing rules, and hope the same issues don't recur. But denial patterns shift constantly—payer rules change, new services launch, staff turn over—and static rules can't keep up.</p>
+
+                <h3 class="font-semibold text-lg mt-8 mb-4">What denial prediction actually does</h3>
+                <p class="text-gray-700 mb-4">A predictive model analyzes each claim before submission and assigns a denial risk score based on:</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
+                    <li><strong>Claim characteristics:</strong> Procedure codes, diagnosis codes, modifiers, place of service</li>
+                    <li><strong>Payer patterns:</strong> Historical denial rates by payer, plan, and service type</li>
+                    <li><strong>Provider patterns:</strong> Which providers/coders have higher denial rates for which services</li>
+                    <li><strong>Documentation signals:</strong> Missing elements, unsigned notes, pending authorizations</li>
+                    <li><strong>Timing factors:</strong> Claims submitted near timely filing deadlines, retroactive eligibility</li>
+                </ul>
+
+                <p class="text-gray-700">High-risk claims get flagged with specific reasons—"likely to deny for medical necessity, missing documentation element X"—so staff can fix issues before submission rather than fighting appeals later.</p>
+            </section>
+
+            <!-- Fit Assessment -->
+            <section class="mb-16" id="fit-assessment">
+                <h2 class="text-2xl font-bold mb-6">The 5-Minute Fit Assessment</h2>
+                <p class="text-gray-600 mb-6">Check the boxes that apply. Four or more? This is worth exploring. Fewer than three? Start with simpler revenue cycle improvements first.</p>
+
+                <div class="space-y-4">
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">Your initial denial rate exceeds 5%</strong>
+                            <p class="text-gray-600 text-sm">Below 5%, you're already performing well and the marginal gains shrink. Above 8%, there's almost certainly significant preventable denials.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">You have 2-3 years of claims history with denial outcomes</strong>
+                            <p class="text-gray-600 text-sm">The model needs to learn YOUR denial patterns—which payers deny which services for which reasons. Less history means less accurate predictions.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">You process at least 10,000 claims per month</strong>
+                            <p class="text-gray-600 text-sm">Lower volumes don't generate enough denial signal for meaningful pattern detection. The ROI calculation also requires scale.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">Your denials are diverse (not one root cause)</strong>
+                            <p class="text-gray-600 text-sm">If 80% of your denials come from one fixable issue (e.g., missing prior auth), fix that first. AI shines when denial patterns are complex and multifactorial.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">Someone can act on predictions before claim submission</strong>
+                            <p class="text-gray-600 text-sm">You need a workflow where flagged claims can be reviewed and corrected. If claims auto-drop without human review, you need a process change.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">You can connect claims data to documentation</strong>
+                            <p class="text-gray-600 text-sm">The best predictions incorporate documentation signals. If you can't link claims to clinical notes, you can still proceed but with reduced accuracy.</p>
+                        </div>
+                    </label>
+                </div>
+            </section>
+
+            <!-- What You Need -->
+            <section class="mb-16" id="what-you-need">
+                <h2 class="text-2xl font-bold mb-6">What You Need to Have Ready</h2>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+                        <h3 class="font-semibold text-green-900 mb-3">✓ Required</h3>
+                        <ul class="text-green-800 space-y-2 text-sm">
+                            <li>• 2-3 years of claims with denial outcomes</li>
+                            <li>• Denial reason codes (CARC/RARC)</li>
+                            <li>• Claim details (CPT, ICD-10, modifiers, payer)</li>
+                            <li>• Submission and adjudication dates</li>
+                            <li>• Provider and facility identifiers</li>
+                        </ul>
+                    </div>
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                        <h3 class="font-semibold text-blue-900 mb-3">◐ Significantly enhances accuracy</h3>
+                        <ul class="text-blue-800 space-y-2 text-sm">
+                            <li>• EHR documentation (for completeness signals)</li>
+                            <li>• Prior authorization status</li>
+                            <li>• Patient eligibility verification timing</li>
+                            <li>• Coder/biller identifiers (for pattern detection)</li>
+                            <li>• Appeal outcomes (to weight denial severity)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="font-semibold text-lg mb-4">The organizational requirement</h3>
+                <p class="text-gray-700 mb-4"><strong>Pre-submission review workflow:</strong> This only works if you can pause claims before they go out. Whether that's a queue for billing staff, an integration with your clearinghouse, or a hold on auto-drop—you need a mechanism to act on predictions.</p>
+                <p class="text-gray-700 mb-4"><strong>Cross-functional buy-in:</strong> Denial prevention often requires action from multiple teams—coding, clinical documentation, prior auth, billing. If these teams are siloed and won't collaborate, predictions go nowhere.</p>
+                <p class="text-gray-700"><strong>Tolerance for false positives:</strong> The model will sometimes flag claims that would have paid. Staff need to understand they're trading some unnecessary reviews for significantly reduced denials.</p>
+            </section>
+
+            <!-- Build vs Buy -->
+            <section class="mb-16" id="build-buy-partner">
+                <h2 class="text-2xl font-bold mb-6">Build vs. Buy vs. Partner</h2>
+
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-3">Build internally when:</h3>
+                        <ul class="text-gray-600 text-sm space-y-2">
+                            <li>• You have data scientists with healthcare billing expertise</li>
+                            <li>• You can dedicate 6-12 months to development</li>
+                            <li>• You want complete control over model logic</li>
+                            <li>• You have resources for ongoing maintenance and retraining</li>
+                        </ul>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-3">Buy off-the-shelf when:</h3>
+                        <ul class="text-gray-600 text-sm space-y-2">
+                            <li>• Your denial patterns are typical for your specialty</li>
+                            <li>• You want quick deployment with minimal setup</li>
+                            <li>• You're okay with industry-average predictions</li>
+                            <li>• Your payer mix is common (major nationals)</li>
+                        </ul>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-6 border-dsBlue bg-blue-50/30">
+                        <h3 class="font-semibold mb-3">Partner for custom when:</h3>
+                        <ul class="text-gray-600 text-sm space-y-2">
+                            <li>• You have unique payer contracts with specific requirements</li>
+                            <li>• Your service mix includes complex procedures</li>
+                            <li>• You want the model trained on YOUR denial patterns</li>
+                            <li>• You need deep integration with existing workflows</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg">
+                    <h3 class="font-semibold text-amber-900 mb-2">Why your data matters</h3>
+                    <p class="text-amber-800 text-sm">Denial patterns are organization-specific. The payer that denies everything at Health System A may pay clean at Health System B—because of different contracts, different documentation practices, different coding conventions. Generic models trained on industry data miss these patterns entirely.</p>
+                </div>
+            </section>
+
+            <!-- Red Flags -->
+            <section class="mb-16" id="red-flags">
+                <h2 class="text-2xl font-bold mb-6">Red Flags: When to Wait</h2>
+
+                <div class="space-y-4">
+                    <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+                        <h3 class="font-semibold text-red-900 mb-2">Your denial data is incomplete or unreliable</h3>
+                        <p class="text-red-700 text-sm">If denial reason codes aren't consistently captured, or claims are marked "denied" without details, fix your data capture first. The model can only learn from what you record.</p>
+                    </div>
+
+                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-2">You're changing billing systems or clearinghouses</h3>
+                        <p class="text-gray-600 text-sm">Model training depends on stable data sources. If you're migrating within 12 months, wait until the new system is established.</p>
+                    </div>
+
+                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-2">One issue drives 80% of denials</h3>
+                        <p class="text-gray-600 text-sm">If most denials come from a single root cause—missing prior auth, eligibility issues, one problematic payer—fix that specific issue first. AI shines on complex, multifactorial patterns.</p>
+                    </div>
+
+                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-2">No one reviews claims before submission</h3>
+                        <p class="text-gray-600 text-sm">If claims auto-drop to payers without human review, you need a workflow change before predictions have value. Build the review process first.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Questions to Ask Vendors -->
+            <section class="mb-16" id="questions">
+                <h2 class="text-2xl font-bold mb-6">Questions to Ask Any Vendor</h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-semibold text-dsBlue mb-3">On their model:</h3>
+                        <ul class="text-gray-700 space-y-2 text-sm">
+                            <li>"Does your model train on our historical denials, or industry averages?"</li>
+                            <li>"What features drive predictions? Can you show feature importance for our data?"</li>
+                            <li>"How do you handle payer-specific denial patterns?"</li>
+                            <li>"What's your false positive rate? How many good claims will we review unnecessarily?"</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-semibold text-dsBlue mb-3">On implementation:</h3>
+                        <ul class="text-gray-700 space-y-2 text-sm">
+                            <li>"Where in the workflow do predictions appear? Before or after claim scrubbing?"</li>
+                            <li>"What specific actions do you recommend when a claim is flagged?"</li>
+                            <li>"How does the system integrate with our clearinghouse or billing software?"</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-semibold text-dsBlue mb-3">On results:</h3>
+                        <ul class="text-gray-700 space-y-2 text-sm">
+                            <li>"What reduction in denial rate should we expect? Show me comparable customers."</li>
+                            <li>"How long before we see statistically significant improvement?"</li>
+                            <li>"Are you willing to tie fees to denial reduction outcomes?"</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ROI Calculator -->
+            <section class="mb-16 bg-dsGray rounded-2xl p-8" id="calculator">
+                <h2 class="text-2xl font-bold mb-6">Quick ROI Estimate</h2>
+                <p class="text-gray-600 mb-6">Plug in your numbers for a rough estimate of potential value.</p>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Annual claims volume ($)</label>
+                        <input type="number" placeholder="100000000" class="w-full border border-gray-300 rounded-lg px-4 py-3">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Current denial rate (%)</label>
+                        <input type="number" placeholder="8" class="w-full border border-gray-300 rounded-lg px-4 py-3">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Current appeal success rate (%)</label>
+                        <input type="number" placeholder="60" class="w-full border border-gray-300 rounded-lg px-4 py-3">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Expected denial reduction (%)</label>
+                        <input type="number" placeholder="30" class="w-full border border-gray-300 rounded-lg px-4 py-3">
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg p-6 border border-gray-200">
+                    <p class="text-sm text-gray-600 mb-2">Estimated annual value recovery:</p>
+                    <p class="text-3xl font-bold text-dsBlue">$800,000 - $1,600,000</p>
+                    <p class="text-sm text-gray-500 mt-2">Based on $100M claims, 8% denial rate, 60% appeal success, 25-50% denial reduction</p>
+                </div>
+            </section>
+
+            <!-- Related Frameworks -->
+            <section class="mb-16" id="related">
+                <h2 class="text-2xl font-bold mb-6">Related Frameworks</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <a href="ai-framework-coding-assistance.html" class="border border-gray-200 rounded-lg p-6 hover:border-dsBlue transition group">
+                        <span class="text-xs text-amber-600 font-medium">Medium Complexity</span>
+                        <h3 class="font-semibold mt-2 group-hover:text-dsBlue transition">Medical Coding Assistance</h3>
+                        <p class="text-gray-600 text-sm mt-2">AI-assisted coding to improve accuracy and reduce denial risk at the source.</p>
+                    </a>
+                    <a href="payer-contract-interpretation.html" class="border border-gray-200 rounded-lg p-6 hover:border-dsBlue transition group">
+                        <span class="text-xs text-green-600 font-medium">Quick Win</span>
+                        <h3 class="font-semibold mt-2 group-hover:text-dsBlue transition">Payer Contract Interpretation</h3>
+                        <p class="text-gray-600 text-sm mt-2">Ensure you're paid per contract terms—catch underpayments automatically.</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="bg-dsBlue text-white rounded-2xl p-8 text-center">
+                <h2 class="text-2xl font-bold mb-4">Ready to explore denial prediction for your organization?</h2>
+                <p class="text-blue-100 mb-6 max-w-xl mx-auto">We'll analyze your denial patterns and estimate the potential impact—no commitment, no sales pitch, just data.</p>
+                <div class="flex gap-4 justify-center">
+                    <a href="healthcare-assessment.html" class="bg-white text-dsBlack px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition">Get Assessment</a>
+                    <a href="healthcare-ai-guides-landing.html" class="border border-white/30 text-white px-6 py-3 rounded-full font-medium hover:bg-white/10 transition">View All Frameworks</a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dsBlack text-white py-12 px-6 mt-16">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="font-bold text-sm uppercase tracking-wider mb-4">Digital Scientists</h3>
+                    <p class="text-gray-400 text-sm">Custom AI solutions for healthcare organizations.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-sm mb-4">Quick Win Frameworks</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="ar-collection-prioritization.html" class="hover:text-white">A/R Collection Prioritization</a></li>
+                        <li><a href="claim-follow-up-triage.html" class="hover:text-white">Claim Follow-Up Triage</a></li>
+                        <li><a href="payer-contract-interpretation.html" class="hover:text-white">Payer Contract Interpretation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-sm mb-4">Building Momentum</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="ai-framework-no-show-prediction.html" class="hover:text-white">No-Show Prediction</a></li>
+                        <li><a href="ai-framework-denial-prediction.html" class="hover:text-white">Denial Prediction</a></li>
+                        <li><a href="ai-framework-coding-assistance.html" class="hover:text-white">Coding Assistance</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-sm mb-4">Strategic Investments</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="ai-framework-discharge-planning.html" class="hover:text-white">Discharge Planning</a></li>
+                        <li><a href="ai-framework-cdi-auditor.html" class="hover:text-white">CDI Auditor</a></li>
+                        <li><a href="ai-framework-clinical-trials.html" class="hover:text-white">Clinical Trial Matching</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2025 Digital Scientists. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
