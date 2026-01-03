@@ -27,7 +27,91 @@
         body { font-family: 'Inter', system-ui, sans-serif; }
         h1, h2, h3 { letter-spacing: -0.02em; }
         
+        /* Lightbox styles for enlargeable images */
+        .enlargeable-container {
+            position: relative;
+            cursor: zoom-in;
+        }
+        .enlargeable-container::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            width: 28px;
+            height: 28px;
+            background: rgba(0,0,0,0.6);
+            border-radius: 6px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7'/%3E%3C/svg%3E");
+            background-size: 18px;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .enlargeable-container:hover::after {
+            opacity: 1;
+        }
         
+        /* Lightbox modal */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            cursor: zoom-out;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .lightbox-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-content {
+            max-width: 95%;
+            max-height: 95%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        .lightbox-close:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .lightbox-close svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+        }
+        .lightbox-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            max-width: 80%;
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body class="bg-white text-dsBlack antialiased">
@@ -227,7 +311,7 @@
     <!-- Hero Image -->
     <section class="px-6 pb-20">
         <div class="max-w-screen-xl mx-auto">
-            <div class="rounded-xl overflow-hidden h-80 bg-gray-100">
+            <div class="rounded-xl overflow-hidden h-80 bg-gray-100 enlargeable-container" onclick="openLightbox(this.querySelector('img'))">
                 <img src="images/case-studies/raf-hero.png" alt="RAF/HCC Coding Platform - Average RAF Score Dashboard with facility filters and CMS scoring algorithms" class="w-full h-full object-cover object-top">
             </div>
         </div>
@@ -304,8 +388,8 @@
 
             <div class="grid lg:grid-cols-2 gap-8">
                 <div class="border border-gray-200 rounded-xl p-8">
-                    <div class="rounded-lg overflow-hidden h-48 mb-6 bg-gray-100">
-                        <img src="images/case-studies/raf-dashboard-top.png" alt="Missed Opportunity - ICD code recapture flow" class="w-full h-full object-contain bg-white p-2">
+                    <div class="rounded-lg overflow-hidden h-48 mb-6 bg-gray-100 enlargeable-container" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="images/case-studies/raf-dashboard-top.png" alt="Missed Opportunity - ICD code recapture flow showing prior year vs current year diagnosis comparison" class="w-full h-full object-contain bg-white p-2">
                     </div>
                     <h3 class="text-xl font-bold text-dsBlack mb-3">Holistic Patient Views</h3>
                     <p class="text-gray-600 mb-4">
@@ -320,8 +404,8 @@
                 </div>
                 
                 <div class="border border-gray-200 rounded-xl p-8">
-                    <div class="rounded-lg overflow-hidden h-48 mb-6 bg-gray-100">
-                        <img src="images/case-studies/raf-dashboard-bottom.png" alt="How We Recapture - Disease detection and code recapture workflow" class="w-full h-full object-contain bg-white p-2">
+                    <div class="rounded-lg overflow-hidden h-48 mb-6 bg-gray-100 enlargeable-container" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="images/case-studies/raf-dashboard-bottom.png" alt="How We Recapture - Disease detection and code recapture workflow from EHR to accurate RAF scoring" class="w-full h-full object-contain bg-white p-2">
                     </div>
                     <h3 class="text-xl font-bold text-dsBlack mb-3">Provider Workflow Integration</h3>
                     <p class="text-gray-600 mb-4">
@@ -336,8 +420,8 @@
                 </div>
                 
                 <div class="border border-gray-200 rounded-xl p-8">
-                    <div class="rounded-lg overflow-hidden h-48 mb-6 bg-gray-100">
-                        <img src="images/case-studies/raf-hero.png" alt="RAF Score Analytics Dashboard" class="w-full h-full object-cover object-top">
+                    <div class="rounded-lg overflow-hidden h-48 mb-6 bg-gray-100 enlargeable-container" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="images/case-studies/raf-hero.png" alt="RAF Score Analytics Dashboard showing facility comparisons, provider performance, and HCC gap analysis" class="w-full h-full object-cover object-top">
                     </div>
                     <h3 class="text-xl font-bold text-dsBlack mb-3">Population Analytics</h3>
                     <p class="text-gray-600 mb-4">
@@ -352,8 +436,8 @@
                 </div>
                 
                 <div class="border border-gray-200 rounded-xl p-8">
-                    <div class="rounded-lg overflow-hidden h-48 mb-6 bg-gray-100">
-                        <img src="images/case-studies/mds-approach.png" alt="Audit Defense Interface" class="w-full h-full object-cover object-top">
+                    <div class="rounded-lg overflow-hidden h-48 mb-6 bg-gray-100 enlargeable-container" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="images/case-studies/mds-approach.png" alt="MDS Optimization approach showing data flow from EHR integration to quality analytics" class="w-full h-full object-cover object-top">
                     </div>
                     <h3 class="text-xl font-bold text-dsBlack mb-3">Audit-Ready Documentation</h3>
                     <p class="text-gray-600 mb-4">
@@ -559,13 +643,13 @@
                     <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Work</span>
                     <h2 class="text-3xl font-bold text-dsBlack mt-3">More healthcare results.</h2>
                 </div>
-                <a href="/work" class="hidden md:inline-flex items-center gap-2 text-dsBlue font-medium hover:underline">
+                <a href="ds-healthcare-v3-updated.html" class="hidden md:inline-flex items-center gap-2 text-dsBlue font-medium hover:underline">
                     View All Work→
                 </a>
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
-                <a href="/work/communicare-mds" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
+                <a href="work-communicare-mds.html" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
                     <div class="h-40 overflow-hidden bg-gray-100">
                         <img src="images/case-studies/ard-optimizer.png" alt="MDS Optimization Platform" class="w-full h-full object-cover object-top">
                     </div>
@@ -577,7 +661,7 @@
                     </div>
                 </a>
                 
-                <a href="/work/never-alone" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
+                <a href="work-never-alone.html" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
                     <div class="h-40 overflow-hidden bg-gray-100">
                         <img src="images/case-studies/ipad-app-full-schedule.png" alt="NeverAlone Platform" class="w-full h-full object-cover object-top">
                     </div>
@@ -599,7 +683,7 @@
             <p class="text-blue-100 mb-8 max-w-2xl mx-auto">
                 If missed HCCs are costing you millions in RAF revenue, let's talk. 30-minute call to assess your opportunity.
             </p>
-            <a href="/healthcare/assessment" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition">
+            <a href="healthcare-assessment.html" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition">
                 Schedule Assessment Call
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
@@ -632,8 +716,43 @@
     });
 
 
-    
+    </script>
 
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+        <img id="lightbox-img" class="lightbox-content" src="" alt="">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+
+    <script>
+        function openLightbox(img) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            
+            lightboxImg.src = img.src;
+            lightboxCaption.textContent = img.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
     </script>
 
 </body>

@@ -238,7 +238,7 @@
                 
                 <!-- Video -->
                 <div >
-                    <div class="rounded-xl overflow-hidden bg-gray-100">
+                    <div class="rounded-xl overflow-hidden bg-gray-100 enlargeable-container" onclick="openLightbox(this.querySelector('img'))">
                         <img src="images/case-studies/ipad-app-full-schedule.png" alt="NeverAlone Platform - iPad App Schedule View" class="w-full h-auto">
                     </div>
                 </div>
@@ -609,13 +609,13 @@
                     <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Work</span>
                     <h2 class="text-3xl font-bold text-dsBlack mt-3">More proof points.</h2>
                 </div>
-                <a href="/work" class="hidden md:inline-flex items-center gap-2 text-dsBlue font-medium hover:underline">
+                <a href="ds-healthcare-v3-updated.html" class="hidden md:inline-flex items-center gap-2 text-dsBlue font-medium hover:underline">
                     View All Work→
                 </a>
             </div>
             
             <div class="grid md:grid-cols-3 gap-6">
-                <a href="/work/communicare-mds" class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
+                <a href="work-communicare-mds.html" class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
                     <div class="h-40 overflow-hidden bg-gray-100">
                         <img src="images/case-studies/ard-optimizer.png" alt="MDS Optimization Platform" class="w-full h-full object-cover object-top">
                     </div>
@@ -626,7 +626,7 @@
                     </div>
                 </a>
                 
-                <a href="/work/raf-hcc-coding" class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
+                <a href="work-raf-hcc-coding.html" class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
                     <div class="h-40 overflow-hidden bg-gray-100">
                         <img src="images/case-studies/healthcare-team.jpg" alt="RAF/HCC Coding Platform" class="w-full h-full object-cover">
                     </div>
@@ -637,7 +637,7 @@
                     </div>
                 </a>
                 
-                <a href="/work/healthcontext-ai" class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
+                <a href="work-healthcontext-ai.html" class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
                     <div class="h-40 overflow-hidden bg-gray-100">
                         <img src="images/case-studies/healthcontext-window.png" alt="HealthContext.AI Documentation Platform" class="w-full h-full object-cover object-top">
                     </div>
@@ -658,7 +658,7 @@
             <p class="text-blue-100 mb-8 max-w-2xl mx-auto">
                 Whether you need 24/7 clinical coverage, treatment-in-place capabilities, or a complete care coordination platform-we've done it at scale.
             </p>
-            <a href="/healthcare/assessment" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition">
+            <a href="healthcare-assessment.html" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition">
                 Discuss Your Virtual Care Opportunity
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
@@ -693,6 +693,44 @@
 
     
 
+    </script>
+
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+        <img id="lightbox-img" class="lightbox-content" src="" alt="">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+
+    <script>
+        function openLightbox(img) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            
+            lightboxImg.src = img.src;
+            lightboxCaption.textContent = img.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
     </script>
 
 </body>
