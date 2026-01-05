@@ -3,1407 +3,497 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>High-Risk Claim Follow-Up Triage | Healthcare AI Frameworks | Digital Scientists</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <title>Claim Follow-Up Triage | Healthcare AI Guides | Digital Scientists</title>
+    <meta name="description" content="AI-powered claim triage surfaces high-risk claims before they age out. Pattern matching identifies claims likely to deny, enabling proactive intervention. 8-14 week implementation.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dsBlue: '#304FFF',
+                        dsBlack: '#050505',
+                        dsGray: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --black: #0a0a0a;
-            --white: #ffffff;
-            --gray-50: #f9fafb;
-            --gray-100: #f3f4f6;
-            --gray-200: #e5e7eb;
-            --gray-300: #d1d5db;
-            --gray-400: #9ca3af;
-            --gray-500: #6b7280;
-            --gray-600: #4b5563;
-            --gray-700: #374151;
-            --gray-800: #1f2937;
-            --gray-900: #111827;
-            --blue: #2563eb;
-            --blue-dark: #1d4ed8;
-            --blue-light: #dbeafe;
-            --amber: #f59e0b;
-            --amber-light: #fef3c7;
-            --green: #10b981;
-            --green-light: #d1fae5;
-            --red: #ef4444;
-            --red-light: #fee2e2;
-            --purple: #7c3aed;
-            --purple-light: #ede9fe;
-        }
-
-        body {
-            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--gray-900);
-            line-height: 1.6;
-            background: var(--white);
-        }
-
-        /* Header */
-        .header {
-            position: sticky;
-            top: 0;
-            background: var(--white);
-            border-bottom: 1px solid var(--gray-200);
-            z-index: 100;
-        }
-
-        .header-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 0.875rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: var(--black);
-            text-decoration: none;
-            line-height: 1.2;
-        }
-
-        .logo span {
-            display: block;
-        }
-
-        .nav {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--gray-600);
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--black);
-        }
-
-        .nav-links .has-dropdown {
-            position: relative;
-        }
-
-        .nav-links .has-dropdown > a {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        .nav-links .has-dropdown > a::after {
-            content: '';
-            width: 0;
-            height: 0;
-            border-left: 4px solid transparent;
-            border-right: 4px solid transparent;
-            border-top: 4px solid currentColor;
-            margin-left: 0.25rem;
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: -1rem;
-            background: var(--white);
-            border: 1px solid var(--gray-200);
-            border-radius: 8px;
-            padding: 0.5rem 0;
-            min-width: 260px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(8px);
-            transition: all 0.2s;
-            z-index: 200;
-            list-style: none;
-        }
-
-        .has-dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-menu li {
-            padding: 0;
-        }
-
-        .dropdown-menu a {
-            display: block;
-            padding: 0.625rem 1.25rem;
-            color: var(--gray-600);
-            font-size: 0.875rem;
-            font-weight: 400;
-            text-decoration: none;
-            transition: all 0.15s;
-        }
-
-        .dropdown-menu a:hover {
-            background: var(--gray-50);
-            color: var(--black);
-        }
-
-        .dropdown-menu .dropdown-header {
-            padding: 0.625rem 1.25rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--gray-400);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .dropdown-menu .divider {
-            height: 1px;
-            background: var(--gray-200);
-            margin: 0.5rem 0;
-        }
-
-        .dropdown-menu .current-page a {
-            color: var(--blue);
-            font-weight: 500;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.625rem 1.25rem;
-            border-radius: 6px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.2s;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--blue);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background: var(--blue-dark);
-        }
-
-        .btn-secondary {
-            background: var(--black);
-            color: var(--white);
-        }
-
-        .btn-secondary:hover {
-            background: var(--gray-800);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--gray-700);
-            border: 1px solid var(--gray-300);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--gray-400);
-            background: var(--gray-50);
-        }
-
-        /* Breadcrumb */
-        .breadcrumb {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-        }
-
-        .breadcrumb-list {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            list-style: none;
-            font-size: 0.875rem;
-        }
-
-        .breadcrumb-list a {
-            color: var(--gray-500);
-            text-decoration: none;
-        }
-
-        .breadcrumb-list a:hover {
-            color: var(--gray-700);
-        }
-
-        .breadcrumb-list .separator {
-            color: var(--gray-400);
-        }
-
-        .breadcrumb-list .current {
-            color: var(--gray-900);
-        }
-
-        /* Main Layout */
-        .main-layout {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem 4rem;
-            display: grid;
-            grid-template-columns: 260px 1fr;
-            gap: 4rem;
-        }
-
-        /* Sidebar TOC */
-        .sidebar {
-            position: sticky;
-            top: 100px;
-            height: fit-content;
-        }
-
-        .toc-title {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--gray-500);
-            margin-bottom: 1rem;
-        }
-
-        .toc-list {
-            list-style: none;
-        }
-
-        .toc-list li {
-            margin-bottom: 0.25rem;
-        }
-
-        .toc-list a {
-            display: block;
-            padding: 0.5rem 0.75rem;
-            font-size: 0.875rem;
-            color: var(--gray-600);
-            text-decoration: none;
-            border-left: 2px solid transparent;
-            transition: all 0.2s;
-        }
-
-        .toc-list a:hover {
-            color: var(--gray-900);
-            border-left-color: var(--gray-300);
-        }
-
-        .toc-list a.active {
-            color: var(--gray-900);
-            border-left-color: var(--blue);
-            font-weight: 500;
-        }
-
-        /* Content */
-        .content {
-            min-width: 0;
-        }
-
-        .content-header {
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .content-header h1 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-        }
-
-        .content-header .subtitle {
-            font-size: 1.125rem;
-            color: var(--gray-600);
-            font-style: italic;
-        }
-
-        /* Hero CTA */
-        .hero-cta {
-            display: grid;
-            grid-template-columns: 1fr 280px;
-            gap: 2rem;
-            align-items: center;
-            background: linear-gradient(135deg, var(--gray-900) 0%, #1a1a2e 100%);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin-bottom: 3rem;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .hero-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .hero-cta-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-cta-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.375rem 0.875rem;
-            background: rgba(255,255,255,0.1);
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: var(--gray-300);
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .hero-cta h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--white);
-            margin-bottom: 0.75rem;
-            line-height: 1.3;
-        }
-
-        .hero-cta p {
-            color: var(--gray-400);
-            font-size: 0.9375rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-cta .btn-primary {
-            background: var(--white);
-            color: var(--gray-900);
-        }
-
-        .hero-cta .btn-primary:hover {
-            background: var(--gray-100);
-        }
-
-        .hero-cta-graphic {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-cta-graphic svg {
-            width: 100%;
-            max-width: 240px;
-            height: auto;
-        }
-
-        @media (max-width: 900px) {
-            .hero-cta {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-cta-graphic {
-                order: -1;
-            }
-
-            .hero-cta-graphic svg {
-                max-width: 180px;
-            }
-        }
-
-        /* Sections */
-        .section {
-            margin-bottom: 3rem;
-            scroll-margin-top: 100px;
-        }
-
-        .section h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.01em;
-        }
-
-        .section h3 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            margin-top: 2rem;
-        }
-
-        .section p {
-            margin-bottom: 1rem;
-            color: var(--gray-700);
-            line-height: 1.7;
-        }
-
-        .section p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Highlight Box */
-        .highlight-box {
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-        }
-
-        .highlight-box.blue {
-            background: var(--blue-light);
-            border-left: 4px solid var(--blue);
-        }
-
-        .highlight-box.amber {
-            background: var(--amber-light);
-            border-left: 4px solid var(--amber);
-        }
-
-        .highlight-box.green {
-            background: var(--green-light);
-            border-left: 4px solid var(--green);
-        }
-
-        .highlight-box.red {
-            background: var(--red-light);
-            border-left: 4px solid var(--red);
-        }
-
-        .highlight-box.purple {
-            background: var(--purple-light);
-            border-left: 4px solid var(--purple);
-        }
-
-        .highlight-box h4 {
-            font-size: 0.9375rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .highlight-box p {
-            font-size: 0.9375rem;
-            margin-bottom: 0;
-        }
-
-        /* Checklist */
-        .checklist {
-            list-style: none;
-            margin: 1.5rem 0;
-        }
-
-        .checklist li {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid var(--gray-100);
-        }
-
-        .checklist li:last-child {
-            border-bottom: none;
-        }
-
-        .checklist-box {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--gray-300);
-            border-radius: 4px;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .checklist-text {
-            color: var(--gray-700);
-        }
-
-        .checklist-text strong {
-            color: var(--gray-900);
-        }
-
-        /* Questions List */
-        .questions-list {
-            margin: 1.5rem 0;
-        }
-
-        .question-category {
-            margin-bottom: 2rem;
-        }
-
-        .question-category h4 {
-            font-size: 0.9375rem;
-            font-weight: 600;
-            color: var(--gray-900);
-            margin-bottom: 1rem;
-        }
-
-        .question-category ul {
-            list-style: none;
-        }
-
-        .question-category li {
-            padding: 0.5rem 0 0.5rem 1.5rem;
-            position: relative;
-            color: var(--gray-600);
-            font-size: 0.9375rem;
-        }
-
-        .question-category li::before {
-            content: '"';
-            position: absolute;
-            left: 0;
-            color: var(--gray-400);
-            font-size: 1.25rem;
-            line-height: 1;
-        }
-
-        /* Decision Grid */
-        .decision-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .decision-card {
-            border: 1px solid var(--gray-200);
-            border-radius: 8px;
-            padding: 1.5rem;
-        }
-
-        .decision-card h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .decision-card ul {
-            list-style: none;
-        }
-
-        .decision-card li {
-            font-size: 0.875rem;
-            color: var(--gray-600);
-            padding: 0.375rem 0;
-            padding-left: 1rem;
-            position: relative;
-        }
-
-        .decision-card li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--gray-400);
-        }
-
-        /* Assessment Form */
-        .assessment-form {
-            background: var(--gray-50);
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 2rem 0;
-        }
-
-        .form-section {
-            margin-bottom: 2rem;
-        }
-
-        .form-section:last-child {
-            margin-bottom: 0;
-        }
-
-        .form-section h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .form-row {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .form-row label {
-            flex: 1;
-            font-size: 0.9375rem;
-            color: var(--gray-700);
-        }
-
-        .form-row input[type="text"] {
-            width: 120px;
-            padding: 0.5rem 0.75rem;
-            border: 1px solid var(--gray-300);
-            border-radius: 6px;
-            font-size: 0.875rem;
-            text-align: right;
-        }
-
-        .form-options {
-            margin-top: 1rem;
-        }
-
-        .form-option {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.5rem 0;
-        }
-
-        .form-option input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-        }
-
-        .form-option label {
-            font-size: 0.9375rem;
-            color: var(--gray-700);
-        }
-
-        /* Related Work */
-        .related-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .related-card {
-            border: 1px solid var(--gray-200);
-            border-radius: 8px;
-            padding: 1.5rem;
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.2s;
-        }
-
-        .related-card:hover {
-            border-color: var(--gray-300);
-            background: var(--gray-50);
-        }
-
-        .related-card h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .related-card p {
-            font-size: 0.875rem;
-            color: var(--gray-600);
-            margin-bottom: 0;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: var(--gray-900);
-            color: var(--white);
-            border-radius: 12px;
-            padding: 3rem;
-            margin-top: 3rem;
-        }
-
-        .cta-section h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--white);
-        }
-
-        .cta-section p {
-            color: var(--gray-300);
-            margin-bottom: 2rem;
-            max-width: 600px;
-        }
-
-        .cta-actions {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .cta-section .btn-primary {
-            background: var(--white);
-            color: var(--gray-900);
-        }
-
-        .cta-section .btn-primary:hover {
-            background: var(--gray-100);
-        }
-
-        .cta-section .btn-outline {
-            border-color: var(--gray-600);
-            color: var(--white);
-        }
-
-        .cta-section .btn-outline:hover {
-            background: var(--gray-800);
-            border-color: var(--gray-500);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--black);
-            color: var(--white);
-            padding: 4rem 0 2rem;
-            margin-top: 4rem;
-        }
-
-        .footer-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.5fr repeat(4, 1fr);
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-brand h3 {
-            font-size: 0.875rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .footer-brand h3 span {
-            display: block;
-        }
-
-        .footer-column h4 {
-            font-size: 0.8125rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--white);
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-column a {
-            color: var(--gray-400);
-            text-decoration: none;
-            font-size: 0.8125rem;
-            transition: color 0.2s;
-        }
-
-        .footer-column a:hover {
-            color: var(--white);
-        }
-
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 2rem;
-            border-top: 1px solid var(--gray-800);
-        }
-
-        .footer-address {
-            font-size: 0.75rem;
-            color: var(--gray-500);
-            font-family: monospace;
-        }
-
-        .footer-legal {
-            display: flex;
-            gap: 1.5rem;
-            font-size: 0.75rem;
-            color: var(--gray-500);
-        }
-
-        .footer-legal a {
-            color: var(--gray-500);
-            text-decoration: none;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .main-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .sidebar {
-                display: none;
-            }
-
-            .decision-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .related-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .content-header h1 {
-                font-size: 1.75rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-
-            .cta-actions {
-                flex-direction: column;
-            }
-        }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .nav-dropdown { position: relative; }
+        .nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 0; padding-top: 8px; z-index: 100; }
+        .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+        .nav-dropdown-menu.right-aligned { left: auto; right: 0; }
     </style>
 </head>
-<body>
-    <!-- Simple CSS Hover Navigation - No JavaScript Required -->
-<style>
-    .nav-dropdown { position: relative; }
-    .nav-dropdown-menu { 
-        display: none; 
-        position: absolute; 
-        top: 100%; 
-        left: 0; 
-        padding-top: 8px;
-        z-index: 100;
-    }
-    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
-    .nav-dropdown-menu.right-aligned { left: auto; right: 0; }
-</style>
+<body class="bg-white text-dsBlack antialiased">
 
-
-    <!-- Header -->
-    <header class="header">
-        <div class="header-inner">
-            <a href="ds-healthcare-v3-updated.html" class="logo">
-                <svg style="height:40px;width:auto;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 221.03 65.45"><path d="M24.06,28.77c2.85-2.43,4.31-6.17,4.31-11.13,0-1.71,0-6.87-3.82-10.65C21,3.46,17,3.46,13,3.46H3.42v28.4H13.9C17.88,31.86,21.13,31.33,24.06,28.77ZM8.58,27.07V8.33h3.9c1,0,1.87,0,2.68.05a10.44,10.44,0,0,1,2.28.36c3.53,1,5.24,4,5.24,9,0,4.11-1.3,7-3.82,8.37-1.71.94-3.49,1-5.85,1Z" transform="translate(-2.28 -2.69)"/><rect x="29.18" y="0.77" width="5.24" height="28.4"/><path d="M69.17,15.85H55.11v4.92h8.08A8.88,8.88,0,0,1,54.54,28c-5.08,0-9.07-4.63-9.07-10.48s3.86-10.24,9-10.24a8.66,8.66,0,0,1,7.84,4.92h6.09c-1.74-5.45-7-9.55-13.85-9.55-8.42,0-14.75,6.46-14.75,15.07A14.43,14.43,0,0,0,54.46,32.63c8.45,0,14.79-6.46,14.79-15.07A14.75,14.75,0,0,0,69.17,15.85Z" transform="translate(-2.28 -2.69)"/><rect x="70.66" y="0.77" width="5.24" height="28.4"/><polygon points="92.48 29.18 92.48 5.57 100.49 5.57 100.49 0.77 79.32 0.77 79.32 5.57 87.32 5.57 87.32 29.18 92.48 29.18"/><path d="M115.24,3.46h-5.36L99.27,31.86h5.45l2.48-7h10.4l2.56,7h5.69ZM108.9,20.08l3.46-9.8,3.49,9.8Z" transform="translate(-2.28 -2.69)"/><polygon points="131.17 0.77 126.01 0.77 126.01 29.18 148.03 29.18 148.03 24.38 131.17 24.38 131.17 0.77"/><path d="M20.81,51.15a19.11,19.11,0,0,0-3.45-1l-3.82-.89C11.1,48.63,9,47.94,9,45.83c0-2.48,2.84-3.34,5.2-3.34a7.2,7.2,0,0,1,4.26,1.1,4.51,4.51,0,0,1,1.75,3.78h5.36a9.25,9.25,0,0,0-3.73-7.31c-2-1.43-4.47-2-7.73-2a11.44,11.44,0,0,0-7.72,2.43,7.42,7.42,0,0,0-2.76,5.81,6.74,6.74,0,0,0,3.54,6.26,13.41,13.41,0,0,0,3.29,1.38c1.14.33,2.27.57,3.29.78l2.32.52c3.08.65,4.42,1.63,4.42,3.62,0,2.76-2.23,4.43-5.85,4.43a7.41,7.41,0,0,1-5-1.54,5,5,0,0,1-1.5-2.48,4.09,4.09,0,0,1-.2-1.14c0-.33,0-.61-.08-.85H2.28c0,9.38,8.62,10.52,12.15,10.52a13.49,13.49,0,0,0,7.76-2A8.33,8.33,0,0,0,26,58.55,7.7,7.7,0,0,0,20.81,51.15Z" transform="translate(-2.28 -2.69)"/><path d="M42.43,42.49a8.24,8.24,0,0,1,8,5.69h6C54.7,41.85,49.21,37.9,42.51,37.9c-8.45,0-14.79,6.51-14.79,15.12s6.34,15.12,14.79,15.12c6.7,0,12.19-4,13.86-10.28h-6a8.24,8.24,0,0,1-8,5.64c-5.16,0-9-4.22-9-10.48S37.27,42.49,42.43,42.49Z" transform="translate(-2.28 -2.69)"/><rect x="57.38" y="35.99" width="5.24" height="28.4"/><polygon points="71.76 52.2 84.76 52.2 84.76 47.33 71.76 47.33 71.76 40.78 86.71 40.78 86.71 35.99 66.56 35.99 66.56 64.39 87.16 64.39 87.16 59.56 71.76 59.56 71.76 52.2"/><polygon points="109.23 54.64 95.53 35.99 90.58 35.99 90.58 64.39 95.86 64.39 95.86 45.7 109.51 64.39 114.51 64.39 114.51 35.99 109.23 35.99 109.23 54.64"/><polygon points="118 40.78 126 40.78 126 64.39 131.16 64.39 131.16 40.78 139.17 40.78 139.17 35.99 118 35.99 118 40.78"/><rect x="142.76" y="35.99" width="5.24" height="28.4"/><path d="M171.33,51.15a19.11,19.11,0,0,0-3.45-1l-3.82-.89c-2.44-.61-4.59-1.3-4.59-3.41,0-2.48,2.84-3.34,5.2-3.34a7.23,7.23,0,0,1,4.27,1.1,4.53,4.53,0,0,1,1.74,3.78h5.37a9.23,9.23,0,0,0-3.74-7.31c-1.95-1.43-4.47-2-7.72-2a11.44,11.44,0,0,0-7.72,2.43,7.39,7.39,0,0,0-2.76,5.81,6.75,6.75,0,0,0,3.53,6.26,13.58,13.58,0,0,0,3.29,1.38c1.14.33,2.28.57,3.29.78l2.32.52c3.09.65,4.43,1.63,4.43,3.62,0,2.76-2.24,4.43-5.85,4.43a7.39,7.39,0,0,1-5-1.54,5,5,0,0,1-1.5-2.48,3.78,3.78,0,0,1-.21-1.14c0-.33,0-.61-.08-.85h-5.52c0,9.38,8.61,10.52,12.14,10.52a13.53,13.53,0,0,0,7.77-2,8.35,8.35,0,0,0,3.82-7.19A7.71,7.71,0,0,0,171.33,51.15Z" transform="translate(-2.28 -2.69)"/><polygon points="175.47 40.78 183.48 40.78 183.48 64.39 188.64 64.39 188.64 40.78 196.64 40.78 196.64 35.99 175.47 35.99 175.47 40.78"/><path d="M218.11,51.15a19.25,19.25,0,0,0-3.46-1l-3.82-.89c-2.44-.61-4.59-1.3-4.59-3.41,0-2.48,2.84-3.34,5.2-3.34a7.23,7.23,0,0,1,4.27,1.1,4.53,4.53,0,0,1,1.74,3.78h5.37a9.23,9.23,0,0,0-3.74-7.31c-2-1.43-4.47-2-7.72-2a11.44,11.44,0,0,0-7.72,2.43,7.39,7.39,0,0,0-2.76,5.81,6.75,6.75,0,0,0,3.53,6.26,13.58,13.58,0,0,0,3.29,1.38c1.14.33,2.28.57,3.29.78l2.32.52c3.09.65,4.43,1.63,4.43,3.62,0,2.76-2.24,4.43-5.85,4.43a7.41,7.41,0,0,1-5-1.54,5,5,0,0,1-1.5-2.48,3.78,3.78,0,0,1-.21-1.14c0-.33,0-.61-.08-.85h-5.52c0,9.38,8.61,10.52,12.15,10.52a13.52,13.52,0,0,0,7.76-2,8.35,8.35,0,0,0,3.82-7.19A7.7,7.7,0,0,0,218.11,51.15Z" transform="translate(-2.28 -2.69)"/></svg>
+<nav class="fixed w-full z-50 bg-white border-b border-gray-100">
+    <div class="max-w-screen-xl mx-auto px-6">
+        <div class="h-20 flex justify-between items-center">
+            <a href="ds-healthcare-v3-updated.html" class="flex items-center">
+                <svg class="h-12" style="height:48px;width:auto;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 221.03 65.45"><path d="M24.06,28.77c2.85-2.43,4.31-6.17,4.31-11.13,0-1.71,0-6.87-3.82-10.65C21,3.46,17,3.46,13,3.46H3.42v28.4H13.9C17.88,31.86,21.13,31.33,24.06,28.77ZM8.58,27.07V8.33h3.9c1,0,1.87,0,2.68.05a10.44,10.44,0,0,1,2.28.36c3.53,1,5.24,4,5.24,9,0,4.11-1.3,7-3.82,8.37-1.71.94-3.49,1-5.85,1Z" transform="translate(-2.28 -2.69)"/><rect x="29.18" y="0.77" width="5.24" height="28.4"/><path d="M69.17,15.85H55.11v4.92h8.08A8.88,8.88,0,0,1,54.54,28c-5.08,0-9.07-4.63-9.07-10.48s3.86-10.24,9-10.24a8.66,8.66,0,0,1,7.84,4.92h6.09c-1.74-5.45-7-9.55-13.85-9.55-8.42,0-14.75,6.46-14.75,15.07A14.43,14.43,0,0,0,54.46,32.63c8.45,0,14.79-6.46,14.79-15.07A14.75,14.75,0,0,0,69.17,15.85Z" transform="translate(-2.28 -2.69)"/><rect x="70.66" y="0.77" width="5.24" height="28.4"/><polygon points="92.48 29.18 92.48 5.57 100.49 5.57 100.49 0.77 79.32 0.77 79.32 5.57 87.32 5.57 87.32 29.18 92.48 29.18"/><path d="M115.24,3.46h-5.36L99.27,31.86h5.45l2.48-7h10.4l2.56,7h5.69ZM108.9,20.08l3.46-9.8,3.49,9.8Z" transform="translate(-2.28 -2.69)"/><polygon points="131.17 0.77 126.01 0.77 126.01 29.18 148.03 29.18 148.03 24.38 131.17 24.38 131.17 0.77"/><path d="M20.81,51.15a19.11,19.11,0,0,0-3.45-1l-3.82-.89C11.1,48.63,9,47.94,9,45.83c0-2.48,2.84-3.34,5.2-3.34a7.2,7.2,0,0,1,4.26,1.1,4.51,4.51,0,0,1,1.75,3.78h5.36a9.25,9.25,0,0,0-3.73-7.31c-2-1.43-4.47-2-7.73-2a11.44,11.44,0,0,0-7.72,2.43,7.42,7.42,0,0,0-2.76,5.81,6.74,6.74,0,0,0,3.54,6.26,13.41,13.41,0,0,0,3.29,1.38c1.14.33,2.27.57,3.29.78l2.32.52c3.08.65,4.42,1.63,4.42,3.62,0,2.76-2.23,4.43-5.85,4.43a7.41,7.41,0,0,1-5-1.54,5,5,0,0,1-1.5-2.48,4.09,4.09,0,0,1-.2-1.14c0-.33,0-.61-.08-.85H2.28c0,9.38,8.62,10.52,12.15,10.52a13.49,13.49,0,0,0,7.76-2A8.33,8.33,0,0,0,26,58.55,7.7,7.7,0,0,0,20.81,51.15Z" transform="translate(-2.28 -2.69)"/><path d="M42.43,42.49a8.24,8.24,0,0,1,8,5.69h6C54.7,41.85,49.21,37.9,42.51,37.9c-8.45,0-14.79,6.51-14.79,15.12s6.34,15.12,14.79,15.12c6.7,0,12.19-4,13.86-10.28h-6a8.24,8.24,0,0,1-8,5.64c-5.16,0-9-4.22-9-10.48S37.27,42.49,42.43,42.49Z" transform="translate(-2.28 -2.69)"/><rect x="57.38" y="35.99" width="5.24" height="28.4"/><polygon points="71.76 52.2 84.76 52.2 84.76 47.33 71.76 47.33 71.76 40.78 86.71 40.78 86.71 35.99 66.56 35.99 66.56 64.39 87.16 64.39 87.16 59.56 71.76 59.56 71.76 52.2"/><polygon points="109.23 54.64 95.53 35.99 90.58 35.99 90.58 64.39 95.86 64.39 95.86 45.7 109.51 64.39 114.51 64.39 114.51 35.99 109.23 35.99 109.23 54.64"/><polygon points="118 40.78 126 40.78 126 64.39 131.16 64.39 131.16 40.78 139.17 40.78 139.17 35.99 118 35.99 118 40.78"/><rect x="142.76" y="35.99" width="5.24" height="28.4"/><path d="M171.33,51.15a19.11,19.11,0,0,0-3.45-1l-3.82-.89c-2.44-.61-4.59-1.3-4.59-3.41,0-2.48,2.84-3.34,5.2-3.34a7.23,7.23,0,0,1,4.27,1.1,4.53,4.53,0,0,1,1.74,3.78h5.37a9.23,9.23,0,0,0-3.74-7.31c-1.95-1.43-4.47-2-7.72-2a11.44,11.44,0,0,0-7.72,2.43,7.39,7.39,0,0,0-2.76,5.81,6.75,6.75,0,0,0,3.53,6.26,13.58,13.58,0,0,0,3.29,1.38c1.14.33,2.28.57,3.29.78l2.32.52c3.09.65,4.43,1.63,4.43,3.62,0,2.76-2.24,4.43-5.85,4.43a7.39,7.39,0,0,1-5-1.54,5,5,0,0,1-1.5-2.48,3.78,3.78,0,0,1-.21-1.14c0-.33,0-.61-.08-.85h-5.52c0,9.38,8.61,10.52,12.14,10.52a13.53,13.53,0,0,0,7.77-2,8.35,8.35,0,0,0,3.82-7.19A7.71,7.71,0,0,0,171.33,51.15Z" transform="translate(-2.28 -2.69)"/><polygon points="175.47 40.78 183.48 40.78 183.48 64.39 188.64 64.39 188.64 40.78 196.64 40.78 196.64 35.99 175.47 35.99 175.47 40.78"/><path d="M218.11,51.15a19.25,19.25,0,0,0-3.46-1l-3.82-.89c-2.44-.61-4.59-1.3-4.59-3.41,0-2.48,2.84-3.34,5.2-3.34a7.23,7.23,0,0,1,4.27,1.1,4.53,4.53,0,0,1,1.74,3.78h5.37a9.23,9.23,0,0,0-3.74-7.31c-2-1.43-4.47-2-7.72-2a11.44,11.44,0,0,0-7.72,2.43,7.39,7.39,0,0,0-2.76,5.81,6.75,6.75,0,0,0,3.53,6.26,13.58,13.58,0,0,0,3.29,1.38c1.14.33,2.28.57,3.29.78l2.32.52c3.09.65,4.43,1.63,4.43,3.62,0,2.76-2.24,4.43-5.85,4.43a7.41,7.41,0,0,1-5-1.54,5,5,0,0,1-1.5-2.48,3.78,3.78,0,0,1-.21-1.14c0-.33,0-.61-.08-.85h-5.52c0,9.38,8.61,10.52,12.15,10.52a13.52,13.52,0,0,0,7.76-2,8.35,8.35,0,0,0,3.82-7.19A7.7,7.7,0,0,0,218.11,51.15Z" transform="translate(-2.28 -2.69)"/></svg>
             </a>
-            <nav class="nav">
-                <ul class="nav-links">
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Capabilities</a></li>
-                    <li class="has-dropdown">
-                        <a href="healthcare-ai-guides-landing.html">AI Frameworks</a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-header">Revenue Cycle AI</li>
-                            <li><a href="ar-collection-prioritization.html">A/R Collection Prioritization</a></li>
-                            <li class="current-page"><a href="claim-follow-up-triage.html">High-Risk Claim Triage</a></li>
-                            <li><a href="payer-contract-interpretation.html">Payer Contract Interpretation</a></li>
-                            <li class="divider"></li>
-                            <li><a href="healthcare-ai-guides-landing.html">View All Frameworks →</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Work</a></li>
-                    <li><a href="#">Insights</a></li>
-                </ul>
-                <a href="#" class="btn btn-primary">Contact Us</a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Breadcrumb -->
-    <nav class="breadcrumb">
-        <ol class="breadcrumb-list">
-            <li><a href="healthcare-ai-guides-landing.html">Healthcare AI Frameworks</a></li>
-            <li class="separator">/</li>
-            <li class="current">High-Risk Claim Follow-Up Triage</li>
-        </ol>
-    </nav>
-
-    <!-- Main Layout -->
-    <div class="main-layout">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="toc-title">On this page</div>
-            <ul class="toc-list">
-                <li><a href="#problem" class="active">The Problem in Dollar Terms</a></li>
-                <li><a href="#fit-assessment">5-Minute Fit Assessment</a></li>
-                <li><a href="#what-you-need">What You Need Ready</a></li>
-                <li><a href="#build-buy-partner">Build vs. Buy vs. Partner</a></li>
-                <li><a href="#red-flags">Red Flags: When to Wait</a></li>
-                <li><a href="#questions">Questions to Ask Vendors</a></li>
-                <li><a href="#self-assessment">Self-Assessment</a></li>
-                <li><a href="#related-work">Related Work</a></li>
-            </ul>
-        </aside>
-
-        <!-- Content -->
-        <main class="content">
-            <header class="content-header">
-                <h1>High-Risk Claim Follow-Up Triage</h1>
-                <p class="subtitle">Should You Invest in Predictive Claim Scoring?</p>
-            </header>
-
-            <!-- Hero CTA -->
-            <div class="hero-cta">
-                <div class="hero-cta-content">
-                    <div class="hero-cta-badge">Free Assessment</div>
-                    <h3>See how predictive scoring could transform your follow-up workflow</h3>
-                    <p>We'll review your denial patterns and timely filing risks to estimate what smarter claim prioritization could recover.</p>
-                    <a href="#" class="btn btn-primary">Schedule a 30-Minute Call →</a>
+            
+            <div class="hidden md:flex items-center gap-2">
+                <div class="nav-dropdown">
+                    <a href="ds-healthcare-v3-updated.html" class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack">
+                        Healthcare
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-56">
+                            <a href="ds-healthcare-v3-updated.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Healthcare Overview</a>
+                            <a href="healthcare-approach.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Our Approach</a>
+                            <hr class="my-2 border-gray-100">
+                            <a href="healthcare-assessment.html" class="block px-3 py-2 text-sm font-medium text-dsBlue hover:bg-blue-50 rounded-lg">Get AI Assessment →</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="hero-cta-graphic">
-                    <svg viewBox="0 0 240 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Claims/documents stack -->
-                        <rect x="30" y="60" width="70" height="50" rx="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-                        <rect x="35" y="55" width="70" height="50" rx="4" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-                        <rect x="40" y="50" width="70" height="50" rx="4" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
-                        <!-- Document lines -->
-                        <line x1="50" y1="65" x2="100" y2="65" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round"/>
-                        <line x1="50" y1="75" x2="90" y2="75" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-linecap="round"/>
-                        <line x1="50" y1="85" x2="95" y2="85" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-linecap="round"/>
-                        
-                        <!-- Arrow flow -->
-                        <path d="M120 75 L140 75" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M135 68 L143 75 L135 82" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        
-                        <!-- Risk scoring output -->
-                        <!-- High risk claim -->
-                        <rect x="155" y="35" width="65" height="32" rx="6" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="1.5"/>
-                        <circle cx="170" cy="51" r="6" fill="#ef4444"/>
-                        <line x1="183" y1="46" x2="208" y2="46" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round"/>
-                        <line x1="183" y1="56" x2="200" y2="56" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-linecap="round"/>
-                        
-                        <!-- Medium risk claim -->
-                        <rect x="155" y="77" width="65" height="32" rx="6" fill="rgba(251,191,36,0.15)" stroke="#fbbf24" stroke-width="1.5"/>
-                        <circle cx="170" cy="93" r="6" fill="#fbbf24"/>
-                        <line x1="183" y1="88" x2="208" y2="88" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round"/>
-                        <line x1="183" y1="98" x2="195" y2="98" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-linecap="round"/>
-                        
-                        <!-- Low risk claim -->
-                        <rect x="155" y="119" width="65" height="32" rx="6" fill="rgba(34,197,94,0.15)" stroke="#22c55e" stroke-width="1.5"/>
-                        <circle cx="170" cy="135" r="6" fill="#22c55e"/>
-                        <line x1="183" y1="130" x2="208" y2="130" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round"/>
-                        <line x1="183" y1="140" x2="202" y2="140" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-linecap="round"/>
-                        
-                        <!-- AI brain indicator -->
-                        <circle cx="130" cy="140" r="14" fill="rgba(59,130,246,0.2)" stroke="#3b82f6" stroke-width="1.5"/>
-                        <path d="M124 140 C124 136, 127 133, 130 133 C133 133, 136 136, 136 140 C136 143, 134 145, 132 146 L132 150 M128 150 L132 150" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round"/>
-                        <circle cx="130" cy="155" r="1.5" fill="#3b82f6"/>
-                    </svg>
+
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        AI Solutions
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-72">
+                            <p class="px-3 py-1 text-xs font-medium text-gray-400 uppercase">Frameworks</p>
+                            <a href="healthcare-ai-documentation-automation.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Documentation Automation</span>
+                                <span class="block text-xs text-dsBlue">Fastest Payback</span>
+                            </a>
+                            <a href="healthcare-ai-back-office-agents.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Back-Office Agents</span>
+                                <span class="block text-xs text-dsBlue">Highest ROI</span>
+                            </a>
+                            <a href="healthcare-ai-virtual-care-assistants.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Virtual Care Assistants</span>
+                                <span class="block text-xs text-dsBlue">Proven at Scale</span>
+                            </a>
+                            <a href="healthcare-ai-intelligent-scheduling.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">Intelligent Scheduling</span>
+                                <span class="block text-xs text-dsBlue">Quick Win</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
+
+                <a href="healthcare-ai-guides-landing.html" class="px-3 py-2 text-sm text-dsBlue font-medium hover:text-dsBlack">AI Guides</a>
+
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        Domains
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-56">
+                            <a href="healthcare-domains-mds-pdpm.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">MDS / PDPM</a>
+                            <a href="healthcare-domains-raf-hcc-coding.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">RAF / HCC Coding</a>
+                            <a href="healthcare-domains-revenue-cycle-ai.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Revenue Cycle AI</a>
+                            <a href="healthcare-domains-value-based-care.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Value-Based Care</a>
+                            <a href="healthcare-domains-ambient-scribes.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Ambient Scribes</a>
+                            <a href="healthcare-domains-ehr-integrations.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">EHR Integrations</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        Markets
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-56">
+                            <a href="healthcare-markets-skilled-nursing.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Skilled Nursing</a>
+                            <a href="healthcare-markets-home-health-hospice.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Home Health & Hospice</a>
+                            <a href="healthcare-markets-senior-living.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Senior Living</a>
+                            <a href="healthcare-markets-idd.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">IDD Services</a>
+                            <a href="healthcare-markets-health-systems.html" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Health Systems</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
+                        Work
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-dropdown-menu right-aligned">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-64">
+                            <a href="work-never-alone.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">NeverAlone</span>
+                                <span class="block text-xs text-gray-500">26K patients, 7 states</span>
+                            </a>
+                            <a href="work-communicare-mds.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">CommuniCare MDS</span>
+                                <span class="block text-xs text-gray-500">$10M+ PDPM recovered</span>
+                            </a>
+                            <a href="work-raf-hcc-coding.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">RAF/HCC Coding</span>
+                                <span class="block text-xs text-gray-500">$10M+ improvements</span>
+                            </a>
+                            <a href="work-healthcontext-ai.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
+                                <span class="text-sm text-gray-900 font-medium">HealthContext.AI</span>
+                                <span class="block text-xs text-gray-500">45→5 min documentation</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="healthcare-assessment.html" class="ml-3 bg-dsBlue text-white px-5 py-2 text-sm font-medium rounded-full hover:bg-gray-900 transition">Get Assessment</a>
             </div>
 
-            <!-- Problem Section -->
-            <section class="section" id="problem">
-                <h2>The Problem in Dollar Terms</h2>
-                <p>Your follow-up team is probably working claims in the wrong order.</p>
-                <p>Most revenue cycle operations work claims by payer queue, aging bucket, or simple FIFO logic. The implicit assumption: all 30-day claims are equally urgent, all Blue Cross claims deserve the same attention, all $5,000 balances should be prioritized the same way.</p>
-                <p>That assumption costs you money every day.</p>
-                <p>Some claims that look routine will become problems—they'll age past timely filing limits, require multiple appeals, or end up written off. Others that look complicated will resolve themselves. Your follow-up team can't tell the difference until it's often too late.</p>
-                <p>The industry averages: 45-day revenue cycles, 12% denial rates, and significant staff time spent on claims that would have resolved anyway. Organizations that fix this see cycles compress to 28 days and denial write-offs drop materially—often 200-300 basis points of EBITDA improvement.</p>
-
-                <div class="highlight-box blue">
-                    <h4>What predictive claim triage actually does:</h4>
-                    <p>A scoring engine compares each active claim to your historical patterns—claims that aged out, claims that required multiple touches, claims that denied unexpectedly—and assigns a dynamic risk score. High-risk claims surface immediately. Low-risk claims wait. The result: your best people work the claims that actually need intervention, while self-resolving claims don't consume their time.</p>
-                </div>
-
-                <p>This is the same pattern we've applied in clinical risk scoring. Our RAF Score work for a value-based care provider serving 20K+ patients across 7 states uses similar logic—ingesting data from multiple sources, identifying risk patterns, and surfacing prioritized recommendations for clinician action. The technical architecture translates directly: instead of identifying patients at risk of hospitalization, you're identifying claims at risk of write-off.</p>
-            </section>
-
-            <!-- Fit Assessment -->
-            <section class="section" id="fit-assessment">
-                <h2>The 5-Minute Fit Assessment</h2>
-                <p>This isn't right for everyone. Check the boxes that apply:</p>
-
-                <ul class="checklist">
-                    <li>
-                        <div class="checklist-box"></div>
-                        <div class="checklist-text"><strong>You have significant claim volume (10,000+ claims/month)</strong><br>The model needs pattern recognition across thousands of claims to identify meaningful risk signals. Lower volumes can still benefit, but the ROI math changes.</div>
-                    </li>
-                    <li>
-                        <div class="checklist-box"></div>
-                        <div class="checklist-text"><strong>Your follow-up team spends time on claims that resolve without intervention</strong><br>If you've measured this and found that 20-30% of worked claims would have paid anyway, there's room to redirect that effort.</div>
-                    </li>
-                    <li>
-                        <div class="checklist-box"></div>
-                        <div class="checklist-text"><strong>You have claims aging past timely filing limits or appeal windows</strong><br>This is the expensive failure mode. If your team consistently misses deadlines on workable claims, prioritization is part of the problem.</div>
-                    </li>
-                    <li>
-                        <div class="checklist-box"></div>
-                        <div class="checklist-text"><strong>Your denial patterns vary by payer, service line, or facility</strong><br>Generic rules don't capture organizational nuance. If your denial patterns are different at different locations or with different payers, custom scoring has an advantage.</div>
-                    </li>
-                    <li>
-                        <div class="checklist-box"></div>
-                        <div class="checklist-text"><strong>You have 2+ years of claims history with outcomes</strong><br>The model learns from your past. More history = better pattern recognition. If you've recently changed billing systems, that's a complication.</div>
-                    </li>
-                    <li>
-                        <div class="checklist-box"></div>
-                        <div class="checklist-text"><strong>Someone is accountable for A/R days and write-off rates</strong><br>There needs to be an owner who cares about these metrics and has authority to change workflows.</div>
-                    </li>
-                </ul>
-
-                <div class="highlight-box green">
-                    <p>If you checked 4 or more, this is worth serious consideration. Fewer than 3, and you likely have higher-priority problems to solve first.</p>
-                </div>
-            </section>
-
-            <!-- What You Need -->
-            <section class="section" id="what-you-need">
-                <h2>What You Need to Have Ready</h2>
-
-                <h3>Data requirements (simpler than you might think)</h3>
-                <p>This solution sits entirely in your billing workflow. You need:</p>
-                <ul style="margin: 1rem 0 1rem 1.5rem; color: var(--gray-700);">
-                    <li>Historical claims data with submission dates and outcomes</li>
-                    <li>Payer identification</li>
-                    <li>Service/procedure information</li>
-                    <li>Aging and status history</li>
-                    <li>Denial reason codes where applicable</li>
-                </ul>
-                <p>You don't need EHR integration. You don't need clinical documentation. You don't need payer contract details (that's a different solution).</p>
-
-                <h3>The baseline measurement challenge</h3>
-                <p>Proving ROI requires knowing your "before" state:</p>
-                <ul style="margin: 1rem 0 1rem 1.5rem; color: var(--gray-700);">
-                    <li>Average days in A/R by payer category</li>
-                    <li>Write-off rate for claims that were worked vs. not worked</li>
-                    <li>Staff hours per claim by category</li>
-                    <li>Timely filing misses per month</li>
-                </ul>
-                <p>If you don't have these numbers, getting them is step one—before you invest in any solution.</p>
-
-                <h3>Process change readiness</h3>
-                <p>The technology is the easy part. The hard part: convincing your follow-up team to trust a score they didn't create. You'll need:</p>
-                <ul style="margin: 1rem 0 1rem 1.5rem; color: var(--gray-700);">
-                    <li>Clear executive sponsorship</li>
-                    <li>Training on the "why" behind the scores</li>
-                    <li>A feedback mechanism when the model is wrong</li>
-                    <li>Patience during the learning curve (first 30-60 days will feel uncomfortable)</li>
-                </ul>
-
-                <h3>Timeline expectations</h3>
-                <p>Plan for 8-12 weeks from kickoff to go-live, then 60-90 days of measurement before you'll have statistically confident results. The model improves over time as it learns your patterns, so results at month 6 are typically better than month 3.</p>
-            </section>
-
-            <!-- Build vs Buy vs Partner -->
-            <section class="section" id="build-buy-partner">
-                <h2>The Build vs. Buy vs. Partner Decision</h2>
-
-                <div class="decision-grid">
-                    <div class="decision-card">
-                        <h4>Build internally if:</h4>
-                        <ul>
-                            <li>You have data science resources with healthcare revenue cycle experience</li>
-                            <li>Your IT team has capacity for a 6-12 month project</li>
-                            <li>You're comfortable with ongoing model maintenance and retraining</li>
-                            <li>You want complete control of the intellectual property</li>
-                        </ul>
-                    </div>
-                    <div class="decision-card">
-                        <h4>Buy off-the-shelf if:</h4>
-                        <ul>
-                            <li>Your claim patterns are similar to the vendor's training data</li>
-                            <li>You're okay with limited customization to your specific patterns</li>
-                            <li>You want predictable monthly costs</li>
-                            <li>Speed to deployment matters more than optimization</li>
-                        </ul>
-                    </div>
-                    <div class="decision-card">
-                        <h4>Partner for custom if:</h4>
-                        <ul>
-                            <li>Your claim patterns are organizationally specific</li>
-                            <li>You want a model that learns from your outcomes over time</li>
-                            <li>You need accountability to results, not just software metrics</li>
-                            <li>You're willing to invest more for higher accuracy</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="highlight-box amber">
-                    <h4>Reality check:</h4>
-                    <p>MIT's research found internal AI builds fail 67% of the time. The failures aren't usually technical—they're organizational. The model works in testing, but never gets adopted by the team.</p>
-                </div>
-
-                <p>The limitation of off-the-shelf tools: they train on industry data. Your hospital's claim patterns—shaped by your specific payer mix, coding practices, and operational quirks—may not match the averages.</p>
-
-                <p>What makes the difference? In our experience, it's workflow integration and change management—not model sophistication. Our Never Alone platform for CommuniCare went from MVP to 7-state deployment in 18 months because we designed it with end users from day one and embedded it into their existing workflows. The same principle applies to revenue cycle: a brilliant model that sits outside your team's daily process won't get used.</p>
-
-                <h3>Practical starting point:</h3>
-                <p>For many organizations, the honest first step is improving your rules-based logic with better data analysis before investing in ML. Analyze your historical write-offs—what patterns emerge? Sometimes a few targeted rule changes get you 60% of the benefit at 10% of the cost.</p>
-            </section>
-
-            <!-- Red Flags -->
-            <section class="section" id="red-flags">
-                <h2>Red Flags: When to Wait</h2>
-
-                <ul class="checklist">
-                    <li>
-                        <div class="checklist-box"></div>
-                        <div class="checklist-text"><strong>Your claim data is fragmented across systems</strong><br>If claims live in multiple systems that don't talk to each other, consolidation comes before optimization.</div>
-                    </li>
-                    <li>
-                        <div class="checklist-box"></div>
-                        <div class="checklist-text"><strong>You're about to change billing platforms</strong><br>Model training on your current system will be wasted if you're migrating in 12 months. Wait until post-migration stabilization.</div>
-                    </li>
-                    <li>
-                        <div class="checklist-box"></div>
-                        <div class="checklist-text"><strong>Denials are your primary problem, not follow-up prioritization</strong><br>If your issue is claims getting denied in the first place (not follow-up on pending claims), you need denial prediction and pre-submission scrubbing—a different solution.</div>
-                    </li>
-                    <li>
-                        <div class="checklist-box"></div>
-                        <div class="checklist-text"><strong>Staff won't trust the output</strong><br>If your follow-up team has deep resistance to changing their workflow, or management won't mandate the change, the technology won't matter. Solve the people problem first.</div>
-                    </li>
-                    <li>
-                        <div class="checklist-box"></div>
-                        <div class="checklist-text"><strong>You need results this quarter</strong><br>This is a capability that builds over time. If you're in a cash crisis, you need faster interventions—staffing, outsourcing, focused payment plan pushes—not AI implementation.</div>
-                    </li>
-                </ul>
-            </section>
-
-            <!-- Questions to Ask -->
-            <section class="section" id="questions">
-                <h2>Questions to Ask Any Vendor</h2>
-
-                <div class="questions-list">
-                    <div class="question-category">
-                        <h4>On their methodology:</h4>
-                        <ul>
-                            <li>How does your model differentiate high-risk claims from low-risk? What signals matter most?"</li>
-                            <li>Is the model trained on industry data or our data specifically?"</li>
-                            <li>How do you handle claims that don't match patterns the model has seen?"</li>
-                            <li>What's the false positive rate? How often will it flag claims that don't actually need intervention?"</li>
-                        </ul>
-                    </div>
-
-                    <div class="question-category">
-                        <h4>On implementation:</h4>
-                        <ul>
-                            <li>What does this look like in my team's daily workflow? New system or integration with existing tools?"</li>
-                            <li>Who handles change management and training? What's included vs. additional cost?"</li>
-                            <li>What's your track record getting solutions from pilot to production?"</li>
-                        </ul>
-                    </div>
-
-                    <div class="question-category">
-                        <h4>On results:</h4>
-                        <ul>
-                            <li>What specific metrics should we expect to improve, and by how much?"</li>
-                            <li>How long until we see statistically significant results?"</li>
-                            <li>Show me a comparable client where you improved A/R days or write-off rates—can I talk to them?"</li>
-                            <li>Are you willing to tie your fees to outcome metrics?"</li>
-                        </ul>
-                    </div>
-
-                    <div class="question-category">
-                        <h4>On sustainability:</h4>
-                        <ul>
-                            <li>Does the model degrade over time without retraining? What's the maintenance requirement?"</li>
-                            <li>If our payer mix or claim patterns change, how does the model adapt?"</li>
-                            <li>What do we own vs. what do you own? What happens if we end the relationship?"</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <p>Vendors with vague answers to these questions—especially on accountability and references—should give you pause.</p>
-            </section>
-
-            <!-- Self Assessment -->
-            <section class="section" id="self-assessment">
-                <h2>Where to Start: The Self-Assessment</h2>
-                <p>Before engaging any vendor, get clear on your numbers.</p>
-
-                <div class="assessment-form">
-                    <div class="form-section">
-                        <h4>Size the opportunity:</h4>
-                        <div class="form-row">
-                            <label>1. What's your monthly claim volume?</label>
-                            <input type="text" placeholder="___">
-                        </div>
-                        <div class="form-row">
-                            <label>2. What percentage of claims require follow-up intervention?</label>
-                            <input type="text" placeholder="___%">
-                        </div>
-                        <div class="form-row">
-                            <label>3. What's your average days in A/R?</label>
-                            <input type="text" placeholder="___">
-                        </div>
-                        <div class="form-row">
-                            <label>4. What's your denial write-off rate?</label>
-                            <input type="text" placeholder="___%">
-                        </div>
-                        <div class="form-row">
-                            <label>5. How many FTEs work follow-up?</label>
-                            <input type="text" placeholder="___">
-                        </div>
-                    </div>
-
-                    <div class="form-section">
-                        <h4>Diagnose your current process:</h4>
-                        <p>6. How are follow-up queues currently prioritized?</p>
-                        <div class="form-options">
-                            <div class="form-option">
-                                <input type="checkbox" id="aging-bucket">
-                                <label for="aging-bucket">By aging bucket (30/60/90 days)</label>
-                            </div>
-                            <div class="form-option">
-                                <input type="checkbox" id="by-payer">
-                                <label for="by-payer">By payer</label>
-                            </div>
-                            <div class="form-option">
-                                <input type="checkbox" id="by-balance">
-                                <label for="by-balance">By balance</label>
-                            </div>
-                            <div class="form-option">
-                                <input type="checkbox" id="fifo">
-                                <label for="fifo">FIFO</label>
-                            </div>
-                            <div class="form-option">
-                                <input type="checkbox" id="custom-rules">
-                                <label for="custom-rules">Custom rules</label>
-                            </div>
-                            <div class="form-option">
-                                <input type="checkbox" id="no-systematic">
-                                <label for="no-systematic">No systematic approach</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-section">
-                        <h4>Estimate your potential:</h4>
-                        <p>Organizations moving from basic queue logic to risk-based prioritization typically see:</p>
-                        <ul style="margin: 1rem 0 1rem 1.5rem; color: var(--gray-700);">
-                            <li>10-15% reduction in aged A/R</li>
-                            <li>15-25% increase in recovery per FTE/day</li>
-                            <li>Fewer timely filing misses</li>
-                        </ul>
-                        <p>For a $100M revenue organization with 10% of claims requiring follow-up and 45-day A/R cycles, compressing cycles to 35 days and reducing write-offs by 20% can be worth <strong>$500K+ annually</strong>.</p>
-                    </div>
-                </div>
-            </section>
-
-                        <!-- Related Work -->
-            <section class="section" id="related-work">
-                <h2>Related Work</h2>
-                <p>Claim triage shares core capabilities with other solutions we've built—pattern recognition across complex data, workflow integration, and real-time decisioning:</p>
-
-                <div class="related-grid">
-                    <a href="https://digitalscientists.com/case-studies/never-alone/" target="_blank" class="related-card">
-                        <h4>Never Alone Platform</h4>
-                        <p>Remote patient monitoring platform serving 7 states. Built real-time triage and escalation workflows that prioritize interventions by clinical risk.</p>
-                    </a>
-                    <a href="https://digitalscientists.com/case-studies/healthcontext-ai/" target="_blank" class="related-card">
-                        <h4>HealthContext.AI</h4>
-                        <p>AI-powered clinical decision support with multi-source data integration. Same architectural patterns we apply to claims analysis.</p>
-                    </a>
-                    <a href="https://digitalscientists.com/case-studies/mckesson-3pl/" target="_blank" class="related-card">
-                        <h4>McKesson 3PL</h4>
-                        <p>Healthcare logistics platform processing high-volume transactions with intelligent routing. Demonstrates our approach to workflow optimization at scale.</p>
-                    </a>
-                    <a href="ds-healthcare-v3-updated.html" class="related-card">
-                        <h4>Healthcare AI Solutions</h4>
-                        <p>See our full portfolio of healthcare AI solutions including documentation automation and revenue cycle optimization.</p>
-                    </a>
-                </div>
-            </section>
-
-            <!-- CTA -->
-            <section class="cta-section">
-                <h2>Ready for a Conversation?</h2>
-                <p>If the fit assessment looks promising, we're happy to talk through what implementation might look like for your specific situation. We won't pitch you. We'll ask questions, share what we've seen work (and not work), and help you decide whether this is the right priority.</p>
-                <div class="cta-actions">
-                    <a href="#" class="btn btn-primary">Schedule a 30-minute conversation →</a>
-                    <a href="#" class="btn btn-outline">Download the Claim Follow-Up Diagnostic</a>
-                </div>
-            </section>
-        </main>
+            <div class="md:hidden">
+                <a href="healthcare-assessment.html" class="bg-dsBlue text-white px-4 py-2 text-sm font-medium rounded-full">Menu</a>
+            </div>
+        </div>
     </div>
+</nav>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h3><span>DIGITAL</span><span>SCIENTISTS</span></h3>
-                    <p style="color: var(--gray-400); font-size: 0.875rem; margin-top: 1rem;">We build custom AI solutions for healthcare organizations. We help revenue cycle teams turn historical claim data into forward-looking prioritization that measurably improves cash collections.</p>
-                </div>
-                <div class="footer-column">
-                    <h4>Frameworks</h4>
-                    <ul>
-                        <li><a href="ar-collection-prioritization.html">A/R Collection</a></li>
-                        <li><a href="claim-follow-up-triage.html">Claim Triage</a></li>
-                        <li><a href="payer-contract-interpretation.html">Contract Interpretation</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Case Studies</h4>
-                    <ul>
-                        <li><a href="#">MDS Optimization</a></li>
-                        <li><a href="#">RAF Score</a></li>
-                        <li><a href="#">Never Alone</a></li>
-                        <li><a href="#">CommuniCare</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#">Our story</a></li>
-                        <li><a href="#">Insights</a></li>
-                        <li><a href="#">Careers</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><a href="#">Schedule a call</a></li>
-                        <li><a href="#">404.654.3855</a></li>
-                    </ul>
+<!-- Hero -->
+<header class="pt-32 pb-12 px-6">
+    <div class="max-w-4xl mx-auto">
+        <div class="flex items-center gap-2 text-sm mb-6">
+            <a href="healthcare-ai-guides-landing.html" class="text-dsBlue hover:underline">AI Guides</a>
+            <span class="text-gray-400">/</span>
+            <span class="text-gray-600">Quick Win</span>
+        </div>
+        
+        <div class="inline-flex items-center gap-2 bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm font-medium mb-4">
+            <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+            8-14 weeks to deploy
+        </div>
+        
+        <h1 class="text-4xl md:text-5xl font-bold text-dsBlack mb-6 leading-tight">
+            Claim Follow-Up Triage
+        </h1>
+        
+        <p class="text-xl text-gray-600 leading-relaxed mb-8">
+            Pattern matching that surfaces high-risk claims before they age out. Identify which claims need intervention now—before the denial arrives. Stop being reactive. Start being proactive.
+        </p>
+        
+        <div class="flex flex-wrap gap-4">
+            <a href="healthcare-assessment.html" class="inline-flex items-center gap-2 bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">
+                Get Assessment
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <a href="#fit-assessment" class="inline-flex items-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 text-sm font-medium rounded-full hover:bg-gray-50 transition">
+                5-Minute Fit Check
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- Expected ROI -->
+<section class="py-12 px-6 border-t border-gray-100">
+    <div class="max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="text-center p-6 bg-dsGray rounded-xl fade-up">
+                <span class="text-3xl font-bold text-dsBlack">15-25%</span>
+                <p class="text-gray-600 text-sm mt-1">Recovery per FTE</p>
+            </div>
+            <div class="text-center p-6 bg-dsGray rounded-xl fade-up">
+                <span class="text-3xl font-bold text-dsBlue">25-50%</span>
+                <p class="text-gray-600 text-sm mt-1">Denial write-off reduction</p>
+            </div>
+            <div class="text-center p-6 bg-dsGray rounded-xl fade-up">
+                <span class="text-3xl font-bold text-dsBlack">8-14</span>
+                <p class="text-gray-600 text-sm mt-1">Weeks to production</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- The Problem -->
+<section class="py-16 px-6">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Problem</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">By the time you see the denial, you've already lost.</h2>
+        
+        <div class="prose prose-lg text-gray-600 space-y-4 fade-up">
+            <p>Most revenue cycle teams work denials after they happen. A claim sits for 30-45 days, gets denied, then enters the appeals queue. By then, you've lost leverage, lost time, and often lost the revenue entirely.</p>
+            
+            <p>The patterns that predict denial are visible much earlier—in the claim data itself. Certain payer + code + facility + timing combinations have historically denied at 40%, 60%, or 80% rates. Those claims are sitting in your system right now, aging toward denial, while your team works lower-risk accounts.</p>
+            
+            <p>AI-powered triage identifies these high-risk claims within days of submission, enabling proactive intervention before the denial arrives. Fix the problem while you still can.</p>
+        </div>
+        
+        <div class="mt-8 p-6 bg-amber-50 border-l-4 border-amber-400 rounded-r-xl fade-up">
+            <p class="text-gray-800"><strong>The math:</strong> If 12% of your claims deny and half are preventable with early intervention, that's 6% of claims saved. At $500 average claim value with 100,000 annual claims, that's $3M recovered—not from better appeals, but from preventing denials entirely.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Fit Assessment -->
+<section id="fit-assessment" class="py-16 px-6 bg-dsGray">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">5-Minute Fit Assessment</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">Is this right for your organization?</h2>
+        
+        <p class="text-gray-600 mb-8">Check what applies. Four or more suggests strong fit.</p>
+        
+        <div class="space-y-4">
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">Denial rate above 8%</span>
+                        <p class="text-gray-500 text-sm mt-1">Lower denial rates mean less opportunity for improvement. The sweet spot is 10-20% where there's significant room to move the needle.</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">Multi-payer environment with varying denial patterns</span>
+                        <p class="text-gray-500 text-sm mt-1">Single-payer environments are more predictable. The AI value comes from learning complex, payer-specific patterns.</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">Your team currently works denials reactively</span>
+                        <p class="text-gray-500 text-sm mt-1">If you're already doing proactive intervention with good results, AI adds less. If you're purely reactive, the shift is significant.</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">2+ years of denial history with reason codes</span>
+                        <p class="text-gray-500 text-sm mt-1">The model needs historical patterns to learn from. Clean denial reason codes are essential.</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">Staff capacity exists for proactive intervention</span>
+                        <p class="text-gray-500 text-sm mt-1">Identifying risk is only valuable if someone acts on it. You need bandwidth to intervene on flagged claims.</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">Many denials are preventable (documentation, coding, timely filing)</span>
+                        <p class="text-gray-500 text-sm mt-1">If denials are primarily contractual or coverage-based, intervention helps less. If they're operational, early detection changes outcomes.</p>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What You Need -->
+<section class="py-16 px-6">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Requirements</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">What you need to have ready</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="fade-up">
+                <h3 class="text-xl font-semibold text-dsBlack mb-4">Data Requirements</h3>
+                <ul class="space-y-3 text-gray-600">
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Claims data with submission details
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Denial history with reason codes
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Payer and plan identifiers
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Procedure and diagnosis codes
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="fade-up">
+                <h3 class="text-xl font-semibold text-dsBlack mb-4">What's NOT Required</h3>
+                <ul class="space-y-3 text-gray-600">
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-gray-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        EHR integration
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-gray-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        Clinical documentation access
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-gray-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        Real-time system integration
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-gray-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        Workflow changes
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="mt-8 p-6 bg-blue-50 border border-blue-100 rounded-xl fade-up">
+            <p class="text-gray-700"><strong>Why this is a quick win:</strong> Claim triage works from billing data exports. No EHR integration required. The output is simply a prioritized list—your team uses existing workflows, just with better information about where to focus.</p>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="py-16 px-6 bg-dsGray">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Process</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-8">How AI-powered triage works</h2>
+        
+        <div class="space-y-6">
+            <div class="bg-white p-6 rounded-xl border border-gray-200 fade-up">
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 bg-dsBlue text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
+                    <div>
+                        <h3 class="font-semibold text-dsBlack mb-2">Pattern Learning</h3>
+                        <p class="text-gray-600">The model analyzes your historical claims and denials, learning which combinations of payer, code, facility, timing, and other factors predict denial. Not generic industry patterns—your specific patterns.</p>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div class="footer-address">
-                    21 south main street<br>
-                    alpharetta, ga 30009
+            
+            <div class="bg-white p-6 rounded-xl border border-gray-200 fade-up">
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 bg-dsBlue text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
+                    <div>
+                        <h3 class="font-semibold text-dsBlack mb-2">Real-Time Scoring</h3>
+                        <p class="text-gray-600">As new claims enter your system, each is scored for denial risk. High-risk claims are flagged immediately—not after 30 days when you receive the denial.</p>
+                    </div>
                 </div>
-                <div class="footer-legal">
-                    <span>© 1997 - 2025 Digital Scientists, LLC.</span>
-                    <a href="#">Privacy Policy</a>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl border border-gray-200 fade-up">
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 bg-dsBlue text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
+                    <div>
+                        <h3 class="font-semibold text-dsBlack mb-2">Actionable Intelligence</h3>
+                        <p class="text-gray-600">Flagged claims come with reason predictions: "High denial risk: Similar claims to Blue Cross with this code combination denied 67% of the time for medical necessity." Your team knows what to fix.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl border border-gray-200 fade-up">
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 bg-dsBlue text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">4</div>
+                    <div>
+                        <h3 class="font-semibold text-dsBlack mb-2">Continuous Learning</h3>
+                        <p class="text-gray-600">As new denials occur, the model updates. Payer behavior changes? The model adapts. New denial patterns emerge? The model catches them.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+</section>
+
+<!-- Red Flags -->
+<section class="py-16 px-6">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Honest Assessment</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">When to wait</h2>
+        
+        <div class="space-y-4">
+            <div class="p-4 border-l-4 border-red-400 bg-red-50 rounded-r-xl fade-up">
+                <p class="text-gray-800"><strong>Your denial reason codes are inconsistent or missing.</strong> The model can't learn patterns without good data. Clean up your coding first.</p>
+            </div>
+            
+            <div class="p-4 border-l-4 border-red-400 bg-red-50 rounded-r-xl fade-up">
+                <p class="text-gray-800"><strong>Denial rate is already under 5%.</strong> You're already doing well. The incremental improvement from AI may not justify the investment.</p>
+            </div>
+            
+            <div class="p-4 border-l-4 border-red-400 bg-red-50 rounded-r-xl fade-up">
+                <p class="text-gray-800"><strong>No bandwidth for proactive intervention.</strong> If your team is drowning just working the denial queue, adding more alerts makes things worse, not better.</p>
+            </div>
+            
+            <div class="p-4 border-l-4 border-red-400 bg-red-50 rounded-r-xl fade-up">
+                <p class="text-gray-800"><strong>Most denials are contractual.</strong> If the primary issue is coverage verification or contract terms, early detection doesn't change the outcome. Focus on eligibility instead.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related Guides -->
+<section class="py-16 px-6 bg-dsGray">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Guides</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-8">Other quick wins to consider</h2>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+            <a href="ar-collection-prioritization.html" class="bg-white p-6 rounded-xl border border-gray-200 hover:border-dsBlue transition fade-up">
+                <span class="text-xs font-medium text-green-600 uppercase">Quick Win</span>
+                <h3 class="text-xl font-semibold text-dsBlack mt-2 mb-2">A/R Collection Prioritization</h3>
+                <p class="text-gray-600 text-sm">AI-powered prioritization based on collectability, not just age. 5-15% bad debt reduction.</p>
+            </a>
+            
+            <a href="payer-contract-interpretation.html" class="bg-white p-6 rounded-xl border border-gray-200 hover:border-dsBlue transition fade-up">
+                <span class="text-xs font-medium text-green-600 uppercase">Quick Win</span>
+                <h3 class="text-xl font-semibold text-dsBlack mt-2 mb-2">Payer Contract Interpretation</h3>
+                <p class="text-gray-600 text-sm">AI that reads your contracts and flags underpayments. 1-3% net collection lift.</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 px-6 bg-dsBlue">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to get ahead of denials?</h2>
+        <p class="text-blue-100 mb-8 max-w-2xl mx-auto">30-minute call to assess your denial patterns and estimate the opportunity. We'll tell you if this is the right project for you.</p>
+        <a href="healthcare-assessment.html" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-gray-100 transition">
+            Get AI Assessment
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-8 px-6 border-t border-gray-200">
+    <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+        <p>© 2007 - 2026 Digital Scientists, LLC.</p>
+        <div class="flex gap-6 mt-4 md:mt-0">
+            <a href="#" class="hover:text-dsBlack transition">Privacy Policy</a>
+            <a href="#" class="hover:text-dsBlack transition">LinkedIn</a>
+            <a href="tel:4046543855" class="text-dsBlue hover:underline">404.654.3855</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
