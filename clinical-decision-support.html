@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Decision Support Systems | Custom CDSS | Digital Scientists</title>
+    <meta name="description" content="Custom CDSS delivering evidence-based recommendations at the point of care. HealthContext.AI reduces documentation from 45 to 5 minutes. EHR-integrated clinical decision support.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dsBlue: '#304FFF',
+                        dsBlack: '#050505',
+                        dsGray: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        h1, h2, h3 { letter-spacing: -0.02em; }
+        .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="bg-white text-dsBlack antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white border-b border-gray-100">
+        <div class="max-w-screen-xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="ds-healthcare-v3-updated.html">
+                <img src="1012DS_Logo_Native_Black.svg" alt="Digital Scientists" class="h-10">
+            </a>
+            
+            <div class="hidden lg:flex items-center gap-6">
+                <div class="relative group">
+                    <button class="text-sm text-gray-600 hover:text-dsBlack transition flex items-center gap-1">Healthcare<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button>
+                    <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-4 w-56">
+                            <a href="ds-healthcare-v3-updated.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">Healthcare Overview</a>
+                            <a href="healthcare-approach.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">Our Approach</a>
+                            <a href="healthcare-assessment.html" class="block px-3 py-2 text-sm text-dsBlue font-medium hover:bg-gray-50 rounded-lg">Get AI Assessment →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative group">
+                    <button class="text-sm text-gray-600 hover:text-dsBlack transition flex items-center gap-1">AI Solutions<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button>
+                    <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-4 w-72">
+                            <a href="healthcare-ai-documentation-automation.html" class="block py-2"><span class="text-sm font-medium text-gray-900 hover:text-dsBlue">Documentation Automation</span><span class="block text-xs text-gray-500">Fastest Payback</span></a>
+                            <a href="healthcare-ai-back-office-agents.html" class="block py-2"><span class="text-sm font-medium text-gray-900 hover:text-dsBlue">Back-Office Agents</span><span class="block text-xs text-gray-500">Highest ROI</span></a>
+                            <a href="healthcare-ai-virtual-care-assistants.html" class="block py-2"><span class="text-sm font-medium text-gray-900 hover:text-dsBlue">Virtual Care Assistants</span><span class="block text-xs text-gray-500">Proven at Scale</span></a>
+                            <a href="healthcare-ai-intelligent-scheduling.html" class="block py-2"><span class="text-sm font-medium text-gray-900 hover:text-dsBlue">Intelligent Scheduling</span><span class="block text-xs text-gray-500">Quick Win</span></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="healthcare-ai-guides-landing.html" class="text-sm text-dsBlue font-medium hover:text-dsBlack transition">AI Guides</a>
+                
+                <div class="relative group">
+                    <button class="text-sm text-gray-600 hover:text-dsBlack transition flex items-center gap-1">Domains<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button>
+                    <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-4 w-56">
+                            <a href="healthcare-domains-mds-pdpm.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">MDS / PDPM</a>
+                            <a href="healthcare-domains-raf-hcc-coding.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">RAF / HCC Coding</a>
+                            <a href="healthcare-domains-revenue-cycle-ai.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">Revenue Cycle AI</a>
+                            <a href="healthcare-domains-value-based-care.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">Value-Based Care</a>
+                            <a href="healthcare-domains-ambient-scribes.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">Ambient Scribes</a>
+                            <a href="healthcare-domains-ehr-integrations.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">EHR Integrations</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative group">
+                    <button class="text-sm text-gray-600 hover:text-dsBlack transition flex items-center gap-1">Markets<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button>
+                    <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-4 w-56">
+                            <a href="healthcare-markets-skilled-nursing.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">Skilled Nursing</a>
+                            <a href="healthcare-markets-home-health-hospice.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">Home Health & Hospice</a>
+                            <a href="healthcare-markets-senior-living.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">Senior Living</a>
+                            <a href="healthcare-markets-idd.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">IDD Services</a>
+                            <a href="healthcare-markets-health-systems.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">Health Systems</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative group">
+                    <button class="text-sm text-gray-600 hover:text-dsBlack transition flex items-center gap-1">Work<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button>
+                    <div class="absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-4 w-72">
+                            <a href="work-never-alone.html" class="block py-2"><span class="text-sm font-medium text-gray-900 hover:text-dsBlue">NeverAlone</span><span class="block text-xs text-gray-500">26K patients, 7 states</span></a>
+                            <a href="work-communicare-mds.html" class="block py-2"><span class="text-sm font-medium text-gray-900 hover:text-dsBlue">CommuniCare MDS</span><span class="block text-xs text-gray-500">$10M+ PDPM recovered</span></a>
+                            <a href="work-raf-hcc-coding.html" class="block py-2"><span class="text-sm font-medium text-gray-900 hover:text-dsBlue">RAF/HCC Coding</span><span class="block text-xs text-gray-500">$10M+ improvements</span></a>
+                            <a href="work-healthcontext-ai.html" class="block py-2"><span class="text-sm font-medium text-gray-900 hover:text-dsBlue">HealthContext.AI</span><span class="block text-xs text-gray-500">45→5 min documentation</span></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="healthcare-assessment.html" class="bg-dsBlue text-white px-6 py-2.5 text-sm font-medium rounded-full hover:bg-dsBlack transition">Get Assessment</a>
+            </div>
+            
+            <button class="lg:hidden p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 px-6 py-4">
+            <a href="ds-healthcare-v3-updated.html" class="block py-2 text-gray-600">Healthcare Overview</a>
+            <a href="healthcare-approach.html" class="block py-2 text-gray-600">Our Approach</a>
+            <a href="healthcare-ai-guides-landing.html" class="block py-2 text-dsBlue font-medium">AI Guides</a>
+            <a href="healthcare-assessment.html" class="block py-2 text-dsBlue font-medium">Get Assessment →</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-16 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-up">
+                    <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
+                        <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                        Clinical Decision Support Systems
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl font-bold text-dsBlack mb-6 leading-[1.1]">
+                        Clinicians need insights at the point of care—not another dashboard to check.
+                    </h1>
+                    
+                    <p class="text-xl text-gray-600 leading-relaxed mb-4">
+                        Clinical decision support systems provide tailored recommendations for your patient population and clinical needs. Seamlessly integrating with your EHR systems, CDSS enhances data flow and reduces workflow disruptions.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                        Custom CDSS solutions improve efficiency by minimizing unnecessary alerts and focusing on critical information. We've built systems delivering <strong>45→5 minute documentation</strong> with HealthContext.AI.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="healthcare-assessment.html" class="inline-flex items-center justify-center gap-2 bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">
+                            Discuss Your CDSS Opportunity
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                        <a href="healthcare-approach.html" class="inline-flex items-center justify-center gap-2 border border-gray-300 text-dsBlack px-6 py-3 text-sm font-medium rounded-full hover:border-dsBlack transition">
+                            See How We Work
+                        </a>
+                    </div>
+                </div>
+
+                <div class="fade-up">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/06/image-91.png" alt="HealthContext.AI Clinical Decision Support Interface" class="rounded-xl w-full">
+                    <p class="text-sm text-gray-500 mt-3 text-center">HealthContext.AI: AI-powered telehealth documentation</p>
+                </div>
+            </div>
+            
+            <!-- Stats Row -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlue">45→5</span>
+                    <p class="text-gray-500 text-sm mt-1">Min documentation</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">89%</span>
+                    <p class="text-gray-500 text-sm mt-1">Time reduction</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">100%</span>
+                    <p class="text-gray-500 text-sm mt-1">Production rate</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">Real-time</span>
+                    <p class="text-gray-500 text-sm mt-1">EHR integration</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Logo Bar -->
+    <section class="border-y border-gray-100 py-8 px-6">
+        <div class="max-w-screen-xl mx-auto flex flex-wrap justify-center items-center gap-8 md:gap-16">
+            <span class="text-xs text-gray-400 uppercase tracking-wider">Trusted By</span>
+            <img src="https://digitalscientists.com/wp-content/uploads/2023/12/logo-chs-black.png" alt="CommuniCare" class="h-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+            <img src="https://digitalscientists.com/wp-content/uploads/2024/05/Screenshot_2-300x60.png" alt="Duke Health" class="h-6 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+            <img src="https://digitalscientists.com/wp-content/uploads/2023/12/Guardian-Logo-Lockup2-White-1.svg" alt="Guardian" class="h-6 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+            <img src="https://digitalscientists.com/wp-content/uploads/2024/05/easterseals-300x108.png" alt="Easterseals" class="h-6 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+        </div>
+    </section>
+
+    <!-- The Challenge Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">The Challenge</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-4">Alert fatigue kills clinical adoption. Smart CDSS changes the equation.</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">Clinicians are overwhelmed with alerts and dashboards that don't integrate into workflows. The result: missed diagnoses, documentation gaps, and revenue leakage. Custom CDSS focuses on critical information and minimizes unnecessary alerts.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-4xl font-bold text-dsBlue">96%</span>
+                    <h3 class="font-semibold mt-2">Alert Override Rate</h3>
+                    <p class="text-gray-500 text-sm mt-1">Clinicians ignore most alerts due to fatigue and irrelevance.</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-4xl font-bold text-dsBlack">35%</span>
+                    <h3 class="font-semibold mt-2">Time on Documentation</h3>
+                    <p class="text-gray-500 text-sm mt-1">Clinicians spend over a third of time on paperwork.</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-4xl font-bold text-dsBlack">$4.4B</span>
+                    <h3 class="font-semibold mt-2">Diagnostic Errors</h3>
+                    <p class="text-gray-500 text-sm mt-1">Annual cost of diagnostic errors in US healthcare.</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-4xl font-bold text-dsBlack">15-30%</span>
+                    <h3 class="font-semibold mt-2">Missed Diagnoses</h3>
+                    <p class="text-gray-500 text-sm mt-1">Revenue left on table from undocumented conditions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-up">
+                    <span class="text-dsBlue text-sm font-medium">Case Study • Clinical Decision Support</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">HealthContext.AI: 45→5 Minute Documentation</h2>
+                    <p class="text-gray-600 mb-6">
+                        Built an AI service to document telehealth encounters, reducing documentation time from 45 minutes to 5 minutes per visit. The system provides real-time clinical decision support integrated directly into the telehealth workflow, with evidence-based recommendations at the point of care.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="bg-white rounded-lg p-4">
+                            <span class="text-2xl font-bold text-dsBlue">45→5</span>
+                            <p class="text-gray-500 text-sm">Min documentation</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <span class="text-2xl font-bold text-dsBlack">89%</span>
+                            <p class="text-gray-500 text-sm">Time saved</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <span class="text-2xl font-bold text-dsBlack">100%</span>
+                            <p class="text-gray-500 text-sm">Production rate</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <span class="text-2xl font-bold text-dsBlack">Real-time</span>
+                            <p class="text-gray-500 text-sm">Clinical insights</p>
+                        </div>
+                    </div>
+                    
+                    <a href="https://digitalscientists.com/case-studies/healthcontext-ai/" class="inline-flex items-center gap-2 text-dsBlue font-medium hover:underline">
+                        See the HealthContext.AI Case Study →
+                    </a>
+                </div>
+                
+                <div class="fade-up">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/06/image-91.png" alt="HealthContext.AI Interface" class="rounded-xl shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">Use Cases</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-4">CDSS applications that deliver measurable outcomes.</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-xs font-medium text-white bg-dsBlue px-2 py-1 rounded">For CMO</span>
+                        <span class="text-xs text-gray-500">• Accuracy</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Diagnostic Support</h3>
+                    <p class="text-gray-600 mb-4">Assisting healthcare providers in diagnosing medical conditions by analyzing patient data and offering evidence-based recommendations, reducing diagnostic errors and improving accuracy.</p>
+                    <p class="text-sm text-dsBlack font-medium">Outcome: Reduced diagnostic errors, better outcomes.</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-xs font-medium text-white bg-dsBlue px-2 py-1 rounded">For CMO</span>
+                        <span class="text-xs text-gray-500">• Patient Safety</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Medication Management</h3>
+                    <p class="text-gray-600 mb-4">Managing medication with alerts for potential drug interactions, dosage errors, and allergies to ensure patient safety and optimize therapeutic outcomes.</p>
+                    <p class="text-sm text-dsBlack font-medium">Outcome: Safer prescribing, reduced adverse events.</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-xs font-medium text-white bg-dsBlue px-2 py-1 rounded">For COO</span>
+                        <span class="text-xs text-gray-500">• 89% Time Saved</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Clinical Documentation</h3>
+                    <p class="text-gray-600 mb-4">AI-powered documentation providing templates and prompts to ensure comprehensive and accurate recording of patient information. Reduces time from 45 to 5 minutes per visit.</p>
+                    <p class="text-sm text-dsBlack font-medium">Outcome: Clinician efficiency, complete documentation.</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-xs font-medium text-white bg-dsBlue px-2 py-1 rounded">For CMO</span>
+                        <span class="text-xs text-gray-500">• Chronic Care</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Chronic Disease Management</h3>
+                    <p class="text-gray-600 mb-4">Monitoring patients with chronic diseases by providing ongoing risk assessments, reminders for follow-up appointments, and guidelines for effective management.</p>
+                    <p class="text-sm text-dsBlack font-medium">Outcome: Better chronic disease outcomes.</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-xs font-medium text-white bg-dsBlue px-2 py-1 rounded">For CMO</span>
+                        <span class="text-xs text-gray-500">• Evidence-Based</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Clinical Guidelines & Protocols</h3>
+                    <p class="text-gray-600 mb-4">Providing real-time access to clinical guidelines and treatment protocols ensures healthcare providers follow the latest evidence-based practices.</p>
+                    <p class="text-sm text-dsBlack font-medium">Outcome: Standardized care, reduced variability.</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-xs font-medium text-white bg-dsBlue px-2 py-1 rounded">For COO</span>
+                        <span class="text-xs text-gray-500">• Efficiency</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Workflow Optimization</h3>
+                    <p class="text-gray-600 mb-4">Enhancing workflow efficiency by integrating with EHRs, automating routine tasks, and providing decision support at the point of care.</p>
+                    <p class="text-sm text-dsBlack font-medium">Outcome: Reduced admin burden, more patient time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VBC Integration Section -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-up">
+                    <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">Value-Based Care Integration</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">CDSS built for value-based care architecture.</h2>
+                    <p class="text-gray-600 mb-8">Custom CDSS integrates into your VBC technology stack, supporting better outcomes, lower costs, and proactive care management.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-dsBlue mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <div>
+                                <h4 class="font-semibold">Improved Clinical Decision-Making</h4>
+                                <p class="text-gray-600 text-sm">Evidence-based recommendations and real-time data analysis ensure informed decisions.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-dsBlue mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <div>
+                                <h4 class="font-semibold">Cost Reduction & Resource Optimization</h4>
+                                <p class="text-gray-600 text-sm">Minimize unnecessary tests, prevent errors, and optimize resource use.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-dsBlue mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <div>
+                                <h4 class="font-semibold">Proactive Care & Better Outcomes</h4>
+                                <p class="text-gray-600 text-sm">Predictive analytics identify at-risk patients for timely interventions.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-dsBlue mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <div>
+                                <h4 class="font-semibold">Efficient Workflows</h4>
+                                <p class="text-gray-600 text-sm">Streamline clinical processes and reduce administrative tasks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-up">
+                    <div class="bg-white rounded-xl p-8 border border-gray-200">
+                        <h3 class="font-bold text-lg mb-6">CDSS Feature Requirements</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-dsBlue rounded-full"></div>
+                                <span class="text-gray-700">Interoperability with EHRs</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-dsBlue rounded-full"></div>
+                                <span class="text-gray-700">Real-Time Data Processing</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-dsBlue rounded-full"></div>
+                                <span class="text-gray-700">Evidence-Based Recommendations</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-dsBlue rounded-full"></div>
+                                <span class="text-gray-700">Customizable Alerts</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-dsBlue rounded-full"></div>
+                                <span class="text-gray-700">Clinical Workflow Integration</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-dsBlue rounded-full"></div>
+                                <span class="text-gray-700">Decision Support Analytics</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-dsBlue rounded-full"></div>
+                                <span class="text-gray-700">User-Friendly Interface</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-dsBlue rounded-full"></div>
+                                <span class="text-gray-700">HIPAA Compliance & Security</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Approach Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">Our Approach</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-4">We don't just build CDSS. We deliver production systems.</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">The difference between a proof-of-concept and a production CDSS is everything. Our methodology is built specifically for healthcare AI.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 fade-up">
+                <div class="text-center">
+                    <div class="w-12 h-12 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-dsBlue font-bold">1</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Discovery</h3>
+                    <p class="text-gray-600 text-sm">Understand clinical workflows, pain points, and objectives. Validate the product concept and define the vision.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-dsBlue font-bold">2</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Blueprint</h3>
+                    <p class="text-gray-600 text-sm">Define technical architecture, alert logic, EHR integration points, and clinical workflow embedding.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-dsBlue font-bold">3</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Develop & Launch</h3>
+                    <p class="text-gray-600 text-sm">Iterative development with clinician feedback. Real-world testing before full deployment.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-dsBlue font-bold">4</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Grow</h3>
+                    <p class="text-gray-600 text-sm">Post-launch optimization based on usage analytics and outcome data. Scale across facilities.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 fade-up">
+                <a href="healthcare-approach.html" class="inline-flex items-center gap-2 text-dsBlue font-medium hover:underline">
+                    See Our Complete Methodology →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Capabilities Section -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">Platform Capabilities</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-4">CDSS capabilities built for clinical adoption.</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 fade-up">
+                <div class="bg-white rounded-xl p-6">
+                    <h3 class="font-bold mb-2">EHR Integration</h3>
+                    <p class="text-gray-600 text-sm">Seamless integration with EHRs for accessing comprehensive patient data and providing accurate decision support.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6">
+                    <h3 class="font-bold mb-2">Real-Time Processing</h3>
+                    <p class="text-gray-600 text-sm">Process and analyze patient data in real-time for timely and relevant clinical support at the point of care.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6">
+                    <h3 class="font-bold mb-2">Evidence-Based Recommendations</h3>
+                    <p class="text-gray-600 text-sm">Continuously updated, evidence-based recommendations ensure providers have access to latest clinical guidelines.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6">
+                    <h3 class="font-bold mb-2">Smart Alert Management</h3>
+                    <p class="text-gray-600 text-sm">Customizable alerts tailored to individual patient needs and clinician preferences to avoid alert fatigue.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6">
+                    <h3 class="font-bold mb-2">Workflow Integration</h3>
+                    <p class="text-gray-600 text-sm">Integrate into existing clinical workflows without disruption, ensuring CDSS tools are effectively utilized.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6">
+                    <h3 class="font-bold mb-2">Predictive Analytics</h3>
+                    <p class="text-gray-600 text-sm">Advanced analytics for interpreting patient data and providing predictive insights for proactive care.</p>
+                </div>
+            </div>
+
+            <!-- Technologies -->
+            <div class="mb-16 fade-up">
+                <h3 class="text-center font-semibold text-gray-400 uppercase tracking-wider text-sm mb-8">Technologies We Use</h3>
+                <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/01/image-39.png" alt="OpenAI" class="h-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/05/image-87.png" alt="Python" class="h-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/06/image-63.png" alt="Google Cloud" class="h-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/05/image-91-1.png" alt="Elasticsearch" class="h-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+                </div>
+            </div>
+
+            <!-- EHR Integrations -->
+            <div class="fade-up">
+                <h3 class="text-center font-semibold text-gray-400 uppercase tracking-wider text-sm mb-8">EHR Integrations</h3>
+                <p class="text-center text-gray-600 mb-8">Production integrations with major platforms:</p>
+                <div class="flex flex-wrap justify-center items-center gap-8">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2023/10/pointclickcare-logo.png" alt="PointClickCare" class="h-10 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2023/10/Epic-Partner-Logo.png" alt="Epic" class="h-10 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2023/11/gEHRiMed-768x170.png" alt="Gehrimed" class="h-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2023/10/Netsmart-copy.png" alt="Netsmart" class="h-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Digital Scientists -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">Why Digital Scientists</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-4">We're not learning healthcare on your dime.</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">We've built and operated healthcare CDSS in production. We understand clinical workflows, documentation requirements, and evidence-based medicine because we live it.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12 fade-up">
+                <div class="text-center">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/06/P1000918-sm-1.png" alt="Lean, Senior Teams" class="w-48 h-48 rounded-full object-cover mx-auto mb-4">
+                    <h3 class="font-bold mb-2">Lean, Senior Teams</h3>
+                    <p class="text-gray-600 text-sm">Experienced, hands-on senior teams with proven track records in deploying healthcare AI at scale.</p>
+                </div>
+                <div class="text-center">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/06/P1000839-sm-1.png" alt="Interoperability" class="w-48 h-48 rounded-full object-cover mx-auto mb-4">
+                    <h3 class="font-bold mb-2">Interoperability Focus</h3>
+                    <p class="text-gray-600 text-sm">We ensure your CDSS integrates seamlessly with existing healthcare systems and clinical workflows.</p>
+                </div>
+                <div class="text-center">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/06/Group-11208.png" alt="Clinician Focused" class="w-48 h-48 rounded-full object-cover mx-auto mb-4">
+                    <h3 class="font-bold mb-2">Clinician-Focused Design</h3>
+                    <p class="text-gray-600 text-sm">We prioritize user research and product discovery, ensuring solutions meet real clinical needs.</p>
+                </div>
+            </div>
+            
+            <!-- Testimonial -->
+            <div class="bg-dsGray rounded-2xl p-8 md:p-12 fade-up">
+                <div class="flex flex-col md:flex-row items-start gap-6">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/06/Group.svg" alt="CommuniCare" class="h-12">
+                    <div>
+                        <blockquote class="text-xl text-gray-700 italic mb-4">
+                            "I have worked with many technology teams during my career, and Digital Scientists is one of the best. They take the time to understand the customers' needs, deliver innovative solutions, are always professional, and work with your team as a true partner to achieve success."
+                        </blockquote>
+                        <p class="font-semibold">Amy Severino</p>
+                        <p class="text-gray-500 text-sm">Chief Innovation Officer, CommuniCare</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">FAQ</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4">Common questions about clinical decision support.</h2>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-6 fade-up">
+                <div class="bg-dsGray rounded-xl p-6">
+                    <h3 class="font-bold mb-2">What is a Clinical Decision Support System (CDSS)?</h3>
+                    <p class="text-gray-600">A CDSS leverages data, algorithms, and medical knowledge to provide healthcare providers with evidence-based recommendations and insights. It supports clinical decision-making, enhances patient care, and improves operational efficiency.</p>
+                </div>
+                <div class="bg-dsGray rounded-xl p-6">
+                    <h3 class="font-bold mb-2">How does CDSS improve patient outcomes?</h3>
+                    <p class="text-gray-600">CDSS improves patient outcomes by providing real-time, evidence-based recommendations, identifying at-risk patients, and suggesting personalized treatment plans. This proactive approach enables timely interventions and enhances overall patient care.</p>
+                </div>
+                <div class="bg-dsGray rounded-xl p-6">
+                    <h3 class="font-bold mb-2">What data does a CDSS utilize?</h3>
+                    <p class="text-gray-600">A CDSS utilizes data from electronic health records (EHRs), lab results, imaging systems, wearable devices, and other healthcare databases. This comprehensive data integration supports accurate and informed decision-making.</p>
+                </div>
+                <div class="bg-dsGray rounded-xl p-6">
+                    <h3 class="font-bold mb-2">How do you reduce alert fatigue?</h3>
+                    <p class="text-gray-600">We reduce alert fatigue by focusing on clinically relevant, actionable alerts and integrating insights directly into workflows—not separate dashboards. Smart filtering and prioritization ensure clinicians see what matters most.</p>
+                </div>
+                <div class="bg-dsGray rounded-xl p-6">
+                    <h3 class="font-bold mb-2">What ROI can we expect from CDSS?</h3>
+                    <p class="text-gray-600">Verified outcomes include 45→5 minute documentation time (89% reduction), $10M+ PDPM recovered, and 100% production rates. All financial analyst calculated, not vendor estimates.</p>
+                </div>
+                <div class="bg-dsGray rounded-xl p-6">
+                    <h3 class="font-bold mb-2">What EHR systems do you integrate with?</h3>
+                    <p class="text-gray-600">Production integrations with PointClickCare, Epic, Gehrimed, Netsmart, and custom EHRs. Bidirectional, workflow-embedded—insights appear where clinicians work.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Solutions -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">Related Solutions</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4">Often combined with clinical decision support.</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 fade-up">
+                <a href="ehr-practice-management.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition group">
+                    <h3 class="font-bold mb-2 group-hover:text-dsBlue transition">EHR & Practice Management</h3>
+                    <p class="text-gray-600 text-sm">Custom EHR solutions with integrated clinical workflows.</p>
+                </a>
+                <a href="population-health-management.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition group">
+                    <h3 class="font-bold mb-2 group-hover:text-dsBlue transition">Population Health</h3>
+                    <p class="text-gray-600 text-sm">Risk stratification and care coordination analytics.</p>
+                </a>
+                <a href="healthcare-ai-ml-development.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition group">
+                    <h3 class="font-bold mb-2 group-hover:text-dsBlue transition">AI/ML Development</h3>
+                    <p class="text-gray-600 text-sm">Custom AI and machine learning solutions for healthcare.</p>
+                </a>
+                <a href="telemedicine-virtual-care.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition group">
+                    <h3 class="font-bold mb-2 group-hover:text-dsBlue transition">Telemedicine</h3>
+                    <p class="text-gray-600 text-sm">Virtual care platforms with integrated decision support.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-20 px-6 bg-dsBlue text-white">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to discuss your CDSS opportunity?</h2>
+                    <p class="text-blue-100 mb-8">30-minute call. No pitch. Just honest assessment of what's possible for your organization.</p>
+                    <ul class="space-y-3 text-blue-100">
+                        <li class="flex items-center gap-2"><svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Understand your clinical workflows and pain points</li>
+                        <li class="flex items-center gap-2"><svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Assess opportunity and realistic ROI range</li>
+                        <li class="flex items-center gap-2"><svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Determine if there's a fit</li>
+                    </ul>
+                    <p class="mt-8 text-blue-100">Or call: <a href="tel:4046543855" class="text-white font-semibold hover:underline">404.654.3855</a></p>
+                </div>
+                
+                <div class="fade-up">
+                    <form class="bg-white rounded-xl p-6 md:p-8 text-dsBlack">
+                        <div class="grid md:grid-cols-2 gap-4 mb-4">
+                            <div><label class="block text-sm font-medium mb-1">First Name</label><input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-dsBlue"></div>
+                            <div><label class="block text-sm font-medium mb-1">Last Name</label><input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-dsBlue"></div>
+                        </div>
+                        <div class="mb-4"><label class="block text-sm font-medium mb-1">Email</label><input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-dsBlue"></div>
+                        <div class="mb-4"><label class="block text-sm font-medium mb-1">Organization</label><input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-dsBlue"></div>
+                        <div class="mb-6"><label class="block text-sm font-medium mb-1">Primary Interest</label>
+                            <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-dsBlue bg-white">
+                                <option>Clinical Decision Support</option>
+                                <option>Documentation Automation</option>
+                                <option>Diagnostic Support</option>
+                                <option>Medication Management</option>
+                                <option>EHR Integration</option>
+                                <option>General Healthcare AI Strategy</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">Schedule AI Opportunity Call</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dsBlack text-white py-16 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+                <div class="lg:col-span-2">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2022/11/footer-logo.svg" alt="Digital Scientists" class="h-8 mb-4">
+                    <p class="text-gray-400 text-sm mb-4">21 South Main Street<br>Alpharetta, GA 30009</p>
+                    <a href="tel:4046543855" class="text-gray-400 hover:text-white transition">404.654.3855</a>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Healthcare Solutions</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="clinical-decision-support.html" class="hover:text-white transition">Clinical Decision Support</a></li>
+                        <li><a href="telemedicine-virtual-care.html" class="hover:text-white transition">Telemedicine</a></li>
+                        <li><a href="remote-patient-monitoring.html" class="hover:text-white transition">Remote Patient Monitoring</a></li>
+                        <li><a href="population-health-management.html" class="hover:text-white transition">Population Health</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="ds-healthcare-v3-updated.html" class="hover:text-white transition">Healthcare</a></li>
+                        <li><a href="healthcare-approach.html" class="hover:text-white transition">Our Approach</a></li>
+                        <li><a href="work-never-alone.html" class="hover:text-white transition">Case Studies</a></li>
+                        <li><a href="https://digitalscientists.com/blog/" class="hover:text-white transition">Insights</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Getting Started</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="healthcare-assessment.html" class="hover:text-white transition">Healthcare Assessment</a></li>
+                        <li><a href="healthcare-ai-guides-landing.html" class="hover:text-white transition">AI Decision Guides</a></li>
+                        <li><a href="https://digitalscientists.com/contact/" class="hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-400 text-sm">© 2007 - 2026 Digital Scientists, LLC.</p>
+                <div class="flex items-center gap-6">
+                    <a href="https://digitalscientists.com/privacy-policy/" class="text-gray-400 text-sm hover:text-white transition">Privacy Policy</a>
+                    <a href="https://www.linkedin.com/company/digital-scientists_2/" class="text-gray-400 hover:text-white transition">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Population Health Management Solutions | Custom Healthcare PHM | Digital Scientists</title>
+    <meta name="description" content="Custom population health management solutions with advanced analytics, risk stratification, and care coordination. Integrate SDOH data for improved outcomes.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dsBlue: '#304FFF',
+                        dsBlack: '#050505',
+                        dsGray: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        h1, h2, h3 { letter-spacing: -0.02em; }
+        .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="bg-white text-dsBlack antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white border-b border-gray-100">
+        <div class="max-w-screen-xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="ds-healthcare-v3-updated.html">
+                <img src="1012DS_Logo_Native_Black.svg" alt="Digital Scientists" class="h-10">
+            </a>
+            
+            <div class="hidden lg:flex items-center gap-6">
+                <!-- Healthcare Dropdown -->
+                <div class="relative group">
+                    <button class="text-sm text-gray-600 hover:text-dsBlack transition flex items-center gap-1">
+                        Healthcare
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-4 w-56">
+                            <a href="ds-healthcare-v3-updated.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">Healthcare Overview</a>
+                            <a href="healthcare-approach.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">Our Approach</a>
+                            <div class="border-t border-gray-200 my-2"></div>
+                            <a href="healthcare-assessment.html" class="block px-3 py-2 text-sm text-dsBlue font-medium hover:bg-gray-50 rounded-lg">Get AI Assessment →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AI Solutions Dropdown -->
+                <div class="relative group">
+                    <button class="text-sm text-gray-600 hover:text-dsBlack transition flex items-center gap-1">
+                        AI Solutions
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-4 w-72">
+                            <a href="healthcare-ai-documentation-automation.html" class="block py-2">
+                                <span class="text-sm font-medium text-gray-900 hover:text-dsBlue">Documentation Automation</span>
+                                <span class="block text-xs text-gray-500">Fastest Payback</span>
+                            </a>
+                            <a href="healthcare-ai-back-office-agents.html" class="block py-2">
+                                <span class="text-sm font-medium text-gray-900 hover:text-dsBlue">Back-Office Agents</span>
+                                <span class="block text-xs text-gray-500">Highest ROI</span>
+                            </a>
+                            <a href="healthcare-ai-virtual-care-assistants.html" class="block py-2">
+                                <span class="text-sm font-medium text-gray-900 hover:text-dsBlue">Virtual Care Assistants</span>
+                                <span class="block text-xs text-gray-500">Proven at Scale</span>
+                            </a>
+                            <a href="healthcare-ai-intelligent-scheduling.html" class="block py-2">
+                                <span class="text-sm font-medium text-gray-900 hover:text-dsBlue">Intelligent Scheduling</span>
+                                <span class="block text-xs text-gray-500">Quick Win</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AI Guides Link -->
+                <a href="healthcare-ai-guides-landing.html" class="text-sm text-dsBlue font-medium hover:text-dsBlack transition">AI Guides</a>
+                
+                <!-- Domains Dropdown -->
+                <div class="relative group">
+                    <button class="text-sm text-gray-600 hover:text-dsBlack transition flex items-center gap-1">
+                        Domains
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-4 w-56">
+                            <a href="healthcare-domains-mds-pdpm.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">MDS / PDPM</a>
+                            <a href="healthcare-domains-raf-hcc-coding.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">RAF / HCC Coding</a>
+                            <a href="healthcare-domains-revenue-cycle-ai.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">Revenue Cycle AI</a>
+                            <a href="healthcare-domains-value-based-care.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">Value-Based Care</a>
+                            <a href="healthcare-domains-ambient-scribes.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">Ambient Scribes</a>
+                            <a href="healthcare-domains-ehr-integrations.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">EHR Integrations</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Markets Dropdown -->
+                <div class="relative group">
+                    <button class="text-sm text-gray-600 hover:text-dsBlack transition flex items-center gap-1">
+                        Markets
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-4 w-56">
+                            <a href="healthcare-markets-skilled-nursing.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">Skilled Nursing</a>
+                            <a href="healthcare-markets-home-health-hospice.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">Home Health & Hospice</a>
+                            <a href="healthcare-markets-senior-living.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">Senior Living</a>
+                            <a href="healthcare-markets-idd.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">IDD Services</a>
+                            <a href="healthcare-markets-health-systems.html" class="block px-3 py-2 text-sm text-gray-600 hover:text-dsBlue hover:bg-gray-50 rounded-lg">Health Systems</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Work Dropdown -->
+                <div class="relative group">
+                    <button class="text-sm text-gray-600 hover:text-dsBlack transition flex items-center gap-1">
+                        Work
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-4 w-72">
+                            <a href="work-never-alone.html" class="block py-2">
+                                <span class="text-sm font-medium text-gray-900 hover:text-dsBlue">NeverAlone</span>
+                                <span class="block text-xs text-gray-500">26K patients, 7 states</span>
+                            </a>
+                            <a href="work-communicare-mds.html" class="block py-2">
+                                <span class="text-sm font-medium text-gray-900 hover:text-dsBlue">CommuniCare MDS</span>
+                                <span class="block text-xs text-gray-500">$10M+ PDPM recovered</span>
+                            </a>
+                            <a href="work-raf-hcc-coding.html" class="block py-2">
+                                <span class="text-sm font-medium text-gray-900 hover:text-dsBlue">RAF/HCC Coding</span>
+                                <span class="block text-xs text-gray-500">$10M+ improvements</span>
+                            </a>
+                            <a href="work-healthcontext-ai.html" class="block py-2">
+                                <span class="text-sm font-medium text-gray-900 hover:text-dsBlue">HealthContext.AI</span>
+                                <span class="block text-xs text-gray-500">45→5 min documentation</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="healthcare-assessment.html" class="bg-dsBlue text-white px-6 py-2.5 text-sm font-medium rounded-full hover:bg-dsBlack transition">Get Assessment</a>
+            </div>
+            
+            <button class="lg:hidden p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 px-6 py-4">
+            <a href="ds-healthcare-v3-updated.html" class="block py-2 text-gray-600">Healthcare Overview</a>
+            <a href="healthcare-approach.html" class="block py-2 text-gray-600">Our Approach</a>
+            <a href="healthcare-ai-guides-landing.html" class="block py-2 text-dsBlue font-medium">AI Guides</a>
+            <a href="healthcare-assessment.html" class="block py-2 text-dsBlue font-medium">Get Assessment →</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-16 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-up">
+                    <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
+                        <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                        Population Health Management
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl font-bold text-dsBlack mb-6 leading-[1.1]">
+                        Your patient data holds the answers—if you can integrate it and act on it.
+                    </h1>
+                    
+                    <p class="text-xl text-gray-600 leading-relaxed mb-4">
+                        Address the complexities of integrating diverse data sources and delivering actionable insights. By focusing on compliance, interoperability, and patient engagement, we help deliver measurable business outcomes while maintaining high standards of care.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                        We've built PHM platforms that integrate SDOH data, stratify risk across populations, and drive <strong>$10M+ in verified ROI</strong> through proactive care management.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="healthcare-assessment.html" class="inline-flex items-center justify-center gap-2 bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">
+                            Discuss Your PHM Opportunity
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                        <a href="healthcare-approach.html" class="inline-flex items-center justify-center gap-2 border border-gray-300 text-dsBlack px-6 py-3 text-sm font-medium rounded-full hover:border-dsBlack transition">
+                            See How We Work
+                        </a>
+                    </div>
+                </div>
+
+                <div class="fade-up">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/07/Population-Health-Management-hero.png" alt="Integrate publicly available SDOH resources into medical research and reporting" class="rounded-xl w-full">
+                    <p class="text-sm text-gray-500 mt-3 text-center">Integrate publicly available SDOH resources into medical research and reporting</p>
+                </div>
+            </div>
+            
+            <!-- Stats Row -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlue">$10M+</span>
+                    <p class="text-gray-500 text-sm mt-1">RAF Improvements</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">90%+</span>
+                    <p class="text-gray-500 text-sm mt-1">Diagnosis Accuracy</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">20K+</span>
+                    <p class="text-gray-500 text-sm mt-1">Patients Analyzed</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">7</span>
+                    <p class="text-gray-500 text-sm mt-1">States</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Logo Bar -->
+    <section class="border-y border-gray-100 py-8 px-6">
+        <div class="max-w-screen-xl mx-auto flex flex-wrap justify-center items-center gap-8 md:gap-16">
+            <span class="text-xs text-gray-400 uppercase tracking-wider">Trusted By</span>
+            <img src="https://digitalscientists.com/wp-content/uploads/2023/12/logo-chs-black.png" alt="CommuniCare" class="h-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+            <img src="https://digitalscientists.com/wp-content/uploads/2024/05/Screenshot_2-300x60.png" alt="Duke Health" class="h-6 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+            <img src="https://digitalscientists.com/wp-content/uploads/2024/05/McKesson_logo_full.png" alt="McKesson" class="h-6 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+            <img src="https://digitalscientists.com/wp-content/uploads/2024/05/easterseals-300x108.png" alt="Easterseals" class="h-6 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+        </div>
+    </section>
+
+    <!-- The Challenge Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">The Challenge</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-4">Fragmented data creates fragmented care. Integration changes the economics.</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">Healthcare organizations struggle to unify EHR data, claims, social determinants, and wearable data into actionable insights. Without a cohesive view, high-risk patients slip through the cracks.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-4xl font-bold text-dsBlue">30%</span>
+                    <h3 class="font-semibold mt-2">Missed High-Risk</h3>
+                    <p class="text-gray-500 text-sm mt-1">Patients identified too late for effective intervention.</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-4xl font-bold text-dsBlack">$175B</span>
+                    <h3 class="font-semibold mt-2">VBC Market</h3>
+                    <p class="text-gray-500 text-sm mt-1">Value-based care market growing rapidly through 2027.</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-4xl font-bold text-dsBlack">80%</span>
+                    <h3 class="font-semibold mt-2">Data Unstructured</h3>
+                    <p class="text-gray-500 text-sm mt-1">Healthcare data is unstructured and siloed across systems.</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-4xl font-bold text-dsBlack">40%</span>
+                    <h3 class="font-semibold mt-2">SDOH Impact</h3>
+                    <p class="text-gray-500 text-sm mt-1">Of health outcomes are driven by social determinants.</p>
+                </div>
+            </div>
+
+            <div class="fade-up">
+                <img src="https://digitalscientists.com/wp-content/uploads/2024/05/Accessibility-photo1.png" alt="Woman using telehealth services at home" class="rounded-xl w-full max-w-4xl mx-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-up">
+                    <span class="text-dsBlue text-sm font-medium">Case Study • Population Health</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">Risk Adjustment Factor Models for Reliable RAF Scoring</h2>
+                    <p class="text-gray-600 mb-6">
+                        Built predictive models to identify missed diagnoses across 20,000+ patients in 7 states. The system captures chronic and episodic conditions proactively, ensuring timely clinician assessments and accurate reimbursement.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="bg-white rounded-lg p-4">
+                            <span class="text-2xl font-bold text-dsBlack">$10M+</span>
+                            <p class="text-gray-500 text-sm">RAF Improvements</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <span class="text-2xl font-bold text-dsBlue">90%+</span>
+                            <p class="text-gray-500 text-sm">Diagnosis Accuracy</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <span class="text-2xl font-bold text-dsBlack">20K+</span>
+                            <p class="text-gray-500 text-sm">Patients Analyzed</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <span class="text-2xl font-bold text-dsBlack">7</span>
+                            <p class="text-gray-500 text-sm">States</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-500 italic text-sm mb-6">"Financial analyst calculated, not vendor estimates."</p>
+                    
+                    <a href="https://digitalscientists.com/raf-solution-consulting/" class="inline-flex items-center gap-2 text-dsBlue font-medium hover:underline">
+                        See the Case Study →
+                    </a>
+                </div>
+                
+                <div class="fade-up">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/07/population-health-management-schema.png" alt="Population Health Management Architecture" class="rounded-xl shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">Use Cases</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-4">From data to decisions. Here's where the ROI lives.</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 fade-up">
+                <!-- Use Case 1 -->
+                <div class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-xs font-medium text-white bg-dsBlue px-2 py-1 rounded">For CFO</span>
+                        <span class="text-xs text-gray-500">• $10M+ Impact</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Risk Stratification & Management</h3>
+                    <p class="text-gray-600 mb-4">Identifying high-risk patient groups based on predictive analytics to prioritize and tailor interventions, preventing disease progression and reducing hospital admissions.</p>
+                    <p class="text-sm text-dsBlack font-medium">Outcome: Proactive interventions, reduced admissions.</p>
+                </div>
+                
+                <!-- Use Case 2 -->
+                <div class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-xs font-medium text-white bg-dsBlue px-2 py-1 rounded">For CMO</span>
+                        <span class="text-xs text-gray-500">• Improved Outcomes</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Chronic Disease Management</h3>
+                    <p class="text-gray-600 mb-4">Monitoring and managing chronic conditions such as diabetes, hypertension, and heart disease through personalized care plans and continuous patient engagement.</p>
+                    <p class="text-sm text-dsBlack font-medium">Outcome: Better long-term health outcomes.</p>
+                </div>
+                
+                <!-- Use Case 3 -->
+                <div class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-xs font-medium text-white bg-dsBlue px-2 py-1 rounded">For COO</span>
+                        <span class="text-xs text-gray-500">• Efficiency</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Care Coordination</h3>
+                    <p class="text-gray-600 mb-4">Enhancing communication and coordination among healthcare providers, ensuring seamless transitions of care, reducing duplication of services, and improving overall patient care.</p>
+                    <p class="text-sm text-dsBlack font-medium">Outcome: Seamless care transitions.</p>
+                </div>
+                
+                <!-- Use Case 4 -->
+                <div class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-xs font-medium text-white bg-dsBlue px-2 py-1 rounded">For CMO</span>
+                        <span class="text-xs text-gray-500">• Prevention</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Preventive Care & Wellness</h3>
+                    <p class="text-gray-600 mb-4">Implementing targeted preventive care initiatives and wellness programs based on population health data to reduce the incidence of preventable diseases.</p>
+                    <p class="text-sm text-dsBlack font-medium">Outcome: Reduced preventable disease.</p>
+                </div>
+                
+                <!-- Use Case 5 -->
+                <div class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-xs font-medium text-white bg-dsBlue px-2 py-1 rounded">For CFO</span>
+                        <span class="text-xs text-gray-500">• Cost Reduction</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Resource Allocation & Optimization</h3>
+                    <p class="text-gray-600 mb-4">Utilizing data-driven insights to allocate healthcare resources more effectively, optimizing staffing, reducing unnecessary tests and procedures.</p>
+                    <p class="text-sm text-dsBlack font-medium">Outcome: Lower healthcare costs.</p>
+                </div>
+                
+                <!-- Use Case 6 -->
+                <div class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-xs font-medium text-white bg-dsBlue px-2 py-1 rounded">For COO</span>
+                        <span class="text-xs text-gray-500">• Compliance</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Regulatory Compliance & Reporting</h3>
+                    <p class="text-gray-600 mb-4">Streamlining the process of meeting regulatory requirements and reporting standards, ensuring adherence to healthcare laws and regulations such as HIPAA.</p>
+                    <p class="text-sm text-dsBlack font-medium">Outcome: Audit-ready, compliant reporting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VBC Integration Section -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-up">
+                    <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">Value-Based Care Integration</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">Population health management built for value-based care.</h2>
+                    <p class="text-gray-600 mb-8">We integrate predictive insights across the care continuum, ensuring your infrastructure is ready for value-based care transformation.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-dsBlue mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <div>
+                                <h4 class="font-semibold">Improved Patient Outcomes</h4>
+                                <p class="text-gray-600 text-sm">Leverage predictive analytics and personalized care plans for better health outcomes.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-dsBlue mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <div>
+                                <h4 class="font-semibold">Cost Efficiency</h4>
+                                <p class="text-gray-600 text-sm">Optimize resource allocation and reduce unnecessary procedures.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-dsBlue mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <div>
+                                <h4 class="font-semibold">Enhanced Care Coordination</h4>
+                                <p class="text-gray-600 text-sm">Better communication and collaboration among providers.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-dsBlue mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <div>
+                                <h4 class="font-semibold">Data-Driven Decision Making</h4>
+                                <p class="text-gray-600 text-sm">Real-time insights for informed decisions and continuous improvement.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-dsBlue mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <div>
+                                <h4 class="font-semibold">Regulatory Compliance</h4>
+                                <p class="text-gray-600 text-sm">Streamline compliance and reporting for healthcare standards.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-up">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/07/population-health-management-schema.png" alt="Population Health Management Architecture" class="rounded-xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Approach Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">Our Approach</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-4">We don't just build platforms. We deliver production systems.</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">The difference between a proof-of-concept and a production system is everything. Our 8-step methodology is built specifically for healthcare AI.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 fade-up">
+                <div class="text-center">
+                    <div class="w-12 h-12 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-dsBlue font-bold">1</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Healthcare Data Foundation</h3>
+                    <p class="text-gray-600 text-sm">PHI handling, multi-source integration, claims + clinical + SDOH. HIPAA compliance from day one.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-dsBlue font-bold">2</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Responsible AI Build</h3>
+                    <p class="text-gray-600 text-sm">Peer-reviewed models, 90%+ accuracy, every recommendation linked to source. Built for clinical adoption.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-dsBlue font-bold">3</span>
+                    </div>
+                    <h3 class="font-bold mb-2">EHR Integration</h3>
+                    <p class="text-gray-600 text-sm">PointClickCare, Epic, Gehrimed—bidirectional, real-time data sync.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-dsBlue font-bold">4</span>
+                    </div>
+                    <h3 class="font-bold mb-2">KPI Accountability</h3>
+                    <p class="text-gray-600 text-sm">Tied to outcomes—RAF scores, quality metrics, readmission rates. Financial analyst calculated.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 fade-up">
+                <a href="healthcare-approach.html" class="inline-flex items-center gap-2 text-dsBlue font-medium hover:underline">
+                    See Our Complete 8-Step Methodology →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Capabilities Section -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">Platform Capabilities</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-4">Modular PHM solutions built to scale.</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 fade-up">
+                <div class="bg-white rounded-xl p-6">
+                    <h3 class="font-bold mb-2">Data Integration & Interoperability</h3>
+                    <p class="text-gray-600 text-sm">Seamless integration with EHRs, claims data, lab results, wearables, and SDOH databases for comprehensive analytics.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6">
+                    <h3 class="font-bold mb-2">Predictive Analytics</h3>
+                    <p class="text-gray-600 text-sm">Advanced capabilities to identify trends, predict health outcomes, and stratify risk levels within patient populations.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6">
+                    <h3 class="font-bold mb-2">Population Health Dashboards</h3>
+                    <p class="text-gray-600 text-sm">Real-time dashboards providing overview of population health metrics for informed decisions and intervention tracking.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6">
+                    <h3 class="font-bold mb-2">Care Management Tools</h3>
+                    <p class="text-gray-600 text-sm">Features for coordinating care among multiple providers, including care plans, task management, and secure communication.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6">
+                    <h3 class="font-bold mb-2">SDOH Integration</h3>
+                    <p class="text-gray-600 text-sm">Incorporate social, economic, and environmental factors for holistic patient health view and tailored interventions.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6">
+                    <h3 class="font-bold mb-2">Reporting & Compliance</h3>
+                    <p class="text-gray-600 text-sm">Automated reporting features to meet regulatory requirements and track KPIs, ensuring HIPAA and HITECH adherence.</p>
+                </div>
+            </div>
+
+            <!-- Technologies -->
+            <div class="mb-16 fade-up">
+                <h3 class="text-center font-semibold text-gray-400 uppercase tracking-wider text-sm mb-8">Technologies We Use</h3>
+                <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/05/image-91-1.png" alt="Elasticsearch" class="h-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/05/image-70.png" alt="Tableau" class="h-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/05/image-87.png" alt="Python" class="h-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/05/image-69.png" alt="PowerBI" class="h-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/05/image-90.png" alt="BigQuery" class="h-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+                </div>
+            </div>
+
+            <!-- EHR Integrations -->
+            <div class="fade-up">
+                <h3 class="text-center font-semibold text-gray-400 uppercase tracking-wider text-sm mb-8">EHR Integrations</h3>
+                <p class="text-center text-gray-600 mb-8">Production integrations with major platforms:</p>
+                <div class="flex flex-wrap justify-center items-center gap-8">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2023/10/pointclickcare-logo.png" alt="PointClickCare" class="h-10 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2023/10/Epic-Partner-Logo.png" alt="Epic" class="h-10 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2023/11/gEHRiMed-768x170.png" alt="Gehrimed" class="h-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2023/11/acclivity-logo-768x256.png" alt="Acclivity" class="h-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2023/10/Netsmart-copy.png" alt="Netsmart" class="h-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+                    <span class="text-gray-400 text-sm">+ Custom EHRs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Digital Scientists -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">Why Digital Scientists</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-4">We're not learning healthcare on your dime.</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">We've built and operated healthcare PHM in production. We understand reimbursement, compliance, and clinical workflows because we live it.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12 fade-up">
+                <div class="text-center">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/06/P1000918-sm-1.png" alt="Lean, Senior Teams" class="w-48 h-48 rounded-full object-cover mx-auto mb-4">
+                    <h3 class="font-bold mb-2">Lean, Senior Teams</h3>
+                    <p class="text-gray-600 text-sm">Our PHM solutions are developed by experienced, hands-on senior teams with proven track records in deploying digital healthcare products at scale.</p>
+                </div>
+                <div class="text-center">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/06/P1000839-sm-1.png" alt="Interoperability" class="w-48 h-48 rounded-full object-cover mx-auto mb-4">
+                    <h3 class="font-bold mb-2">Interoperability Focus</h3>
+                    <p class="text-gray-600 text-sm">We ensure your PHM delivers measurable ROI by integrating seamlessly with existing healthcare systems and optimizing data flow.</p>
+                </div>
+                <div class="text-center">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/06/Group-11208.png" alt="Clinician Focused" class="w-48 h-48 rounded-full object-cover mx-auto mb-4">
+                    <h3 class="font-bold mb-2">Clinician-Focused Design</h3>
+                    <p class="text-gray-600 text-sm">We prioritize user research and product discovery, ensuring our PHM solutions are user-friendly and meet real clinical needs.</p>
+                </div>
+            </div>
+            
+            <!-- Testimonial -->
+            <div class="bg-dsGray rounded-2xl p-8 md:p-12 fade-up">
+                <div class="flex flex-col md:flex-row items-start gap-6">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/06/Group.svg" alt="CommuniCare" class="h-12">
+                    <div>
+                        <blockquote class="text-xl text-gray-700 italic mb-4">
+                            "I have worked with many technology teams during my career, and Digital Scientists is one of the best. They take the time to understand the customers' needs, deliver innovative solutions, are always professional, and work with your team as a true partner to achieve success."
+                        </blockquote>
+                        <p class="font-semibold">Amy Severino</p>
+                        <p class="text-gray-500 text-sm">Chief Innovation Officer, CommuniCare</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Let's Talk Section -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <div class="fade-up">
+                    <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">Let's Talk</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">Not sure where to start? Neither were most of our clients.</h2>
+                    <p class="text-gray-600 mb-6">
+                        Population health management is often where we begin with new healthcare partners. The first step isn't a sales call—it's a conversation with a solution architect about the problem you're trying to solve.
+                    </p>
+                    <p class="text-gray-600 mb-8">
+                        We'll talk through your data landscape, integration constraints, and business goals. Sometimes the answer is "you don't need custom PHM." We'll tell you that too.
+                    </p>
+                    
+                    <a href="#contact" class="inline-flex items-center gap-2 bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">
+                        Schedule a Conversation
+                    </a>
+                </div>
+                
+                <div class="fade-up">
+                    <h3 class="font-semibold mb-4">See How We Approach Healthcare AI</h3>
+                    <p class="text-gray-600 text-sm mb-6">Our AI Decision Frameworks show exactly how we evaluate, scope, and deliver healthcare AI projects—with honest guidance on when to build, buy, or wait.</p>
+                    
+                    <div class="space-y-3">
+                        <a href="ar-collection-prioritization.html" class="block bg-white rounded-lg p-4 hover:border-dsBlue border border-gray-200 transition">
+                            <h4 class="font-semibold text-dsBlack">A/R Collection Prioritization</h4>
+                            <p class="text-gray-500 text-sm">Predictive scoring for collection queues →</p>
+                        </a>
+                        <a href="claim-follow-up-triage.html" class="block bg-white rounded-lg p-4 hover:border-dsBlue border border-gray-200 transition">
+                            <h4 class="font-semibold text-dsBlack">High-Risk Claim Triage</h4>
+                            <p class="text-gray-500 text-sm">Denial prediction before submission →</p>
+                        </a>
+                        <a href="payer-contract-interpretation.html" class="block bg-white rounded-lg p-4 hover:border-dsBlue border border-gray-200 transition">
+                            <h4 class="font-semibold text-dsBlack">Payer Contract Interpretation</h4>
+                            <p class="text-gray-500 text-sm">AI-assisted contract analysis →</p>
+                        </a>
+                    </div>
+                    
+                    <a href="healthcare-ai-guides-landing.html" class="inline-flex items-center gap-2 text-dsBlue font-medium hover:underline mt-6">
+                        View All AI Decision Frameworks →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">FAQ</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4">Common questions about population health management.</h2>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-6 fade-up">
+                <div class="bg-dsGray rounded-xl p-6">
+                    <h3 class="font-bold mb-2">What is a Custom Population Health Management Solution?</h3>
+                    <p class="text-gray-600">A Custom Population Health Management Solution is a tailored software system designed to meet the specific needs of healthcare organizations in managing and improving the health outcomes of patient populations. It integrates various data sources, offers advanced analytics, and supports care coordination.</p>
+                </div>
+                <div class="bg-dsGray rounded-xl p-6">
+                    <h3 class="font-bold mb-2">How can a Custom PHM Solution improve patient outcomes?</h3>
+                    <p class="text-gray-600">It improves patient outcomes by leveraging predictive analytics to identify at-risk patients, providing personalized care plans, and enabling proactive interventions. This leads to timely care, reduced hospital admissions, and better long-term health results.</p>
+                </div>
+                <div class="bg-dsGray rounded-xl p-6">
+                    <h3 class="font-bold mb-2">What features can be included in a Custom PHM Solution?</h3>
+                    <p class="text-gray-600">Features can include data integration from various sources (EHRs, claims, wearables, SDOH), predictive analytics, care management tools, patient engagement platforms, real-time dashboards, reporting and compliance tools, and integration with other healthcare systems.</p>
+                </div>
+                <div class="bg-dsGray rounded-xl p-6">
+                    <h3 class="font-bold mb-2">How does a Custom PHM Solution ensure data security?</h3>
+                    <p class="text-gray-600">It ensures data security and compliance by incorporating robust encryption, secure access controls, regular audits, and adherence to regulations such as HIPAA. These measures protect patient data and maintain confidentiality.</p>
+                </div>
+                <div class="bg-dsGray rounded-xl p-6">
+                    <h3 class="font-bold mb-2">How does PHM enhance care coordination?</h3>
+                    <p class="text-gray-600">It enhances care coordination by providing a seamless flow of information among healthcare providers, reducing duplication of efforts, minimizing errors, and ensuring that all patient information is easily accessible and up-to-date.</p>
+                </div>
+                <div class="bg-dsGray rounded-xl p-6">
+                    <h3 class="font-bold mb-2">Why choose Digital Scientists for Custom PHM Solutions?</h3>
+                    <p class="text-gray-600">Digital Scientists offer expertise in advanced analytics, machine learning, and data integration, ensuring the delivery of tailored, flexible solutions. Our commitment to security, compliance, and user-friendly design makes us a reliable partner in managing population health.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Solutions -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">Related Solutions</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4">Often combined with population health management.</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 fade-up">
+                <a href="predictive-analytics-healthcare.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition group">
+                    <h3 class="font-bold mb-2 group-hover:text-dsBlue transition">Predictive Analytics</h3>
+                    <p class="text-gray-600 text-sm">Risk prediction and early warning systems for proactive care management.</p>
+                </a>
+                <a href="remote-patient-monitoring.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition group">
+                    <h3 class="font-bold mb-2 group-hover:text-dsBlue transition">Remote Patient Monitoring</h3>
+                    <p class="text-gray-600 text-sm">Continuous monitoring for chronic conditions and post-discharge care.</p>
+                </a>
+                <a href="clinical-decision-support.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition group">
+                    <h3 class="font-bold mb-2 group-hover:text-dsBlue transition">Clinical Decision Support</h3>
+                    <p class="text-gray-600 text-sm">AI recommendations embedded in clinical workflows.</p>
+                </a>
+                <a href="healthcare-interoperability.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition group">
+                    <h3 class="font-bold mb-2 group-hover:text-dsBlue transition">Interoperability</h3>
+                    <p class="text-gray-600 text-sm">HL7/FHIR integration and data exchange across healthcare systems.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-20 px-6 bg-dsBlue text-white">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to discuss your PHM opportunity?</h2>
+                    <p class="text-blue-100 mb-8">
+                        30-minute call. No pitch. Just honest assessment of what's possible for your organization.
+                    </p>
+                    <ul class="space-y-3 text-blue-100">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            Understand your situation and goals
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            Assess opportunity and realistic ROI range
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            Determine if there's a fit
+                        </li>
+                    </ul>
+                    <p class="mt-8 text-blue-100">Or call: <a href="tel:4046543855" class="text-white font-semibold hover:underline">404.654.3855</a></p>
+                </div>
+                
+                <div class="fade-up">
+                    <form class="bg-white rounded-xl p-6 md:p-8 text-dsBlack">
+                        <div class="grid md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-1">First Name</label>
+                                <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-dsBlue">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Last Name</label>
+                                <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-dsBlue">
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-1">Email</label>
+                            <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-dsBlue">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-1">Organization</label>
+                            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-dsBlue">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium mb-1">Primary Interest</label>
+                            <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-dsBlue bg-white">
+                                <option>Population Health Management</option>
+                                <option>Predictive Analytics / Risk Scoring</option>
+                                <option>RAF / HCC Coding Optimization</option>
+                                <option>Care Coordination</option>
+                                <option>SDOH Integration</option>
+                                <option>General Healthcare AI Strategy</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">
+                            Schedule AI Opportunity Call
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dsBlack text-white py-16 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+                <div class="lg:col-span-2">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2022/11/footer-logo.svg" alt="Digital Scientists" class="h-8 mb-4">
+                    <p class="text-gray-400 text-sm mb-4">21 South Main Street<br>Alpharetta, GA 30009</p>
+                    <a href="tel:4046543855" class="text-gray-400 hover:text-white transition">404.654.3855</a>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Healthcare Solutions</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="predictive-analytics-healthcare.html" class="hover:text-white transition">Predictive Analytics</a></li>
+                        <li><a href="telemedicine-virtual-care.html" class="hover:text-white transition">Telemedicine</a></li>
+                        <li><a href="remote-patient-monitoring.html" class="hover:text-white transition">Remote Patient Monitoring</a></li>
+                        <li><a href="clinical-decision-support.html" class="hover:text-white transition">Clinical Decision Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="ds-healthcare-v3-updated.html" class="hover:text-white transition">Healthcare</a></li>
+                        <li><a href="healthcare-approach.html" class="hover:text-white transition">Our Approach</a></li>
+                        <li><a href="work-never-alone.html" class="hover:text-white transition">Case Studies</a></li>
+                        <li><a href="https://digitalscientists.com/blog/" class="hover:text-white transition">Insights</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Getting Started</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="healthcare-assessment.html" class="hover:text-white transition">Healthcare Assessment</a></li>
+                        <li><a href="healthcare-ai-guides-landing.html" class="hover:text-white transition">AI Decision Guides</a></li>
+                        <li><a href="https://digitalscientists.com/contact/" class="hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-400 text-sm">© 2007 - 2026 Digital Scientists, LLC.</p>
+                <div class="flex items-center gap-6">
+                    <a href="https://digitalscientists.com/privacy-policy/" class="text-gray-400 text-sm hover:text-white transition">Privacy Policy</a>
+                    <a href="https://www.linkedin.com/company/digital-scientists_2/" class="text-gray-400 hover:text-white transition">LinkedIn</a>
+                    <a href="tel:4046543855" class="text-gray-400 text-sm hover:text-white transition">404.654.3855</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for fade-up animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
