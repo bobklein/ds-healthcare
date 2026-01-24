@@ -61,56 +61,367 @@
         .nav-dropdown-menu.right-aligned { left: auto; right: 0; }
     </style>
 
-    <nav class="fixed w-full z-50 bg-white border-b border-gray-100">
-        <div class="max-w-screen-xl mx-auto px-6">
-            <div class="h-20 flex justify-between items-center">
-                <!-- Logo -->
-                <a href="ds-healthcare-v3-updated.html" class="flex items-center">
-                    <svg class="h-12" style="height:48px;width:auto;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 221.03 65.45"><path d="M24.06,28.77c2.85-2.43,4.31-6.17,4.31-11.13,0-1.71,0-6.87-3.82-10.65C21,3.46,17,3.46,13,3.46H3.42v28.4H13.9C17.88,31.86,21.13,31.33,24.06,28.77ZM8.58,27.07V8.33h3.9c1,0,1.87,0,2.68.05a10.44,10.44,0,0,1,2.28.36c3.53,1,5.24,4,5.24,9,0,4.11-1.3,7-3.82,8.37-1.71.94-3.49,1-5.85,1Z" transform="translate(-2.28 -2.69)"/><rect x="29.18" y="0.77" width="5.24" height="28.4"/><path d="M69.17,15.85H55.11v4.92h8.08A8.88,8.88,0,0,1,54.54,28c-5.08,0-9.07-4.63-9.07-10.48s3.86-10.24,9-10.24a8.66,8.66,0,0,1,7.84,4.92h6.09c-1.74-5.45-7-9.55-13.85-9.55-8.42,0-14.75,6.46-14.75,15.07A14.43,14.43,0,0,0,54.46,32.63c8.45,0,14.79-6.46,14.79-15.07A14.75,14.75,0,0,0,69.17,15.85Z" transform="translate(-2.28 -2.69)"/><rect x="70.66" y="0.77" width="5.24" height="28.4"/><polygon points="92.48 29.18 92.48 5.57 100.49 5.57 100.49 0.77 79.32 0.77 79.32 5.57 87.32 5.57 87.32 29.18 92.48 29.18"/><path d="M115.24,3.46h-5.36L99.27,31.86h5.45l2.48-7h10.4l2.56,7h5.69ZM108.9,20.08l3.46-9.8,3.49,9.8Z" transform="translate(-2.28 -2.69)"/><polygon points="131.17 0.77 126.01 0.77 126.01 29.18 148.03 29.18 148.03 24.38 131.17 24.38 131.17 0.77"/><path d="M20.81,51.15a19.11,19.11,0,0,0-3.45-1l-3.82-.89C11.1,48.63,9,47.94,9,45.83c0-2.48,2.84-3.34,5.2-3.34a7.2,7.2,0,0,1,4.26,1.1,4.51,4.51,0,0,1,1.75,3.78h5.36a9.25,9.25,0,0,0-3.73-7.31c-2-1.43-4.47-2-7.73-2a11.44,11.44,0,0,0-7.72,2.43,7.42,7.42,0,0,0-2.76,5.81,6.74,6.74,0,0,0,3.54,6.26,13.41,13.41,0,0,0,3.29,1.38c1.14.33,2.27.57,3.29.78l2.32.52c3.08.65,4.42,1.63,4.42,3.62,0,2.76-2.23,4.43-5.85,4.43a7.41,7.41,0,0,1-5-1.54,5,5,0,0,1-1.5-2.48,4.09,4.09,0,0,1-.2-1.14c0-.33,0-.61-.08-.85H2.28c0,9.38,8.62,10.52,12.15,10.52a13.49,13.49,0,0,0,7.76-2A8.33,8.33,0,0,0,26,58.55,7.7,7.7,0,0,0,20.81,51.15Z" transform="translate(-2.28 -2.69)"/><path d="M42.43,42.49a8.24,8.24,0,0,1,8,5.69h6C54.7,41.85,49.21,37.9,42.51,37.9c-8.45,0-14.79,6.51-14.79,15.12s6.34,15.12,14.79,15.12c6.7,0,12.19-4,13.86-10.28h-6a8.24,8.24,0,0,1-8,5.64c-5.16,0-9-4.22-9-10.48S37.27,42.49,42.43,42.49Z" transform="translate(-2.28 -2.69)"/><rect x="57.38" y="35.99" width="5.24" height="28.4"/><polygon points="71.76 52.2 84.76 52.2 84.76 47.33 71.76 47.33 71.76 40.78 86.71 40.78 86.71 35.99 66.56 35.99 66.56 64.39 87.16 64.39 87.16 59.56 71.76 59.56 71.76 52.2"/><polygon points="109.23 54.64 95.53 35.99 90.58 35.99 90.58 64.39 95.86 64.39 95.86 45.7 109.51 64.39 114.51 64.39 114.51 35.99 109.23 35.99 109.23 54.64"/><polygon points="118 40.78 126 40.78 126 64.39 131.16 64.39 131.16 40.78 139.17 40.78 139.17 35.99 118 35.99 118 40.78"/><rect x="142.76" y="35.99" width="5.24" height="28.4"/><path d="M171.33,51.15a19.11,19.11,0,0,0-3.45-1l-3.82-.89c-2.44-.61-4.59-1.3-4.59-3.41,0-2.48,2.84-3.34,5.2-3.34a7.23,7.23,0,0,1,4.27,1.1,4.53,4.53,0,0,1,1.74,3.78h5.37a9.23,9.23,0,0,0-3.74-7.31c-1.95-1.43-4.47-2-7.72-2a11.44,11.44,0,0,0-7.72,2.43,7.39,7.39,0,0,0-2.76,5.81,6.75,6.75,0,0,0,3.53,6.26,13.58,13.58,0,0,0,3.29,1.38c1.14.33,2.28.57,3.29.78l2.32.52c3.09.65,4.43,1.63,4.43,3.62,0,2.76-2.24,4.43-5.85,4.43a7.39,7.39,0,0,1-5-1.54,5,5,0,0,1-1.5-2.48,3.78,3.78,0,0,1-.21-1.14c0-.33,0-.61-.08-.85h-5.52c0,9.38,8.61,10.52,12.14,10.52a13.53,13.53,0,0,0,7.77-2,8.35,8.35,0,0,0,3.82-7.19A7.71,7.71,0,0,0,171.33,51.15Z" transform="translate(-2.28 -2.69)"/><polygon points="175.47 40.78 183.48 40.78 183.48 64.39 188.64 64.39 188.64 40.78 196.64 40.78 196.64 35.99 175.47 35.99 175.47 40.78"/><path d="M218.11,51.15a19.25,19.25,0,0,0-3.46-1l-3.82-.89c-2.44-.61-4.59-1.3-4.59-3.41,0-2.48,2.84-3.34,5.2-3.34a7.23,7.23,0,0,1,4.27,1.1,4.53,4.53,0,0,1,1.74,3.78h5.37a9.23,9.23,0,0,0-3.74-7.31c-2-1.43-4.47-2-7.72-2a11.44,11.44,0,0,0-7.72,2.43,7.39,7.39,0,0,0-2.76,5.81,6.75,6.75,0,0,0,3.53,6.26,13.58,13.58,0,0,0,3.29,1.38c1.14.33,2.28.57,3.29.78l2.32.52c3.09.65,4.43,1.63,4.43,3.62,0,2.76-2.24,4.43-5.85,4.43a7.41,7.41,0,0,1-5-1.54,5,5,0,0,1-1.5-2.48,3.78,3.78,0,0,1-.21-1.14c0-.33,0-.61-.08-.85h-5.52c0,9.38,8.61,10.52,12.15,10.52a13.52,13.52,0,0,0,7.76-2,8.35,8.35,0,0,0,3.82-7.19A7.7,7.7,0,0,0,218.11,51.15Z" transform="translate(-2.28 -2.69)"/></svg>
-                </a>
+    <!-- DS Healthcare Mega Menu Navigation -->
+<!-- Desktop: Mega menu on hover | Mobile: Hamburger + Accordion -->
+
+<style>
+/* Mega Menu Styles */
+.mega-menu-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 8px;
+    z-index: 100;
+}
+.nav-item:hover .mega-menu-container {
+    display: block;
+}
+.mega-menu {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 24px;
+    min-width: 820px;
+}
+.mega-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+.mega-menu-section h4 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    margin-bottom: 12px;
+    padding-left: 12px;
+}
+.mega-menu-section a {
+    display: block;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #374151;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+.mega-menu-section a:hover {
+    background: #f3f4f6;
+}
+.mega-menu-cta {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+}
+.mega-menu-cta a {
+    background: #2563eb;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+.mega-menu-cta a:hover {
+    background: #1d4ed8;
+}
+
+/* Mobile Accordion Styles */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    overflow-y: auto;
+    z-index: 90;
+}
+.mobile-nav.open {
+    display: block;
+}
+.mobile-accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #111827;
+    border-bottom: 1px solid #f3f4f6;
+    cursor: pointer;
+}
+.mobile-accordion-header svg {
+    transition: transform 0.2s;
+}
+.mobile-accordion-header.open svg {
+    transform: rotate(180deg);
+}
+.mobile-accordion-content {
+    display: none;
+    background: #f9fafb;
+    padding: 8px 0;
+}
+.mobile-accordion-content.open {
+    display: block;
+}
+.mobile-accordion-section h5 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    padding: 12px 32px 8px;
+}
+.mobile-accordion-content a {
+    display: block;
+    padding: 12px 32px;
+    font-size: 14px;
+    color: #374151;
+    text-decoration: none;
+}
+.mobile-accordion-content a:hover {
+    background: #e5e7eb;
+}
+.mobile-nav-link {
+    display: block;
+    padding: 16px 24px;
+    font-size: 15px;
+    color: #111827;
+    text-decoration: none;
+    border-bottom: 1px solid #f3f4f6;
+}
+.mobile-cta {
+    padding: 24px;
+}
+.mobile-cta a {
+    display: block;
+    background: #2563eb;
+    color: white;
+    text-align: center;
+    padding: 14px 24px;
+    border-radius: 9999px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .desktop-nav { display: none !important; }
+    .mobile-menu-btn { display: flex !important; }
+}
+@media (min-width: 1025px) {
+    .mobile-nav { display: none !important; }
+    .mobile-menu-btn { display: none !important; }
+}
+</style>
+
+<nav class="fixed w-full z-50 bg-white border-b border-gray-100">
+    <div class="max-w-screen-xl mx-auto px-6">
+        <div class="h-20 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center">
+                <img src="1012DS_Logo_Native_Black (1).svg" alt="Digital Scientists" class="h-12">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav hidden lg:flex items-center gap-1">
                 
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center gap-2">
-                    <!-- Work -->
-                    <div class="nav-dropdown">
-                        <span class="flex items-center gap-1 px-3 py-2 text-sm text-gray-600 hover:text-dsBlack cursor-pointer">
-                            Work
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                        </span>
-                        <div class="nav-dropdown-menu right-aligned">
-                            <div class="bg-white border border-gray-200 rounded-xl shadow-lg p-3 w-64">
-                                <a href="work-never-alone.html" class="block px-3 py-2 bg-blue-50 rounded-lg">
-                                    <span class="text-sm text-dsBlue font-medium">NeverAlone</span>
-                                    <span class="block text-xs text-gray-500">Virtual Care Platform</span>
-                                </a>
-                                <a href="work-communicare-mds.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
-                                    <span class="text-sm text-gray-900 font-medium">CommuniCare MDS</span>
-                                    <span class="block text-xs text-gray-500">$10M+ PDPM recovered</span>
-                                </a>
-                                <a href="work-raf-hcc-coding.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
-                                    <span class="text-sm text-gray-900 font-medium">RAF/HCC Coding</span>
-                                    <span class="block text-xs text-gray-500">Risk adjustment AI</span>
-                                </a>
-                                <a href="work-healthcontext-ai.html" class="block px-3 py-2 hover:bg-gray-100 rounded-lg">
-                                    <span class="text-sm text-gray-900 font-medium">HealthContext.AI</span>
-                                    <span class="block text-xs text-gray-500">45→5 min documentation</span>
-                                </a>
+                <!-- Healthcare (Mega Menu) -->
+                <div class="nav-item relative">
+                    <a href="healthcare-hub.html" class="flex items-center gap-1 px-4 py-2 text-sm text-gray-600 hover:text-gray-900">
+                        Healthcare
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                    <div class="mega-menu-container">
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <!-- Column 1: Overview + Capabilities -->
+                                <div>
+                                    <div class="mega-menu-section">
+                                        <h4>Overview</h4>
+                                        <a href="healthcare-hub.html">Healthcare Hub</a>
+                                        <a href="healthcare-approach.html">Our Approach</a>
+                                    </div>
+                                    <div class="mega-menu-section" style="margin-top: 20px;">
+                                        <h4>Capabilities</h4>
+                                        <a href="healthcare-capabilities-ai-ml-nlp.html">AI, ML & NLP</a>
+                                        <a href="healthcare-capabilities-mobile.html">Mobile Apps</a>
+                                        <a href="healthcare-capabilities-saas.html">SaaS Platforms</a>
+                                        <a href="healthcare-capabilities-ux-design.html">UX Design</a>
+                                        <a href="healthcare-capabilities-data-analytics.html">Data Analytics</a>
+                                        <a href="healthcare-capabilities-samd.html">SaMD</a>
+                                    </div>
+                                </div>
+                                
+                                <!-- Column 2: AI Solutions -->
+                                <div class="mega-menu-section">
+                                    <h4>AI Solutions</h4>
+                                    <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+                                    <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+                                    <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+                                    <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+                                </div>
+                                
+                                <!-- Column 3: Domains -->
+                                <div class="mega-menu-section">
+                                    <h4>Domains</h4>
+                                    <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+                                    <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+                                    <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+                                    <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+                                    <a href="healthcare-domains-ambient-scribes.html">Ambient Scribes</a>
+                                    <a href="healthcare-domains-ehr-integrations.html">EHR Integrations</a>
+                                </div>
+                                
+                                <!-- Column 4: Markets + Case Studies -->
+                                <div>
+                                    <div class="mega-menu-section">
+                                        <h4>Markets</h4>
+                                        <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+                                        <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+                                        <a href="healthcare-markets-senior-living.html">Senior Living</a>
+                                        <a href="healthcare-markets-idd.html">IDD Services</a>
+                                        <a href="healthcare-markets-health-systems.html">Health Systems</a>
+                                    </div>
+                                    <div class="mega-menu-section" style="margin-top: 20px;">
+                                        <h4>Case Studies</h4>
+                                        <a href="work-never-alone.html">NeverAlone</a>
+                                        <a href="work-communicare-mds.html">CommuniCare MDS</a>
+                                        <a href="work-raf-hcc-coding.html">RAF/HCC Coding</a>
+                                        <a href="work-healthcontext-ai.html">HealthContext AI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mega-menu-cta">
+                                <a href="healthcare-assessment.html">Get AI Readiness Assessment →</a>
                             </div>
                         </div>
                     </div>
-
-                    <a href="ds-healthcare-v3-updated.html" class="px-3 py-2 text-sm text-gray-600 hover:text-dsBlack">Healthcare</a>
-                    <a href="healthcare-approach.html" class="px-3 py-2 text-sm text-gray-600 hover:text-dsBlack">Approach</a>
-                    <a href="healthcare-ai-guides-landing.html" class="px-3 py-2 text-sm text-dsBlue font-medium hover:text-dsBlack">AI Guides</a>
-
-                    <!-- CTA -->
-                    <a href="healthcare-assessment.html" class="ml-3 bg-dsBlue text-white px-5 py-2 text-sm font-medium rounded-full hover:bg-gray-900 transition">
-                        Get Assessment
-                    </a>
                 </div>
+                
+                <!-- Services (links to WP) -->
+                <a href="https://digitalscientists.com/services/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Services</a>
+                
+                <!-- About (links to WP) -->
+                <a href="https://digitalscientists.com/about/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">About</a>
+                
+                <!-- Blog (links to WP) -->
+                <a href="https://digitalscientists.com/blog/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Blog</a>
+                
+                <!-- Contact (links to WP) -->
+                <a href="https://digitalscientists.com/contact/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Contact</a>
+                
+                <!-- CTA Button -->
+                <a href="healthcare-assessment.html" class="ml-4 px-5 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-colors">
+                    Get Assessment
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn hidden items-center justify-center w-10 h-10 text-gray-600" id="mobile-menu-btn" aria-label="Toggle menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav" id="mobile-nav">
+    <!-- Healthcare Accordion -->
+    <div class="mobile-accordion">
+        <div class="mobile-accordion-header" data-accordion="healthcare">
+            Healthcare
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="mobile-accordion-content" id="accordion-healthcare">
+            <div class="mobile-accordion-section">
+                <h5>Overview</h5>
+                <a href="healthcare-hub.html">Healthcare Hub</a>
+                <a href="healthcare-approach.html">Our Approach</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Capabilities</h5>
+                <a href="healthcare-capabilities-ai-ml-nlp.html">AI, ML & NLP</a>
+                <a href="healthcare-capabilities-mobile.html">Mobile Apps</a>
+                <a href="healthcare-capabilities-saas.html">SaaS Platforms</a>
+                <a href="healthcare-capabilities-ux-design.html">UX Design</a>
+                <a href="healthcare-capabilities-data-analytics.html">Data Analytics</a>
+                <a href="healthcare-capabilities-samd.html">SaMD</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>AI Solutions</h5>
+                <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+                <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+                <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+                <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Domains</h5>
+                <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+                <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+                <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+                <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+                <a href="healthcare-domains-ambient-scribes.html">Ambient Scribes</a>
+                <a href="healthcare-domains-ehr-integrations.html">EHR Integrations</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Markets</h5>
+                <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+                <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+                <a href="healthcare-markets-senior-living.html">Senior Living</a>
+                <a href="healthcare-markets-idd.html">IDD Services</a>
+                <a href="healthcare-markets-health-systems.html">Health Systems</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Case Studies</h5>
+                <a href="work-never-alone.html">NeverAlone</a>
+                <a href="work-communicare-mds.html">CommuniCare MDS</a>
+                <a href="work-raf-hcc-coding.html">RAF/HCC Coding</a>
+                <a href="work-healthcontext-ai.html">HealthContext AI</a>
             </div>
         </div>
-    </nav>
+    </div>
+    
+    <!-- Other Nav Links -->
+    <a href="https://digitalscientists.com/services/" class="mobile-nav-link">Services</a>
+    <a href="https://digitalscientists.com/about/" class="mobile-nav-link">About</a>
+    <a href="https://digitalscientists.com/blog/" class="mobile-nav-link">Blog</a>
+    <a href="https://digitalscientists.com/contact/" class="mobile-nav-link">Contact</a>
+    
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+        <a href="healthcare-assessment.html">Get AI Readiness Assessment</a>
+    </div>
+</div>
+
+<script>
+// Mobile menu toggle
+document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
+    document.getElementById('mobile-nav')?.classList.toggle('open');
+});
+
+// Mobile accordion toggle
+document.querySelectorAll('.mobile-accordion-header').forEach(header => {
+    header.addEventListener('click', function() {
+        const target = this.dataset.accordion;
+        const content = document.getElementById('accordion-' + target);
+        this.classList.toggle('open');
+        content?.classList.toggle('open');
+    });
+});
+</script>
 
     <!-- Hero Header -->
     <header class="pt-32 pb-16 px-6">
