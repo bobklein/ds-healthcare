@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Healthcare AI & Custom Software | Digital Scientists</title>
+    <title>Digital Scientists | Custom Software & AI Development</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -11,828 +11,594 @@
                 extend: {
                     colors: {
                         dsBlue: '#304FFF',
+                        dsTeal: '#26D9C4',
+                        dsLime: '#D1F259',
                         dsBlack: '#050505',
                         dsGray: '#F5F5F5',
                     },
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
                         mono: ['Roboto Mono', 'monospace'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "radial-gradient(#304FFF 1px, transparent 1px)",
                     }
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', system-ui, sans-serif; }
+        body { font-family: 'Inter', sans-serif; }
         h1, h2, h3 { letter-spacing: -0.02em; }
-        
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Video container */
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 12px;
-            background: #f5f5f5;
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
+        .pixel-grid { background-size: 40px 40px; opacity: 0.1; }
+        .nav-item:hover .dropdown-menu { opacity: 1; transform: translateY(0); visibility: visible; }
+        .vertical-card { transition: all 0.3s ease; }
+        .vertical-card:hover { transform: translateY(-4px); }
     </style>
 </head>
-<body class="bg-white text-dsBlack antialiased">
+<body class="bg-white text-black antialiased">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white border-b border-gray-100">
-        <div class="max-w-screen-xl mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="ds-healthcare-v3-updated.html" class="flex flex-col">
-                <div class="text-lg font-bold uppercase tracking-wider leading-none">
-                    Digital<br><span class="text-dsBlue">Scientists</span>
-                </div>
-            </a>
-            <div class="hidden md:flex items-center gap-8">
-                <a href="#solutions" class="text-sm text-gray-600 hover:text-dsBlack transition">Solutions</a>
-                <a href="#expertise" class="text-sm text-gray-600 hover:text-dsBlack transition">Expertise</a>
-                <a href="#work" class="text-sm text-gray-600 hover:text-dsBlack transition">Work</a>
-                <a href="#contact" class="bg-dsBlue text-white px-6 py-2.5 text-sm font-medium rounded-full hover:bg-dsBlack transition">
-                    Contact Us
+<!-- Navigation -->
+<nav class="fixed w-full z-50 bg-white/95 backdrop-blur border-b border-gray-100">
+    <div class="bg-dsBlack text-white py-2 px-8 text-xs font-mono tracking-widest uppercase hidden md:flex justify-end items-center gap-8">
+        <a href="https://digitalscientists.com/blog/" class="hover:text-dsTeal transition">Insights</a>
+        <a href="tel:4046543855" class="text-dsTeal font-bold hover:text-white transition">404.654.3855</a>
+    </div>
+
+    <div class="max-w-screen-2xl mx-auto px-8 h-20 flex justify-between items-center">
+        <a href="index.html">
+            <img src="1012DS_Logo_Native_Black (1).svg" alt="Digital Scientists" class="h-12">
+        </a>
+        
+        <div class="hidden xl:flex items-center gap-8 text-sm font-bold tracking-wide uppercase text-gray-600 h-full">
+            
+            <!-- Healthcare Dropdown -->
+            <div class="nav-item relative h-full flex items-center group">
+                <a href="healthcare-hub.html" class="hover:text-dsBlue transition py-8 flex items-center gap-1">
+                    Healthcare <span class="text-[10px] ml-1">▼</span>
                 </a>
+                <div class="dropdown-menu absolute top-full left-1/2 -translate-x-1/2 w-[320px] bg-white border border-gray-200 shadow-xl opacity-0 invisible transform translate-y-2 transition-all duration-300 p-6 rounded-b-lg">
+                    <span class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-4 block">Healthcare AI</span>
+                    <ul class="space-y-3 normal-case font-medium text-gray-600 mb-6">
+                        <li><a href="healthcare-hub.html" class="hover:text-dsBlue block">Healthcare Overview</a></li>
+                        <li><a href="healthcare-approach.html" class="hover:text-dsBlue block">Our Approach</a></li>
+                        <li><a href="healthcare-assessment.html" class="hover:text-dsBlue block text-dsBlue font-bold">Get AI Assessment →</a></li>
+                    </ul>
+                    <span class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-4 block">AI Solutions</span>
+                    <ul class="space-y-3 normal-case font-medium text-gray-600">
+                        <li><a href="healthcare-ai-documentation-automation.html" class="hover:text-dsBlue block">Documentation Automation</a></li>
+                        <li><a href="healthcare-ai-back-office-agents.html" class="hover:text-dsBlue block">Back-Office Agents</a></li>
+                        <li><a href="healthcare-ai-virtual-care-assistants.html" class="hover:text-dsBlue block">Virtual Care Assistants</a></li>
+                        <li><a href="healthcare-ai-intelligent-scheduling.html" class="hover:text-dsBlue block">Intelligent Scheduling</a></li>
+                    </ul>
+                </div>
             </div>
+
+            <!-- Capabilities Dropdown -->
+            <div class="nav-item relative h-full flex items-center group">
+                <button class="hover:text-dsBlue transition py-8 flex items-center gap-1">
+                    Capabilities <span class="text-[10px] ml-1">▼</span>
+                </button>
+                <div class="dropdown-menu absolute top-full left-1/2 -translate-x-1/2 w-[280px] bg-white border border-gray-200 shadow-xl opacity-0 invisible transform translate-y-2 transition-all duration-300 p-6 rounded-b-lg">
+                    <ul class="space-y-3 normal-case font-medium text-gray-600">
+                        <li><a href="healthcare-capabilities-ai-ml-nlp.html" class="hover:text-dsBlue block">AI, ML & NLP</a></li>
+                        <li><a href="healthcare-capabilities-mobile.html" class="hover:text-dsBlue block">Mobile Apps</a></li>
+                        <li><a href="healthcare-capabilities-saas.html" class="hover:text-dsBlue block">SaaS Platforms</a></li>
+                        <li><a href="healthcare-capabilities-ux-design.html" class="hover:text-dsBlue block">UX Design</a></li>
+                        <li><a href="healthcare-capabilities-data-analytics.html" class="hover:text-dsBlue block">Data Analytics</a></li>
+                        <li><a href="healthcare-capabilities-samd.html" class="hover:text-dsBlue block">SaMD</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Services Dropdown (WordPress) -->
+            <div class="nav-item relative h-full flex items-center group">
+                <button class="hover:text-dsBlue transition py-8 flex items-center gap-1">
+                    Services <span class="text-[10px] ml-1">▼</span>
+                </button>
+                <div class="dropdown-menu absolute top-full left-1/2 -translate-x-1/2 w-[280px] bg-white border border-gray-200 shadow-xl opacity-0 invisible transform translate-y-2 transition-all duration-300 p-6 rounded-b-lg">
+                    <ul class="space-y-3 normal-case font-medium text-gray-600">
+                        <li><a href="https://digitalscientists.com/minimum-viable-product/" class="hover:text-dsBlue block">MVP Development</a></li>
+                        <li><a href="https://digitalscientists.com/product-blueprint/" class="hover:text-dsBlue block">Product Blueprint</a></li>
+                        <li><a href="https://digitalscientists.com/staff-augmentation/" class="hover:text-dsBlue block">Staff Augmentation</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Work Dropdown -->
+            <div class="nav-item relative h-full flex items-center group">
+                <button class="hover:text-dsBlue transition py-8 flex items-center gap-1">
+                    Work <span class="text-[10px] ml-1">▼</span>
+                </button>
+                <div class="dropdown-menu absolute top-full left-1/2 -translate-x-1/2 w-[320px] bg-white border border-gray-200 shadow-xl opacity-0 invisible transform translate-y-2 transition-all duration-300 p-6 rounded-b-lg">
+                    <span class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-4 block">Healthcare</span>
+                    <ul class="space-y-3 normal-case font-medium text-gray-600 mb-6">
+                        <li><a href="work-never-alone.html" class="hover:text-dsBlue block">NeverAlone <span class="text-xs text-gray-400">26K patients</span></a></li>
+                        <li><a href="work-communicare-mds.html" class="hover:text-dsBlue block">CommuniCare MDS <span class="text-xs text-gray-400">$10M+ recovered</span></a></li>
+                        <li><a href="work-healthcontext-ai.html" class="hover:text-dsBlue block">HealthContext.AI <span class="text-xs text-gray-400">45→5 min</span></a></li>
+                    </ul>
+                    <a href="https://digitalscientists.com/case-studies/" class="text-dsBlue font-bold text-sm">All Case Studies →</a>
+                </div>
+            </div>
+
+            <a href="https://digitalscientists.com/about/" class="hover:text-dsBlue transition">About</a>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <header class="pt-32 pb-16 px-6">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-3xl mb-12 fade-up">
-                <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
-                    <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
-                    Healthcare & Life Sciences
-                </div>
-                
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dsBlack mb-6 leading-[1.1]">
-                    Your delivery center for healthcare AI that actually reaches production.
-                </h1>
-                
-                <p class="text-xl text-gray-600 leading-relaxed mb-4">
-                    You have PointClickCare. State regulations. Payer contracts. Workflows your staff have used for years. Generic AI doesn't understand any of itâ€”which is why 95% of healthcare AI pilots fail.
-                </p>
-                <p class="text-xl text-gray-600 leading-relaxed mb-8">
-                    We build custom solutions that fit your environment, integrate with your EHR, and deliver ROI within the calendar year. Not experiments. Production systems with $20M+ in verified impact.
-                </p>
-                
-                <a href="#contact" class="inline-flex items-center gap-2 bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">
-                    Discuss Your AI Opportunity
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </a>
-            </div>
+        <a href="healthcare-assessment.html" class="hidden md:block bg-dsBlue text-white px-8 py-3 text-sm font-bold hover:bg-dsBlack transition shadow-md rounded">
+            Get Assessment
+        </a>
+        
+        <button id="mobile-menu-btn" class="xl:hidden text-2xl">☰</button>
+    </div>
 
-            <!-- Stats Row -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 fade-up">
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">$10M+</span>
-                    <p class="text-gray-500 text-sm mt-1">PDPM Revenue Recovered</p>
-                </div>
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <span class="text-3xl md:text-4xl font-bold text-dsBlue">96%</span>
-                    <p class="text-gray-500 text-sm mt-1">Treat-in-Place Rate</p>
-                </div>
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">45â†’5</span>
-                    <p class="text-gray-500 text-sm mt-1">Minutes Per Visit</p>
-                </div>
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">100%</span>
-                    <p class="text-gray-500 text-sm mt-1">Production Rate</p>
-                </div>
-            </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="xl:hidden hidden bg-white border-t border-gray-100">
+        <div class="px-8 py-6 space-y-4">
+            <a href="healthcare-hub.html" class="block py-2 font-bold text-dsBlue">Healthcare</a>
+            <a href="healthcare-capabilities-ai-ml-nlp.html" class="block py-2 pl-4 text-gray-600">→ AI, ML & NLP</a>
+            <a href="https://digitalscientists.com/minimum-viable-product/" class="block py-2 text-gray-600">MVP Development</a>
+            <a href="https://digitalscientists.com/case-studies/" class="block py-2 text-gray-600">Case Studies</a>
+            <a href="https://digitalscientists.com/about/" class="block py-2 text-gray-600">About</a>
+            <a href="healthcare-assessment.html" class="block py-3 mt-4 bg-dsBlue text-white text-center rounded font-bold">Get Assessment</a>
         </div>
-    </header>
+    </div>
+</nav>
 
-    <!-- Logo Bar -->
-    <section class="border-y border-gray-100 py-8 px-6">
-        <div class="max-w-screen-xl mx-auto flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            <span class="text-xs text-gray-400 uppercase tracking-wider">Trusted By</span>
-            <span class="text-gray-300 font-medium">CommuniCare</span>
-            <span class="text-gray-300 font-medium">McKesson</span>
-            <span class="text-gray-300 font-medium">Duke Health</span>
-            <span class="text-gray-300 font-medium">WellStar</span>
-        </div>
-    </section>
-
-    <!-- NeverAlone Featured -->
-    <section id="work" class="py-20 px-6 bg-dsGray">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Video -->
-                <div class="fade-up">
-                    <div class="video-container bg-gray-200">
-                        <!-- Replace src with actual NeverAlone video -->
-                        <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="NeverAlone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </div>
-                
-                <!-- Content -->
-                <div class="fade-up">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Featured Case Study</span>
-                        <span class="text-xs text-gray-400">â€¢</span>
-                        <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">We Built & Operate</span>
-                    </div>
-                    
-                    <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mb-4">
-                        NeverAlone
-                    </h2>
-                    <p class="text-lg text-gray-600 mb-6">
-                        24/7 virtual care platform serving 26,000+ patients across 7 states. We didn't just build thisâ€”we operate it in production every day.
-                    </p>
-                    
-                    <div class="grid grid-cols-2 gap-4 mb-6">
-                        <div>
-                            <span class="text-2xl font-bold text-dsBlack">26,000+</span>
-                            <p class="text-gray-500 text-sm">Patients Served</p>
-                        </div>
-                        <div>
-                            <span class="text-2xl font-bold text-dsBlue">96%</span>
-                            <p class="text-gray-500 text-sm">Treat-in-Place</p>
-                        </div>
-                        <div>
-                            <span class="text-2xl font-bold text-dsBlack">7</span>
-                            <p class="text-gray-500 text-sm">States</p>
-                        </div>
-                        <div>
-                            <span class="text-2xl font-bold text-dsBlack">32%</span>
-                            <p class="text-gray-500 text-sm">Cost Reduction</p>
-                        </div>
-                    </div>
-                    
-                    <a href="work-never-alone.html" class="inline-flex items-center gap-2 text-dsBlue font-medium hover:gap-3 transition-all">
-                        Read Full Case Study <span>â†’</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Problem -->
-    <section class="py-20 px-6">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Challenge</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
-                    95% of healthcare AI never reaches production.
-                </h2>
-                <p class="text-gray-600">
-                    Meanwhile, you're drowning in administrative burden, workforce shortages, and margin pressure.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
-                    <span class="text-4xl font-bold text-dsBlack">45 min</span>
-                    <h3 class="font-semibold text-dsBlack mt-3 mb-2">Documentation per visit</h3>
-                    <p class="text-gray-500 text-sm">Clinicians spend more time on paperwork than patients.</p>
-                </div>
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
-                    <span class="text-4xl font-bold text-dsBlack">45 days</span>
-                    <h3 class="font-semibold text-dsBlack mt-3 mb-2">Revenue cycle length</h3>
-                    <p class="text-gray-500 text-sm">Cash tied up in A/R while denial rates hit 12%.</p>
-                </div>
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
-                    <span class="text-4xl font-bold text-dsBlack">15-20%</span>
-                    <h3 class="font-semibold text-dsBlack mt-3 mb-2">Administrative overhead</h3>
-                    <p class="text-gray-500 text-sm">Back-office costs eating into margins.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Custom Solutions -->
-    <section class="py-20 px-6 bg-white border-t border-gray-100">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Why Healthcare Is Different</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
-                    Generic AI tools weren't built for your environment.
-                </h2>
+<!-- Hero Section -->
+<header class="relative pt-44 pb-20 px-8 overflow-hidden bg-white">
+    <div class="absolute inset-0 pixel-grid bg-grid-pattern"></div>
+    
+    <div class="max-w-screen-2xl mx-auto relative z-10">
+        <div class="max-w-4xl mb-16">
+            <div class="inline-flex items-center gap-4 border-l-4 border-dsBlue pl-4 mb-8">
+                <span class="font-mono text-sm font-bold text-gray-500 uppercase tracking-widest">Est. 2007 // Alpharetta, GA</span>
             </div>
             
-            <div class="grid lg:grid-cols-2 gap-16 items-start">
-                <div class="fade-up">
-                    <p class="text-gray-600 mb-6">
-                        Healthcare isn't a horizontal market where you can drop in a generic tool and expect results. You have compliance requirements other industries don't face. EHR integrations that touch everything. Reimbursement rules that change how software needs to work.
-                    </p>
-                    <p class="text-gray-600 mb-6">
-                        That's why research shows custom solutions deliver <strong>2x higher success rates</strong> than generic tools in healthcare. The organizations crossing the "GenAI Divide" are buying custom, learning-capable systemsâ€”not deploying ChatGPT wrappers.
-                    </p>
-                    
-                    <div class="bg-dsGray p-6 rounded-xl mb-6">
-                        <p class="text-dsBlack font-medium mb-3">What makes healthcare different:</p>
-                        <ul class="space-y-2 text-gray-600 text-sm">
-                            <li class="flex items-start gap-2"><span class="text-dsBlue mt-0.5">â€¢</span> <strong>Compliance:</strong> HIPAA, state regulations, CMS requirementsâ€”generic tools aren't built for this</li>
-                            <li class="flex items-start gap-2"><span class="text-dsBlue mt-0.5">â€¢</span> <strong>Integration:</strong> PointClickCare, Epic, Gehrimedâ€”you can't rip and replace your EHR</li>
-                            <li class="flex items-start gap-2"><span class="text-dsBlue mt-0.5">â€¢</span> <strong>Reimbursement:</strong> PDPM, RAF, value-based careâ€”software has to drive revenue, not just features</li>
-                            <li class="flex items-start gap-2"><span class="text-dsBlue mt-0.5">â€¢</span> <strong>Adoption:</strong> Clinical workflows, change managementâ€”technology is a people problem</li>
-                        </ul>
-                    </div>
-                    
-                    <p class="text-gray-600">
-                        <strong>We architect complex solutions that fit within your existing tech stack.</strong> Not another vendor to manage. Custom solutions that integrate with what you haveâ€”and create competitive advantage from your own data.
-                    </p>
+            <h1 class="text-4xl lg:text-6xl font-bold text-dsBlack mb-6 leading-[1.05] tracking-tight">
+                Custom software and AI that <span class="text-dsBlue">actually works</span>—built by a team aligned to your KPIs.
+            </h1>
+            
+            <p class="text-xl text-gray-600 font-light leading-relaxed max-w-2xl">
+                We're a US-based development partner with a nearshore team. We build custom software, integrate AI where it makes sense, and stay accountable to your outcomes.
+            </p>
+        </div>
+
+        <!-- Vertical Cards -->
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+            <a href="healthcare-hub.html" class="vertical-card group bg-gradient-to-br from-dsBlue to-blue-700 text-white p-8 rounded-xl shadow-lg hover:shadow-2xl relative overflow-hidden">
+                <div class="absolute top-4 right-4">
+                    <span class="bg-dsLime text-black text-xs font-bold px-2 py-1 rounded">Primary Focus</span>
                 </div>
+                <div class="mb-6">
+                    <span class="text-blue-200 text-xs font-mono uppercase tracking-widest">Industry</span>
+                    <h3 class="text-2xl font-bold mt-2">Healthcare & Life Sciences</h3>
+                </div>
+                <p class="text-blue-100 text-sm mb-6 leading-relaxed">
+                    Custom AI and software for post-acute care, health systems, and healthcare technology companies. $20M+ in verified ROI.
+                </p>
+                <div class="flex items-center gap-2 text-sm font-bold text-white group-hover:gap-4 transition-all">
+                    Explore Healthcare <span class="text-xl">→</span>
+                </div>
+            </a>
+
+            <a href="https://digitalscientists.com/industries/manufacturing/" class="vertical-card group bg-gray-100 p-8 rounded-xl shadow-lg hover:shadow-2xl border border-gray-200 hover:border-dsBlue">
+                <div class="mb-6">
+                    <span class="text-gray-400 text-xs font-mono uppercase tracking-widest">Industry</span>
+                    <h3 class="text-2xl font-bold mt-2 text-dsBlack group-hover:text-dsBlue transition">Manufacturing</h3>
+                </div>
+                <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+                    Predictive maintenance, quality optimization, and operational software for complex manufacturing environments.
+                </p>
+                <div class="flex items-center gap-2 text-sm font-bold text-dsBlue group-hover:gap-4 transition-all">
+                    Explore Manufacturing <span class="text-xl">→</span>
+                </div>
+            </a>
+
+            <a href="https://digitalscientists.com/industries/energy-defense/" class="vertical-card group bg-gray-100 p-8 rounded-xl shadow-lg hover:shadow-2xl border border-gray-200 hover:border-dsBlue">
+                <div class="mb-6">
+                    <span class="text-gray-400 text-xs font-mono uppercase tracking-widest">Industry</span>
+                    <h3 class="text-2xl font-bold mt-2 text-dsBlack group-hover:text-dsBlue transition">Energy & Defense</h3>
+                </div>
+                <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+                    Mission-critical systems for highly regulated environments. Safety platforms, digital modernization, compliance-first architecture.
+                </p>
+                <div class="flex items-center gap-2 text-sm font-bold text-dsBlue group-hover:gap-4 transition-all">
+                    Explore Energy & Defense <span class="text-xl">→</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="flex flex-wrap gap-8 text-sm border-t border-gray-200 pt-8">
+            <div class="flex items-center gap-2">
+                <span class="text-dsBlue font-bold text-2xl">19</span>
+                <span class="text-gray-500">Years in Business</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="text-dsBlue font-bold text-2xl">75+</span>
+                <span class="text-gray-500">Engineers</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="text-dsBlue font-bold text-2xl">26K+</span>
+                <span class="text-gray-500">Patients on Our Platform</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Logo Bar -->
+<section class="border-y border-gray-100 bg-gray-50 py-12">
+    <div class="max-w-screen-2xl mx-auto px-8">
+        <p class="text-center text-xs font-mono text-gray-400 uppercase tracking-widest mb-8">Trusted by Industry Leaders</p>
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+            <img src="https://digitalscientists.com/wp-content/uploads/2024/05/Screenshot_2-300x60.png" alt="Duke Health" class="h-8 object-contain opacity-60 hover:opacity-100 transition">
+            <img src="https://digitalscientists.com/wp-content/uploads/2023/12/congruity-health-1.svg" alt="Congruity Health" class="h-8 object-contain opacity-60 hover:opacity-100 transition">
+            <img src="https://digitalscientists.com/wp-content/uploads/2024/05/McKesson_logo_full.png" alt="McKesson" class="h-8 object-contain opacity-60 hover:opacity-100 transition">
+            <img src="https://digitalscientists.com/wp-content/uploads/2023/12/logo-chs-black.png" alt="CommuniCare" class="h-8 object-contain opacity-60 hover:opacity-100 transition">
+            <img src="https://digitalscientists.com/wp-content/uploads/2024/05/easterseals-300x108.png" alt="Easterseals" class="h-8 object-contain opacity-60 hover:opacity-100 transition">
+        </div>
+    </div>
+</section>
+
+<!-- Nearshore Team Section -->
+<section class="py-24 bg-white">
+    <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <span class="font-mono text-dsBlue text-sm font-bold uppercase tracking-widest mb-4 block">// Our Team</span>
+                <h2 class="text-4xl font-bold text-dsBlack mb-6 tracking-tight">
+                    US leadership. Nearshore delivery. The quality you need without the offshore risk.
+                </h2>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    We're not an offshore shop. Our leadership and architects are based in Atlanta, with a dedicated nearshore team in the Dominican Republic. Same timezone. US legal jurisdiction. Direct communication with the people building your software.
+                </p>
                 
-                <div class="fade-up">
-                    <div class="border border-gray-200 rounded-xl p-6 mb-6">
-                        <h4 class="font-semibold text-dsBlack mb-4">Why 95% of healthcare AI fails:</h4>
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-3">
-                                <span class="text-red-500 text-lg">âœ—</span>
-                                <div>
-                                    <p class="text-dsBlack font-medium">Dev shops</p>
-                                    <p class="text-gray-500 text-sm">Write code, throw it over the wall. No healthcare expertise.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-red-500 text-lg">âœ—</span>
-                                <div>
-                                    <p class="text-dsBlack font-medium">AI vendors</p>
-                                    <p class="text-gray-500 text-sm">Sell tools, wish you luck. Built for demos, not your EHR.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-red-500 text-lg">âœ—</span>
-                                <div>
-                                    <p class="text-dsBlack font-medium">Consultants</p>
-                                    <p class="text-gray-500 text-sm">Advise forever, never transfer knowledge. Strategy without delivery.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-red-500 text-lg">âœ—</span>
-                                <div>
-                                    <p class="text-dsBlack font-medium">Offshore vendors</p>
-                                    <p class="text-gray-500 text-sm">Build cheap, miss compliance. Timezone gaps, quality issues.</p>
-                                </div>
-                            </div>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <span class="text-dsTeal text-xl">✓</span>
+                        <div>
+                            <strong class="text-dsBlack">Same timezone collaboration</strong>
+                            <p class="text-gray-500 text-sm">Real-time communication, not overnight handoffs</p>
                         </div>
                     </div>
-                    
-                    <div class="border-2 border-dsBlue rounded-xl p-6 bg-blue-50/30">
-                        <h4 class="font-semibold text-dsBlack mb-4">Why we deliver 100% production rate:</h4>
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-3">
-                                <span class="text-dsBlue text-lg">âœ“</span>
-                                <div>
-                                    <p class="text-dsBlack font-medium">Complete value chain</p>
-                                    <p class="text-gray-500 text-sm">Data engineering â†’ Deployment â†’ KPI accountability. 8 steps, no gaps.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-dsBlue text-lg">âœ“</span>
-                                <div>
-                                    <p class="text-dsBlack font-medium">Healthcare expertise</p>
-                                    <p class="text-gray-500 text-sm">We understand reimbursement, compliance, clinical workflows.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-dsBlue text-lg">âœ“</span>
-                                <div>
-                                    <p class="text-dsBlack font-medium">We operate what we build</p>
-                                    <p class="text-gray-500 text-sm">26,000 patients on NeverAlone. We eat our own cooking.</p>
-                                </div>
-                            </div>
+                    <div class="flex items-start gap-4">
+                        <span class="text-dsTeal text-xl">✓</span>
+                        <div>
+                            <strong class="text-dsBlack">US legal jurisdiction</strong>
+                            <p class="text-gray-500 text-sm">Enforceable contracts, clear IP ownership, HIPAA compliance</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="text-dsTeal text-xl">✓</span>
+                        <div>
+                            <strong class="text-dsBlack">Senior engineers who stay</strong>
+                            <p class="text-gray-500 text-sm">Low turnover, institutional knowledge, no constant re-onboarding</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="text-dsTeal text-xl">✓</span>
+                        <div>
+                            <strong class="text-dsBlack">We fix what's broken</strong>
+                            <p class="text-gray-500 text-sm">When things go wrong—and they do—we stay until they're right</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-dsGray p-10 rounded-xl">
+                <h3 class="font-bold text-xl mb-8 text-dsBlack">The Offshore Reality Check</h3>
+                <div class="space-y-6">
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div class="bg-white p-4 rounded-lg border-l-4 border-red-400">
+                            <span class="text-gray-400 text-xs uppercase font-mono block mb-2">Offshore</span>
+                            <span class="text-gray-600">8-12 hour time difference</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border-l-4 border-dsTeal">
+                            <span class="text-dsTeal text-xs uppercase font-mono block mb-2">DS Nearshore</span>
+                            <span class="text-dsBlack font-medium">Same timezone (EST)</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div class="bg-white p-4 rounded-lg border-l-4 border-red-400">
+                            <span class="text-gray-400 text-xs uppercase font-mono block mb-2">Offshore</span>
+                            <span class="text-gray-600">No legal recourse</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border-l-4 border-dsTeal">
+                            <span class="text-dsTeal text-xs uppercase font-mono block mb-2">DS Nearshore</span>
+                            <span class="text-dsBlack font-medium">US legal jurisdiction</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div class="bg-white p-4 rounded-lg border-l-4 border-red-400">
+                            <span class="text-gray-400 text-xs uppercase font-mono block mb-2">Offshore</span>
+                            <span class="text-gray-600">HIPAA compliance suspect</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border-l-4 border-dsTeal">
+                            <span class="text-dsTeal text-xs uppercase font-mono block mb-2">DS Nearshore</span>
+                            <span class="text-dsBlack font-medium">US-compliant data handling</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div class="bg-white p-4 rounded-lg border-l-4 border-red-400">
+                            <span class="text-gray-400 text-xs uppercase font-mono block mb-2">Offshore</span>
+                            <span class="text-gray-600">High turnover, lost context</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border-l-4 border-dsTeal">
+                            <span class="text-dsTeal text-xs uppercase font-mono block mb-2">DS Nearshore</span>
+                            <span class="text-dsBlack font-medium">Stable team, retained knowledge</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Healthcare Domain Expertise -->
-    <section id="expertise" class="py-20 px-6 bg-dsBlack text-white">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Healthcare Domain Expertise</span>
-                <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
-                    Deep expertise where it matters.
-                </h2>
-                <p class="text-gray-400">
-                    We're not a dev shop that did a healthcare project once. We understand how providers get paid, how care is delivered, and what it takes to ship in regulated environments.
+<!-- What Makes Implementation Work -->
+<section class="py-24 bg-dsGray border-t border-gray-200">
+    <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="max-w-3xl mb-16">
+            <span class="font-mono text-dsBlue text-sm font-bold uppercase tracking-widest mb-4 block">// What Makes Implementation Work</span>
+            <h2 class="text-4xl font-bold text-dsBlack mb-6 tracking-tight">
+                Three things separate projects that ship from projects that stall.
+            </h2>
+            <p class="text-lg text-gray-600">
+                We've been doing this since 2007. Here's what we've learned about getting software into production—and keeping it there.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+            <div class="bg-white p-8 rounded-xl shadow-sm">
+                <div class="w-12 h-12 bg-dsBlue/10 rounded-lg flex items-center justify-center mb-6">
+                    <span class="text-dsBlue text-2xl font-bold">1</span>
+                </div>
+                <h3 class="font-bold text-xl mb-3 text-dsBlack">Partners, not order takers</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    We partner with your experts to drive improvement—learning your business fast while bringing our own expertise to the table. Context matters, and we're built for complex problems.
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Post-Acute Care -->
-                <div class="fade-up">
-                    <h3 class="text-sm font-medium text-dsBlue uppercase tracking-wider mb-4">Post-Acute Care â€” Deep Expertise</h3>
-                    <div class="space-y-3">
-                        <a href="healthcare-domains-mds-pdpm.html" class="flex justify-between items-center py-3 border-b border-gray-800 hover:border-dsBlue transition group">
-                            <div>
-                                <span class="text-white font-medium group-hover:text-dsBlue transition">MDS Assessments / PDPM</span>
-                                <p class="text-gray-500 text-sm">Revenue capture optimization</p>
-                            </div>
-                            <span class="text-dsBlue font-medium">$10M+</span>
-                        </a>
-                        <a href="healthcare-domains-value-based-care.html" class="flex justify-between items-center py-3 border-b border-gray-800 hover:border-dsBlue transition group">
-                            <div>
-                                <span class="text-white font-medium group-hover:text-dsBlue transition">Value-Based Care</span>
-                                <p class="text-gray-500 text-sm">SNF VBP, ACO REACH performance</p>
-                            </div>
-                            <span class="text-gray-600">â†’</span>
-                        </a>
-                        <a href="work-never-alone.html" class="flex justify-between items-center py-3 border-b border-gray-800 hover:border-dsBlue transition group">
-                            <div>
-                                <span class="text-white font-medium group-hover:text-dsBlue transition">Treatment-in-Place</span>
-                                <p class="text-gray-500 text-sm">Hospital transfer avoidance</p>
-                            </div>
-                            <span class="text-dsBlue font-medium">96%</span>
-                        </a>
-                        <a href="healthcare-ai-virtual-care-assistants.html" class="flex justify-between items-center py-3 border-b border-gray-800 hover:border-dsBlue transition group">
-                            <div>
-                                <span class="text-white font-medium group-hover:text-dsBlue transition">Virtual Care / Telehealth</span>
-                                <p class="text-gray-500 text-sm">24/7 coverage without staffing costs</p>
-                            </div>
-                            <span class="text-gray-600">â†’</span>
-                        </a>
-                    </div>
+            <div class="bg-white p-8 rounded-xl shadow-sm">
+                <div class="w-12 h-12 bg-dsTeal/10 rounded-lg flex items-center justify-center mb-6">
+                    <span class="text-dsTeal text-2xl font-bold">2</span>
                 </div>
-
-                <!-- Horizontal -->
-                <div class="fade-up">
-                    <h3 class="text-sm font-medium text-dsBlue uppercase tracking-wider mb-4">Horizontal Across Healthcare</h3>
-                    <div class="grid grid-cols-2 gap-3">
-                        <a href="healthcare-domains-revenue-cycle-ai.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">Revenue Cycle AI</a>
-                        <a href="healthcare-domains-ambient-scribes.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">Ambient Scribes</a>
-                        <a href="healthcare-ai-virtual-care-assistants.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">Patient Engagement</a>
-                        <a href="healthcare-ai-virtual-care-assistants.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">RPM</a>
-                        <a href="healthcare-ai-guides-landing.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">Clinical Decision Support</a>
-                        <a href="healthcare-approach.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">Data Engineering</a>
-                        <a href="healthcare-domains-raf-hcc-coding.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">RAF / HCC Coding</a>
-                        <a href="healthcare-domains-ehr-integrations.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">EHR Integrations</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- AI Solution Frameworks -->
-    <section id="solutions" class="py-20 px-6">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">AI Solution Frameworks</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
-                    Four high-impact areas. Proven ROI in each.
-                </h2>
-                <p class="text-gray-600">
-                    We don't sell generic AI tools. We build custom solutions for your workflows, your EHR, and your outcomes.
+                <h3 class="font-bold text-xl mb-3 text-dsBlack">Built for your environment</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Your EHR, your workflows, your users. We integrate with what you have—PointClickCare, Epic, Salesforce, legacy systems—instead of asking you to change how you work.
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-6">
-                <a href="healthcare-ai-documentation-automation.html" class="group border border-gray-200 rounded-xl p-8 hover:border-dsBlue transition fade-up">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-dsBlack" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                        </div>
-                        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Fastest Payback</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-dsBlack mb-2 group-hover:text-dsBlue transition">AI Documentation Automation</h3>
-                    <p class="text-gray-600 text-sm mb-4">45 min â†’ 5 min per visit. Ambient AI scribes that generate clinical notes, OASIS assessments, and care plans.</p>
-                    <span class="text-dsBlue text-sm font-medium group-hover:underline">Learn More â†’</span>
-                </a>
-
-                <a href="healthcare-ai-back-office-agents.html" class="group border border-gray-200 rounded-xl p-8 hover:border-dsBlue transition fade-up">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-dsBlack" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-                        </div>
-                        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Highest ROI</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-dsBlack mb-2 group-hover:text-dsBlue transition">Intelligent Back-Office Agents</h3>
-                    <p class="text-gray-600 text-sm mb-4">Revenue cycle from 45â†’28 days. Denial rates from 12%â†’4%. 200-300 bps EBITDA improvement.</p>
-                    <span class="text-dsBlue text-sm font-medium group-hover:underline">Learn More â†’</span>
-                </a>
-
-                <a href="healthcare-ai-virtual-care-assistants.html" class="group border border-gray-200 rounded-xl p-8 hover:border-dsBlue transition fade-up">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-dsBlack" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-                        </div>
-                        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Proven at Scale</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-dsBlack mb-2 group-hover:text-dsBlue transition">Virtual Care Assistants</h3>
-                    <p class="text-gray-600 text-sm mb-4">3x patient capacity per nurse. 40% reduction in after-hours calls. 25% readmission reduction.</p>
-                    <span class="text-dsBlue text-sm font-medium group-hover:underline">Learn More â†’</span>
-                </a>
-
-                <a href="healthcare-ai-intelligent-scheduling.html" class="group border border-gray-200 rounded-xl p-8 hover:border-dsBlue transition fade-up">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-dsBlack" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                        </div>
-                        <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Quick Win</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-dsBlack mb-2 group-hover:text-dsBlue transition">Intelligent Scheduling</h3>
-                    <p class="text-gray-600 text-sm mb-4">15% improvement in visit completion. 20% reduction in drive time. Predictive no-show management.</p>
-                    <span class="text-dsBlue text-sm font-medium group-hover:underline">Learn More â†’</span>
-                </a>
+            <div class="bg-white p-8 rounded-xl shadow-sm">
+                <div class="w-12 h-12 bg-dsLime/20 rounded-lg flex items-center justify-center mb-6">
+                    <span class="text-dsBlack text-2xl font-bold">3</span>
+                </div>
+                <h3 class="font-bold text-xl mb-3 text-dsBlack">Accountable to outcomes</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    We don't disappear after deployment. We track the KPIs we agreed on, we handle change management, and we stay until the software is actually working in production.
+                </p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Markets -->
-    <section class="py-20 px-6 bg-dsGray">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Markets We Serve</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3">
-                    Built for the complexity of post-acute care.
-                </h2>
+<!-- 8-Step Process Section -->
+<section id="process" class="py-24 bg-white border-t border-gray-200">
+    <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="max-w-3xl mb-16">
+            <span class="font-mono text-dsBlue text-sm font-bold uppercase tracking-widest mb-4 block">// The Complete Value Chain</span>
+            <h2 class="text-4xl font-bold text-dsBlack mb-6 tracking-tight">Our 8-Step Process</h2>
+            <p class="text-lg text-gray-600">
+                Most projects fail at steps 3-8, not steps 1-2. We own the complete value chain—from messy data to measurable outcomes.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-dsBlue transition">
+                <span class="font-mono text-dsBlue text-xs mb-2 block font-bold">01</span>
+                <h4 class="font-bold text-lg mb-2 text-dsBlack">Data Foundation</h4>
+                <p class="text-sm text-gray-500">Clean, structure, and prepare your data for what comes next.</p>
             </div>
-
-            <div class="grid md:grid-cols-4 gap-6">
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
-                    <h3 class="font-semibold text-dsBlack mb-2">Skilled Nursing Facilities</h3>
-                    <p class="text-gray-500 text-sm mb-3">MDS optimization, PDPM revenue capture, quality measures.</p>
-                    <span class="text-dsBlue text-sm font-medium">$10M+ PDPM recovered</span>
-                </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
-                    <h3 class="font-semibold text-dsBlack mb-2">Home Health & Hospice</h3>
-                    <p class="text-gray-500 text-sm mb-3">Documentation automation, scheduling, OASIS assessments.</p>
-                    <span class="text-dsBlue text-sm font-medium">45â†’5 min documentation</span>
-                </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
-                    <h3 class="font-semibold text-dsBlack mb-2">Senior Living / CCRCs</h3>
-                    <p class="text-gray-500 text-sm mb-3">Resident engagement, family communication, operations.</p>
-                    <span class="text-gray-400 text-sm">Platform experience â†’</span>
-                </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6 fade-up">
-                    <h3 class="font-semibold text-dsBlack mb-2">Health Systems & HealthIT</h3>
-                    <p class="text-gray-500 text-sm mb-3">R&D partnership, platform development, EHR integration.</p>
-                    <span class="text-gray-400 text-sm">Your R&D partner â†’</span>
-                </div>
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-dsBlue transition">
+                <span class="font-mono text-dsBlue text-xs mb-2 block font-bold">02</span>
+                <h4 class="font-bold text-lg mb-2 text-dsBlack">Solution Design</h4>
+                <p class="text-sm text-gray-500">On-site discovery. Built with your teams, not in a conference room.</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-dsBlue transition">
+                <span class="font-mono text-dsBlue text-xs mb-2 block font-bold">03</span>
+                <h4 class="font-bold text-lg mb-2 text-dsBlack">Development</h4>
+                <p class="text-sm text-gray-500">Agile sprints with continuous feedback and security validation.</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-dsBlue transition">
+                <span class="font-mono text-dsBlue text-xs mb-2 block font-bold">04</span>
+                <h4 class="font-bold text-lg mb-2 text-dsBlack">Integration</h4>
+                <p class="text-sm text-gray-500">Connect with your existing systems—EHR, CRM, legacy platforms.</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-dsTeal transition">
+                <span class="font-mono text-dsTeal text-xs mb-2 block font-bold">05</span>
+                <h4 class="font-bold text-lg mb-2 text-dsBlack">Change Management</h4>
+                <p class="text-sm text-gray-500">Training and adoption support. Technology is a people problem.</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-dsTeal transition">
+                <span class="font-mono text-dsTeal text-xs mb-2 block font-bold">06</span>
+                <h4 class="font-bold text-lg mb-2 text-dsBlack">Production Deploy</h4>
+                <p class="text-sm text-gray-500">Phased rollout with monitoring and rapid iteration.</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-dsTeal transition">
+                <span class="font-mono text-dsTeal text-xs mb-2 block font-bold">07</span>
+                <h4 class="font-bold text-lg mb-2 text-dsBlack">Flexible Exit</h4>
+                <p class="text-sm text-gray-500">Ongoing support or transfer to your team. You own 100% of IP.</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-dsTeal transition">
+                <span class="font-mono text-dsTeal text-xs mb-2 block font-bold">08</span>
+                <h4 class="font-bold text-lg mb-2 text-dsBlack">KPI Accountability</h4>
+                <p class="text-sm text-gray-500">Tied to the measurable outcomes we agreed on upfront.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Who We Work With - Persona Specific -->
-    <section class="py-20 px-6 bg-white border-t border-gray-100">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Who This Is For</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
-                    Different leaders, different questions. Same answer: we deliver.
-                </h2>
+<!-- Two Models Section -->
+<section class="py-24 bg-dsGray border-t border-gray-200">
+    <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="mb-16 max-w-3xl">
+            <span class="font-mono text-dsBlue text-sm font-bold uppercase tracking-widest mb-4 block">// How We Work</span>
+            <h2 class="text-4xl font-bold text-dsBlack mb-6 tracking-tight">Two engagement models</h2>
+            <p class="text-lg text-gray-600">
+                Professional Services for operational improvement. Venture Studio for building new products and platforms.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12">
+            <div class="group bg-white p-10 rounded-xl border border-gray-200 hover:border-dsBlue hover:shadow-xl transition">
+                <div class="flex justify-between items-start mb-6">
+                    <h3 class="text-3xl font-bold group-hover:text-dsBlue transition">Professional Services</h3>
+                    <span class="font-mono text-xs border border-dsBlue text-dsBlue px-2 py-1 bg-white rounded">Ops ROI</span>
+                </div>
+                <p class="text-gray-600 mb-6">
+                    Solve operational problems, improve decision cycles, and deliver measurable business value through custom software and AI.
+                </p>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li class="flex items-center gap-2"><span class="text-dsBlue">●</span> Full professional services rates</li>
+                    <li class="flex items-center gap-2"><span class="text-dsBlue">●</span> Client owns 100% of IP</li>
+                    <li class="flex items-center gap-2"><span class="text-dsBlue">●</span> Build-operate-transfer available</li>
+                </ul>
             </div>
 
-            <!-- CXO Personas -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
-                    <p class="text-xs text-gray-400 uppercase tracking-wider mb-2">For CEOs</p>
-                    <h3 class="font-bold text-dsBlack mb-3">"Will this transform my business?"</h3>
-                    <p class="text-gray-600 text-sm mb-4">
-                        CommuniCare went from regional provider to 7-state platform in 18 months. Modern tech stack increases acquisition multiples. Learning systems create sustainable advantage.
-                    </p>
-                    <p class="text-dsBlue text-sm font-medium">Operator â†’ Platform company</p>
+            <div class="group bg-dsBlack text-white p-10 rounded-xl hover:shadow-xl transition">
+                <div class="flex justify-between items-start mb-6">
+                    <h3 class="text-3xl font-bold group-hover:text-dsTeal transition">Venture Studio</h3>
+                    <span class="font-mono text-xs border border-dsTeal text-dsTeal px-2 py-1 rounded">IP Creation</span>
                 </div>
-                
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
-                    <p class="text-xs text-gray-400 uppercase tracking-wider mb-2">For CFOs</p>
-                    <h3 class="font-bold text-dsBlack mb-3">"What's the ROI and when?"</h3>
-                    <p class="text-gray-600 text-sm mb-4">
-                        $10M PDPM + $2M Quality Incentives from 2 states. Financial analyst calculated, not vendor estimates. Contractually tied to KPIs. Calendar year returns.
-                    </p>
-                    <p class="text-dsBlue text-sm font-medium">200-300 bps EBITDA improvement</p>
-                </div>
-                
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
-                    <p class="text-xs text-gray-400 uppercase tracking-wider mb-2">For COOs</p>
-                    <h3 class="font-bold text-dsBlack mb-3">"Will this disrupt operations?"</h3>
-                    <p class="text-gray-600 text-sm mb-4">
-                        40+ hours shadowing MDS coordinators before writing code. Change management included. Go-live support. Staff adoption guaranteed, not just deployment.
-                    </p>
-                    <p class="text-dsBlue text-sm font-medium">Built WITH your care teams</p>
-                </div>
-                
-                <div class="border border-gray-200 rounded-xl p-6 fade-up">
-                    <p class="text-xs text-gray-400 uppercase tracking-wider mb-2">For CTOs</p>
-                    <h3 class="font-bold text-dsBlack mb-3">"Will this actually work?"</h3>
-                    <p class="text-gray-600 text-sm mb-4">
-                        100% production rate vs 5% industry average. PointClickCare, Epic, Gehrimed integrations proven. Data engineering through deploymentâ€”you're not stuck managing another vendor.
-                    </p>
-                    <p class="text-dsBlue text-sm font-medium">Complete 8-step value chain</p>
-                </div>
-            </div>
-
-            <!-- Organization Types -->
-            <div class="border-t border-gray-200 pt-12">
-                <p class="text-xs text-gray-400 uppercase tracking-wider mb-6 fade-up">We Work With</p>
-                <div class="grid md:grid-cols-2 gap-6">
-                    
-                    <div class="flex gap-6 items-start p-6 bg-dsGray rounded-xl fade-up">
-                        <div class="flex-1">
-                            <h3 class="font-bold text-dsBlack mb-1">Healthcare Operators</h3>
-                            <p class="text-sm text-gray-500 mb-3">SNFs, Home Health, Hospice, Senior Living with 3+ facilities</p>
-                            <p class="text-gray-600 text-sm">
-                                You need solutions that fit your EHR, meet your compliance requirements, and deliver calendar year ROIâ€”not pilots that never reach production.
-                            </p>
-                        </div>
-                        <a href="#contact" class="text-dsBlue text-sm font-medium whitespace-nowrap">AI Assessment â†’</a>
-                    </div>
-                    
-                    <div class="flex gap-6 items-start p-6 bg-dsGray rounded-xl fade-up">
-                        <div class="flex-1">
-                            <h3 class="font-bold text-dsBlack mb-1">PE Portfolio Companies</h3>
-                            <p class="text-sm text-gray-500 mb-3">Operating partners modernizing healthcare platforms</p>
-                            <p class="text-gray-600 text-sm">
-                                You've tried offshore. The timezone gaps, quality issues, HIPAA concerns. We're the nearshore alternativeâ€”US leadership, same timezone, US legal jurisdiction.
-                            </p>
-                        </div>
-                        <a href="#contact" class="text-dsBlue text-sm font-medium whitespace-nowrap">Platform Assessment â†’</a>
-                    </div>
-                    
-                    <div class="flex gap-6 items-start p-6 bg-dsGray rounded-xl fade-up">
-                        <div class="flex-1">
-                            <h3 class="font-bold text-dsBlack mb-1">HealthIT & Digital Health</h3>
-                            <p class="text-sm text-gray-500 mb-3">Product leaders needing R&D capacity</p>
-                            <p class="text-gray-600 text-sm">
-                                We're not learning healthcare on your dime. We already build virtual care, documentation tools, and analytics. We integrate with the same EHRs you do.
-                            </p>
-                        </div>
-                        <a href="#contact" class="text-dsBlue text-sm font-medium whitespace-nowrap">R&D Partnership â†’</a>
-                    </div>
-                    
-                    <div class="flex gap-6 items-start p-6 bg-dsGray rounded-xl fade-up">
-                        <div class="flex-1">
-                            <h3 class="font-bold text-dsBlack mb-1">Strategy Consultants</h3>
-                            <p class="text-sm text-gray-500 mb-3">Firms advising on healthcare AI initiatives</p>
-                            <p class="text-gray-600 text-sm">
-                                Your clients need implementation, not just strategy. You advise, we build. 100% production rateâ€”we're the delivery partner that doesn't embarrass you.
-                            </p>
-                        </div>
-                        <a href="#contact" class="text-dsBlue text-sm font-medium whitespace-nowrap">Partner Program â†’</a>
-                    </div>
-                </div>
+                <p class="text-gray-400 mb-6">
+                    Create new intellectual property, build platform businesses, and develop products with commercial potential beyond internal operations.
+                </p>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li class="flex items-center gap-2"><span class="text-dsTeal">●</span> Technical co-founder model</li>
+                    <li class="flex items-center gap-2"><span class="text-dsTeal">●</span> Full rate for funded companies</li>
+                    <li class="flex items-center gap-2"><span class="text-dsTeal">●</span> Cost + equity for aligned builds</li>
+                </ul>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- More Case Studies -->
-    <section class="py-20 px-6">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="flex justify-between items-end mb-12 fade-up">
-                <div>
-                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">More Proof Points</span>
-                    <h2 class="text-3xl font-bold text-dsBlack mt-3">Real results. Verified ROI.</h2>
+<!-- Contact Section -->
+<section id="contact" class="py-24 bg-dsBlack text-white">
+    <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-4xl font-bold mb-6">Let's Talk</h2>
+                <p class="text-gray-400 text-lg mb-8">
+                    30-minute conversation to understand your situation, identify opportunities, and see if there's a fit. No pitch—just a conversation.
+                </p>
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-center gap-4">
+                        <span class="text-dsTeal">●</span>
+                        <span class="text-gray-300">Understand your challenges and goals</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-dsTeal">●</span>
+                        <span class="text-gray-300">Discuss potential approaches</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-dsTeal">●</span>
+                        <span class="text-gray-300">Determine if there's a fit</span>
+                    </div>
                 </div>
-                <a href="work-never-alone.html" class="hidden md:inline-flex items-center gap-2 text-dsBlue font-medium hover:underline">
-                    View All Work â†’
-                </a>
+                <a href="tel:4046543855" class="text-dsTeal font-mono text-2xl font-bold hover:text-white transition">404.654.3855</a>
             </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="border border-gray-200 rounded-xl overflow-hidden fade-up">
-                    <div class="bg-dsGray h-40 flex items-center justify-center">
-                        <span class="text-gray-400 text-sm">MDS / PDPM Case Study Image</span>
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs text-gray-400 uppercase tracking-wider">Revenue Optimization</span>
-                        <h3 class="font-bold text-dsBlack mt-1 mb-3">MDS / PDPM AI</h3>
-                        <div class="flex gap-6">
-                            <div>
-                                <span class="text-xl font-bold text-dsBlue">$10M+</span>
-                                <p class="text-gray-500 text-xs">PDPM Revenue</p>
-                            </div>
-                            <div>
-                                <span class="text-xl font-bold text-dsBlack">$2M</span>
-                                <p class="text-gray-500 text-xs">Quality Incentives</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="border border-gray-200 rounded-xl overflow-hidden fade-up">
-                    <div class="bg-dsGray h-40 flex items-center justify-center">
-                        <span class="text-gray-400 text-sm">RAF / HCC Case Study Image</span>
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs text-gray-400 uppercase tracking-wider">Risk Adjustment</span>
-                        <h3 class="font-bold text-dsBlack mt-1 mb-3">RAF / HCC Coding</h3>
-                        <div class="flex gap-6">
-                            <div>
-                                <span class="text-xl font-bold text-dsBlue">$10M+</span>
-                                <p class="text-gray-500 text-xs">Improvements</p>
-                            </div>
-                            <div>
-                                <span class="text-xl font-bold text-dsBlack">90%+</span>
-                                <p class="text-gray-500 text-xs">Accuracy</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="border border-gray-200 rounded-xl overflow-hidden fade-up">
-                    <div class="bg-dsGray h-40 flex items-center justify-center">
-                        <span class="text-gray-400 text-sm">HealthContext.AI Image</span>
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs text-gray-400 uppercase tracking-wider">Documentation</span>
-                        <h3 class="font-bold text-dsBlack mt-1 mb-3">HealthContext.AI</h3>
-                        <div class="flex gap-6">
-                            <div>
-                                <span class="text-xl font-bold text-dsBlack">45â†’5</span>
-                                <p class="text-gray-500 text-xs">Min/Visit</p>
-                            </div>
-                            <div>
-                                <span class="text-xl font-bold text-dsBlack">2-3x</span>
-                                <p class="text-gray-500 text-xs">More Patients</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Solutions & Capabilities Navigation -->
-    <section class="py-20 px-6 border-t border-gray-200">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="grid md:grid-cols-3 gap-12">
-                <div class="fade-up">
-                    <h3 class="text-xs font-medium text-dsBlue uppercase tracking-wider mb-4">Healthcare Solutions</h3>
-                    <ul class="space-y-2">
-                        <li><a href="healthcare/solutions/predictive-analytics-healthcare/" class="text-gray-600 hover:text-dsBlack transition text-sm">Predictive Analytics</a></li>
-                        <li><a href="healthcare-ai-virtual-care-assistants.html" class="text-gray-600 hover:text-dsBlack transition text-sm">Telemedicine & Virtual Care</a></li>
-                        <li><a href="healthcare-ai-virtual-care-assistants.html" class="text-gray-600 hover:text-dsBlack transition text-sm">Remote Patient Monitoring</a></li>
-                        <li><a href="healthcare-domains-ehr-integrations.html" class="text-gray-600 hover:text-dsBlack transition text-sm">Interoperability</a></li>
-                        <li><a href="healthcare-ai-guides-landing.html" class="text-gray-600 hover:text-dsBlack transition text-sm">Clinical Decision Support</a></li>
-                        <li><a href="healthcare-domains-ehr-integrations.html" class="text-gray-600 hover:text-dsBlack transition text-sm">EHR & Practice Management</a></li>
-                        <li><a href="healthcare-domains-value-based-care.html" class="text-gray-600 hover:text-dsBlack transition text-sm">Population Health Management</a></li>
-                        <li><a href="healthcare-ai-virtual-care-assistants.html" class="text-gray-600 hover:text-dsBlack transition text-sm">Patient Engagement</a></li>
-                    </ul>
-                </div>
-
-                <div class="fade-up">
-                    <h3 class="text-xs font-medium text-dsBlue uppercase tracking-wider mb-4">Capabilities</h3>
-                    <ul class="space-y-2">
-                        <li><a href="https://digitalscientists.com/ai-machine-learning/" class="text-gray-600 hover:text-dsBlack transition text-sm">AI, ML, NLP</a></li>
-                        <li><a href="https://digitalscientists.com/mobile-app-development/" class="text-gray-600 hover:text-dsBlack transition text-sm">Mobile App Development</a></li>
-                        <li><a href="https://digitalscientists.com/web-application-development/" class="text-gray-600 hover:text-dsBlack transition text-sm">Web Application Development</a></li>
-                        <li><a href="https://digitalscientists.com/healthcare/capabilities/healthcare-saas-development/" class="text-gray-600 hover:text-dsBlack transition text-sm">SaaS Software Development</a></li>
-                        <li><a href="https://digitalscientists.com/healthcare/capabilities/software-as-medical-device-samd/" class="text-gray-600 hover:text-dsBlack transition text-sm">SaMD Medical Device</a></li>
-                        <li><a href="https://digitalscientists.com/healthcare/capabilities/healthcare-data-analytics-engineering/" class="text-gray-600 hover:text-dsBlack transition text-sm">Data Engineering</a></li>
-                        <li><a href="https://digitalscientists.com/cloud-application-development/" class="text-gray-600 hover:text-dsBlack transition text-sm">Cloud App Development</a></li>
-                        <li><a href="https://digitalscientists.com/iot-application-development/" class="text-gray-600 hover:text-dsBlack transition text-sm">IoT & Smart Device</a></li>
-                    </ul>
-                </div>
-
-                <div class="fade-up">
-                    <h3 class="text-xs font-medium text-dsBlue uppercase tracking-wider mb-4">EHR Integrations</h3>
-                    <div class="space-y-2 mb-6">
-                        <div class="text-gray-600 text-sm">PointClickCare</div>
-                        <div class="text-gray-600 text-sm">Epic</div>
-                        <div class="text-gray-600 text-sm">Gehrimed</div>
-                        <div class="text-gray-600 text-sm">Elation</div>
-                    </div>
-                    
-                    <h3 class="text-xs font-medium text-dsBlue uppercase tracking-wider mb-3">Compliance</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-dsGray text-gray-600 text-xs px-2 py-1 rounded">HIPAA</span>
-                        <span class="bg-dsGray text-gray-600 text-xs px-2 py-1 rounded">HL7/FHIR</span>
-                        <span class="bg-dsGray text-gray-600 text-xs px-2 py-1 rounded">SOC 2</span>
-                        <span class="bg-dsGray text-gray-600 text-xs px-2 py-1 rounded">BAA</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why DS -->
-    <section class="py-20 px-6 bg-dsBlack text-white">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Why Digital Scientists</span>
-                <h2 class="text-3xl md:text-4xl font-bold mt-3">
-                    We're not a dev shop that did a healthcare project once.
-                </h2>
-            </div>
-
-            <div class="grid md:grid-cols-4 gap-6">
-                <div class="fade-up">
-                    <h3 class="font-semibold text-white mb-2">We Operate</h3>
-                    <p class="text-gray-400 text-sm">26,000+ patients on NeverAlone. We eat our own cooking.</p>
-                </div>
-                <div class="fade-up">
-                    <h3 class="font-semibold text-white mb-2">75 Engineers</h3>
-                    <p class="text-gray-400 text-sm">US leadership + nearshore delivery. Same timezone, US legal.</p>
-                </div>
-                <div class="fade-up">
-                    <h3 class="font-semibold text-white mb-2">Reimbursement</h3>
-                    <p class="text-gray-400 text-sm">PDPM, RAF, VBCâ€”we build software that drives revenue.</p>
-                </div>
-                <div class="fade-up">
-                    <h3 class="font-semibold text-white mb-2">100% Production</h3>
-                    <p class="text-gray-400 text-sm">vs 5% industry average. We ship what we build.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="py-20 px-6 bg-dsBlue text-white">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to discuss your healthcare AI opportunity?</h2>
-                    <p class="text-blue-100 mb-6">
-                        30-minute call. No pitch. Just honest assessment of what's possible for your organization.
-                    </p>
-                    <ul class="space-y-2 text-blue-100">
-                        <li class="flex items-center gap-2"><span class="text-white">âœ“</span> Understand your situation and goals</li>
-                        <li class="flex items-center gap-2"><span class="text-white">âœ“</span> Assess opportunity and realistic ROI range</li>
-                        <li class="flex items-center gap-2"><span class="text-white">âœ“</span> Determine if there's a fit</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-8 rounded-xl text-dsBlack fade-up">
-                    <form class="space-y-4">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-medium text-gray-500 uppercase mb-1">First Name</label>
-                                <input type="text" class="w-full bg-dsGray border-none px-4 py-2.5 text-sm rounded-lg focus:ring-2 focus:ring-dsBlue outline-none">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-medium text-gray-500 uppercase mb-1">Last Name</label>
-                                <input type="text" class="w-full bg-dsGray border-none px-4 py-2.5 text-sm rounded-lg focus:ring-2 focus:ring-dsBlue outline-none">
-                            </div>
+            <div class="bg-gray-900 p-8 rounded-xl">
+                <form action="https://formspree.io/f/mrbgppby" method="POST" class="space-y-6">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-2">First Name</label>
+                            <input type="text" name="first_name" required class="w-full bg-gray-800 border-none text-white px-4 py-3 text-sm focus:ring-2 focus:ring-dsBlue outline-none rounded">
                         </div>
                         <div>
-                            <label class="block text-xs font-medium text-gray-500 uppercase mb-1">Email</label>
-                            <input type="email" class="w-full bg-dsGray border-none px-4 py-2.5 text-sm rounded-lg focus:ring-2 focus:ring-dsBlue outline-none">
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Last Name</label>
+                            <input type="text" name="last_name" required class="w-full bg-gray-800 border-none text-white px-4 py-3 text-sm focus:ring-2 focus:ring-dsBlue outline-none rounded">
                         </div>
-                        <div>
-                            <label class="block text-xs font-medium text-gray-500 uppercase mb-1">Organization</label>
-                            <input type="text" class="w-full bg-dsGray border-none px-4 py-2.5 text-sm rounded-lg focus:ring-2 focus:ring-dsBlue outline-none">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-medium text-gray-500 uppercase mb-1">Primary Interest</label>
-                            <select class="w-full bg-dsGray border-none px-4 py-2.5 text-sm rounded-lg focus:ring-2 focus:ring-dsBlue outline-none">
-                                <option>Documentation Automation</option>
-                                <option>Revenue Cycle / Back-Office AI</option>
-                                <option>Virtual Care Platform</option>
-                                <option>MDS / PDPM Optimization</option>
-                                <option>RAF / HCC Coding</option>
-                                <option>Platform Development / R&D</option>
-                                <option>General Healthcare AI Strategy</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="w-full bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">
-                            Schedule AI Opportunity Call
-                        </button>
-                    </form>
-                    <p class="text-center text-gray-500 text-sm mt-4">Or call: <a href="tel:4046543855" class="text-dsBlue font-medium">404.654.3855</a></p>
-                </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Email</label>
+                        <input type="email" name="email" required class="w-full bg-gray-800 border-none text-white px-4 py-3 text-sm focus:ring-2 focus:ring-dsBlue outline-none rounded">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Organization</label>
+                        <input type="text" name="organization" class="w-full bg-gray-800 border-none text-white px-4 py-3 text-sm focus:ring-2 focus:ring-dsBlue outline-none rounded">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Primary Interest</label>
+                        <select name="primary_interest" class="w-full bg-gray-800 border-none text-white px-4 py-3 text-sm focus:ring-2 focus:ring-dsBlue outline-none rounded">
+                            <option>Healthcare AI / ML</option>
+                            <option>Custom Software Development</option>
+                            <option>Mobile App Development</option>
+                            <option>SaaS Platform</option>
+                            <option>MVP Development</option>
+                            <option>Staff Augmentation</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-dsBlue text-white px-8 py-4 text-sm font-bold uppercase tracking-widest hover:bg-dsTeal hover:text-black transition rounded">
+                        Start a Conversation
+                    </button>
+                </form>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="py-8 px-6 border-t border-gray-200">
-        <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-            <p>Â© 2007 - 2026 Digital Scientists, LLC.</p>
-            <div class="flex gap-6 mt-4 md:mt-0">
-                <a href="#" class="hover:text-dsBlack transition">Privacy Policy</a>
-                <a href="#" class="hover:text-dsBlack transition">LinkedIn</a>
-                <a href="tel:4046543855" class="text-dsBlue hover:underline">404.654.3855</a>
+<!-- Footer -->
+<footer class="bg-dsBlack text-white pt-24 pb-12 border-t border-gray-800">
+    <div class="max-w-screen-2xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-b border-gray-800 pb-12 mb-12">
+        <div>
+            <h4 class="font-bold mb-6 text-sm uppercase text-gray-400 tracking-widest">Healthcare</h4>
+            <ul class="space-y-3 text-sm font-mono text-gray-500">
+                <li><a href="healthcare-hub.html" class="hover:text-dsBlue transition">Overview</a></li>
+                <li><a href="healthcare-capabilities-ai-ml-nlp.html" class="hover:text-dsBlue transition">AI, ML & NLP</a></li>
+                <li><a href="healthcare-capabilities-mobile.html" class="hover:text-dsBlue transition">Mobile Apps</a></li>
+                <li><a href="healthcare-capabilities-saas.html" class="hover:text-dsBlue transition">SaaS Platforms</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold mb-6 text-sm uppercase text-gray-400 tracking-widest">Services</h4>
+            <ul class="space-y-3 text-sm font-mono text-gray-500">
+                <li><a href="https://digitalscientists.com/minimum-viable-product/" class="hover:text-dsTeal transition">MVP Development</a></li>
+                <li><a href="https://digitalscientists.com/product-blueprint/" class="hover:text-dsTeal transition">Product Blueprint</a></li>
+                <li><a href="https://digitalscientists.com/staff-augmentation/" class="hover:text-dsTeal transition">Staff Augmentation</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold mb-6 text-sm uppercase text-gray-400 tracking-widest">Company</h4>
+            <ul class="space-y-3 text-sm font-mono text-gray-500">
+                <li><a href="https://digitalscientists.com/about/" class="hover:text-white transition">About Us</a></li>
+                <li><a href="https://digitalscientists.com/blog/" class="hover:text-white transition">Insights</a></li>
+                <li><a href="https://digitalscientists.com/case-studies/" class="hover:text-white transition">Case Studies</a></li>
+            </ul>
+        </div>
+        <div>
+            <div class="text-gray-400 font-mono text-xs uppercase tracking-widest leading-relaxed">
+                21 South Main Street<br>Alpharetta, GA 30009<br>
+                <span class="text-dsBlue font-bold block mt-2">404.654.3855</span>
             </div>
         </div>
-    </footer>
+    </div>
 
-    <!-- Scroll Animation -->
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
+    <div class="max-w-screen-2xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 font-mono">
+        <p>© 2007 - 2026 Digital Scientists, LLC.</p>
+        <div class="flex gap-6 mt-4 md:mt-0">
+            <a href="https://digitalscientists.com/privacy-policy/" class="hover:text-white transition">Privacy Policy</a>
+            <a href="https://www.linkedin.com/company/digital-scientists/" class="hover:text-white transition">LinkedIn</a>
+        </div>
+    </div>
+</footer>
 
-        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-    </script>
+<script>
+    document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
+        document.getElementById('mobile-menu')?.classList.toggle('hidden');
+    });
+</script>
 
 </body>
 </html>
