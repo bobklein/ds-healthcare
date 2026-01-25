@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="170" height="170" viewBox="0 0 170 170" fill="none">
+  <rect width="170" height="170" rx="85" fill="white"></rect>
+  <path d="M99 59H60.1453C59.1525 59 58.31 59.7283 58.1664 60.7107L50.3347 114.271C50.1583 115.478 51.094 116.561 52.3137 116.561H118.26C119.485 116.561 120.422 115.469 120.236 114.257L113.749 72" stroke="#333333" stroke-width="3" stroke-linecap="round"></path>
+  <path d="M71.0181 97.9357V91.7844C71.0181 90.8642 71.9651 90.1191 73.1346 90.1191H95.348C96.5175 90.1191 97.4645 89.374 97.4645 88.4539V79.8398" stroke="#333333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+  <path d="M101.95 82.5055L97.4622 78.9746L92.9744 82.5055" stroke="#333333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+  <path d="M76.5181 107.43C76.5181 110.191 74.2795 112.43 71.5181 112.43C68.7566 112.43 66.5181 110.191 66.5181 107.43C66.5181 104.668 68.7566 102.43 71.5181 102.43C74.2795 102.43 76.5181 104.668 76.5181 107.43Z" fill="#26D9C4" stroke="#333333" stroke-width="3"></path>
+  <path d="M103.138 69.4297C103.138 72.1911 100.899 74.4297 98.1377 74.4297C95.3763 74.4297 93.1377 72.1911 93.1377 69.4297C93.1377 66.6683 95.3763 64.4297 98.1377 64.4297C100.899 64.4297 103.138 66.6683 103.138 69.4297Z" fill="#26D9C4" stroke="#333333" stroke-width="3"></path>
+  <line x1="69.5568" y1="73.8084" x2="79.4355" y2="63.9297" stroke="#333333" stroke-width="3" stroke-linecap="round"></line>
+  <line x1="1.5" y1="-1.5" x2="15.4706" y2="-1.5" transform="matrix(-0.707107 -0.707107 -0.707107 0.707107 80.0001 75.9297)" stroke="#333333" stroke-width="3" stroke-linecap="round"></line>
+  <line x1="92.9445" y1="111.808" x2="102.823" y2="101.93" stroke="#333333" stroke-width="3" stroke-linecap="round"></line>
+  <line x1="1.5" y1="-1.5" x2="15.4706" y2="-1.5" transform="matrix(-0.707107 -0.707107 -0.707107 0.707107 103.387 113.93)" stroke="#333333" stroke-width="3" stroke-linecap="round"></line>
+  <circle cx="117.347" cy="53.3468" r="13.8468" fill="#26D9C4" stroke="#333333" stroke-width="3"></circle>
+  <path d="M110.635 55.583L113.663 58.8492L123.961 47.7441" stroke="#333333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
