@@ -614,6 +614,40 @@ document.addEventListener('DOMContentLoaded', function() {
         fadeObserver.observe(el);
     });
 });
+
+function showMarket(marketId) {
+    // Hide all market content
+    document.querySelectorAll('.market-content').forEach(content => {
+        content.classList.remove('active');
+    });
+    
+    // Remove active from all tabs
+    document.querySelectorAll('.market-tab').forEach(tab => {
+        tab.classList.remove('active', 'bg-dsBlue', 'text-white', 'border-dsBlue');
+        tab.classList.add('border-gray-300');
+    });
+    
+    // Show selected market content
+    const selectedContent = document.getElementById('market-' + marketId);
+    if (selectedContent) {
+        selectedContent.classList.add('active');
+    }
+    
+    // Activate selected tab
+    const selectedTab = document.querySelector('.market-tab[data-market="' + marketId + '"]');
+    if (selectedTab) {
+        selectedTab.classList.add('active', 'bg-dsBlue', 'text-white', 'border-dsBlue');
+        selectedTab.classList.remove('border-gray-300');
+    }
+}
+
+function playVideo() {
+    const video = document.getElementById('hero-video');
+    const overlay = document.getElementById('video-overlay');
+    video.play();
+    overlay.style.display = 'none';
+    video.controls = true;
+}
 </script>
 
 
@@ -725,7 +759,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             <!-- Market Tabs -->
             <div class="flex flex-wrap gap-2 mb-8">
-                <button onclick="showMarket('snf')" class="market-tab active px-4 py-2 rounded-full border border-gray-300 text-sm font-medium" data-market="snf">Skilled Nursing</button>
+                <button onclick="showMarket('snf')" class="market-tab active px-4 py-2 rounded-full border bg-dsBlue text-white border-dsBlue text-sm font-medium" data-market="snf">Skilled Nursing</button>
                 <button onclick="showMarket('assisted')" class="market-tab px-4 py-2 rounded-full border border-gray-300 text-sm font-medium" data-market="assisted">Assisted Living</button>
                 <button onclick="showMarket('homehealth')" class="market-tab px-4 py-2 rounded-full border border-gray-300 text-sm font-medium" data-market="homehealth">Home Health</button>
                 <button onclick="showMarket('hospice')" class="market-tab px-4 py-2 rounded-full border border-gray-300 text-sm font-medium" data-market="hospice">Hospice</button>
