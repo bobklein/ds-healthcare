@@ -674,12 +674,20 @@ document.addEventListener('DOMContentLoaded', function() {
     <section id="work" class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Product Screenshots -->
+                <!-- Video -->
                 <div class="relative">
-                    <div class="bg-white p-3 rounded-2xl shadow-xl">
+                    <div class="rounded-xl overflow-hidden bg-gray-900 shadow-2xl relative group">
+                        <video id="hub-hero-video" class="w-full h-auto" poster="images/neveralone-video-call.jpg" preload="metadata" playsinline>
+                            <source src="images/neveralone-video.mp4" type="video/mp4">
+                        </video>
+                        <div id="hub-video-overlay" class="absolute inset-0 flex items-center justify-center bg-black/20 cursor-pointer transition-opacity" onclick="playHubVideo()">
+                            <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+                                <svg class="w-8 h-8 text-dsBlack ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
                         </div>
-                    <div class="absolute -bottom-4 -right-4 w-32 md:w-40 bg-white p-2 rounded-xl shadow-xl">
-                        </div>
+                    </div>
                 </div>
                 
                 <!-- Content -->
@@ -1473,5 +1481,14 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- END DS-FOOTER -->
 
 
+<script>
+function playHubVideo() {
+    const video = document.getElementById('hub-hero-video');
+    const overlay = document.getElementById('hub-video-overlay');
+    video.play();
+    overlay.style.display = 'none';
+    video.controls = true;
+}
+</script>
 </body>
 </html>
