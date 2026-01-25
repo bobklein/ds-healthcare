@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Scientists | Custom Software & AI Development</title>
+    <title>Claim Follow-Up Triage | Healthcare AI Guides | Digital Scientists</title>
+    <meta name="description" content="AI-powered claim triage surfaces high-risk claims before they age out. Pattern matching identifies claims likely to deny, enabling proactive intervention. 8-14 week implementation.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -11,17 +12,14 @@
                 extend: {
                     colors: {
                         dsBlue: '#304FFF',
-                        dsTeal: '#26D9C4',
-                        dsLime: '#D1F259',
                         dsBlack: '#050505',
                         dsGray: '#F5F5F5',
+                        dsTeal: '#26D9C4',
+                        dsLime: '#D1F259',
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
                         mono: ['Roboto Mono', 'monospace'],
-                    },
-                    backgroundImage: {
-                        'grid-pattern': "radial-gradient(#304FFF 1px, transparent 1px)",
                     }
                 }
             }
@@ -29,22 +27,13 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3 { letter-spacing: -0.02em; }
-        .pixel-grid { background-size: 40px 40px; opacity: 0.1; }
-        .nav-item:hover .dropdown-menu { opacity: 1; transform: translateY(0); visibility: visible; }
-        .vertical-card { transition: all 0.3s ease; }
-        .vertical-card:hover { transform: translateY(-4px); }
-    
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .nav-dropdown { position: relative; }
+        .nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 0; padding-top: 8px; z-index: 100; }
+        .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+        .nav-dropdown-menu.right-aligned { left: auto; right: 0; }
     </style>
 </head>
 <body class="bg-white text-dsBlack antialiased">
@@ -607,459 +596,326 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
-<!-- Hero Section -->
-<header class="relative pt-44 pb-20 px-8 overflow-hidden bg-white">
-    <div class="absolute inset-0 pixel-grid bg-grid-pattern"></div>
-    
-    <div class="max-w-screen-xl mx-auto relative z-10">
-        <div class="max-w-4xl mb-16">
-            <div class="inline-flex items-center gap-4 border-l-4 border-dsBlue pl-4 mb-8">
-                <span class="font-mono text-sm font-bold text-gray-500 uppercase tracking-widest">Est. 2007 // Alpharetta, GA</span>
-            </div>
-            
-            <h1 class="text-4xl lg:text-6xl font-bold text-dsBlack mb-6 leading-[1.05] tracking-tight">
-                Custom software and AI that <span class="text-dsBlue">actually works</span>—built by a team aligned to your KPIs.
-            </h1>
-            
-            <p class="text-xl text-gray-600 font-light leading-relaxed max-w-2xl">
-                We're a US-based development partner with a nearshore team. We build custom software, integrate AI where it makes sense, and stay accountable to your outcomes.
-            </p>
+<!-- Hero -->
+<header class="pt-32 pb-12 px-6">
+    <div class="max-w-4xl mx-auto">
+        <div class="flex items-center gap-2 text-sm mb-6">
+            <a href="healthcare-ai-guides-landing.html" class="text-dsBlue hover:underline">AI Guides</a>
+            <span class="text-gray-400">/</span>
+            <span class="text-gray-600">Quick Win</span>
         </div>
-
-        <!-- Vertical Cards -->
-        <div class="grid md:grid-cols-3 gap-6 mb-12 fade-up">
-            <a href="healthcare-hub.html" class="vertical-card group bg-gradient-to-br from-dsBlue to-blue-700 text-white p-8 rounded-xl shadow-lg hover:shadow-2xl relative overflow-hidden">
-                <div class="absolute top-4 right-4">
-                    <span class="bg-dsLime text-black text-xs font-bold px-2 py-1 rounded">Primary Focus</span>
-                </div>
-                <div class="mb-6">
-                    <span class="text-blue-200 text-xs font-mono uppercase tracking-widest">Industry</span>
-                    <h3 class="text-2xl font-bold mt-2">Healthcare & Life Sciences</h3>
-                </div>
-                <p class="text-blue-100 text-sm mb-6 leading-relaxed">
-                    Custom AI and software for post-acute care, health systems, and healthcare technology companies. $20M+ in verified ROI.
-                </p>
-                <div class="flex items-center gap-2 text-sm font-bold text-white group-hover:gap-4 transition-all">
-                    Explore Healthcare <span class="text-xl">→</span>
-                </div>
-            </a>
-
-            <a href="https://digitalscientists.com/industries/manufacturing/" class="vertical-card group bg-gray-100 p-8 rounded-xl shadow-lg hover:shadow-2xl border border-gray-200 hover:border-dsBlue">
-                <div class="mb-6">
-                    <span class="text-gray-400 text-xs font-mono uppercase tracking-widest">Industry</span>
-                    <h3 class="text-2xl font-bold mt-2 text-dsBlack group-hover:text-dsBlue transition">Manufacturing</h3>
-                </div>
-                <p class="text-gray-600 text-sm mb-6 leading-relaxed">
-                    Predictive maintenance, quality optimization, and operational software for complex manufacturing environments.
-                </p>
-                <div class="flex items-center gap-2 text-sm font-bold text-dsBlue group-hover:gap-4 transition-all">
-                    Explore Manufacturing <span class="text-xl">→</span>
-                </div>
-            </a>
-
-            <a href="https://digitalscientists.com/industries/energy-defense/" class="vertical-card group bg-gray-100 p-8 rounded-xl shadow-lg hover:shadow-2xl border border-gray-200 hover:border-dsBlue">
-                <div class="mb-6">
-                    <span class="text-gray-400 text-xs font-mono uppercase tracking-widest">Industry</span>
-                    <h3 class="text-2xl font-bold mt-2 text-dsBlack group-hover:text-dsBlue transition">Energy & Defense</h3>
-                </div>
-                <p class="text-gray-600 text-sm mb-6 leading-relaxed">
-                    Mission-critical systems for highly regulated environments. Safety platforms, digital modernization, compliance-first architecture.
-                </p>
-                <div class="flex items-center gap-2 text-sm font-bold text-dsBlue group-hover:gap-4 transition-all">
-                    Explore Energy & Defense <span class="text-xl">→</span>
-                </div>
-            </a>
+        
+        <div class="inline-flex items-center gap-2 bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm font-medium mb-4">
+            <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+            8-14 weeks to deploy
         </div>
-
-        <!-- Quick Stats -->
-        <div class="flex flex-wrap gap-8 text-sm border-t border-gray-200 pt-8">
-            <div class="flex items-center gap-2">
-                <span class="text-dsBlue font-bold text-2xl">19</span>
-                <span class="text-gray-500">Years in Business</span>
-            </div>
-            <div class="flex items-center gap-2">
-                <span class="text-dsBlue font-bold text-2xl">75+</span>
-                <span class="text-gray-500">Engineers</span>
-            </div>
-            <div class="flex items-center gap-2">
-                <span class="text-dsBlue font-bold text-2xl">26K+</span>
-                <span class="text-gray-500">Patients on Our Platform</span>
-            </div>
+        
+        <h1 class="text-4xl md:text-5xl font-bold text-dsBlack mb-6 leading-tight">
+            Claim Follow-Up Triage
+        </h1>
+        
+        <p class="text-xl text-gray-600 leading-relaxed mb-8">
+            Pattern matching that surfaces high-risk claims before they age out. Identify which claims need intervention now—before the denial arrives. Stop being reactive. Start being proactive.
+        </p>
+        
+        <div class="flex flex-wrap gap-4">
+            <a href="healthcare-assessment.html" class="inline-flex items-center gap-2 bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">
+                Get Assessment
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <a href="#fit-assessment" class="inline-flex items-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 text-sm font-medium rounded-full hover:bg-dsGray transition">
+                5-Minute Fit Check
+            </a>
         </div>
     </div>
 </header>
 
-<!-- Logo Bar -->
-<!-- Standard Logo Ribbon - 5 Logo Lockup -->
-<section class="logo-ribbon bg-white py-10">
-    <div class="max-w-6xl mx-auto px-4">
-        <div class="flex flex-nowrap justify-center items-center">
-            <div class="logo-item px-6 md:px-10 flex items-center justify-center border-r border-gray-200">
-                </div>
-            <div class="logo-item px-6 md:px-10 flex items-center justify-center border-r border-gray-200">
-                <img src="images/congruity-health.svg" alt="Congruity Health" class="h-8 md:h-10 max-w-[120px] md:max-w-[160px] object-contain">
+<!-- Expected ROI -->
+<section class="py-12 px-6 border-t border-gray-100">
+    <div class="max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-6 fade-up">
+            <div class="text-center p-6 bg-dsGray rounded-xl fade-up">
+                <span class="text-3xl font-bold text-dsBlack">15-25%</span>
+                <p class="text-gray-600 text-sm mt-1">Recovery per FTE</p>
             </div>
-            <div class="logo-item px-6 md:px-10 flex items-center justify-center border-r border-gray-200">
-                <img src="images/mckesson.png" alt="McKesson" class="h-8 md:h-10 max-w-[120px] md:max-w-[160px] object-contain">
+            <div class="text-center p-6 bg-dsGray rounded-xl fade-up">
+                <span class="text-3xl font-bold text-dsBlue">25-50%</span>
+                <p class="text-gray-600 text-sm mt-1">Denial write-off reduction</p>
             </div>
-            <div class="logo-item px-6 md:px-10 flex items-center justify-center border-r border-gray-200">
-                <img src="images/communicare.png" alt="CommuniCare" class="h-8 md:h-10 max-w-[120px] md:max-w-[160px] object-contain">
-            </div>
-            <div class="logo-item px-6 md:px-10 flex items-center justify-center">
-                <img src="images/easterseals-logo.png" alt="Easterseals" class="h-8 md:h-10 max-w-[120px] md:max-w-[160px] object-contain">
+            <div class="text-center p-6 bg-dsGray rounded-xl fade-up">
+                <span class="text-3xl font-bold text-dsBlack">8-14</span>
+                <p class="text-gray-600 text-sm mt-1">Weeks to production</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Featured Case Study: NeverAlone -->
-<section class="py-20 px-6 bg-white">
-    <div class="max-w-screen-xl mx-auto">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <!-- Content -->
-            <div>
-                <p class="text-sm text-gray-500 mb-4">ai, healthcare, web</p>
-                
-                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mb-6">Never Alone: Scalable Virtual Care for Patients, Providers & Peace of Mind</h2>
-                
-                <p class="text-lg text-gray-600 mb-8">
-                    Digital Scientists partnered with CommuniCare Health Services to build Never Alone—a one-touch virtual care platform that connects frontline staff to medical professionals in real time, 24/7.
-                </p>
-                
-                <a href="work-never-alone.html" class="inline-flex items-center gap-3 border-2 border-dsBlack text-dsBlack px-6 py-3 rounded-full font-medium hover:bg-dsBlack hover:text-white transition-all">
-                    VIEW CASE STUDY
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </a>
+<!-- The Problem -->
+<section class="py-16 px-6 bg-dsGray">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Problem</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">By the time you see the denial, you've already lost.</h2>
+        
+        <div class="prose prose-lg text-gray-600 space-y-4 fade-up">
+            <p>Most revenue cycle teams work denials after they happen. A claim sits for 30-45 days, gets denied, then enters the appeals queue. By then, you've lost leverage, lost time, and often lost the revenue entirely.</p>
+
+                <div class="my-8 fade-up">
+                    <img src="images/arch-predictive.png" alt="Denial Prediction Model" class="rounded-xl shadow-lg w-full max-w-3xl mx-auto">
+                </div>
+
+            
+            <p>The patterns that predict denial are visible much earlier—in the claim data itself. Certain payer + code + facility + timing combinations have historically denied at 40%, 60%, or 80% rates. Those claims are sitting in your system right now, aging toward denial, while your team works lower-risk accounts.</p>
+            
+            <p>AI-powered triage identifies these high-risk claims within days of submission, enabling proactive intervention before the denial arrives. Fix the problem while you still can.</p>
+        </div>
+        
+        <div class="mt-8 p-6 bg-amber-50 border-l-4 border-amber-400 rounded-r-xl fade-up">
+            <p class="text-gray-800"><strong>The math:</strong> If 12% of your claims deny and half are preventable with early intervention, that's 6% of claims saved. At $500 average claim value with 100,000 annual claims, that's $3M recovered—not from better appeals, but from preventing denials entirely.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Fit Assessment -->
+<section id="fit-assessment" class="py-16 px-6 bg-dsGray">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">5-Minute Fit Assessment</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">Is this right for your organization?</h2>
+        
+        <p class="text-gray-600 mb-8">Check what applies. Four or more suggests strong fit.</p>
+        
+        <div class="space-y-4">
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">Denial rate above 8%</span>
+                        <p class="text-gray-500 text-sm mt-1">Lower denial rates mean less opportunity for improvement. The sweet spot is 10-20% where there's significant room to move the needle.</p>
+                    </div>
+                </label>
             </div>
             
-            <!-- Video -->
-            <div class="relative">
-                <div class="rounded-xl overflow-hidden shadow-2xl relative group">
-                    <video id="index-hero-video" class="w-full h-auto" poster="images/neveralone-video-poster.jpg" preload="metadata" playsinline>
-                        <source src="images/neveralone-video.mp4" type="video/mp4">
-                    </video>
-                    <div id="index-video-overlay" class="absolute inset-0 flex items-center justify-center bg-black/10 cursor-pointer transition-opacity" onclick="playIndexVideo()">
-                        <div class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
-                            <svg class="w-6 h-6 text-dsBlack ml-1" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
-                        </div>
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">Multi-payer environment with varying denial patterns</span>
+                        <p class="text-gray-500 text-sm mt-1">Single-payer environments are more predictable. The AI value comes from learning complex, payer-specific patterns.</p>
                     </div>
-                </div>
-                <!-- NeverAlone Logo -->
-                <div class="flex justify-end mt-4">
-                    <img src="images/case-logo-neveralone.svg" alt="NeverAlone" class="h-12">
-                </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">Your team currently works denials reactively</span>
+                        <p class="text-gray-500 text-sm mt-1">If you're already doing proactive intervention with good results, AI adds less. If you're purely reactive, the shift is significant.</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">2+ years of denial history with reason codes</span>
+                        <p class="text-gray-500 text-sm mt-1">The model needs historical patterns to learn from. Clean denial reason codes are essential.</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">Staff capacity exists for proactive intervention</span>
+                        <p class="text-gray-500 text-sm mt-1">Identifying risk is only valuable if someone acts on it. You need bandwidth to intervene on flagged claims.</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">Many denials are preventable (documentation, coding, timely filing)</span>
+                        <p class="text-gray-500 text-sm mt-1">If denials are primarily contractual or coverage-based, intervention helps less. If they're operational, early detection changes outcomes.</p>
+                    </div>
+                </label>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Nearshore Team Section -->
-<section class="py-24 bg-white bg-dsGray">
-    <div class="max-w-screen-xl mx-auto px-8">
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-                <span class="font-mono text-dsBlue text-sm font-bold uppercase tracking-widest mb-4 block">// Our Team</span>
-                <h2 class="text-4xl font-bold text-dsBlack mb-6 tracking-tight">
-                    US leadership. Nearshore delivery. The quality you need without the offshore risk.
-                </h2>
-                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-                    We're not an offshore shop. Our leadership and architects are based in Atlanta, with a dedicated nearshore team in the Dominican Republic. Same timezone. US legal jurisdiction. Direct communication with the people building your software.
-                </p>
-                
-                <div class="space-y-4">
-                    <div class="flex items-start gap-4">
-                        <span class="text-dsTeal text-xl">✓</span>
-                        <div>
-                            <strong class="text-dsBlack">Same timezone collaboration</strong>
-                            <p class="text-gray-500 text-sm">Real-time communication, not overnight handoffs</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <span class="text-dsTeal text-xl">✓</span>
-                        <div>
-                            <strong class="text-dsBlack">US legal jurisdiction</strong>
-                            <p class="text-gray-500 text-sm">Enforceable contracts, clear IP ownership, HIPAA compliance</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <span class="text-dsTeal text-xl">✓</span>
-                        <div>
-                            <strong class="text-dsBlack">Senior engineers who stay</strong>
-                            <p class="text-gray-500 text-sm">Low turnover, institutional knowledge, no constant re-onboarding</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <span class="text-dsTeal text-xl">✓</span>
-                        <div>
-                            <strong class="text-dsBlack">We fix what's broken</strong>
-                            <p class="text-gray-500 text-sm">When things go wrong—and they do—we stay until they're right</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-dsGray p-10 rounded-xl">
-                <h3 class="font-bold text-xl mb-8 text-dsBlack">The Offshore Reality Check</h3>
-                <div class="space-y-6">
-                    <div class="grid grid-cols-2 gap-4 text-sm">
-                        <div class="bg-white p-4 rounded-lg border-l-4 border-red-400">
-                            <span class="text-gray-400 text-xs uppercase font-mono block mb-2">Offshore</span>
-                            <span class="text-gray-600">8-12 hour time difference</span>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg border-l-4 border-dsTeal">
-                            <span class="text-dsTeal text-xs uppercase font-mono block mb-2">DS Nearshore</span>
-                            <span class="text-dsBlack font-medium">Same timezone (EST)</span>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4 text-sm">
-                        <div class="bg-white p-4 rounded-lg border-l-4 border-red-400">
-                            <span class="text-gray-400 text-xs uppercase font-mono block mb-2">Offshore</span>
-                            <span class="text-gray-600">No legal recourse</span>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg border-l-4 border-dsTeal">
-                            <span class="text-dsTeal text-xs uppercase font-mono block mb-2">DS Nearshore</span>
-                            <span class="text-dsBlack font-medium">US legal jurisdiction</span>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4 text-sm">
-                        <div class="bg-white p-4 rounded-lg border-l-4 border-red-400">
-                            <span class="text-gray-400 text-xs uppercase font-mono block mb-2">Offshore</span>
-                            <span class="text-gray-600">HIPAA compliance suspect</span>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg border-l-4 border-dsTeal">
-                            <span class="text-dsTeal text-xs uppercase font-mono block mb-2">DS Nearshore</span>
-                            <span class="text-dsBlack font-medium">US-compliant data handling</span>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4 text-sm">
-                        <div class="bg-white p-4 rounded-lg border-l-4 border-red-400">
-                            <span class="text-gray-400 text-xs uppercase font-mono block mb-2">Offshore</span>
-                            <span class="text-gray-600">High turnover, lost context</span>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg border-l-4 border-dsTeal">
-                            <span class="text-dsTeal text-xs uppercase font-mono block mb-2">DS Nearshore</span>
-                            <span class="text-dsBlack font-medium">Stable team, retained knowledge</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- What Makes Implementation Work -->
-<section class="py-24 bg-dsGray border-t border-gray-200">
-    <div class="max-w-screen-xl mx-auto px-8">
-        <div class="max-w-3xl mb-16">
-            <span class="font-mono text-dsBlue text-sm font-bold uppercase tracking-widest mb-4 block">// What Makes Implementation Work</span>
-            <h2 class="text-4xl font-bold text-dsBlack mb-6 tracking-tight">
-                Three things separate projects that ship from projects that stall.
-            </h2>
-            <p class="text-lg text-gray-600">
-                We've been doing this since 2007. Here's what we've learned about getting software into production—and keeping it there.
-            </p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8 mb-16 fade-up">
-            <div class="bg-white p-8 rounded-xl shadow-sm">
-                <div class="w-12 h-12 bg-dsBlue/10 rounded-lg flex items-center justify-center mb-6">
-                    <span class="text-dsBlue text-2xl font-bold">1</span>
-                </div>
-                <h3 class="font-bold text-xl mb-3 text-dsBlack">Partners, not order takers</h3>
-                <p class="text-gray-600 leading-relaxed">
-                    We partner with your experts to drive improvement—learning your business fast while bringing our own expertise to the table. Context matters, and we're built for complex problems.
-                </p>
-            </div>
-
-            <div class="bg-white p-8 rounded-xl shadow-sm">
-                <div class="w-12 h-12 bg-dsTeal/10 rounded-lg flex items-center justify-center mb-6">
-                    <span class="text-dsTeal text-2xl font-bold">2</span>
-                </div>
-                <h3 class="font-bold text-xl mb-3 text-dsBlack">Built for your environment</h3>
-                <p class="text-gray-600 leading-relaxed">
-                    Your EHR, your workflows, your users. We integrate with what you have—PointClickCare, Epic, Salesforce, legacy systems—instead of asking you to change how you work.
-                </p>
-            </div>
-
-            <div class="bg-white p-8 rounded-xl shadow-sm">
-                <div class="w-12 h-12 bg-dsLime/20 rounded-lg flex items-center justify-center mb-6">
-                    <span class="text-dsBlack text-2xl font-bold">3</span>
-                </div>
-                <h3 class="font-bold text-xl mb-3 text-dsBlack">Accountable to outcomes</h3>
-                <p class="text-gray-600 leading-relaxed">
-                    We don't disappear after deployment. We track the KPIs we agreed on, we handle change management, and we stay until the software is actually working in production.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 8-Step Process Section -->
-<section id="process" class="py-24 bg-white border-t border-gray-200 bg-dsGray">
-    <div class="max-w-screen-xl mx-auto px-8">
-        <div class="max-w-3xl mb-16">
-            <span class="font-mono text-dsBlue text-sm font-bold uppercase tracking-widest mb-4 block">// The Complete Value Chain</span>
-            <h2 class="text-4xl font-bold text-dsBlack mb-6 tracking-tight">Our 8-Step Process</h2>
-            <p class="text-lg text-gray-600">
-                Most projects fail at steps 3-8, not steps 1-2. We own the complete value chain—from messy data to measurable outcomes.
-            </p>
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 fade-up">
-            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsBlue transition">
-                <span class="font-mono text-dsBlue text-xs mb-2 block font-bold">01</span>
-                <h4 class="font-bold text-lg mb-2 text-dsBlack">Data Foundation</h4>
-                <p class="text-sm text-gray-500">Clean, structure, and prepare your data for what comes next.</p>
-            </div>
-            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsBlue transition">
-                <span class="font-mono text-dsBlue text-xs mb-2 block font-bold">02</span>
-                <h4 class="font-bold text-lg mb-2 text-dsBlack">Solution Design</h4>
-                <p class="text-sm text-gray-500">On-site discovery. Built with your teams, not in a conference room.</p>
-            </div>
-            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsBlue transition">
-                <span class="font-mono text-dsBlue text-xs mb-2 block font-bold">03</span>
-                <h4 class="font-bold text-lg mb-2 text-dsBlack">Development</h4>
-                <p class="text-sm text-gray-500">Agile sprints with continuous feedback and security validation.</p>
-            </div>
-            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsBlue transition">
-                <span class="font-mono text-dsBlue text-xs mb-2 block font-bold">04</span>
-                <h4 class="font-bold text-lg mb-2 text-dsBlack">Integration</h4>
-                <p class="text-sm text-gray-500">Connect with your existing systems—EHR, CRM, legacy platforms.</p>
-            </div>
-            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsTeal transition">
-                <span class="font-mono text-dsTeal text-xs mb-2 block font-bold">05</span>
-                <h4 class="font-bold text-lg mb-2 text-dsBlack">Change Management</h4>
-                <p class="text-sm text-gray-500">Training and adoption support. Technology is a people problem.</p>
-            </div>
-            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsTeal transition">
-                <span class="font-mono text-dsTeal text-xs mb-2 block font-bold">06</span>
-                <h4 class="font-bold text-lg mb-2 text-dsBlack">Production Deploy</h4>
-                <p class="text-sm text-gray-500">Phased rollout with monitoring and rapid iteration.</p>
-            </div>
-            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsTeal transition">
-                <span class="font-mono text-dsTeal text-xs mb-2 block font-bold">07</span>
-                <h4 class="font-bold text-lg mb-2 text-dsBlack">Flexible Exit</h4>
-                <p class="text-sm text-gray-500">Ongoing support or transfer to your team. You own 100% of IP.</p>
-            </div>
-            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsTeal transition">
-                <span class="font-mono text-dsTeal text-xs mb-2 block font-bold">08</span>
-                <h4 class="font-bold text-lg mb-2 text-dsBlack">KPI Accountability</h4>
-                <p class="text-sm text-gray-500">Tied to the measurable outcomes we agreed on upfront.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Two Models Section -->
-<section class="py-24 bg-dsGray border-t border-gray-200">
-    <div class="max-w-screen-xl mx-auto px-8">
-        <div class="mb-16 max-w-3xl">
-            <span class="font-mono text-dsBlue text-sm font-bold uppercase tracking-widest mb-4 block">// How We Work</span>
-            <h2 class="text-4xl font-bold text-dsBlack mb-6 tracking-tight">Two engagement models</h2>
-            <p class="text-lg text-gray-600">
-                Professional Services for operational improvement. Venture Studio for building new products and platforms.
-            </p>
-        </div>
-
-        <div class="grid lg:grid-cols-2 gap-12">
-            <div class="group bg-white p-10 rounded-xl border border-gray-200 hover:border-dsBlue hover:shadow-xl transition">
-                <div class="flex justify-between items-start mb-6">
-                    <h3 class="text-3xl font-bold group-hover:text-dsBlue transition">Professional Services</h3>
-                    <span class="font-mono text-xs border border-dsBlue text-dsBlue px-2 py-1 bg-white rounded">Ops ROI</span>
-                </div>
-                <p class="text-gray-600 mb-6">
-                    Solve operational problems, improve decision cycles, and deliver measurable business value through custom software and AI.
-                </p>
-                <ul class="space-y-2 text-sm text-gray-600">
-                    <li class="flex items-center gap-2"><span class="text-dsBlue">●</span> Full professional services rates</li>
-                    <li class="flex items-center gap-2"><span class="text-dsBlue">●</span> Client owns 100% of IP</li>
-                    <li class="flex items-center gap-2"><span class="text-dsBlue">●</span> Build-operate-transfer available</li>
+<!-- What You Need -->
+<section class="py-16 px-6 bg-dsGray">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Requirements</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">What you need to have ready</h2>
+        
+        <div class="fade-up grid md:grid-cols-2 gap-8">
+            <div class="fade-up">
+                <h3 class="text-xl font-semibold text-dsBlack mb-4">Data Requirements</h3>
+                <ul class="space-y-3 text-gray-600">
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Claims data with submission details
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Denial history with reason codes
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Payer and plan identifiers
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Procedure and diagnosis codes
+                    </li>
                 </ul>
             </div>
-
-            <div class="group bg-dsBlack text-white p-10 rounded-xl hover:shadow-xl transition">
-                <div class="flex justify-between items-start mb-6">
-                    <h3 class="text-3xl font-bold group-hover:text-dsTeal transition">Venture Studio</h3>
-                    <span class="font-mono text-xs border border-dsTeal text-dsTeal px-2 py-1 rounded">IP Creation</span>
-                </div>
-                <p class="text-gray-400 mb-6">
-                    Create new intellectual property, build platform businesses, and develop products with commercial potential beyond internal operations.
-                </p>
-                <ul class="space-y-2 text-sm text-gray-400">
-                    <li class="flex items-center gap-2"><span class="text-dsTeal">●</span> Technical co-founder model</li>
-                    <li class="flex items-center gap-2"><span class="text-dsTeal">●</span> Full rate for funded companies</li>
-                    <li class="flex items-center gap-2"><span class="text-dsTeal">●</span> Cost + equity for aligned builds</li>
+            
+            <div class="fade-up">
+                <h3 class="text-xl font-semibold text-dsBlack mb-4">What's NOT Required</h3>
+                <ul class="space-y-3 text-gray-600">
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-gray-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        EHR integration
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-gray-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        Clinical documentation access
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-gray-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        Real-time system integration
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-gray-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        Workflow changes
+                    </li>
                 </ul>
             </div>
         </div>
+        
+        <div class="mt-8 p-6 bg-blue-50 border border-blue-100 rounded-xl fade-up">
+            <p class="text-gray-700"><strong>Why this is a quick win:</strong> Claim triage works from billing data exports. No EHR integration required. The output is simply a prioritized list—your team uses existing workflows, just with better information about where to focus.</p>
+        </div>
     </div>
 </section>
 
-<!-- Contact Section -->
-<section id="contact" class="py-24 bg-dsBlack text-white">
-    <div class="max-w-screen-xl mx-auto px-8">
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-                <h2 class="text-4xl font-bold mb-6">Let's Talk</h2>
-                <p class="text-gray-400 text-lg mb-8">
-                    30-minute conversation to understand your situation, identify opportunities, and see if there's a fit. No pitch—just a conversation.
-                </p>
-                <div class="space-y-4 mb-8">
-                    <div class="flex items-center gap-4">
-                        <span class="text-dsTeal">●</span>
-                        <span class="text-gray-300">Understand your challenges and goals</span>
+<!-- How It Works -->
+<section class="py-16 px-6 bg-dsGray">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Process</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-8">How AI-powered triage works</h2>
+        
+        <div class="space-y-6">
+            <div class="bg-white p-6 rounded-xl border border-gray-200 fade-up">
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 bg-dsBlue text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
+                    <div>
+                        <h3 class="font-semibold text-dsBlack mb-2">Pattern Learning</h3>
+                        <p class="text-gray-600">The model analyzes your historical claims and denials, learning which combinations of payer, code, facility, timing, and other factors predict denial. Not generic industry patterns—your specific patterns.</p>
+
+                <div class="my-8 fade-up">
                     </div>
-                    <div class="flex items-center gap-4">
-                        <span class="text-dsTeal">●</span>
-                        <span class="text-gray-300">Discuss potential approaches</span>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <span class="text-dsTeal">●</span>
-                        <span class="text-gray-300">Determine if there's a fit</span>
+
                     </div>
                 </div>
-                <a href="tel:4046543855" class="text-dsTeal font-mono text-2xl font-bold hover:text-white transition">404.654.3855</a>
             </div>
-            <div class="bg-gray-900 p-8 rounded-xl">
-                <form action="https://formspree.io/f/mrbgppby" method="POST" class="space-y-6">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-bold text-gray-400 uppercase mb-2">First Name</label>
-                            <input type="text" name="first_name" required class="w-full bg-gray-800 border-none text-white px-4 py-3 text-sm focus:ring-2 focus:ring-dsBlue outline-none rounded">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Last Name</label>
-                            <input type="text" name="last_name" required class="w-full bg-gray-800 border-none text-white px-4 py-3 text-sm focus:ring-2 focus:ring-dsBlue outline-none rounded">
-                        </div>
-                    </div>
+            
+            <div class="bg-white p-6 rounded-xl border border-gray-200 fade-up">
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 bg-dsBlue text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Email</label>
-                        <input type="email" name="email" required class="w-full bg-gray-800 border-none text-white px-4 py-3 text-sm focus:ring-2 focus:ring-dsBlue outline-none rounded">
+                        <h3 class="font-semibold text-dsBlack mb-2">Real-Time Scoring</h3>
+                        <p class="text-gray-600">As new claims enter your system, each is scored for denial risk. High-risk claims are flagged immediately—not after 30 days when you receive the denial.</p>
                     </div>
+                </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl border border-gray-200 fade-up">
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 bg-dsBlue text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Organization</label>
-                        <input type="text" name="organization" class="w-full bg-gray-800 border-none text-white px-4 py-3 text-sm focus:ring-2 focus:ring-dsBlue outline-none rounded">
+                        <h3 class="font-semibold text-dsBlack mb-2">Actionable Intelligence</h3>
+                        <p class="text-gray-600">Flagged claims come with reason predictions: "High denial risk: Similar claims to Blue Cross with this code combination denied 67% of the time for medical necessity." Your team knows what to fix.</p>
                     </div>
+                </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl border border-gray-200 fade-up">
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 bg-dsBlue text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">4</div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Primary Interest</label>
-                        <select name="primary_interest" class="w-full bg-gray-800 border-none text-white px-4 py-3 text-sm focus:ring-2 focus:ring-dsBlue outline-none rounded">
-                            <option>Healthcare AI / ML</option>
-                            <option>Custom Software Development</option>
-                            <option>Mobile App Development</option>
-                            <option>SaaS Platform</option>
-                            <option>MVP Development</option>
-                            <option>Staff Augmentation</option>
-                            <option>Other</option>
-                        </select>
+                        <h3 class="font-semibold text-dsBlack mb-2">Continuous Learning</h3>
+                        <p class="text-gray-600">As new denials occur, the model updates. Payer behavior changes? The model adapts. New denial patterns emerge? The model catches them.</p>
                     </div>
-                    <button type="submit" class="w-full bg-dsBlue text-white px-8 py-4 text-sm font-bold uppercase tracking-widest hover:bg-dsBlack hover:text-black transition rounded">
-                        Start a Conversation
-                    </button>
-                </form>
+                </div>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- Red Flags -->
+<section class="py-16 px-6 bg-dsGray">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Honest Assessment</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">When to wait</h2>
+        
+        <div class="space-y-4">
+            <div class="p-4 border-l-4 border-red-400 bg-red-50 rounded-r-xl fade-up">
+                <p class="text-gray-800"><strong>Your denial reason codes are inconsistent or missing.</strong> The model can't learn patterns without good data. Clean up your coding first.</p>
+            </div>
+            
+            <div class="p-4 border-l-4 border-red-400 bg-red-50 rounded-r-xl fade-up">
+                <p class="text-gray-800"><strong>Denial rate is already under 5%.</strong> You're already doing well. The incremental improvement from AI may not justify the investment.</p>
+            </div>
+            
+            <div class="p-4 border-l-4 border-red-400 bg-red-50 rounded-r-xl fade-up">
+                <p class="text-gray-800"><strong>No bandwidth for proactive intervention.</strong> If your team is drowning just working the denial queue, adding more alerts makes things worse, not better.</p>
+            </div>
+            
+            <div class="p-4 border-l-4 border-red-400 bg-red-50 rounded-r-xl fade-up">
+                <p class="text-gray-800"><strong>Most denials are contractual.</strong> If the primary issue is coverage verification or contract terms, early detection doesn't change the outcome. Focus on eligibility instead.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related Guides -->
+<section class="py-16 px-6 bg-dsGray">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Guides</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-8">Other quick wins to consider</h2>
+        
+        <div class="grid md:grid-cols-2 gap-6 fade-up">
+            <a href="ar-collection-prioritization.html" class="bg-white p-6 rounded-xl border border-gray-200 hover:border-dsBlue transition fade-up">
+                <span class="text-xs font-medium text-green-600 uppercase">Quick Win</span>
+                <h3 class="text-xl font-semibold text-dsBlack mt-2 mb-2">A/R Collection Prioritization</h3>
+                <p class="text-gray-600 text-sm">AI-powered prioritization based on collectability, not just age. 5-15% bad debt reduction.</p>
+            </a>
+            
+            <a href="payer-contract-interpretation.html" class="bg-white p-6 rounded-xl border border-gray-200 hover:border-dsBlue transition fade-up">
+                <span class="text-xs font-medium text-green-600 uppercase">Quick Win</span>
+                <h3 class="text-xl font-semibold text-dsBlack mt-2 mb-2">Payer Contract Interpretation</h3>
+                <p class="text-gray-600 text-sm">AI that reads your contracts and flags underpayments. 1-3% net collection lift.</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 px-6 bg-dsBlue">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to get ahead of denials?</h2>
+        <p class="text-blue-100 mb-8 max-w-2xl mx-auto">30-minute call to assess your denial patterns and estimate the opportunity. We'll tell you if this is the right project for you.</p>
+        <a href="healthcare-assessment.html" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-gray-100 transition">
+            Get AI Assessment
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
     </div>
 </section>
 
@@ -1173,14 +1029,5 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- END DS-FOOTER -->
 
 
-<script>
-function playIndexVideo() {
-    const video = document.getElementById('index-hero-video');
-    const overlay = document.getElementById('index-video-overlay');
-    video.play();
-    overlay.style.display = 'none';
-    video.controls = true;
-}
-</script>
 </body>
 </html>

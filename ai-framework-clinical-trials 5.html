@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Scientists | Custom Software & AI Development</title>
+    <title>Clinical Trial Patient Matching AI | Healthcare AI Framework | Digital Scientists</title>
+    <meta name="description" content="AI-powered clinical trial patient matching that screens your entire population against active trial criteria. Increase enrollment by 30-50% and capture $10K-50K+ per enrolled patient.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -11,41 +15,59 @@
                 extend: {
                     colors: {
                         dsBlue: '#304FFF',
-                        dsTeal: '#26D9C4',
-                        dsLime: '#D1F259',
                         dsBlack: '#050505',
                         dsGray: '#F5F5F5',
+                        dsTeal: '#26D9C4',
+                        dsLime: '#D1F259',
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
                         mono: ['Roboto Mono', 'monospace'],
-                    },
-                    backgroundImage: {
-                        'grid-pattern': "radial-gradient(#304FFF 1px, transparent 1px)",
                     }
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3 { letter-spacing: -0.02em; }
-        .pixel-grid { background-size: 40px 40px; opacity: 0.1; }
-        .nav-item:hover .dropdown-menu { opacity: 1; transform: translateY(0); visibility: visible; }
-        .vertical-card { transition: all 0.3s ease; }
-        .vertical-card:hover { transform: translateY(-4px); }
-    
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is AI clinical trial patient matching?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "AI clinical trial patient matching continuously screens your patient population against active trial eligibility criteria using deep EHR integration. The system analyzes clinical notes, labs, medications, problem lists, and procedures to identify patients who may qualify for trials—surfacing matches for research coordinators to verify and approach."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much can AI improve clinical trial enrollment?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Organizations typically see 30-50% increase in trial enrollment rates by identifying eligible patients that manual screening misses. With trial milestone revenue ranging from $10K-50K+ per enrolled patient depending on the trial, even modest enrollment increases translate to significant revenue."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How long does clinical trial matching AI take to implement?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "This is a strategic investment requiring 24-32 weeks: 10-12 weeks for comprehensive EHR integration and NLP model training, 8-10 weeks for trial criteria ingestion and matching logic, and 6-10 weeks for validation with research coordinators and workflow integration."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What data is needed for clinical trial patient matching?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Required: Comprehensive EHR access including clinical notes, labs, medications, problem lists, procedures, and demographics. Also needed: active trial eligibility criteria in structured format and research coordinator workflows for match review."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body class="bg-white text-dsBlack antialiased">
 <!-- DS 2.0 Navigation - FINAL -->
@@ -315,7 +337,17 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
-</style>
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 
 <!-- Utility Bar -->
 <div class="ds-utility-bar">
@@ -607,461 +639,327 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
-<!-- Hero Section -->
-<header class="relative pt-44 pb-20 px-8 overflow-hidden bg-white">
-    <div class="absolute inset-0 pixel-grid bg-grid-pattern"></div>
-    
-    <div class="max-w-screen-xl mx-auto relative z-10">
-        <div class="max-w-4xl mb-16">
-            <div class="inline-flex items-center gap-4 border-l-4 border-dsBlue pl-4 mb-8">
-                <span class="font-mono text-sm font-bold text-gray-500 uppercase tracking-widest">Est. 2007 // Alpharetta, GA</span>
+<!-- Hero -->
+    <header class="py-12 px-6 bg-gradient-to-br from-dsBlack to-gray-800 text-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="bg-red-500/20 text-red-300 text-xs font-medium px-3 py-1 rounded-full">High Complexity</span>
+                <span class="text-gray-400 text-sm">24-32 weeks to deploy</span>
             </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Clinical Trial Patient Matching</h1>
+            <p class="text-xl text-gray-300 mb-6">AI that continuously screens your patient population against trial eligibility criteria—capturing revenue that manual screening misses.</p>
+            <div class="grid grid-cols-3 gap-6 pt-6 border-t border-white/20">
+                <div>
+                    <span class="text-3xl font-bold text-dsBlue">30-50%</span>
+                    <p class="text-gray-400 text-sm">Enrollment increase</p>
+                </div>
+                <div>
+                    <span class="text-3xl font-bold">$10-50K+</span>
+                    <p class="text-gray-400 text-sm">Revenue per patient</p>
+                </div>
+                <div>
+                    <span class="text-3xl font-bold">24-32</span>
+                    <p class="text-gray-400 text-sm">Weeks to deploy</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-12 px-6">
+        <div class="max-w-4xl mx-auto">
             
-            <h1 class="text-4xl lg:text-6xl font-bold text-dsBlack mb-6 leading-[1.05] tracking-tight">
-                Custom software and AI that <span class="text-dsBlue">actually works</span>—built by a team aligned to your KPIs.
-            </h1>
-            
-            <p class="text-xl text-gray-600 font-light leading-relaxed max-w-2xl">
-                We're a US-based development partner with a nearshore team. We build custom software, integrate AI where it makes sense, and stay accountable to your outcomes.
-            </p>
-        </div>
-
-        <!-- Vertical Cards -->
-        <div class="grid md:grid-cols-3 gap-6 mb-12 fade-up">
-            <a href="healthcare-hub.html" class="vertical-card group bg-gradient-to-br from-dsBlue to-blue-700 text-white p-8 rounded-xl shadow-lg hover:shadow-2xl relative overflow-hidden">
-                <div class="absolute top-4 right-4">
-                    <span class="bg-dsLime text-black text-xs font-bold px-2 py-1 rounded">Primary Focus</span>
-                </div>
-                <div class="mb-6">
-                    <span class="text-blue-200 text-xs font-mono uppercase tracking-widest">Industry</span>
-                    <h3 class="text-2xl font-bold mt-2">Healthcare & Life Sciences</h3>
-                </div>
-                <p class="text-blue-100 text-sm mb-6 leading-relaxed">
-                    Custom AI and software for post-acute care, health systems, and healthcare technology companies. $20M+ in verified ROI.
-                </p>
-                <div class="flex items-center gap-2 text-sm font-bold text-white group-hover:gap-4 transition-all">
-                    Explore Healthcare <span class="text-xl">→</span>
-                </div>
-            </a>
-
-            <a href="https://digitalscientists.com/industries/manufacturing/" class="vertical-card group bg-gray-100 p-8 rounded-xl shadow-lg hover:shadow-2xl border border-gray-200 hover:border-dsBlue">
-                <div class="mb-6">
-                    <span class="text-gray-400 text-xs font-mono uppercase tracking-widest">Industry</span>
-                    <h3 class="text-2xl font-bold mt-2 text-dsBlack group-hover:text-dsBlue transition">Manufacturing</h3>
-                </div>
-                <p class="text-gray-600 text-sm mb-6 leading-relaxed">
-                    Predictive maintenance, quality optimization, and operational software for complex manufacturing environments.
-                </p>
-                <div class="flex items-center gap-2 text-sm font-bold text-dsBlue group-hover:gap-4 transition-all">
-                    Explore Manufacturing <span class="text-xl">→</span>
-                </div>
-            </a>
-
-            <a href="https://digitalscientists.com/industries/energy-defense/" class="vertical-card group bg-gray-100 p-8 rounded-xl shadow-lg hover:shadow-2xl border border-gray-200 hover:border-dsBlue">
-                <div class="mb-6">
-                    <span class="text-gray-400 text-xs font-mono uppercase tracking-widest">Industry</span>
-                    <h3 class="text-2xl font-bold mt-2 text-dsBlack group-hover:text-dsBlue transition">Energy & Defense</h3>
-                </div>
-                <p class="text-gray-600 text-sm mb-6 leading-relaxed">
-                    Mission-critical systems for highly regulated environments. Safety platforms, digital modernization, compliance-first architecture.
-                </p>
-                <div class="flex items-center gap-2 text-sm font-bold text-dsBlue group-hover:gap-4 transition-all">
-                    Explore Energy & Defense <span class="text-xl">→</span>
-                </div>
-            </a>
-        </div>
-
-        <!-- Quick Stats -->
-        <div class="flex flex-wrap gap-8 text-sm border-t border-gray-200 pt-8">
-            <div class="flex items-center gap-2">
-                <span class="text-dsBlue font-bold text-2xl">19</span>
-                <span class="text-gray-500">Years in Business</span>
-            </div>
-            <div class="flex items-center gap-2">
-                <span class="text-dsBlue font-bold text-2xl">75+</span>
-                <span class="text-gray-500">Engineers</span>
-            </div>
-            <div class="flex items-center gap-2">
-                <span class="text-dsBlue font-bold text-2xl">26K+</span>
-                <span class="text-gray-500">Patients on Our Platform</span>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Logo Bar -->
-<!-- Standard Logo Ribbon - 5 Logo Lockup -->
-<section class="logo-ribbon bg-white py-10">
-    <div class="max-w-6xl mx-auto px-4">
-        <div class="flex flex-nowrap justify-center items-center">
-            <div class="logo-item px-6 md:px-10 flex items-center justify-center border-r border-gray-200">
-                </div>
-            <div class="logo-item px-6 md:px-10 flex items-center justify-center border-r border-gray-200">
-                <img src="images/congruity-health.svg" alt="Congruity Health" class="h-8 md:h-10 max-w-[120px] md:max-w-[160px] object-contain">
-            </div>
-            <div class="logo-item px-6 md:px-10 flex items-center justify-center border-r border-gray-200">
-                <img src="images/mckesson.png" alt="McKesson" class="h-8 md:h-10 max-w-[120px] md:max-w-[160px] object-contain">
-            </div>
-            <div class="logo-item px-6 md:px-10 flex items-center justify-center border-r border-gray-200">
-                <img src="images/communicare.png" alt="CommuniCare" class="h-8 md:h-10 max-w-[120px] md:max-w-[160px] object-contain">
-            </div>
-            <div class="logo-item px-6 md:px-10 flex items-center justify-center">
-                <img src="images/easterseals-logo.png" alt="Easterseals" class="h-8 md:h-10 max-w-[120px] md:max-w-[160px] object-contain">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Featured Case Study: NeverAlone -->
-<section class="py-20 px-6 bg-white">
-    <div class="max-w-screen-xl mx-auto">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <!-- Content -->
-            <div>
-                <p class="text-sm text-gray-500 mb-4">ai, healthcare, web</p>
+            <!-- Problem Section -->
+            <section class="mb-16 bg-dsGray" id="problem">
+                <h2 class="text-2xl font-bold mb-6">The Problem in Dollar Terms</h2>
                 
-                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mb-6">Never Alone: Scalable Virtual Care for Patients, Providers & Peace of Mind</h2>
-                
-                <p class="text-lg text-gray-600 mb-8">
-                    Digital Scientists partnered with CommuniCare Health Services to build Never Alone—a one-touch virtual care platform that connects frontline staff to medical professionals in real time, 24/7.
-                </p>
-                
-                <a href="work-never-alone.html" class="inline-flex items-center gap-3 border-2 border-dsBlack text-dsBlack px-6 py-3 rounded-full font-medium hover:bg-dsBlack hover:text-white transition-all">
-                    VIEW CASE STUDY
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </a>
-            </div>
-            
-            <!-- Video -->
-            <div class="relative">
-                <div class="rounded-xl overflow-hidden shadow-2xl relative group">
-                    <video id="index-hero-video" class="w-full h-auto" poster="images/neveralone-video-poster.jpg" preload="metadata" playsinline>
-                        <source src="images/neveralone-video.mp4" type="video/mp4">
-                    </video>
-                    <div id="index-video-overlay" class="absolute inset-0 flex items-center justify-center bg-black/10 cursor-pointer transition-opacity" onclick="playIndexVideo()">
-                        <div class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
-                            <svg class="w-6 h-6 text-dsBlack ml-1" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
-                        </div>
-                    </div>
+                <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg mb-6">
+                    <h3 class="font-semibold text-red-900 mb-2">The enrollment gap</h3>
+                    <p class="text-red-800">80% of clinical trials fail to meet enrollment timelines. A health system with 10 active trials, each needing 50 patients at $25K per enrollment, faces <strong>$12.5M in potential revenue</strong>—most of which goes unrealized because eligible patients aren't identified. Manual screening catches perhaps 20% of matches.</p>
+                <div class="my-8 fade-up">
+                    <img src="images/hero-pharma.png" alt="Clinical trial landscape" class="rounded-xl shadow-lg w-full max-w-3xl mx-auto">
                 </div>
-                <!-- NeverAlone Logo -->
-                <div class="flex justify-end mt-4">
-                    <img src="images/case-logo-neveralone.svg" alt="NeverAlone" class="h-12">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- Nearshore Team Section -->
-<section class="py-24 bg-white bg-dsGray">
-    <div class="max-w-screen-xl mx-auto px-8">
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-                <span class="font-mono text-dsBlue text-sm font-bold uppercase tracking-widest mb-4 block">// Our Team</span>
-                <h2 class="text-4xl font-bold text-dsBlack mb-6 tracking-tight">
-                    US leadership. Nearshore delivery. The quality you need without the offshore risk.
-                </h2>
-                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-                    We're not an offshore shop. Our leadership and architects are based in Atlanta, with a dedicated nearshore team in the Dominican Republic. Same timezone. US legal jurisdiction. Direct communication with the people building your software.
-                </p>
-                
+                </div>
+
+                <p class="text-gray-700 mb-4">Clinical trial enrollment is a paradox: sponsors desperately need patients, patients often want access to cutting-edge treatments, and health systems want the revenue—yet trials consistently under-enroll. The bottleneck is identification. Eligible patients exist in your EHR; they just aren't being found.</p>
+
+                <p class="text-gray-700 mb-4">Research coordinators screen patients manually—reviewing clinic schedules, checking problem lists, asking physicians for referrals. It's labor-intensive, error-prone, and systematically misses patients. The coordinator reviews charts in the oncology clinic but misses the eligible patient in cardiology. The patient who meets criteria arrives after hours when no one's screening.</p>
+
+                <h3 class="font-semibold text-lg mt-8 mb-4">What AI trial matching actually does</h3>
+                <p class="text-gray-700 mb-4">An AI matching system continuously screens your entire patient population against active trial eligibility criteria:</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
+                    <li><strong>Eligibility parsing:</strong> Converts complex inclusion/exclusion criteria into computable rules</li>
+                    <li><strong>Deep EHR analysis:</strong> Scans diagnoses, labs, medications, procedures, notes—not just problem lists</li>
+                    <li><strong>Continuous monitoring:</strong> Re-evaluates patients as new data arrives (new labs, new diagnoses)</li>
+                    <li><strong>Match confidence:</strong> Ranks matches by likelihood of true eligibility, not just criteria met</li>
+                    <li><strong>Coordinator workflow:</strong> Surfaces matches in actionable format for verification and outreach</li>
+                </ul>
+
+                <p class="text-gray-700">Research coordinators shift from chart hunting to match verification—reviewing AI-surfaced candidates rather than manually screening schedules. The system catches patients they would have missed.</p>
+
+                <div class="bg-blue-50 border-l-4 border-dsBlue p-6 rounded-r-lg mt-6">
+                    <h3 class="font-semibold text-blue-900 mb-2">Why this requires deep integration</h3>
+                    <p class="text-blue-800 text-sm">Trial criteria are often buried in clinical details: "LVEF < 40%," "no prior treatment with checkpoint inhibitors," "hemoglobin > 9.0 within 28 days." Matching requires reading echocardiogram reports, medication histories, and lab values—data scattered across the EHR. This is the most integration-intensive project in this framework series.</p>
+                </div>
+            </section>
+
+            <!-- Fit Assessment -->
+            <section class="mb-16 bg-dsGray" id="fit-assessment">
+                <h2 class="text-2xl font-bold mb-6">The 5-Minute Fit Assessment</h2>
+                <p class="text-gray-600 mb-6">This is the most complex framework in the series. Check the boxes carefully.</p>
+
                 <div class="space-y-4">
-                    <div class="flex items-start gap-4">
-                        <span class="text-dsTeal text-xl">✓</span>
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
                         <div>
-                            <strong class="text-dsBlack">Same timezone collaboration</strong>
-                            <p class="text-gray-500 text-sm">Real-time communication, not overnight handoffs</p>
+                            <strong class="text-dsBlack">You have an active clinical research program</strong>
+                            <p class="text-gray-600 text-sm">With at least 10+ active trials and dedicated research coordinators. If you have 2-3 trials, manual screening may suffice.</p>
                         </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">Trial enrollment is a recognized problem</strong>
+                            <p class="text-gray-600 text-sm">You're missing enrollment targets, turning away sponsors, or losing trials to competitors due to slow enrollment.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">You have comprehensive EHR access for integration</strong>
+                            <p class="text-gray-600 text-sm">This requires reading clinical notes, labs, medications, problem lists, and procedures. API access with broad data scope is essential.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">Research coordinators will adopt AI-surfaced matches</strong>
+                            <p class="text-gray-600 text-sm">The value comes from coordinators acting on matches. If your research team is resistant to technology or won't trust AI suggestions, adoption will suffer.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">You can provide trial criteria in structured format</strong>
+                            <p class="text-gray-600 text-sm">The system needs to ingest eligibility criteria. This works best when criteria are structured; unstructured protocol PDFs require additional processing.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">Executive sponsorship exists for an 8+ month project</strong>
+                            <p class="text-gray-600 text-sm">This is the longest implementation in the framework series. You need sustained commitment and patience.</p>
+                        </div>
+                    </label>
+                </div>
+            </section>
+
+            <!-- What You Need -->
+            <section class="mb-16 bg-dsGray" id="what-you-need">
+                <h2 class="text-2xl font-bold mb-6">What You Need to Have Ready</h2>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-8 fade-up">
+                    <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+                        <h3 class="font-semibold text-green-900 mb-3">✓ Required</h3>
+                        <ul class="text-green-800 space-y-2 text-sm">
+                            <li>• Comprehensive EHR access (notes, labs, meds, problems, procedures)</li>
+                            <li>• Active trial eligibility criteria</li>
+                            <li>• Research coordinator team</li>
+                            <li>• IRB framework for AI-assisted screening</li>
+                            <li>• Patient population of sufficient size</li>
+                        </ul>
                     </div>
-                    <div class="flex items-start gap-4">
-                        <span class="text-dsTeal text-xl">✓</span>
-                        <div>
-                            <strong class="text-dsBlack">US legal jurisdiction</strong>
-                            <p class="text-gray-500 text-sm">Enforceable contracts, clear IP ownership, HIPAA compliance</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <span class="text-dsTeal text-xl">✓</span>
-                        <div>
-                            <strong class="text-dsBlack">Senior engineers who stay</strong>
-                            <p class="text-gray-500 text-sm">Low turnover, institutional knowledge, no constant re-onboarding</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <span class="text-dsTeal text-xl">✓</span>
-                        <div>
-                            <strong class="text-dsBlack">We fix what's broken</strong>
-                            <p class="text-gray-500 text-sm">When things go wrong—and they do—we stay until they're right</p>
-                        </div>
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                        <h3 class="font-semibold text-blue-900 mb-3">◐ Significantly enhances value</h3>
+                        <ul class="text-blue-800 space-y-2 text-sm">
+                            <li>• CTMS integration for trial management</li>
+                            <li>• Structured eligibility criteria (vs. PDF protocols)</li>
+                            <li>• Historical enrollment data for validation</li>
+                            <li>• Patient consent preferences</li>
+                            <li>• Physician notification workflow</li>
+                        </ul>
                     </div>
                 </div>
-            </div>
 
-            <div class="bg-dsGray p-10 rounded-xl">
-                <h3 class="font-bold text-xl mb-8 text-dsBlack">The Offshore Reality Check</h3>
+                <h3 class="font-semibold text-lg mb-4">The criteria ingestion challenge</h3>
+                <p class="text-gray-700 mb-4">Trial eligibility criteria are often complex and nested:</p>
+                <div class="bg-dsGray rounded-lg p-6 mb-6 text-sm font-mono">
+                    <p class="text-gray-700">Inclusion: Age ≥ 18 AND confirmed diagnosis of [condition] AND ECOG ≤ 2 AND (prior treatment with [drug class] OR treatment-naive)</p>
+                    <p class="text-gray-700 mt-2">Exclusion: Prior checkpoint inhibitor within 6 months OR active autoimmune disease OR LVEF < 40% OR creatinine clearance < 30</p>
+                </div>
+                <p class="text-gray-700">Converting these criteria into computable queries against your EHR—especially when data lives in unstructured notes—is the core technical challenge. This is why implementation takes 6-8 months.</p>
+            </section>
+
+            <!-- Build vs Buy -->
+            <section class="mb-16 bg-dsGray" id="build-buy-partner">
+                <h2 class="text-2xl font-bold mb-6">Build vs. Buy vs. Partner</h2>
+
+                <div class="grid md:grid-cols-3 gap-6 mb-8 fade-up">
+                    <div class="border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-3">Build internally when:</h3>
+                        <ul class="text-gray-600 text-sm space-y-2">
+                            <li>• You have clinical NLP and EHR integration expertise</li>
+                            <li>• You have 18-24 months for development</li>
+                            <li>• You want complete IP ownership</li>
+                            <li>• Your trial portfolio is specialized and stable</li>
+                        </ul>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-3">Buy off-the-shelf when:</h3>
+                        <ul class="text-gray-600 text-sm space-y-2">
+                            <li>• Your EHR vendor offers trial matching</li>
+                            <li>• Your trials are common (oncology Phase III)</li>
+                            <li>• You want faster deployment</li>
+                            <li>• You're okay with limited customization</li>
+                        </ul>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-6 border-dsBlue bg-blue-50/30">
+                        <h3 class="font-semibold mb-3">Partner for custom when:</h3>
+                        <ul class="text-gray-600 text-sm space-y-2">
+                            <li>• Your trials have complex/unique criteria</li>
+                            <li>• You need NLP trained on YOUR documentation</li>
+                            <li>• Integration requirements exceed vendor limits</li>
+                            <li>• Match accuracy matters more than speed</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg">
+                    <h3 class="font-semibold text-amber-900 mb-2">The documentation interpretation challenge</h3>
+                    <p class="text-amber-800 text-sm">Trial criteria often require interpreting clinical nuance: "no significant cardiac history" isn't a checkbox—it requires understanding what your cardiologists document and how. Generic matching systems miss these patterns. Custom NLP training on your documentation is the difference between noise and signal.</p>
+                </div>
+            </section>
+
+            <!-- Red Flags -->
+            <section class="mb-16" id="red-flags">
+                <h2 class="text-2xl font-bold mb-6">Red Flags: When to Wait</h2>
+
+                <div class="space-y-4">
+                    <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+                        <h3 class="font-semibold text-red-900 mb-2">You have a small research program</h3>
+                        <p class="text-red-700 text-sm">With fewer than 10 active trials, the ROI calculation changes dramatically. Manual screening may be more cost-effective. This solution shines at scale.</p>
+                    </div>
+
+                    <div class="bg-dsGray border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-2">Research coordinators are already overwhelmed</h3>
+                        <p class="text-gray-600 text-sm">AI surfaces more matches—which is only valuable if someone can follow up. If your team can't handle current volume, adding matches creates frustration, not enrollment.</p>
+                    </div>
+
+                    <div class="bg-dsGray border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-2">Your EHR data quality is poor</h3>
+                        <p class="text-gray-600 text-sm">If problem lists aren't maintained, labs aren't flowing, or clinical notes are sparse—matching accuracy suffers. Fix data quality first.</p>
+                    </div>
+
+                    <div class="bg-dsGray border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-2">You haven't done simpler AI projects</h3>
+                        <p class="text-gray-600 text-sm">This is the most complex project in the framework series. If your organization is new to AI, start with quick wins to build muscle and confidence first.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Questions to Ask Vendors -->
+            <section class="mb-16" id="questions">
+                <h2 class="text-2xl font-bold mb-6">Questions to Ask Any Vendor</h2>
+
                 <div class="space-y-6">
-                    <div class="grid grid-cols-2 gap-4 text-sm">
-                        <div class="bg-white p-4 rounded-lg border-l-4 border-red-400">
-                            <span class="text-gray-400 text-xs uppercase font-mono block mb-2">Offshore</span>
-                            <span class="text-gray-600">8-12 hour time difference</span>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg border-l-4 border-dsTeal">
-                            <span class="text-dsTeal text-xs uppercase font-mono block mb-2">DS Nearshore</span>
-                            <span class="text-dsBlack font-medium">Same timezone (EST)</span>
-                        </div>
+                    <div>
+                        <h3 class="font-semibold text-dsBlue mb-3">On their matching approach:</h3>
+                        <ul class="text-gray-700 space-y-2 text-sm">
+                            <li>"How do you handle criteria that require interpreting clinical notes, not just structured data?"</li>
+                            <li>"What's your false positive rate? How many non-eligible patients will be surfaced?"</li>
+                            <li>"How do you handle complex nested criteria with AND/OR logic?"</li>
+                        </ul>
                     </div>
-                    <div class="grid grid-cols-2 gap-4 text-sm">
-                        <div class="bg-white p-4 rounded-lg border-l-4 border-red-400">
-                            <span class="text-gray-400 text-xs uppercase font-mono block mb-2">Offshore</span>
-                            <span class="text-gray-600">No legal recourse</span>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg border-l-4 border-dsTeal">
-                            <span class="text-dsTeal text-xs uppercase font-mono block mb-2">DS Nearshore</span>
-                            <span class="text-dsBlack font-medium">US legal jurisdiction</span>
-                        </div>
+
+                    <div>
+                        <h3 class="font-semibold text-dsBlue mb-3">On integration:</h3>
+                        <ul class="text-gray-700 space-y-2 text-sm">
+                            <li>"What EHR data elements do you require? How deep is the integration?"</li>
+                            <li>"How do you ingest trial eligibility criteria? Structured input or PDF parsing?"</li>
+                            <li>"How do matches surface for research coordinators?"</li>
+                        </ul>
                     </div>
-                    <div class="grid grid-cols-2 gap-4 text-sm">
-                        <div class="bg-white p-4 rounded-lg border-l-4 border-red-400">
-                            <span class="text-gray-400 text-xs uppercase font-mono block mb-2">Offshore</span>
-                            <span class="text-gray-600">HIPAA compliance suspect</span>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg border-l-4 border-dsTeal">
-                            <span class="text-dsTeal text-xs uppercase font-mono block mb-2">DS Nearshore</span>
-                            <span class="text-dsBlack font-medium">US-compliant data handling</span>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4 text-sm">
-                        <div class="bg-white p-4 rounded-lg border-l-4 border-red-400">
-                            <span class="text-gray-400 text-xs uppercase font-mono block mb-2">Offshore</span>
-                            <span class="text-gray-600">High turnover, lost context</span>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg border-l-4 border-dsTeal">
-                            <span class="text-dsTeal text-xs uppercase font-mono block mb-2">DS Nearshore</span>
-                            <span class="text-dsBlack font-medium">Stable team, retained knowledge</span>
-                        </div>
+
+                    <div>
+                        <h3 class="font-semibold text-dsBlue mb-3">On results:</h3>
+                        <ul class="text-gray-700 space-y-2 text-sm">
+                            <li>"What enrollment improvement should we expect? Show me comparable sites."</li>
+                            <li>"How do you measure success—matches generated or patients enrolled?"</li>
+                            <li>"What's your typical time from match surfaced to patient approached?"</li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
+            </section>
 
-<!-- What Makes Implementation Work -->
-<section class="py-24 bg-dsGray border-t border-gray-200">
-    <div class="max-w-screen-xl mx-auto px-8">
-        <div class="max-w-3xl mb-16">
-            <span class="font-mono text-dsBlue text-sm font-bold uppercase tracking-widest mb-4 block">// What Makes Implementation Work</span>
-            <h2 class="text-4xl font-bold text-dsBlack mb-6 tracking-tight">
-                Three things separate projects that ship from projects that stall.
-            </h2>
-            <p class="text-lg text-gray-600">
-                We've been doing this since 2007. Here's what we've learned about getting software into production—and keeping it there.
-            </p>
-        </div>
+            <!-- ROI Calculator -->
+            <section class="mb-16 bg-dsGray rounded-2xl p-8" id="calculator">
+                <h2 class="text-2xl font-bold mb-6">Quick ROI Estimate</h2>
 
-        <div class="grid md:grid-cols-3 gap-8 mb-16 fade-up">
-            <div class="bg-white p-8 rounded-xl shadow-sm">
-                <div class="w-12 h-12 bg-dsBlue/10 rounded-lg flex items-center justify-center mb-6">
-                    <span class="text-dsBlue text-2xl font-bold">1</span>
-                </div>
-                <h3 class="font-bold text-xl mb-3 text-dsBlack">Partners, not order takers</h3>
-                <p class="text-gray-600 leading-relaxed">
-                    We partner with your experts to drive improvement—learning your business fast while bringing our own expertise to the table. Context matters, and we're built for complex problems.
-                </p>
-            </div>
-
-            <div class="bg-white p-8 rounded-xl shadow-sm">
-                <div class="w-12 h-12 bg-dsTeal/10 rounded-lg flex items-center justify-center mb-6">
-                    <span class="text-dsTeal text-2xl font-bold">2</span>
-                </div>
-                <h3 class="font-bold text-xl mb-3 text-dsBlack">Built for your environment</h3>
-                <p class="text-gray-600 leading-relaxed">
-                    Your EHR, your workflows, your users. We integrate with what you have—PointClickCare, Epic, Salesforce, legacy systems—instead of asking you to change how you work.
-                </p>
-            </div>
-
-            <div class="bg-white p-8 rounded-xl shadow-sm">
-                <div class="w-12 h-12 bg-dsLime/20 rounded-lg flex items-center justify-center mb-6">
-                    <span class="text-dsBlack text-2xl font-bold">3</span>
-                </div>
-                <h3 class="font-bold text-xl mb-3 text-dsBlack">Accountable to outcomes</h3>
-                <p class="text-gray-600 leading-relaxed">
-                    We don't disappear after deployment. We track the KPIs we agreed on, we handle change management, and we stay until the software is actually working in production.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 8-Step Process Section -->
-<section id="process" class="py-24 bg-white border-t border-gray-200 bg-dsGray">
-    <div class="max-w-screen-xl mx-auto px-8">
-        <div class="max-w-3xl mb-16">
-            <span class="font-mono text-dsBlue text-sm font-bold uppercase tracking-widest mb-4 block">// The Complete Value Chain</span>
-            <h2 class="text-4xl font-bold text-dsBlack mb-6 tracking-tight">Our 8-Step Process</h2>
-            <p class="text-lg text-gray-600">
-                Most projects fail at steps 3-8, not steps 1-2. We own the complete value chain—from messy data to measurable outcomes.
-            </p>
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 fade-up">
-            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsBlue transition">
-                <span class="font-mono text-dsBlue text-xs mb-2 block font-bold">01</span>
-                <h4 class="font-bold text-lg mb-2 text-dsBlack">Data Foundation</h4>
-                <p class="text-sm text-gray-500">Clean, structure, and prepare your data for what comes next.</p>
-            </div>
-            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsBlue transition">
-                <span class="font-mono text-dsBlue text-xs mb-2 block font-bold">02</span>
-                <h4 class="font-bold text-lg mb-2 text-dsBlack">Solution Design</h4>
-                <p class="text-sm text-gray-500">On-site discovery. Built with your teams, not in a conference room.</p>
-            </div>
-            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsBlue transition">
-                <span class="font-mono text-dsBlue text-xs mb-2 block font-bold">03</span>
-                <h4 class="font-bold text-lg mb-2 text-dsBlack">Development</h4>
-                <p class="text-sm text-gray-500">Agile sprints with continuous feedback and security validation.</p>
-            </div>
-            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsBlue transition">
-                <span class="font-mono text-dsBlue text-xs mb-2 block font-bold">04</span>
-                <h4 class="font-bold text-lg mb-2 text-dsBlack">Integration</h4>
-                <p class="text-sm text-gray-500">Connect with your existing systems—EHR, CRM, legacy platforms.</p>
-            </div>
-            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsTeal transition">
-                <span class="font-mono text-dsTeal text-xs mb-2 block font-bold">05</span>
-                <h4 class="font-bold text-lg mb-2 text-dsBlack">Change Management</h4>
-                <p class="text-sm text-gray-500">Training and adoption support. Technology is a people problem.</p>
-            </div>
-            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsTeal transition">
-                <span class="font-mono text-dsTeal text-xs mb-2 block font-bold">06</span>
-                <h4 class="font-bold text-lg mb-2 text-dsBlack">Production Deploy</h4>
-                <p class="text-sm text-gray-500">Phased rollout with monitoring and rapid iteration.</p>
-            </div>
-            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsTeal transition">
-                <span class="font-mono text-dsTeal text-xs mb-2 block font-bold">07</span>
-                <h4 class="font-bold text-lg mb-2 text-dsBlack">Flexible Exit</h4>
-                <p class="text-sm text-gray-500">Ongoing support or transfer to your team. You own 100% of IP.</p>
-            </div>
-            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsTeal transition">
-                <span class="font-mono text-dsTeal text-xs mb-2 block font-bold">08</span>
-                <h4 class="font-bold text-lg mb-2 text-dsBlack">KPI Accountability</h4>
-                <p class="text-sm text-gray-500">Tied to the measurable outcomes we agreed on upfront.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Two Models Section -->
-<section class="py-24 bg-dsGray border-t border-gray-200">
-    <div class="max-w-screen-xl mx-auto px-8">
-        <div class="mb-16 max-w-3xl">
-            <span class="font-mono text-dsBlue text-sm font-bold uppercase tracking-widest mb-4 block">// How We Work</span>
-            <h2 class="text-4xl font-bold text-dsBlack mb-6 tracking-tight">Two engagement models</h2>
-            <p class="text-lg text-gray-600">
-                Professional Services for operational improvement. Venture Studio for building new products and platforms.
-            </p>
-        </div>
-
-        <div class="grid lg:grid-cols-2 gap-12">
-            <div class="group bg-white p-10 rounded-xl border border-gray-200 hover:border-dsBlue hover:shadow-xl transition">
-                <div class="flex justify-between items-start mb-6">
-                    <h3 class="text-3xl font-bold group-hover:text-dsBlue transition">Professional Services</h3>
-                    <span class="font-mono text-xs border border-dsBlue text-dsBlue px-2 py-1 bg-white rounded">Ops ROI</span>
-                </div>
-                <p class="text-gray-600 mb-6">
-                    Solve operational problems, improve decision cycles, and deliver measurable business value through custom software and AI.
-                </p>
-                <ul class="space-y-2 text-sm text-gray-600">
-                    <li class="flex items-center gap-2"><span class="text-dsBlue">●</span> Full professional services rates</li>
-                    <li class="flex items-center gap-2"><span class="text-dsBlue">●</span> Client owns 100% of IP</li>
-                    <li class="flex items-center gap-2"><span class="text-dsBlue">●</span> Build-operate-transfer available</li>
-                </ul>
-            </div>
-
-            <div class="group bg-dsBlack text-white p-10 rounded-xl hover:shadow-xl transition">
-                <div class="flex justify-between items-start mb-6">
-                    <h3 class="text-3xl font-bold group-hover:text-dsTeal transition">Venture Studio</h3>
-                    <span class="font-mono text-xs border border-dsTeal text-dsTeal px-2 py-1 rounded">IP Creation</span>
-                </div>
-                <p class="text-gray-400 mb-6">
-                    Create new intellectual property, build platform businesses, and develop products with commercial potential beyond internal operations.
-                </p>
-                <ul class="space-y-2 text-sm text-gray-400">
-                    <li class="flex items-center gap-2"><span class="text-dsTeal">●</span> Technical co-founder model</li>
-                    <li class="flex items-center gap-2"><span class="text-dsTeal">●</span> Full rate for funded companies</li>
-                    <li class="flex items-center gap-2"><span class="text-dsTeal">●</span> Cost + equity for aligned builds</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="py-24 bg-dsBlack text-white">
-    <div class="max-w-screen-xl mx-auto px-8">
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-                <h2 class="text-4xl font-bold mb-6">Let's Talk</h2>
-                <p class="text-gray-400 text-lg mb-8">
-                    30-minute conversation to understand your situation, identify opportunities, and see if there's a fit. No pitch—just a conversation.
-                </p>
-                <div class="space-y-4 mb-8">
-                    <div class="flex items-center gap-4">
-                        <span class="text-dsTeal">●</span>
-                        <span class="text-gray-300">Understand your challenges and goals</span>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <span class="text-dsTeal">●</span>
-                        <span class="text-gray-300">Discuss potential approaches</span>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <span class="text-dsTeal">●</span>
-                        <span class="text-gray-300">Determine if there's a fit</span>
-                    </div>
-                </div>
-                <a href="tel:4046543855" class="text-dsTeal font-mono text-2xl font-bold hover:text-white transition">404.654.3855</a>
-            </div>
-            <div class="bg-gray-900 p-8 rounded-xl">
-                <form action="https://formspree.io/f/mrbgppby" method="POST" class="space-y-6">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-bold text-gray-400 uppercase mb-2">First Name</label>
-                            <input type="text" name="first_name" required class="w-full bg-gray-800 border-none text-white px-4 py-3 text-sm focus:ring-2 focus:ring-dsBlue outline-none rounded">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Last Name</label>
-                            <input type="text" name="last_name" required class="w-full bg-gray-800 border-none text-white px-4 py-3 text-sm focus:ring-2 focus:ring-dsBlue outline-none rounded">
-                        </div>
+                <div class="grid md:grid-cols-2 gap-6 mb-6 fade-up">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Number of active trials</label>
+                        <input type="number" placeholder="15" class="w-full border border-gray-300 rounded-lg px-4 py-3">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Email</label>
-                        <input type="email" name="email" required class="w-full bg-gray-800 border-none text-white px-4 py-3 text-sm focus:ring-2 focus:ring-dsBlue outline-none rounded">
+                        <label class="block text-sm font-medium mb-2">Average enrollment target per trial</label>
+                        <input type="number" placeholder="30" class="w-full border border-gray-300 rounded-lg px-4 py-3">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Organization</label>
-                        <input type="text" name="organization" class="w-full bg-gray-800 border-none text-white px-4 py-3 text-sm focus:ring-2 focus:ring-dsBlue outline-none rounded">
+                        <label class="block text-sm font-medium mb-2">Average revenue per enrolled patient ($)</label>
+                        <input type="number" placeholder="25000" class="w-full border border-gray-300 rounded-lg px-4 py-3">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Primary Interest</label>
-                        <select name="primary_interest" class="w-full bg-gray-800 border-none text-white px-4 py-3 text-sm focus:ring-2 focus:ring-dsBlue outline-none rounded">
-                            <option>Healthcare AI / ML</option>
-                            <option>Custom Software Development</option>
-                            <option>Mobile App Development</option>
-                            <option>SaaS Platform</option>
-                            <option>MVP Development</option>
-                            <option>Staff Augmentation</option>
-                            <option>Other</option>
-                        </select>
+                        <label class="block text-sm font-medium mb-2">Expected enrollment improvement (%)</label>
+                        <input type="number" placeholder="40" class="w-full border border-gray-300 rounded-lg px-4 py-3">
                     </div>
-                    <button type="submit" class="w-full bg-dsBlue text-white px-8 py-4 text-sm font-bold uppercase tracking-widest hover:bg-dsBlack hover:text-black transition rounded">
-                        Start a Conversation
-                    </button>
-                </form>
-            </div>
+                </div>
+
+                <div class="bg-white rounded-lg p-6 border border-gray-200">
+                    <p class="text-sm text-gray-600 mb-2">Estimated annual value:</p>
+                    <p class="text-3xl font-bold text-dsBlue">$2,250,000 - $5,625,000</p>
+                    <p class="text-sm text-gray-500 mt-2">Based on 15 trials, 30 patients each, $25K per patient, 30-50% enrollment improvement</p>
+                </div>
+            </section>
+
+            <!-- Related Frameworks -->
+            <section class="mb-16" id="related">
+                <h2 class="text-2xl font-bold mb-6">Related Frameworks</h2>
+                <div class="grid md:grid-cols-2 gap-6 fade-up">
+                    <a href="ai-framework-cdi-auditor.html" class="border border-gray-200 rounded-lg p-6 hover:border-dsBlue transition group">
+                        <span class="text-xs text-red-600 font-medium">High Complexity</span>
+                        <h3 class="font-semibold mt-2 group-hover:text-dsBlue transition">CDI Auditor</h3>
+                        <p class="text-gray-600 text-sm mt-2">Similar deep EHR integration—organizations often tackle both.</p>
+                    </a>
+                    <a href="ai-framework-discharge-planning.html" class="border border-gray-200 rounded-lg p-6 hover:border-dsBlue transition group">
+                        <span class="text-xs text-red-600 font-medium">High Complexity</span>
+                        <h3 class="font-semibold mt-2 group-hover:text-dsBlue transition">Discharge Planning</h3>
+                        <p class="text-gray-600 text-sm mt-2">Another strategic investment requiring deep clinical integration.</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="bg-dsBlue text-white rounded-2xl p-8 text-center">
+                <h2 class="text-2xl font-bold mb-4">Ready to explore clinical trial matching?</h2>
+                <p class="text-blue-100 mb-6 max-w-xl mx-auto">This is our most complex framework. Let's assess your research program and estimate the potential impact.</p>
+                <div class="flex gap-4 justify-center">
+                    <a href="healthcare-assessment.html" class="bg-white text-dsBlack px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition">Get Assessment</a>
+                    <a href="healthcare-ai-guides-landing.html" class="border border-white/30 text-white px-6 py-3 rounded-full font-medium hover:bg-white/10 transition">View All Frameworks</a>
+                </div>
+            </section>
+
         </div>
-    </div>
-</section>
+    </main>
+
+    <!-- Footer -->
+    <!-- DS 2.0 Footer - FINAL -->
+<!-- START DS-FOOTER -->
 
 <!-- DS 2.0 Footer - FINAL -->
 <!-- START DS-FOOTER -->
@@ -1173,14 +1071,5 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- END DS-FOOTER -->
 
 
-<script>
-function playIndexVideo() {
-    const video = document.getElementById('index-hero-video');
-    const overlay = document.getElementById('index-video-overlay');
-    video.play();
-    overlay.style.display = 'none';
-    video.controls = true;
-}
-</script>
 </body>
 </html>
