@@ -543,11 +543,25 @@
 <!-- END DS-NAV -->
 
 <!-- Fade Animation Script -->
+<!-- Fade Animation Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Make all fade-up elements visible
-    document.querySelectorAll('.fade-up').forEach(function(el) {
-        el.classList.add('visible');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+        fadeObserver.observe(el);
     });
 });
 </script>
@@ -557,7 +571,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <header class="pt-32 pb-16 px-6">
         <div class="max-w-screen-xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
+                <div class="fade-up">
                     <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
                         <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
                         Markets We Serve
@@ -808,7 +822,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="fade-up grid md:grid-cols-2 gap-8">
                 <!-- Individual/Home Setting -->
                 <div class="bg-white border border-gray-200 rounded-2xl p-8 fade-up">
                     <div class="flex items-center gap-4 mb-6">

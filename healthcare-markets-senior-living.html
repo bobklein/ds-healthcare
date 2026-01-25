@@ -31,6 +31,16 @@
         h1, h2, h3 { letter-spacing: -0.02em; }
         
         
+    
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-white text-dsBlack antialiased">
@@ -543,11 +553,25 @@
 <!-- END DS-NAV -->
 
 <!-- Fade Animation Script -->
+<!-- Fade Animation Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Make all fade-up elements visible
-    document.querySelectorAll('.fade-up').forEach(function(el) {
-        el.classList.add('visible');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+        fadeObserver.observe(el);
     });
 });
 </script>
@@ -582,7 +606,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Market Challenges -->
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Senior Living Challenges</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     The experience gap that technology can close.
@@ -647,7 +671,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Solutions for Senior Living -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Solutions for Senior Living</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Custom platforms built for your community.
@@ -657,7 +681,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="fade-up grid md:grid-cols-2 gap-8">
                 <div class="border border-gray-200 rounded-xl p-8">
                     <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center mb-4">
                         <svg class="w-6 h-6 text-dsBlack" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
@@ -709,7 +733,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <section class="py-20 px-6 bg-dsBlack text-white">
         <div class="max-w-screen-xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div >
+                <div class="fade-up" >
                     <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Our Experience</span>
                     <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-6">
                         We operate senior care technology at scale.
@@ -770,7 +794,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Community Types -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Community Types</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Solutions for every senior living model.
@@ -812,7 +836,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Why DS -->
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Why Digital Scientists</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     We understand senior living because we operate in it.
@@ -843,7 +867,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Related Solutions -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Solutions</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3">
                     Explore related capabilities.

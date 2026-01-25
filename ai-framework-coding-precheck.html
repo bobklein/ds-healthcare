@@ -337,7 +337,17 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
-</style>
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 
 <!-- Utility Bar -->
 <div class="ds-utility-bar">
@@ -579,11 +589,25 @@
 <!-- END DS-NAV -->
 
 <!-- Fade Animation Script -->
+<!-- Fade Animation Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Make all fade-up elements visible
-    document.querySelectorAll('.fade-up').forEach(function(el) {
-        el.classList.add('visible');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+        fadeObserver.observe(el);
     });
 });
 </script>
@@ -788,12 +812,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         <p class="text-red-700 text-sm">Inconsistent coding, missing denial outcomes, or unreliable claim status? Fix data quality first. Pattern matching on bad data produces bad patterns.</p>
                     </div>
 
-                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                    <div class="bg-dsGray border border-gray-200 rounded-lg p-6">
                         <h3 class="font-semibold mb-2">Most denials are clinical, not coding</h3>
                         <p class="text-gray-600 text-sm">If your denial mix is primarily medical necessity, prior auth, or eligibility—this tool catches less value. It's designed for coding pattern issues specifically.</p>
                     </div>
 
-                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                    <div class="bg-dsGray border border-gray-200 rounded-lg p-6">
                         <h3 class="font-semibold mb-2">You already have effective claim scrubbing</h3>
                         <p class="text-gray-600 text-sm">If your clearinghouse or billing system already catches most coding inconsistencies, the incremental value is lower. This adds most value when current edits are basic.</p>
                     </div>

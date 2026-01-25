@@ -546,11 +546,25 @@
 <!-- END DS-NAV -->
 
 <!-- Fade Animation Script -->
+<!-- Fade Animation Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Make all fade-up elements visible
-    document.querySelectorAll('.fade-up').forEach(function(el) {
-        el.classList.add('visible');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+        fadeObserver.observe(el);
     });
 });
 </script>
@@ -583,7 +597,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 Get Assessment
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
-            <a href="#fit-assessment" class="inline-flex items-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 text-sm font-medium rounded-full hover:bg-gray-50 transition">
+            <a href="#fit-assessment" class="inline-flex items-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 text-sm font-medium rounded-full hover:bg-dsGray transition">
                 5-Minute Fit Check
             </a>
         </div>
@@ -708,7 +722,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Requirements</span>
         <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">What you need to have ready</h2>
         
-        <div class="grid md:grid-cols-2 gap-8">
+        <div class="fade-up grid md:grid-cols-2 gap-8">
             <div class="fade-up">
                 <h3 class="text-xl font-semibold text-dsBlack mb-4">Contract Library</h3>
                 <ul class="space-y-3 text-gray-600">

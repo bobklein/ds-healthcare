@@ -31,6 +31,16 @@
         
         
         
+    
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-white text-dsBlack antialiased">
@@ -543,11 +553,25 @@
 <!-- END DS-NAV -->
 
 <!-- Fade Animation Script -->
+<!-- Fade Animation Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Make all fade-up elements visible
-    document.querySelectorAll('.fade-up').forEach(function(el) {
-        el.classList.add('visible');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+        fadeObserver.observe(el);
     });
 });
 </script>
@@ -597,7 +621,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div >
+                <div class="fade-up" >
                     <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Why Quick Win</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
                         Start here. Build momentum. Prove AI works.
@@ -655,7 +679,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- The Problem -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Problem</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Manual scheduling can't optimize at scale.
@@ -685,7 +709,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- The Solution -->
     <section class="py-20 px-6 bg-dsBlack text-white">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Solution</span>
                 <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
                     AI that learns your patterns and optimizes every dimension.
@@ -719,7 +743,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Use Cases -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Use Cases</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Where intelligent scheduling delivers.
@@ -765,7 +789,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- ROI Model -->
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">ROI Model</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Fast payback. Measurable impact.
@@ -800,7 +824,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Related Solutions -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">What's Next</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3">
                     After scheduling, where do you go?

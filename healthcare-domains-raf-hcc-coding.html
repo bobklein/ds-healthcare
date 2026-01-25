@@ -31,6 +31,16 @@
         h1, h2, h3 { letter-spacing: -0.02em; }
         
         
+    
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-white text-dsBlack antialiased">
@@ -543,11 +553,25 @@
 <!-- END DS-NAV -->
 
 <!-- Fade Animation Script -->
+<!-- Fade Animation Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Make all fade-up elements visible
-    document.querySelectorAll('.fade-up').forEach(function(el) {
-        el.classList.add('visible');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+        fadeObserver.observe(el);
     });
 });
 </script>
@@ -653,7 +677,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- The Problem -->
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Problem</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Chronic conditions disappear from documentation. Revenue follows.
@@ -680,7 +704,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             <div class="mt-12 bg-white border border-gray-200 rounded-xl p-8">
                 <h3 class="font-semibold text-dsBlack mb-4">The Documentation Challenge</h3>
-                <div class="grid md:grid-cols-2 gap-8">
+                <div class="fade-up grid md:grid-cols-2 gap-8">
                     <div>
                         <p class="text-dsBlack font-medium mb-2">Annual Recapture Requirement</p>
                         <p class="text-gray-600 text-sm">HCCs must be documented every measurement year. A diabetic patient from 2024 needs 2025 documentation to count toward 2025 RAF-regardless of how chronic the condition is.</p>
@@ -705,7 +729,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- The Solution -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Our Solution</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     AI that identifies HCC opportunities with explainable evidence.
@@ -814,7 +838,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Proof Points -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Proven Results</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     $10M+ improvements across 20,000+ patients in 7 states.
@@ -825,7 +849,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
 
             <div class="bg-dsGray rounded-xl p-8 mb-8">
-                <div class="grid md:grid-cols-2 gap-8">
+                <div class="fade-up grid md:grid-cols-2 gap-8">
                     <div>
                         <h3 class="font-semibold text-dsBlack mb-4">Value-Based Care Provider</h3>
                         <p class="text-gray-600 mb-4">
@@ -949,7 +973,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Related Domains -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Expertise</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3">
                     RAF optimization often combines with these domains.

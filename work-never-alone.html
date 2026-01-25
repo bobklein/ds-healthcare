@@ -45,6 +45,16 @@
         .market-content.active {
             display: block;
         }
+    
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-white text-dsBlack antialiased">
@@ -557,11 +567,25 @@
 <!-- END DS-NAV -->
 
 <!-- Fade Animation Script -->
+<!-- Fade Animation Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Make all fade-up elements visible
-    document.querySelectorAll('.fade-up').forEach(function(el) {
-        el.classList.add('visible');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+        fadeObserver.observe(el);
     });
 });
 </script>
@@ -1036,7 +1060,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- How It Works -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">How It Works</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Fast to deploy. Easy to use.
@@ -1046,7 +1070,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="fade-up grid md:grid-cols-3 gap-8">
                 <div class="text-center">
                     <div class="w-16 h-16 bg-dsGray rounded-2xl flex items-center justify-center mx-auto mb-4">
                         <span class="text-2xl font-bold text-dsBlue">1</span>
@@ -1075,7 +1099,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Download Resources -->
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="text-center mb-12">
+            <div class="fade-up text-center mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Resources</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Download market-specific details
@@ -1129,7 +1153,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- What We Built -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">What We Built</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     A platform we operate every day

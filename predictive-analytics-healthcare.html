@@ -551,11 +551,25 @@
 <!-- END DS-NAV -->
 
 <!-- Fade Animation Script -->
+<!-- Fade Animation Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Make all fade-up elements visible
-    document.querySelectorAll('.fade-up').forEach(function(el) {
-        el.classList.add('visible');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+        fadeObserver.observe(el);
     });
 });
 </script>
@@ -1182,7 +1196,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="fade-up grid md:grid-cols-3 gap-8">
                 <div class="fade-up">
                     <div class="mb-6">
                         <img src="images/team-bob-klein.png" alt="User-Centric Design & Research" class="rounded-xl w-full h-48 object-cover">

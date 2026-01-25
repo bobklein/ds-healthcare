@@ -337,7 +337,17 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
-</style>
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 
 <!-- Utility Bar -->
 <div class="ds-utility-bar">
@@ -579,11 +589,25 @@
 <!-- END DS-NAV -->
 
 <!-- Fade Animation Script -->
+<!-- Fade Animation Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Make all fade-up elements visible
-    document.querySelectorAll('.fade-up').forEach(function(el) {
-        el.classList.add('visible');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+        fadeObserver.observe(el);
     });
 });
 </script>
@@ -792,17 +816,17 @@ document.addEventListener('DOMContentLoaded', function() {
                         <p class="text-red-700 text-sm">With fewer than 10 active trials, the ROI calculation changes dramatically. Manual screening may be more cost-effective. This solution shines at scale.</p>
                     </div>
 
-                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                    <div class="bg-dsGray border border-gray-200 rounded-lg p-6">
                         <h3 class="font-semibold mb-2">Research coordinators are already overwhelmed</h3>
                         <p class="text-gray-600 text-sm">AI surfaces more matches—which is only valuable if someone can follow up. If your team can't handle current volume, adding matches creates frustration, not enrollment.</p>
                     </div>
 
-                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                    <div class="bg-dsGray border border-gray-200 rounded-lg p-6">
                         <h3 class="font-semibold mb-2">Your EHR data quality is poor</h3>
                         <p class="text-gray-600 text-sm">If problem lists aren't maintained, labs aren't flowing, or clinical notes are sparse—matching accuracy suffers. Fix data quality first.</p>
                     </div>
 
-                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                    <div class="bg-dsGray border border-gray-200 rounded-lg p-6">
                         <h3 class="font-semibold mb-2">You haven't done simpler AI projects</h3>
                         <p class="text-gray-600 text-sm">This is the most complex project in the framework series. If your organization is new to AI, start with quick wins to build muscle and confidence first.</p>
                     </div>

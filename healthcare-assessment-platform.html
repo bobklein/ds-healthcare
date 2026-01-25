@@ -31,6 +31,16 @@
         h1, h2, h3 { letter-spacing: -0.02em; }
         
         
+    
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-white text-dsBlack antialiased">
@@ -543,11 +553,25 @@
 <!-- END DS-NAV -->
 
 <!-- Fade Animation Script -->
+<!-- Fade Animation Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Make all fade-up elements visible
-    document.querySelectorAll('.fade-up').forEach(function(el) {
-        el.classList.add('visible');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+        fadeObserver.observe(el);
     });
 });
 </script>
@@ -588,7 +612,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- The Offshore Problem -->
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Problem</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     The offshore reckoning in healthcare IT.
@@ -643,7 +667,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- The Nearshore Advantage -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Solution</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     The nearshore advantage: US quality, competitive economics.
@@ -696,7 +720,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- The Team Model -->
     <section class="py-20 px-6 bg-dsBlack text-white">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Our Model</span>
                 <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
                     75-person integrated healthcare technology firm.
@@ -757,7 +781,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Platform Assessment -->
     <section id="assessment" class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Assessment</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Platform Modernization Assessment: $25K, 4 weeks.
@@ -873,7 +897,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- PE-Specific Value -->
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">For PE Operating Partners</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     We understand your investment thesis.
@@ -918,7 +942,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div >
+                <div class="fade-up" >
                     <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Healthcare Expertise</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
                         We only do healthcare.
@@ -983,7 +1007,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <section class="py-20 px-6 bg-dsBlue text-white">
         <div class="max-w-screen-xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div >
+                <div class="fade-up" >
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">Start your platform assessment.</h2>
                     <p class="text-blue-100 mb-6">
                         30-minute call to understand your situation. If there's fit, we'll scope the 4-week assessment. No pressure. Honest evaluation.

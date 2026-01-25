@@ -31,6 +31,16 @@
         h1, h2, h3 { letter-spacing: -0.02em; }
         
         
+    
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-white text-dsBlack antialiased">
@@ -543,11 +553,25 @@
 <!-- END DS-NAV -->
 
 <!-- Fade Animation Script -->
+<!-- Fade Animation Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Make all fade-up elements visible
-    document.querySelectorAll('.fade-up').forEach(function(el) {
-        el.classList.add('visible');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+        fadeObserver.observe(el);
     });
 });
 </script>
@@ -585,7 +609,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Why Health Systems Need R&D Partners -->
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Challenge</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Build vs. buy vs. partner-why partnership wins.
@@ -635,7 +659,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- What We Build -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Capabilities</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     We build healthcare technology. Not just software.
@@ -645,7 +669,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="fade-up grid md:grid-cols-2 gap-8">
                 <div class="border border-gray-200 rounded-xl p-8">
                     <h3 class="text-xl font-bold text-dsBlack mb-4">Custom Platform Development</h3>
                     <p class="text-gray-600 mb-4">
@@ -696,7 +720,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- The DS Model -->
     <section class="py-20 px-6 bg-dsBlack text-white">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Our Model</span>
                 <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
                     75-person healthcare technology firm. Not a dev shop.
@@ -762,7 +786,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Engagement Models -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Partnership Models</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Flexible engagement models for your needs.
@@ -800,7 +824,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Proof Points -->
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Track Record</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     $20M+ verified ROI. 100% production rate.
@@ -835,7 +859,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Complete Value Chain -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Complete Value Chain</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     8 steps. Complete problem solved.
@@ -845,7 +869,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-4 gap-6">
+            <div class="fade-up grid md:grid-cols-4 gap-6">
                 <div class="border border-gray-200 rounded-xl p-6">
                     <span class="text-dsBlue font-medium text-sm">Step 1</span>
                     <h3 class="font-semibold text-dsBlack mt-2 mb-2">Data Foundation</h3>

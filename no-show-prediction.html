@@ -546,11 +546,25 @@
 <!-- END DS-NAV -->
 
 <!-- Fade Animation Script -->
+<!-- Fade Animation Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Make all fade-up elements visible
-    document.querySelectorAll('.fade-up').forEach(function(el) {
-        el.classList.add('visible');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+        fadeObserver.observe(el);
     });
 });
 </script>
@@ -604,7 +618,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="max-w-4xl mx-auto">
         <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Requirements</span>
         <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">What you need</h2>
-        <div class="grid md:grid-cols-2 gap-8">
+        <div class="fade-up grid md:grid-cols-2 gap-8">
             <div class="fade-up">
                 <h3 class="text-xl font-semibold text-dsBlack mb-4">Data Requirements</h3>
                 <ul class="space-y-3 text-gray-600">

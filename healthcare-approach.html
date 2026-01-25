@@ -31,6 +31,16 @@
         
         
         
+    
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-white text-dsBlack antialiased">
@@ -543,11 +553,25 @@
 <!-- END DS-NAV -->
 
 <!-- Fade Animation Script -->
+<!-- Fade Animation Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Make all fade-up elements visible
-    document.querySelectorAll('.fade-up').forEach(function(el) {
-        el.classList.add('visible');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+        fadeObserver.observe(el);
     });
 });
 </script>
@@ -579,7 +603,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- The Problem Section -->
     <section class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Problem with Partial Solutions</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     Why most healthcare AI projects fail.
@@ -633,7 +657,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- The 8-Step Value Chain -->
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Complete Value Chain</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
                     8 steps from messy data to measurable outcomes.
@@ -750,7 +774,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
 
             <!-- Detailed Steps Header -->
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <h3 class="text-2xl font-bold text-dsBlack mb-3">Each step in detail</h3>
                 <p class="text-gray-600">Click any step above to jump to details, or scroll through the complete methodology below.</p>
             </div>
@@ -957,7 +981,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Where This Has Worked -->
     <section class="py-20 px-6 bg-dsBlack text-white">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12">
+            <div class="fade-up max-w-2xl mb-12">
                 <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Proof: Where This Has Worked</span>
                 <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
                     The complete value chain in action.
@@ -1020,7 +1044,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <section class="py-20 px-6">
         <div class="max-w-screen-xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div >
+                <div class="fade-up" >
                     <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The 2026 Window</span>
                     <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
                         Why timing matters for healthcare AI.

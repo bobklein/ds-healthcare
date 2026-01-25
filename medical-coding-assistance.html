@@ -538,11 +538,25 @@
 <!-- END DS-NAV -->
 
 <!-- Fade Animation Script -->
+<!-- Fade Animation Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Make all fade-up elements visible
-    document.querySelectorAll('.fade-up').forEach(function(el) {
-        el.classList.add('visible');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+        fadeObserver.observe(el);
     });
 });
 </script>
@@ -554,7 +568,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <section class="py-16 px-6"><div class="max-w-4xl mx-auto"><span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Problem</span><h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">Coders are expensive, scarce, and overworked.</h2><div class="prose prose-lg text-gray-600 space-y-4 fade-up"><p>Medical coding is a bottleneck. The US faces a chronic shortage of qualified coders. Meanwhile, coding complexity increases with every ICD-10 update and new specialty codes. The result: backlogs, burnout, and coding errors that drive denials.</p><p>AI coding assistance doesn't replace coders—it makes them faster and more accurate. The AI reads clinical documentation, extracts relevant diagnoses and procedures, suggests appropriate codes, and highlights the supporting evidence in the note.</p><p>Coders shift from code hunters to code reviewers. They spend less time searching and more time applying clinical judgment. Productivity increases 20-35% while accuracy improves—fewer missed codes, fewer incorrect codes, fewer denials.</p></div></div></section>
 
-<section class="py-16 px-6 bg-dsGray"><div class="max-w-4xl mx-auto"><span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Requirements</span><h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">What you need</h2><div class="grid md:grid-cols-2 gap-8"><div class="fade-up"><h3 class="text-xl font-semibold text-dsBlack mb-4">Data Requirements</h3><ul class="space-y-3 text-gray-600"><li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Clinical documentation (EHR notes)</li><li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Historical coded encounters</li><li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Denial history by code</li></ul></div><div class="fade-up"><h3 class="text-xl font-semibold text-dsBlack mb-4">Integration Needs</h3><ul class="space-y-3 text-gray-600"><li class="flex items-start gap-2"><svg class="w-5 h-5 text-blue-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>EHR read access</li><li class="flex items-start gap-2"><svg class="w-5 h-5 text-blue-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Coding workflow integration</li></ul></div></div></div></section>
+<section class="py-16 px-6 bg-dsGray"><div class="max-w-4xl mx-auto"><span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Requirements</span><h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">What you need</h2><div class="fade-up grid md:grid-cols-2 gap-8"><div class="fade-up"><h3 class="text-xl font-semibold text-dsBlack mb-4">Data Requirements</h3><ul class="space-y-3 text-gray-600"><li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Clinical documentation (EHR notes)</li><li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Historical coded encounters</li><li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Denial history by code</li></ul></div><div class="fade-up"><h3 class="text-xl font-semibold text-dsBlack mb-4">Integration Needs</h3><ul class="space-y-3 text-gray-600"><li class="flex items-start gap-2"><svg class="w-5 h-5 text-blue-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>EHR read access</li><li class="flex items-start gap-2"><svg class="w-5 h-5 text-blue-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Coding workflow integration</li></ul></div></div></div></section>
 
 <section class="py-20 px-6 bg-dsBlue"><div class="max-w-4xl mx-auto text-center"><h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to boost coder productivity?</h2><p class="text-blue-100 mb-8 max-w-2xl mx-auto">30-minute call to assess your coding operations and estimate the productivity opportunity.</p><a href="healthcare-assessment.html" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-gray-100 transition">Get AI Assessment<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a></div></section>
 

@@ -29,6 +29,16 @@
     <style>
         body { font-family: 'Inter', system-ui, sans-serif; }
         h1, h2, h3 { letter-spacing: -0.02em; }
+    
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-white text-dsBlack antialiased">
@@ -541,11 +551,25 @@
 <!-- END DS-NAV -->
 
 <!-- Fade Animation Script -->
+<!-- Fade Animation Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Make all fade-up elements visible
-    document.querySelectorAll('.fade-up').forEach(function(el) {
-        el.classList.add('visible');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+        fadeObserver.observe(el);
     });
 });
 </script>
@@ -553,13 +577,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <!-- Hero -->
 <header class="pt-32 pb-16 px-6 bg-white">
-    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+    <div class="max-w-screen-xl mx-auto">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <div class="fade-up">
                 <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
                     <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
                     Healthcare SaaS Development</div>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">Healthcare SaaS That Scales With Compliance Built In</h1>
+                <h1 class="text-4xl md:text-5xl font-bold text-dsBlack mb-6 leading-[1.1]">Healthcare SaaS That Scales With Compliance Built In</h1>
                 <p class="text-xl text-gray-600 mb-8 leading-relaxed">Multi-tenant platforms, usage-based billing, enterprise security—built for the regulated healthcare space. We've deployed 4 healthcare SaaS platforms to production with 100% success rate.</p>
                 <div class="flex flex-wrap gap-4">
                     <a href="https://calendly.com/bob-klein/digital-scientists" class="inline-flex items-center justify-center gap-2 bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">Get Assessment</a>
@@ -574,30 +598,41 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </section>
 
-<!-- Trust Badges -->
-<section class="py-8 border-b border-gray-100">
-    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
-        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-            <img src="images/duke-health.png" alt="Duke Health" class="h-8 object-contain opacity-70 hover:opacity-100 transition">
-            <img src="images/mckesson.png" alt="McKesson" class="h-8 object-contain opacity-70 hover:opacity-100 transition">
-            <img src="images/communicare.png" alt="CommuniCare" class="h-8 object-contain opacity-70 hover:opacity-100 transition">
-            <img src="images/easterseals-logo.png" alt="Easterseals" class="h-8 object-contain opacity-70 hover:opacity-100 transition">
+<!-- Standard Logo Ribbon - 5 Logo Lockup -->
+<section class="logo-ribbon bg-white py-10">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="flex flex-nowrap justify-center items-center">
+            <div class="logo-item px-6 md:px-10 flex items-center justify-center border-r border-gray-200">
+                <img src="images/case-logo-neveralone.svg" alt="NeverAlone" class="h-8 md:h-10 max-w-[120px] md:max-w-[160px] object-contain">
+            </div>
+            <div class="logo-item px-6 md:px-10 flex items-center justify-center border-r border-gray-200">
+                <img src="images/congruity-health.svg" alt="Congruity Health" class="h-8 md:h-10 max-w-[120px] md:max-w-[160px] object-contain">
+            </div>
+            <div class="logo-item px-6 md:px-10 flex items-center justify-center border-r border-gray-200">
+                <img src="images/mckesson.png" alt="McKesson" class="h-8 md:h-10 max-w-[120px] md:max-w-[160px] object-contain">
+            </div>
+            <div class="logo-item px-6 md:px-10 flex items-center justify-center border-r border-gray-200">
+                <img src="images/communicare.png" alt="CommuniCare" class="h-8 md:h-10 max-w-[120px] md:max-w-[160px] object-contain">
+            </div>
+            <div class="logo-item px-6 md:px-10 flex items-center justify-center">
+                <img src="images/easterseals-logo.png" alt="Easterseals" class="h-8 md:h-10 max-w-[120px] md:max-w-[160px] object-contain">
+            </div>
         </div>
     </div>
 </section>
 
 <!-- What We Build -->
-<section class="py-20">
-    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
-        <div class="text-center mb-16">
+<section class="py-20 px-6">
+    <div class="max-w-screen-xl mx-auto">
+        <div class="fade-up text-center mb-16">
             <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
                     <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
                     What We Build
                 </div>
             <h2 class="text-3xl md:text-4xl font-bold mb-4">Healthcare SaaS Platforms</h2>
         </div>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition">
+        <div class="fade-up grid md:grid-cols-3 gap-8">
+            <div class="bg-dsGray rounded-xl p-8 hover:shadow-lg transition">
                 <div class="w-12 h-12 bg-dsBlue/10 rounded-full flex items-center justify-center mb-6">
                     <img src="images/icon-patient-engage.svg" alt="Patient" class="w-8 h-8">
                 </div>
@@ -605,7 +640,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p class="text-gray-600 mb-4">Patient portals, scheduling systems, telehealth platforms, and engagement tools.</p>
                 <p class="text-sm text-dsBlue font-medium">Portals, scheduling, virtual care</p>
             </div>
-            <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition">
+            <div class="bg-dsGray rounded-xl p-8 hover:shadow-lg transition">
                 <div class="w-12 h-12 bg-dsBlue/10 rounded-full flex items-center justify-center mb-6">
                     <img src="images/icon-integration.svg" alt="Provider" class="w-8 h-8">
                 </div>
@@ -613,7 +648,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p class="text-gray-600 mb-4">EHR integrations, practice management, clinical decision support, and workflow tools.</p>
                 <p class="text-sm text-dsTeal font-medium">EHR, practice mgmt, CDSS</p>
             </div>
-            <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition">
+            <div class="bg-dsGray rounded-xl p-8 hover:shadow-lg transition">
                 <div class="w-12 h-12 bg-dsBlue/10 rounded-full flex items-center justify-center mb-6">
                     <img src="images/icon-scalability.svg" alt="Payer" class="w-8 h-8">
                 </div>
@@ -626,9 +661,9 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <!-- Use Cases -->
-<section class="py-20 bg-gray-50">
-    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
-        <div class="text-center mb-16">
+<section class="py-20 px-6 bg-dsGray">
+    <div class="max-w-screen-xl mx-auto">
+        <div class="fade-up text-center mb-16">
             <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
                     <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
                     Applications
@@ -673,8 +708,8 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <!-- Case Study -->
-<section class="py-20">
-    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+<section class="py-20 px-6">
+    <div class="max-w-screen-xl mx-auto">
         <div class="bg-gradient-to-br from-dsBlack to-gray-900 rounded-2xl overflow-hidden">
             <div class="grid md:grid-cols-2 gap-0 items-center">
                 <div class="p-8 md:p-12 text-white">
@@ -699,9 +734,9 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <!-- MVP Process -->
-<section class="py-20 bg-gray-50">
-    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
-        <div class="text-center mb-16">
+<section class="py-20 px-6 bg-dsGray">
+    <div class="max-w-screen-xl mx-auto">
+        <div class="fade-up text-center mb-16">
             <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
                     <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
                     Our Process
@@ -734,8 +769,8 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <!-- Why Partner With Us -->
-<section class="py-20 bg-dsGray">
-    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+<section class="py-20 px-6 bg-dsGray">
+    <div class="max-w-screen-xl mx-auto">
         <!-- Section Header -->
         <div class="mb-12">
             <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-4">
@@ -787,7 +822,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
 
         <!-- Additional Differentiators -->
-        <div class="grid md:grid-cols-4 gap-6">
+        <div class="fade-up grid md:grid-cols-4 gap-6">
             <div class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-dsBlue flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -830,8 +865,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <!-- Testimonial -->
-<section class="py-16">
-    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+<section class="py-16 px-6">
+    <div class="max-w-screen-xl mx-auto">
         <div class="max-w-3xl mx-auto text-center">
             <img src="https://digitalscientists.com/wp-content/uploads/2024/05/Group2.svg" alt="CommuniCare" class="h-12 mx-auto mb-6">
             <p class="text-xl text-gray-700 mb-6 italic">"I have worked with many technology teams during my career, and Digital Scientists is one of the best. They take the time to understand the customers' needs, deliver innovative solutions, are always professional, and work with your team as a true partner to achieve success."</p>
@@ -842,8 +877,8 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <!-- Technologies -->
-<section class="py-16 bg-gray-50">
-    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+<section class="py-16 px-6 bg-dsGray">
+    <div class="max-w-screen-xl mx-auto">
         <p class="text-sm font-mono text-gray-500 uppercase tracking-widest text-center mb-8">Technologies</p>
         <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
             <img src="https://digitalscientists.com/wp-content/uploads/2024/01/image-40.png" alt="AWS" class="h-8 object-contain opacity-70 hover:opacity-100 transition">
@@ -855,8 +890,8 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <!-- CTA Section with Form -->
-<section class="py-20 bg-dsBlue" id="contact">
-    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+<section class="py-20 px-6 bg-dsBlue" id="contact">
+    <div class="max-w-screen-xl mx-auto">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
             <!-- Left Side - Copy -->
             <div class="text-white">
@@ -927,8 +962,8 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <!-- HIPAA -->
-<section class="py-16">
-    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+<section class="py-16 px-6">
+    <div class="max-w-screen-xl mx-auto">
         <div class="flex flex-col md:flex-row items-center gap-8">
             <div class="flex-1">
                 <h3 class="text-2xl font-bold mb-4">HIPAA Compliance & PHI Security</h3>

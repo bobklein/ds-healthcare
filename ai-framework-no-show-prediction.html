@@ -338,7 +338,17 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
-</style>
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 
 <!-- Utility Bar -->
 <div class="ds-utility-bar">
@@ -580,11 +590,25 @@
 <!-- END DS-NAV -->
 
 <!-- Fade Animation Script -->
+<!-- Fade Animation Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Make all fade-up elements visible
-    document.querySelectorAll('.fade-up').forEach(function(el) {
-        el.classList.add('visible');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+        fadeObserver.observe(el);
     });
 });
 </script>
@@ -784,17 +808,17 @@ document.addEventListener('DOMContentLoaded', function() {
                         <p class="text-red-700 text-sm">If appointments are frequently created, modified, or deleted without tracking—or if no-show vs. cancellation vs. reschedule isn't consistently recorded—fix the data quality first.</p>
                     </div>
 
-                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                    <div class="bg-dsGray border border-gray-200 rounded-lg p-6">
                         <h3 class="font-semibold mb-2">You're changing scheduling systems</h3>
                         <p class="text-gray-600 text-sm">If you're migrating to a new practice management or scheduling platform within 12 months, wait. The model needs stable data sources and will require retraining after migration.</p>
                     </div>
 
-                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                    <div class="bg-dsGray border border-gray-200 rounded-lg p-6">
                         <h3 class="font-semibold mb-2">Your no-shows are mostly preventable with basic reminders</h3>
                         <p class="text-gray-600 text-sm">If you're not doing automated appointment reminders at all, start there. Basic SMS reminders often reduce no-shows by 10-20% with minimal investment. Prediction adds value on top of good reminder infrastructure.</p>
                     </div>
 
-                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                    <div class="bg-dsGray border border-gray-200 rounded-lg p-6">
                         <h3 class="font-semibold mb-2">Provider schedules aren't the bottleneck</h3>
                         <p class="text-gray-600 text-sm">If you have excess provider capacity and patient demand is the constraint, no-show prediction doesn't help. Focus on patient acquisition instead.</p>
                     </div>

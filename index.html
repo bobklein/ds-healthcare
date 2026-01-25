@@ -35,6 +35,16 @@
         .nav-item:hover .dropdown-menu { opacity: 1; transform: translateY(0); visibility: visible; }
         .vertical-card { transition: all 0.3s ease; }
         .vertical-card:hover { transform: translateY(-4px); }
+    
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-white text-dsBlack antialiased">
@@ -547,11 +557,25 @@
 <!-- END DS-NAV -->
 
 <!-- Fade Animation Script -->
+<!-- Fade Animation Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Make all fade-up elements visible
-    document.querySelectorAll('.fade-up').forEach(function(el) {
-        el.classList.add('visible');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+        fadeObserver.observe(el);
     });
 });
 </script>
@@ -816,42 +840,42 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-dsBlue transition">
+            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsBlue transition">
                 <span class="font-mono text-dsBlue text-xs mb-2 block font-bold">01</span>
                 <h4 class="font-bold text-lg mb-2 text-dsBlack">Data Foundation</h4>
                 <p class="text-sm text-gray-500">Clean, structure, and prepare your data for what comes next.</p>
             </div>
-            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-dsBlue transition">
+            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsBlue transition">
                 <span class="font-mono text-dsBlue text-xs mb-2 block font-bold">02</span>
                 <h4 class="font-bold text-lg mb-2 text-dsBlack">Solution Design</h4>
                 <p class="text-sm text-gray-500">On-site discovery. Built with your teams, not in a conference room.</p>
             </div>
-            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-dsBlue transition">
+            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsBlue transition">
                 <span class="font-mono text-dsBlue text-xs mb-2 block font-bold">03</span>
                 <h4 class="font-bold text-lg mb-2 text-dsBlack">Development</h4>
                 <p class="text-sm text-gray-500">Agile sprints with continuous feedback and security validation.</p>
             </div>
-            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-dsBlue transition">
+            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsBlue transition">
                 <span class="font-mono text-dsBlue text-xs mb-2 block font-bold">04</span>
                 <h4 class="font-bold text-lg mb-2 text-dsBlack">Integration</h4>
                 <p class="text-sm text-gray-500">Connect with your existing systems—EHR, CRM, legacy platforms.</p>
             </div>
-            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-dsTeal transition">
+            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsTeal transition">
                 <span class="font-mono text-dsTeal text-xs mb-2 block font-bold">05</span>
                 <h4 class="font-bold text-lg mb-2 text-dsBlack">Change Management</h4>
                 <p class="text-sm text-gray-500">Training and adoption support. Technology is a people problem.</p>
             </div>
-            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-dsTeal transition">
+            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsTeal transition">
                 <span class="font-mono text-dsTeal text-xs mb-2 block font-bold">06</span>
                 <h4 class="font-bold text-lg mb-2 text-dsBlack">Production Deploy</h4>
                 <p class="text-sm text-gray-500">Phased rollout with monitoring and rapid iteration.</p>
             </div>
-            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-dsTeal transition">
+            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsTeal transition">
                 <span class="font-mono text-dsTeal text-xs mb-2 block font-bold">07</span>
                 <h4 class="font-bold text-lg mb-2 text-dsBlack">Flexible Exit</h4>
                 <p class="text-sm text-gray-500">Ongoing support or transfer to your team. You own 100% of IP.</p>
             </div>
-            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-dsTeal transition">
+            <div class="bg-dsGray p-6 rounded-lg border border-gray-200 hover:border-dsTeal transition">
                 <span class="font-mono text-dsTeal text-xs mb-2 block font-bold">08</span>
                 <h4 class="font-bold text-lg mb-2 text-dsBlack">KPI Accountability</h4>
                 <p class="text-sm text-gray-500">Tied to the measurable outcomes we agreed on upfront.</p>

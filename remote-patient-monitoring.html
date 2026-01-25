@@ -543,11 +543,25 @@
 <!-- END DS-NAV -->
 
 <!-- Fade Animation Script -->
+<!-- Fade Animation Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Make all fade-up elements visible
-    document.querySelectorAll('.fade-up').forEach(function(el) {
-        el.classList.add('visible');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+        fadeObserver.observe(el);
     });
 });
 </script>
@@ -996,36 +1010,40 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </section>
 
-    <!-- Why Digital Scientists -->
-    <section class="py-20 px-6 bg-dsBlack text-white">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-2xl mb-12 fade-up">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Why Digital Scientists</span>
-                <h2 class="text-3xl md:text-4xl font-bold mt-3">
-                    We're not learning healthcare IT on your dime.
-                </h2>
-            </div>
+    <!-- Why Partner With Us -->
+<section class="py-20 px-6 bg-dsGray">
+    <div class="max-w-screen-xl mx-auto">
+        <div class="max-w-2xl mb-12 fade-up">
+            <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Why Partner With Us</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3">
+                We're not learning healthcare on your dime.
+            </h2>
+        </div>
 
-            <div class="grid md:grid-cols-4 gap-6 fade-up">
-                <div>
-                    <h3 class="font-semibold text-white mb-2">Since 2007</h3>
-                    <p class="text-gray-400 text-sm">Building production healthcare systems. HIPAA compliant. BAA ready.</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold text-white mb-2">EHR Integration</h3>
-                    <p class="text-gray-400 text-sm">PointClickCare, Epic, Gehrimed, Netsmart. We know these systems.</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold text-white mb-2">$20M+ Verified ROI</h3>
-                    <p class="text-gray-400 text-sm">$10M PDPM recovered. $2M quality incentives. Financial analyst confirmed.</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold text-white mb-2">100% Production</h3>
-                    <p class="text-gray-400 text-sm">vs 5% industry average. We ship what we build.</p>
-                </div>
+        <div class="grid md:grid-cols-4 gap-6 fade-up">
+            <div class="bg-white rounded-xl p-6 border border-gray-200">
+                <span class="text-3xl font-bold text-dsBlue">100%</span>
+                <p class="text-sm text-gray-500 mt-1">Production Rate</p>
+                <p class="text-gray-600 text-sm mt-3">vs 5% industry average. We ship what we build.</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-gray-200">
+                <span class="text-3xl font-bold text-dsBlue">$20M+</span>
+                <p class="text-sm text-gray-500 mt-1">Verified ROI</p>
+                <p class="text-gray-600 text-sm mt-3">$10M PDPM. $10M RAF. Financial analyst confirmed.</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-gray-200">
+                <span class="text-3xl font-bold text-dsBlue">75</span>
+                <p class="text-sm text-gray-500 mt-1">Integrated Team</p>
+                <p class="text-gray-600 text-sm mt-3">15 US + 60 nearshore. Same timezone, HIPAA-compliant.</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-gray-200">
+                <span class="text-3xl font-bold text-dsBlue">4+</span>
+                <p class="text-sm text-gray-500 mt-1">EHR Integrations</p>
+                <p class="text-gray-600 text-sm mt-3">PointClickCare, Epic, Gehrimed, Netsmart. Production-ready.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Testimonials -->
     <section class="py-20 px-6 bg-dsGray">

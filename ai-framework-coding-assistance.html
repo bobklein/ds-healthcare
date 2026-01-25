@@ -337,7 +337,17 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
-</style>
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 
 <!-- Utility Bar -->
 <div class="ds-utility-bar">
@@ -579,11 +589,25 @@
 <!-- END DS-NAV -->
 
 <!-- Fade Animation Script -->
+<!-- Fade Animation Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Make all fade-up elements visible
-    document.querySelectorAll('.fade-up').forEach(function(el) {
-        el.classList.add('visible');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+        fadeObserver.observe(el);
     });
 });
 </script>
@@ -792,17 +816,17 @@ document.addEventListener('DOMContentLoaded', function() {
                         <p class="text-red-700 text-sm">If clinical notes are incomplete, templated without customization, or missing key details, AI can't extract what isn't there. Focus on CDI before coding assistance.</p>
                     </div>
 
-                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                    <div class="bg-dsGray border border-gray-200 rounded-lg p-6">
                         <h3 class="font-semibold mb-2">You're changing EHR systems</h3>
                         <p class="text-gray-600 text-sm">Documentation patterns change dramatically with EHR migration. Wait until the new system is stable and you have 12+ months of data.</p>
                     </div>
 
-                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                    <div class="bg-dsGray border border-gray-200 rounded-lg p-6">
                         <h3 class="font-semibold mb-2">Your coding team is in transition</h3>
                         <p class="text-gray-600 text-sm">High turnover, outsourcing changes, or major workflow restructuring? Stabilize first. You need consistent users to adopt and refine the tool.</p>
                     </div>
 
-                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                    <div class="bg-dsGray border border-gray-200 rounded-lg p-6">
                         <h3 class="font-semibold mb-2">Compliance hasn't signed off on AI coding</h3>
                         <p class="text-gray-600 text-sm">Get your compliance and legal teams comfortable with the concept before investing in implementation. Some organizations have philosophical objections that won't change.</p>
                     </div>

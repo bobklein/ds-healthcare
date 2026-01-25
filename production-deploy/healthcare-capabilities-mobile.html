@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Mobile App Development | Digital Scientists</title>
+    <meta name="description" content="Custom healthcare mobile apps that improve patient outcomes and provider efficiency. RPM, telehealth, clinical communication—HIPAA compliant, production ready.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dsBlue: '#304FFF',
+                        dsTeal: '#26D9C4',
+                        dsLime: '#D1F259',
+                        dsBlack: '#050505',
+                        dsGray: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['Roboto Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        h1, h2, h3 { letter-spacing: -0.02em; }
+    </style>
+</head>
+<body class="bg-white text-dsBlack antialiased">
+<!-- DS 2.0 Navigation - FINAL -->
+<!-- START DS-NAV -->
+
+<style>
+/* Utility Bar */
+.ds-utility-bar {
+    background: #F5F5F5;
+}
+.ds-utility-bar a {
+    font-size: 13px;
+    color: #374151;
+    text-decoration: none;
+}
+.ds-utility-bar a:hover {
+    color: #304FFF;
+}
+
+/* Main Nav */
+.ds-main-nav {
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* Nav Items */
+.ds-nav-item {
+    position: relative;
+}
+.ds-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 16px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #374151;
+    text-decoration: none;
+    cursor: pointer;
+}
+.ds-nav-link:hover {
+    color: #304FFF;
+}
+
+/* Simple Dropdown */
+.ds-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+    padding: 12px;
+    min-width: 280px;
+    z-index: 100;
+}
+.ds-nav-item:hover .ds-dropdown {
+    display: block;
+}
+.ds-dropdown a {
+    display: block;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: #374151;
+    text-decoration: none;
+    border-radius: 8px;
+}
+.ds-dropdown a:hover {
+    background: #f3f4f6;
+    color: #304FFF;
+}
+
+/* Healthcare Mega Menu */
+.ds-healthcare-mega {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-top: 8px;
+    z-index: 100;
+}
+.ds-nav-item:hover .ds-healthcare-mega {
+    display: block;
+}
+.ds-healthcare-inner {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 24px;
+    min-width: 900px;
+}
+.ds-hc-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+.ds-hc-section h4 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    margin-bottom: 12px;
+    padding-left: 12px;
+}
+.ds-hc-section a {
+    display: block;
+    padding: 6px 12px;
+    font-size: 13px;
+    color: #374151;
+    border-radius: 6px;
+    text-decoration: none;
+}
+.ds-hc-section a:hover {
+    background: #f3f4f6;
+    color: #304FFF;
+}
+.ds-hc-cta {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+}
+.ds-hc-cta a {
+    background: #304FFF;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+}
+.ds-hc-cta a:hover {
+    background: #050505;
+}
+
+/* Contact Button */
+.ds-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #304FFF;
+    color: white !important;
+    padding: 12px 20px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.ds-contact-btn:hover {
+    background: #050505;
+}
+
+/* Mobile */
+.ds-mobile-btn {
+    display: none;
+    padding: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+@media (max-width: 1024px) {
+    .ds-desktop-nav { display: none !important; }
+    .ds-mobile-btn { display: block !important; }
+}
+.ds-mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    z-index: 200;
+    overflow-y: auto;
+}
+.ds-mobile-nav.open { display: block; }
+.ds-mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e5e7eb;
+}
+.ds-mobile-close {
+    padding: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.ds-mobile-accordion {
+    border-bottom: 1px solid #f3f4f6;
+}
+.ds-mobile-trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #111827;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+.ds-mobile-trigger svg {
+    transition: transform 0.2s;
+}
+.ds-mobile-trigger.open svg {
+    transform: rotate(180deg);
+}
+.ds-mobile-content {
+    display: none;
+    background: #f9fafb;
+    padding: 8px 0 16px;
+}
+.ds-mobile-content.open { display: block; }
+.ds-mobile-content a {
+    display: block;
+    padding: 12px 40px;
+    font-size: 14px;
+    color: #374151;
+    text-decoration: none;
+}
+.ds-mobile-content h5 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    padding: 12px 40px 8px;
+    margin-top: 8px;
+}
+.ds-mobile-link {
+    display: block;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #111827;
+    text-decoration: none;
+    border-bottom: 1px solid #f3f4f6;
+}
+.ds-mobile-cta {
+    padding: 24px;
+}
+.ds-mobile-cta a {
+    display: block;
+    background: #304FFF;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+</style>
+
+<!-- Utility Bar -->
+<div class="ds-utility-bar">
+    <div class="max-w-screen-xl mx-auto px-6 py-2 flex justify-end items-center gap-6">
+        <a href="https://digitalscientists.com/about/">Our story</a>
+        <a href="https://digitalscientists.com/blog/">Insights</a>
+        <a href="https://digitalscientists.com/events/">Events</a>
+        <a href="tel:4046543855" class="flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            404.654.3855
+        </a>
+    </div>
+</div>
+
+<!-- Main Navigation -->
+<nav class="ds-main-nav">
+    <div class="max-w-screen-xl mx-auto px-6">
+        <div class="h-20 flex items-center justify-between">
+            
+            <!-- Logo - Left -->
+            <a href="index.html" class="flex-shrink-0">
+                <img src="1012DS_Logo_Native_Black (1).svg" alt="Digital Scientists" class="h-12">
+            </a>
+            
+            <!-- Desktop Nav - Right -->
+            <div class="ds-desktop-nav flex items-center gap-1">
+                
+                <!-- Healthcare Mega Menu (FIRST) -->
+                <div class="ds-nav-item">
+                    <a href="healthcare-hub.html" class="ds-nav-link">
+                        Healthcare
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                    <div class="ds-healthcare-mega">
+                        <div class="ds-healthcare-inner">
+                            <!-- Row 1: Overview, Health IT Solutions, AI Solutions, Domains, Markets -->
+                            <div class="ds-hc-grid">
+                                <div class="ds-hc-section">
+                                    <h4>Overview</h4>
+                                    <a href="healthcare-hub.html">Healthcare Hub</a>
+                                    <a href="healthcare-approach.html">Our Approach</a>
+                                    <h4 style="margin-top: 16px;">Capabilities</h4>
+                                    <a href="healthcare-capabilities-ai-ml-nlp.html">AI, ML & NLP</a>
+                                    <a href="healthcare-capabilities-mobile.html">Mobile Apps</a>
+                                    <a href="healthcare-capabilities-saas.html">SaaS Platforms</a>
+                                    <a href="healthcare-capabilities-ux-design.html">UX Design</a>
+                                    <a href="healthcare-capabilities-data-analytics.html">Data Analytics</a>
+                                    <a href="healthcare-capabilities-samd.html">SaMD</a>
+                                </div>
+                                <div class="ds-hc-section">
+                                    <h4>Health IT Solutions</h4>
+                                    <a href="patient-engagement-portal.html">Patient Engagement</a>
+                                    <a href="telemedicine-virtual-care.html">Telemedicine</a>
+                                    <a href="remote-patient-monitoring.html">Remote Monitoring</a>
+                                    <a href="healthcare-interoperability.html">Interoperability</a>
+                                    <a href="clinical-decision-support.html">Clinical Decision Support</a>
+                                    <a href="ehr-practice-management.html">EHR & Practice Mgmt</a>
+                                    <a href="population-health-management.html">Population Health</a>
+                                    <a href="predictive-analytics-healthcare.html">Predictive Analytics</a>
+                                </div>
+                                <div class="ds-hc-section">
+                                    <h4>AI Solutions</h4>
+                                    <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+                                    <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+                                    <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+                                    <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+                                    <h4 style="margin-top: 16px;">Domains</h4>
+                                    <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+                                    <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+                                    <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+                                    <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+                                </div>
+                                <div class="ds-hc-section">
+                                    <h4>Markets</h4>
+                                    <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+                                    <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+                                    <a href="healthcare-markets-senior-living.html">Senior Living</a>
+                                    <a href="healthcare-markets-idd.html">IDD Services</a>
+                                    <a href="healthcare-markets-health-systems.html">Health Systems</a>
+                                    <h4 style="margin-top: 16px;">More</h4>
+                                    <a href="healthcare-domains-ambient-scribes.html">Ambient Scribes</a>
+                                    <a href="healthcare-domains-ehr-integrations.html">EHR Integrations</a>
+                                </div>
+                                <div class="ds-hc-section">
+                                    <h4>Case Studies</h4>
+                                    <a href="work-never-alone.html">NeverAlone</a>
+                                    <a href="work-communicare-mds.html">CommuniCare MDS</a>
+                                    <a href="work-raf-hcc-coding.html">RAF/HCC Coding</a>
+                                    <a href="work-healthcontext-ai.html">HealthContext AI</a>
+                                </div>
+                            </div>
+                            <div class="ds-hc-cta">
+                                <a href="healthcare-assessment.html">Get AI Readiness Assessment →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Dropdown -->
+                <div class="ds-nav-item">
+                    <span class="ds-nav-link">
+                        Services
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="ds-dropdown">
+                        <a href="https://digitalscientists.com/services/mvp-development/">MVP Development</a>
+                        <a href="https://digitalscientists.com/services/platform-modernization/">Platform Modernization</a>
+                        <a href="https://digitalscientists.com/services/innovation-as-a-service/">Innovation as a Service</a>
+                    </div>
+                </div>
+
+                <!-- Capabilities Dropdown -->
+                <div class="ds-nav-item">
+                    <span class="ds-nav-link">
+                        Capabilities
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="ds-dropdown">
+                        <a href="https://digitalscientists.com/mobile-app-development/">Mobile app development</a>
+                        <a href="https://digitalscientists.com/web-application-development/">Web application development</a>
+                        <a href="https://digitalscientists.com/ai-ml-development/">AI & machine learning</a>
+                        <a href="https://digitalscientists.com/cloud-application-development/">Cloud app development</a>
+                        <a href="https://digitalscientists.com/iot-application-development/">IoT & smart device software</a>
+                    </div>
+                </div>
+
+                <!-- Work -->
+                <a href="https://digitalscientists.com/work/" class="ds-nav-link">Work</a>
+
+                <!-- Contact Button -->
+                <a href="https://digitalscientists.com/contact/" class="ds-contact-btn ml-4">
+                    Contact Us
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8l4 4m0 0l-4 4m4-4H8"/></svg>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="ds-mobile-btn" onclick="document.getElementById('ds-mobile-nav').classList.add('open')">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Navigation -->
+<div id="ds-mobile-nav" class="ds-mobile-nav">
+    <div class="ds-mobile-header">
+        <img src="1012DS_Logo_Native_Black (1).svg" alt="Digital Scientists" class="h-10">
+        <button class="ds-mobile-close" onclick="document.getElementById('ds-mobile-nav').classList.remove('open')">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Healthcare Accordion (FIRST) -->
+    <div class="ds-mobile-accordion">
+        <button class="ds-mobile-trigger" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
+            Healthcare
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="ds-mobile-content">
+            <h5>Overview</h5>
+            <a href="healthcare-hub.html">Healthcare Hub</a>
+            <a href="healthcare-approach.html">Our Approach</a>
+            <h5>Health IT Solutions</h5>
+            <a href="patient-engagement-portal.html">Patient Engagement</a>
+            <a href="telemedicine-virtual-care.html">Telemedicine</a>
+            <a href="remote-patient-monitoring.html">Remote Monitoring</a>
+            <a href="healthcare-interoperability.html">Interoperability</a>
+            <a href="clinical-decision-support.html">Clinical Decision Support</a>
+            <a href="ehr-practice-management.html">EHR & Practice Mgmt</a>
+            <a href="population-health-management.html">Population Health</a>
+            <a href="predictive-analytics-healthcare.html">Predictive Analytics</a>
+            <h5>AI Solutions</h5>
+            <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+            <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+            <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+            <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+            <h5>Domains</h5>
+            <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+            <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+            <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+            <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+            <h5>Markets</h5>
+            <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+            <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+            <a href="healthcare-markets-senior-living.html">Senior Living</a>
+            <h5>Case Studies</h5>
+            <a href="work-never-alone.html">NeverAlone</a>
+            <a href="work-communicare-mds.html">CommuniCare MDS</a>
+        </div>
+    </div>
+
+    <!-- Services Accordion -->
+    <div class="ds-mobile-accordion">
+        <button class="ds-mobile-trigger" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
+            Services
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="ds-mobile-content">
+            <a href="https://digitalscientists.com/services/mvp-development/">MVP Development</a>
+            <a href="https://digitalscientists.com/services/platform-modernization/">Platform Modernization</a>
+            <a href="https://digitalscientists.com/services/innovation-as-a-service/">Innovation as a Service</a>
+        </div>
+    </div>
+
+    <!-- Capabilities Accordion -->
+    <div class="ds-mobile-accordion">
+        <button class="ds-mobile-trigger" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
+            Capabilities
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="ds-mobile-content">
+            <a href="https://digitalscientists.com/mobile-app-development/">Mobile app development</a>
+            <a href="https://digitalscientists.com/web-application-development/">Web application development</a>
+            <a href="https://digitalscientists.com/ai-ml-development/">AI & machine learning</a>
+            <a href="https://digitalscientists.com/cloud-application-development/">Cloud app development</a>
+            <a href="https://digitalscientists.com/iot-application-development/">IoT & smart device software</a>
+        </div>
+    </div>
+
+    <a href="https://digitalscientists.com/work/" class="ds-mobile-link">Work</a>
+
+    <div class="ds-mobile-cta">
+        <a href="https://digitalscientists.com/contact/">Contact Us</a>
+    </div>
+
+    <!-- Utility Links -->
+    <div class="px-6 py-4 border-t border-gray-200 flex flex-wrap gap-4 text-sm text-gray-500">
+        <a href="https://digitalscientists.com/about/" class="hover:text-dsBlue">Our story</a>
+        <a href="https://digitalscientists.com/blog/" class="hover:text-dsBlue">Insights</a>
+        <a href="https://digitalscientists.com/events/" class="hover:text-dsBlue">Events</a>
+        <a href="tel:4046543855" class="hover:text-dsBlue">404.654.3855</a>
+    </div>
+</div>
+<!-- END DS-NAV -->
+
+<!-- Fade Animation Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Make all fade-up elements visible
+    document.querySelectorAll('.fade-up').forEach(function(el) {
+        el.classList.add('visible');
+    });
+});
+</script>
+
+
+<!-- Hero Section -->
+<header class="pt-32 pb-16 px-6 bg-white">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
+                    <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                    Healthcare Mobile Development</div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                    Mobile Apps That Expand Access and Improve Care
+                </h1>
+                <p class="text-xl text-gray-600 mb-8 leading-relaxed">Healthcare mobile isn't consumer mobile. We build HIPAA-compliant apps that integrate with your EHR, work offline, and fit real clinical workflows—from bedside to back office.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="healthcare-assessment.html" class="inline-flex items-center justify-center gap-2 bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">
+                        Get Assessment
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                    <a href="https://calendly.com/bob-klein/digital-scientists" class="inline-flex items-center justify-center gap-2 border border-gray-300 text-dsBlack px-6 py-3 text-sm font-medium rounded-full hover:border-dsBlack transition">
+                        Schedule Call
+                    </a>
+                </div>
+            </div>
+            <div class="relative">
+                <!-- Hero Image: Never Alone iPad -->
+                <img src="images/hero-senior-ipad.png" alt="Never Alone iPad-based Telehealth Platform" class="rounded-2xl shadow-2xl">
+                <p class="text-sm text-gray-400 mt-4 text-center"><a href="https://digitalscientists.com/case-studies/never-alone/" class="text-dsTeal hover:underline">Never Alone</a> iPad-based Telehealth and Virtual Care Platform</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Trust Badges - Actual Client Logos -->
+<section class="py-8 border-b border-gray-100 bg-white">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+            <img src="images/duke-health.png" alt="Duke Health" class="h-8 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="images/congruity-health.svg" alt="Congruity Health" class="h-8 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="images/mckesson.png" alt="McKesson" class="h-8 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="images/communicare.png" alt="CommuniCare" class="h-8 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="images/guardian.svg" alt="Guardian" class="h-8 object-contain opacity-70 hover:opacity-100 transition invert">
+        </div>
+    </div>
+</section>
+
+<!-- What We Build - With Icons -->
+<section class="py-20">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
+                    <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                    What We Build
+                </div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Healthcare Mobile Solutions</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Native and cross-platform apps for every device in the care continuum.</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition">
+                <div class="w-12 h-12 bg-dsBlue/10 rounded-full flex items-center justify-center mb-6">
+                    <img src="images/icon-launch-white.svg" alt="Mobile" class="w-8 h-8">
+                </div>
+                <h3 class="text-xl font-bold mb-3">Smartphones & Tablets</h3>
+                <p class="text-gray-600 mb-4">iOS and Android apps for patients and providers. Telehealth, scheduling, medication management, secure messaging—all optimized for mobile.</p>
+                <p class="text-sm text-dsBlue font-medium">iOS, Android, React Native, Flutter</p>
+            </div>
+            
+            <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition">
+                <div class="w-12 h-12 bg-dsBlue/10 rounded-full flex items-center justify-center mb-6">
+                    <img src="images/icon-wearable.svg" alt="Wearables" class="w-8 h-8">
+                </div>
+                <h3 class="text-xl font-bold mb-3">Wearable Technology</h3>
+                <p class="text-gray-600 mb-4">Integrate with smartwatches, fitness trackers, and medical wearables. Capture vital signs, activity data, and health metrics continuously.</p>
+                <p class="text-sm text-dsTeal font-medium">Apple HealthKit, Google Fit, Fitbit SDK</p>
+            </div>
+            
+            <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition">
+                <div class="w-12 h-12 bg-dsBlue/10 rounded-full flex items-center justify-center mb-6">
+                    <img src="images/icon-medical-devices.svg" alt="Devices" class="w-8 h-8">
+                </div>
+                <h3 class="text-xl font-bold mb-3">Medical Devices</h3>
+                <p class="text-gray-600 mb-4">Connect glucose monitors, blood pressure cuffs, pulse oximeters, and specialized medical equipment via Bluetooth and IoT protocols.</p>
+                <p class="text-sm text-gray-700 font-medium">Bluetooth LE, HL7 FHIR, Device SDKs</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Use Cases -->
+<section class="py-20 bg-gray-50">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
+                    <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                    Applications
+                </div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Where Mobile Creates Value</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white rounded-xl p-6 border border-gray-200 hover:border-dsBlue/30 hover:shadow-md transition">
+                <span class="text-xs bg-dsTeal/10 text-dsTeal px-2 py-1 rounded font-bold mb-3 inline-block">PROVEN AT SCALE</span>
+                <h3 class="font-bold text-lg mb-2">Remote Patient Monitoring</h3>
+                <p class="text-gray-600 text-sm">Continuous monitoring of vital signs, enabling proactive intervention and reducing hospitalizations.</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-gray-200 hover:border-dsBlue/30 hover:shadow-md transition">
+                <span class="text-xs bg-dsBlue/10 text-dsBlue px-2 py-1 rounded font-bold mb-3 inline-block">HIGH DEMAND</span>
+                <h3 class="font-bold text-lg mb-2">Telehealth & Virtual Care</h3>
+                <p class="text-gray-600 text-sm">Video consultations, chat, and asynchronous care that meets patients where they are.</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-gray-200 hover:border-dsBlue/30 hover:shadow-md transition">
+                <h3 class="font-bold text-lg mb-2">Clinical Decision Support</h3>
+                <p class="text-gray-600 text-sm">Put guidelines, protocols, and AI-powered recommendations in providers' hands at point of care.</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-gray-200 hover:border-dsBlue/30 hover:shadow-md transition">
+                <h3 class="font-bold text-lg mb-2">Medication Management</h3>
+                <p class="text-gray-600 text-sm">Reminders, refill requests, interaction checking, and adherence tracking.</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-gray-200 hover:border-dsBlue/30 hover:shadow-md transition">
+                <h3 class="font-bold text-lg mb-2">Clinical Communication</h3>
+                <p class="text-gray-600 text-sm">Secure messaging between care teams that meets HIPAA requirements.</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-gray-200 hover:border-dsBlue/30 hover:shadow-md transition">
+                <h3 class="font-bold text-lg mb-2">Patient Engagement</h3>
+                <p class="text-gray-600 text-sm">Health records access, appointment scheduling, and care plan tracking.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Case Studies Grid -->
+<section class="py-20">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
+                    <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                    Case Studies
+                </div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Healthcare App Success Stories</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <a href="https://digitalscientists.com/case-studies/never-alone/" class="group">
+                <div class="rounded-xl overflow-hidden mb-4">
+                    <img src="images/case-neveralone-senior.png" alt="Never Alone" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
+                </div>
+                <h3 class="font-bold text-lg mb-2 group-hover:text-dsBlue transition">Never Alone</h3>
+                <p class="text-gray-600 text-sm">RPM platform helps older adults age in place</p>
+                <p class="text-xs text-gray-400 mt-2">Healthcare, IoT, Mobile, UX/UI</p>
+            </a>
+            <a href="https://digitalscientists.com/case-studies/guardian/" class="group">
+                <div class="rounded-xl overflow-hidden mb-4">
+                    <img src="images/case-guardian-monitor.png" alt="Guardian" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
+                </div>
+                <h3 class="font-bold text-lg mb-2 group-hover:text-dsBlue transition">Guardian</h3>
+                <p class="text-gray-600 text-sm">AI-powered remote patient monitoring for the operating room</p>
+                <p class="text-xs text-gray-400 mt-2">AI, Healthcare, IoT, Mobile</p>
+            </a>
+            <a href="https://digitalscientists.com/case-studies/mckesson-3pl/" class="group">
+                <div class="rounded-xl overflow-hidden mb-4">
+                    <img src="images/case-mckesson-warehouse.jpg" alt="McKesson" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
+                </div>
+                <h3 class="font-bold text-lg mb-2 group-hover:text-dsBlue transition">McKesson</h3>
+                <p class="text-gray-600 text-sm">New client portal shifts transactional relationships to partnerships</p>
+                <p class="text-xs text-gray-400 mt-2">Healthcare, Logistics</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Mobile Requirements - With Icons -->
+<section class="py-20 bg-gray-50">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
+                    <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                    Requirements
+                </div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Healthcare Mobile Must-Haves</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div class="bg-white rounded-xl p-6 text-center">
+                <img src="images/icon-data-security.svg" alt="Security" class="w-12 h-12 mx-auto mb-4">
+                <h3 class="font-bold mb-2">Data Security</h3>
+                <p class="text-gray-600 text-sm">Encryption, authentication, secure APIs</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 text-center">
+                <img src="images/icon-regulatory.svg" alt="Compliance" class="w-12 h-12 mx-auto mb-4">
+                <h3 class="font-bold mb-2">Regulatory Compliance</h3>
+                <p class="text-gray-600 text-sm">HIPAA, GDPR, state regulations</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 text-center">
+                <img src="images/icon-reliability.svg" alt="Reliability" class="w-12 h-12 mx-auto mb-4">
+                <h3 class="font-bold mb-2">Reliability</h3>
+                <p class="text-gray-600 text-sm">High availability, offline support</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 text-center">
+                <img src="images/icon-interop.svg" alt="Interoperability" class="w-12 h-12 mx-auto mb-4">
+                <h3 class="font-bold mb-2">Interoperability</h3>
+                <p class="text-gray-600 text-sm">EHR integration, HL7 FHIR</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MVP Process - With Icons -->
+<section class="py-20">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
+                    <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                    Our Process
+                </div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">From Concept to App Store in 8 Weeks</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-4 gap-8">
+            <div class="text-center">
+                <div class="w-20 h-20 bg-dsBlue rounded-full flex items-center justify-center mx-auto mb-4">
+                    <img src="images/icon-discovery.svg" alt="Discovery" class="w-10 h-10">
+                </div>
+                <h3 class="font-bold text-lg mb-2">Discovery</h3>
+                <p class="text-gray-600 text-sm mb-2">Define user needs, clinical workflows, and integration requirements.</p>
+                <p class="text-xs text-dsBlue font-medium">Product strategy + prioritized features</p>
+            </div>
+            <div class="text-center">
+                <div class="w-20 h-20 bg-dsBlue rounded-full flex items-center justify-center mx-auto mb-4">
+                    <img src="images/icon-blueprint.svg" alt="Blueprint" class="w-10 h-10">
+                </div>
+                <h3 class="font-bold text-lg mb-2">Blueprint</h3>
+                <p class="text-gray-600 text-sm mb-2">UX design, technical architecture, API specifications.</p>
+                <p class="text-xs text-dsBlue font-medium">Wireframes, prototype, roadmap</p>
+            </div>
+            <div class="text-center">
+                <div class="w-20 h-20 bg-dsBlue rounded-full flex items-center justify-center mx-auto mb-4">
+                    <img src="images/icon-launch.svg" alt="Launch" class="w-10 h-10">
+                </div>
+                <h3 class="font-bold text-lg mb-2">Develop & Launch</h3>
+                <p class="text-gray-600 text-sm mb-2">Agile sprints, continuous testing, App Store submission.</p>
+                <p class="text-xs text-dsBlue font-medium">MVP ready for users</p>
+            </div>
+            <div class="text-center">
+                <div class="w-20 h-20 bg-dsTeal rounded-full flex items-center justify-center mx-auto mb-4">
+                    <img src="images/icon-grow.svg" alt="Grow" class="w-10 h-10">
+                </div>
+                <h3 class="font-bold text-lg mb-2">Grow</h3>
+                <p class="text-gray-600 text-sm mb-2">User feedback, analytics, feature expansion, scale infrastructure.</p>
+                <p class="text-xs text-dsTeal font-medium">Continuous improvement</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Partner With Us -->
+<section class="py-20 bg-dsGray">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="text-center mb-12">
+            <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-4">
+                <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                Why Partner With Us
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">We're not learning healthcare on your dime.</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Calendar Year ROI. 100% production rate. 75-person integrated team.</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center">
+                <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
+                    <span class="text-2xl font-bold text-dsBlue">100%</span>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Complete Value Chain</h3>
+                <p class="text-gray-600">8 steps from messy data to measurable outcomes. Most AI projects fail at step 2—we deliver all 8 to production.</p>
+            </div>
+            <div class="text-center">
+                <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
+                    <span class="text-2xl font-bold text-dsBlue">$20M+</span>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Verified Healthcare ROI</h3>
+                <p class="text-gray-600">$10M+ PDPM recovery. $10M+ RAF improvement. Hard dollar returns within the calendar year.</p>
+            </div>
+            <div class="text-center">
+                <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
+                    <span class="text-2xl font-bold text-dsBlue">75</span>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Integrated Team</h3>
+                <p class="text-gray-600">15 US architects + 60 nearshore delivery. Same timezone, HIPAA-compliant, partners not vendors.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Testimonial - With Logo -->
+<section class="py-16">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="max-w-3xl mx-auto text-center">
+            <img src="https://digitalscientists.com/wp-content/uploads/2024/05/Group2.svg" alt="CommuniCare" class="h-12 mx-auto mb-6">
+            <p class="text-xl text-gray-700 mb-6 italic leading-relaxed">"I have worked with many technology teams during my career, and Digital Scientists is one of the best. They take the time to understand the customers' needs, deliver innovative solutions, are always professional, and work with your team as a true partner to achieve success."</p>
+            <p class="font-bold text-lg">Amy Severino</p>
+            <p class="text-gray-500">Chief Innovation Officer, CommuniCare Health Services</p>
+        </div>
+    </div>
+</section>
+
+<!-- Technology Logos -->
+<section class="py-16 bg-gray-50">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <p class="text-sm font-mono text-gray-500 uppercase tracking-widest text-center mb-8">Technologies</p>
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+            <img src="images/tech-android.svg" alt="Android" class="h-8 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="images/tech-apple.svg" alt="Apple" class="h-8 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="images/tech-react.png" alt="React Native" class="h-8 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="images/tech-twilio.png" alt="Twilio" class="h-8 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="images/tech-healthkit.png" alt="HealthKit" class="h-8 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="images/tech-hl7fhir.png" alt="HL7 FHIR" class="h-8 object-contain opacity-70 hover:opacity-100 transition">
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section with Form -->
+<section class="py-20 bg-dsBlue" id="contact">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <!-- Left Side - Copy -->
+            <div class="text-white">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to discuss your mobile app?</h2>
+                <p class="text-xl text-blue-100 mb-8">30-minute call. No pitch. Just honest assessment of what's possible for your organization.</p>
+                
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-dsTeal flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span>Understand your clinical workflows and pain points</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-dsTeal flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span>Assess opportunity and realistic ROI range</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-dsTeal flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span>Determine if there's a fit</span>
+                    </div>
+                </div>
+                
+                <p class="text-blue-200">Or call: <a href="tel:4046543855" class="text-white font-semibold hover:underline">404.654.3855</a></p>
+            </div>
+            
+            <!-- Right Side - Form -->
+            <div class="bg-white rounded-2xl p-8 shadow-xl">
+                <form action="https://formspree.io/f/mrbgppby" method="POST" class="space-y-5">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                            <input type="text" name="first_name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-dsBlue focus:border-dsBlue outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                            <input type="text" name="last_name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-dsBlue focus:border-dsBlue outline-none transition">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-dsBlue focus:border-dsBlue outline-none transition">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Organization</label>
+                        <input type="text" name="organization" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-dsBlue focus:border-dsBlue outline-none transition">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Primary Interest</label>
+                        <select name="primary_interest" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-dsBlue focus:border-dsBlue outline-none transition bg-white">
+                            <option value="">Select an option...</option>
+                            <option value="Remote Patient Monitoring">Remote Patient Monitoring</option>
+                            <option value="Telehealth Platform">Telehealth Platform</option>
+                            <option value="Patient Engagement App">Patient Engagement App</option>
+                            <option value="Clinical Communication">Clinical Communication</option>
+                            <option value="Other Mobile Project">Other Mobile Project</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-dsBlue text-white font-semibold py-4 px-6 rounded-full hover:bg-dsBlack transition text-lg">
+                        Schedule Mobile App Call
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HIPAA Section - With Badge -->
+<section class="py-16 bg-white">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="flex flex-col md:flex-row items-center gap-8">
+            <div class="flex-1">
+                <h3 class="text-2xl font-bold mb-4">HIPAA Compliance & PHI Security</h3>
+                <p class="text-gray-600 mb-4">Every mobile app we build is designed for healthcare from day one. Encryption at rest and in transit, secure authentication, audit logging, and BAA-ready infrastructure.</p>
+                <a href="https://digitalscientists.com/healthcare/security-phi/" class="text-dsBlue font-semibold hover:underline">Learn more about our security approach →</a>
+            </div>
+            <div>
+                <img src="images/compliance-hipaa-onc.png" alt="HIPAA Compliant and ONC Certified" class="h-24">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DS 2.0 Footer - FINAL -->
+<!-- START DS-FOOTER -->
+
+<!-- DS 2.0 Footer - FINAL -->
+<!-- START DS-FOOTER -->
+
+<footer class="bg-[#2d2d2d] text-white pt-16 pb-8 px-6">
+    <div class="max-w-screen-xl mx-auto">
+        
+        <!-- Top Section: Newsletter + Links -->
+        <div class="grid lg:grid-cols-7 gap-10 mb-12">
+            
+            <!-- Newsletter Signup - Pipedrive Form (2 cols) -->
+            <div class="lg:col-span-2">
+                <h3 class="text-xl font-semibold mb-6">Follow our Insights</h3>
+                <div class="pipedriveWebForms" data-pd-webforms="https://webforms.pipedrive.com/f/1E1nwc9ALZntG4SRNIYwJUkjHczvQg85Vl6y3N60DtTeCyFqQQTPIOd3o87vfiuIj"></div>
+            </div>
+
+            <!-- Capabilities -->
+            <div>
+                <h4 class="text-sm font-medium text-white mb-4">Capabilities</h4>
+                <div class="space-y-3">
+                    <a href="https://digitalscientists.com/mobile-app-development/" class="block text-gray-400 hover:text-white text-sm">Mobile app development</a>
+                    <a href="https://digitalscientists.com/web-application-development/" class="block text-gray-400 hover:text-white text-sm">Web application development</a>
+                    <a href="https://digitalscientists.com/ai-ml-development/" class="block text-gray-400 hover:text-white text-sm">AI & machine learning</a>
+                    <a href="https://digitalscientists.com/cloud-application-development/" class="block text-gray-400 hover:text-white text-sm">Cloud application development</a>
+                    <a href="https://digitalscientists.com/iot-application-development/" class="block text-gray-400 hover:text-white text-sm">IoT application development</a>
+                </div>
+            </div>
+
+            <!-- Getting Started -->
+            <div>
+                <h4 class="text-sm font-medium text-white mb-4">Getting Started</h4>
+                <div class="space-y-3">
+                    <a href="https://digitalscientists.com/services/proof-of-concept/" class="block text-gray-400 hover:text-white text-sm">Proof of concept</a>
+                    <a href="https://digitalscientists.com/services/product-blueprint/" class="block text-gray-400 hover:text-white text-sm">Product blueprint</a>
+                    <a href="https://digitalscientists.com/services/mvp-development/" class="block text-gray-400 hover:text-white text-sm">Minimum viable product (MVP)</a>
+                    <a href="https://digitalscientists.com/services/new-product-development/" class="block text-gray-400 hover:text-white text-sm">New product development</a>
+                </div>
+            </div>
+
+            <!-- Experienced Team -->
+            <div>
+                <h4 class="text-sm font-medium text-white mb-4">Experienced Team</h4>
+                <div class="space-y-3">
+                    <a href="https://digitalscientists.com/product-management/" class="block text-gray-400 hover:text-white text-sm">Product management</a>
+                    <a href="https://digitalscientists.com/research-design/" class="block text-gray-400 hover:text-white text-sm">Research & design</a>
+                    <a href="https://digitalscientists.com/development/" class="block text-gray-400 hover:text-white text-sm">Development</a>
+                </div>
+                <h4 class="text-sm font-medium text-white mb-4 mt-6">Value Approach</h4>
+                <div class="space-y-3">
+                    <a href="https://digitalscientists.com/business-value/" class="block text-gray-400 hover:text-white text-sm">Business Value</a>
+                </div>
+            </div>
+
+            <!-- Our Approach + Company -->
+            <div>
+                <h4 class="text-sm font-medium text-white mb-4">Our Approach</h4>
+                <div class="space-y-3">
+                    <a href="https://digitalscientists.com/how-we-work/" class="block text-gray-400 hover:text-white text-sm">How we work</a>
+                    <a href="https://digitalscientists.com/what-we-do/" class="block text-gray-400 hover:text-white text-sm">What we do</a>
+                </div>
+                <h4 class="text-sm font-medium text-white mb-4 mt-6">Company</h4>
+                <div class="space-y-3">
+                    <a href="https://digitalscientists.com/about/" class="block text-gray-400 hover:text-white text-sm">Our story</a>
+                    <a href="https://digitalscientists.com/blog/" class="block text-gray-400 hover:text-white text-sm">Insights</a>
+                    <a href="https://digitalscientists.com/careers/" class="block text-gray-400 hover:text-white text-sm">Careers</a>
+                </div>
+            </div>
+
+            <!-- Case Studies + Social -->
+            <div>
+                <h4 class="text-sm font-medium text-white mb-4">Case studies</h4>
+                <div class="space-y-3">
+                    <a href="https://digitalscientists.com/work/" class="block text-gray-400 hover:text-white text-sm">View all work →</a>
+                </div>
+                <h4 class="text-sm font-medium text-white mb-4 mt-6">Social</h4>
+                <div class="space-y-3">
+                    <a href="https://www.linkedin.com/company/digital-scientists/" class="block text-gray-400 hover:text-white text-sm">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Brand + Address Section -->
+        <div class="border-t border-gray-700 pt-8 mb-8">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+                <div>
+                    <img src="1012DS_Logo_Native_Black (1).svg" alt="Digital Scientists" class="h-10 brightness-0 invert">
+                    <div class="mt-4 text-gray-400 text-sm font-mono">
+                        <p>21 south main street</p>
+                        <p>alpharetta, ga 30009</p>
+                        <p class="mt-2">404.654.3855</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-500 text-sm font-mono">© 2007 - 2026 digital scientists, llc.</p>
+            <a href="https://digitalscientists.com/privacy-policy/" class="text-gray-500 hover:text-white text-sm font-mono">privacy policy</a>
+        </div>
+    </div>
+</footer>
+
+<!-- Pipedrive Web Forms Script -->
+<script src="https://webforms.pipedrive.com/f/loader"></script>
+<!-- END DS-FOOTER -->
+
+
+</body>
+</html>
