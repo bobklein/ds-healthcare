@@ -674,57 +674,40 @@ document.addEventListener('DOMContentLoaded', function() {
     <section id="work" class="py-20 px-6 bg-dsGray">
         <div class="max-w-screen-xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Content -->
+                <div>
+                    <p class="text-sm text-gray-500 mb-4">ai, healthcare, web</p>
+                    
+                    <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mb-6">Never Alone: Scalable Virtual Care for Patients, Providers & Peace of Mind</h2>
+                    
+                    <p class="text-lg text-gray-600 mb-8">
+                        Digital Scientists partnered with CommuniCare Health Services to build Never Alone—a one-touch virtual care platform that connects frontline staff to medical professionals in real time, 24/7.
+                    </p>
+                    
+                    <a href="work-never-alone.html" class="inline-flex items-center gap-3 border-2 border-dsBlack text-dsBlack px-6 py-3 rounded-full font-medium hover:bg-dsBlack hover:text-white transition-all">
+                        VIEW CASE STUDY
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                </div>
+                
                 <!-- Video -->
                 <div class="relative">
-                    <div class="rounded-xl overflow-hidden bg-gray-900 shadow-2xl relative group">
+                    <div class="rounded-xl overflow-hidden shadow-2xl relative group">
                         <video id="hub-hero-video" class="w-full h-auto" poster="images/neveralone-video-call.jpg" preload="metadata" playsinline>
                             <source src="images/neveralone-video.mp4" type="video/mp4">
                         </video>
-                        <div id="hub-video-overlay" class="absolute inset-0 flex items-center justify-center bg-black/20 cursor-pointer transition-opacity" onclick="playHubVideo()">
-                            <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
-                                <svg class="w-8 h-8 text-dsBlack ml-1" fill="currentColor" viewBox="0 0 24 24">
+                        <div id="hub-video-overlay" class="absolute inset-0 flex items-center justify-center bg-black/10 cursor-pointer transition-opacity" onclick="playHubVideo()">
+                            <div class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6 text-dsBlack ml-1" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M8 5v14l11-7z"/>
                                 </svg>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Content -->
-                <div>
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Featured Case Study</span>
-                        <span class="text-xs text-gray-400">*</span>
-                        <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">We Built & Operate</span>
+                    <!-- NeverAlone Logo -->
+                    <div class="flex justify-end mt-4">
+                        <img src="images/case-logo-neveralone.svg" alt="NeverAlone" class="h-12">
                     </div>
-                    
-                    <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mb-4">NeverAlone</h2>
-                    <p class="text-lg text-gray-600 mb-6">
-                        24/7 virtual care platform serving 26,000+ patients across 7 states. We didn't just build this—we operate it in production every day.
-                    </p>
-                    
-                    <div class="grid grid-cols-2 gap-4 mb-6">
-                        <div>
-                            <span class="text-2xl font-bold text-dsBlack">26,000+</span>
-                            <p class="text-gray-500 text-sm">Patients Served</p>
-                        </div>
-                        <div>
-                            <span class="text-2xl font-bold text-dsBlue">96%</span>
-                            <p class="text-gray-500 text-sm">Treat-in-Place</p>
-                        </div>
-                        <div>
-                            <span class="text-2xl font-bold text-dsBlack">7</span>
-                            <p class="text-gray-500 text-sm">States</p>
-                        </div>
-                        <div>
-                            <span class="text-2xl font-bold text-dsBlack">32%</span>
-                            <p class="text-gray-500 text-sm">Cost Reduction</p>
-                        </div>
-                    </div>
-                    
-                    <a href="work-never-alone.html" class="inline-flex items-center gap-2 text-dsBlue font-medium hover:gap-3 transition-all">
-                        Read Full Case Study <span>→</span>
-                    </a>
                 </div>
             </div>
         </div>
