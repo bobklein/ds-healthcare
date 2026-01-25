@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeverAlone Virtual Care Platform | Digital Scientists</title>
+    <meta name="description" content="24/7 virtual care platform serving 26,000+ patients across 7 states. Skilled Nursing, Assisted Living, Home Health, Hospice, and IDD support with 96% treat-in-place rate.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dsBlue: '#304FFF',
+                        dsBlack: '#050505',
+                        dsGray: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        h1, h2, h3 { letter-spacing: -0.02em; }
+        
+        /* Market segment tabs */
+        .market-tab {
+            transition: all 0.2s;
+        }
+        .market-tab.active {
+            background: #304FFF;
+            color: white;
+            border-color: #304FFF;
+        }
+        .market-content {
+            display: none;
+        }
+        .market-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-white text-dsBlack antialiased">
+
+    <!-- Navigation -->
+    <style>
+        .nav-dropdown { position: relative; }
+        .nav-dropdown-menu { 
+            display: none; 
+            position: absolute; 
+            top: 100%; 
+            left: 0; 
+            padding-top: 8px;
+            z-index: 100;
+        }
+        .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+        .nav-dropdown-menu.right-aligned { left: auto; right: 0; }
+    </style>
+
+    <!-- DS Healthcare Mega Menu Navigation -->
+<!-- Desktop: Mega menu on hover | Mobile: Hamburger + Accordion -->
+
+<style>
+/* Mega Menu Styles */
+.mega-menu-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 8px;
+    z-index: 100;
+}
+.nav-item:hover .mega-menu-container {
+    display: block;
+}
+.mega-menu {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 24px;
+    min-width: 820px;
+}
+.mega-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+.mega-menu-section h4 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    margin-bottom: 12px;
+    padding-left: 12px;
+}
+.mega-menu-section a {
+    display: block;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #374151;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+.mega-menu-section a:hover {
+    background: #f3f4f6;
+}
+.mega-menu-cta {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+}
+.mega-menu-cta a {
+    background: #2563eb;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+.mega-menu-cta a:hover {
+    background: #1d4ed8;
+}
+
+/* Mobile Accordion Styles */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    overflow-y: auto;
+    z-index: 90;
+}
+.mobile-nav.open {
+    display: block;
+}
+.mobile-accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #111827;
+    border-bottom: 1px solid #f3f4f6;
+    cursor: pointer;
+}
+.mobile-accordion-header svg {
+    transition: transform 0.2s;
+}
+.mobile-accordion-header.open svg {
+    transform: rotate(180deg);
+}
+.mobile-accordion-content {
+    display: none;
+    background: #f9fafb;
+    padding: 8px 0;
+}
+.mobile-accordion-content.open {
+    display: block;
+}
+.mobile-accordion-section h5 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    padding: 12px 32px 8px;
+}
+.mobile-accordion-content a {
+    display: block;
+    padding: 12px 32px;
+    font-size: 14px;
+    color: #374151;
+    text-decoration: none;
+}
+.mobile-accordion-content a:hover {
+    background: #e5e7eb;
+}
+.mobile-nav-link {
+    display: block;
+    padding: 16px 24px;
+    font-size: 15px;
+    color: #111827;
+    text-decoration: none;
+    border-bottom: 1px solid #f3f4f6;
+}
+.mobile-cta {
+    padding: 24px;
+}
+.mobile-cta a {
+    display: block;
+    background: #2563eb;
+    color: white;
+    text-align: center;
+    padding: 14px 24px;
+    border-radius: 9999px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .desktop-nav { display: none !important; }
+    .mobile-menu-btn { display: flex !important; }
+}
+@media (min-width: 1025px) {
+    .mobile-nav { display: none !important; }
+    .mobile-menu-btn { display: none !important; }
+}
+</style>
+
+<nav class="fixed w-full z-50 bg-white border-b border-gray-100">
+    <div class="max-w-screen-xl mx-auto px-6">
+        <div class="h-20 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center">
+                <img src="1012DS_Logo_Native_Black (1).svg" alt="Digital Scientists" class="h-12">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav hidden lg:flex items-center gap-1">
+                
+                <!-- Healthcare (Mega Menu) -->
+                <div class="nav-item relative">
+                    <a href="healthcare-hub.html" class="flex items-center gap-1 px-4 py-2 text-sm text-gray-600 hover:text-gray-900">
+                        Healthcare
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                    <div class="mega-menu-container">
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <!-- Column 1: Overview + Capabilities -->
+                                <div>
+                                    <div class="mega-menu-section">
+                                        <h4>Overview</h4>
+                                        <a href="healthcare-hub.html">Healthcare Hub</a>
+                                        <a href="healthcare-approach.html">Our Approach</a>
+                                    </div>
+                                    <div class="mega-menu-section" style="margin-top: 20px;">
+                                        <h4>Capabilities</h4>
+                                        <a href="healthcare-capabilities-ai-ml-nlp.html">AI, ML & NLP</a>
+                                        <a href="healthcare-capabilities-mobile.html">Mobile Apps</a>
+                                        <a href="healthcare-capabilities-saas.html">SaaS Platforms</a>
+                                        <a href="healthcare-capabilities-ux-design.html">UX Design</a>
+                                        <a href="healthcare-capabilities-data-analytics.html">Data Analytics</a>
+                                        <a href="healthcare-capabilities-samd.html">SaMD</a>
+                                    </div>
+                                </div>
+                                
+                                <!-- Column 2: AI Solutions -->
+                                <div class="mega-menu-section">
+                                    <h4>AI Solutions</h4>
+                                    <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+                                    <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+                                    <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+                                    <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+                                </div>
+                                
+                                <!-- Column 3: Domains -->
+                                <div class="mega-menu-section">
+                                    <h4>Domains</h4>
+                                    <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+                                    <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+                                    <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+                                    <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+                                    <a href="healthcare-domains-ambient-scribes.html">Ambient Scribes</a>
+                                    <a href="healthcare-domains-ehr-integrations.html">EHR Integrations</a>
+                                </div>
+                                
+                                <!-- Column 4: Markets + Case Studies -->
+                                <div>
+                                    <div class="mega-menu-section">
+                                        <h4>Markets</h4>
+                                        <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+                                        <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+                                        <a href="healthcare-markets-senior-living.html">Senior Living</a>
+                                        <a href="healthcare-markets-idd.html">IDD Services</a>
+                                        <a href="healthcare-markets-health-systems.html">Health Systems</a>
+                                    </div>
+                                    <div class="mega-menu-section" style="margin-top: 20px;">
+                                        <h4>Case Studies</h4>
+                                        <a href="work-never-alone.html">NeverAlone</a>
+                                        <a href="work-communicare-mds.html">CommuniCare MDS</a>
+                                        <a href="work-raf-hcc-coding.html">RAF/HCC Coding</a>
+                                        <a href="work-healthcontext-ai.html">HealthContext AI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mega-menu-cta">
+                                <a href="healthcare-assessment.html">Get AI Readiness Assessment →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Services (links to WP) -->
+                <a href="https://digitalscientists.com/services/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Services</a>
+                
+                <!-- About (links to WP) -->
+                <a href="https://digitalscientists.com/about/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">About</a>
+                
+                <!-- Blog (links to WP) -->
+                <a href="https://digitalscientists.com/blog/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Blog</a>
+                
+                <!-- Contact (links to WP) -->
+                <a href="https://digitalscientists.com/contact/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Contact</a>
+                
+                <!-- CTA Button -->
+                <a href="healthcare-assessment.html" class="ml-4 px-5 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-colors">
+                    Get Assessment
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn hidden items-center justify-center w-10 h-10 text-gray-600" id="mobile-menu-btn" aria-label="Toggle menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav" id="mobile-nav">
+    <!-- Healthcare Accordion -->
+    <div class="mobile-accordion">
+        <div class="mobile-accordion-header" data-accordion="healthcare">
+            Healthcare
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="mobile-accordion-content" id="accordion-healthcare">
+            <div class="mobile-accordion-section">
+                <h5>Overview</h5>
+                <a href="healthcare-hub.html">Healthcare Hub</a>
+                <a href="healthcare-approach.html">Our Approach</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Capabilities</h5>
+                <a href="healthcare-capabilities-ai-ml-nlp.html">AI, ML & NLP</a>
+                <a href="healthcare-capabilities-mobile.html">Mobile Apps</a>
+                <a href="healthcare-capabilities-saas.html">SaaS Platforms</a>
+                <a href="healthcare-capabilities-ux-design.html">UX Design</a>
+                <a href="healthcare-capabilities-data-analytics.html">Data Analytics</a>
+                <a href="healthcare-capabilities-samd.html">SaMD</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>AI Solutions</h5>
+                <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+                <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+                <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+                <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Domains</h5>
+                <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+                <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+                <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+                <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+                <a href="healthcare-domains-ambient-scribes.html">Ambient Scribes</a>
+                <a href="healthcare-domains-ehr-integrations.html">EHR Integrations</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Markets</h5>
+                <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+                <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+                <a href="healthcare-markets-senior-living.html">Senior Living</a>
+                <a href="healthcare-markets-idd.html">IDD Services</a>
+                <a href="healthcare-markets-health-systems.html">Health Systems</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Case Studies</h5>
+                <a href="work-never-alone.html">NeverAlone</a>
+                <a href="work-communicare-mds.html">CommuniCare MDS</a>
+                <a href="work-raf-hcc-coding.html">RAF/HCC Coding</a>
+                <a href="work-healthcontext-ai.html">HealthContext AI</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Other Nav Links -->
+    <a href="https://digitalscientists.com/services/" class="mobile-nav-link">Services</a>
+    <a href="https://digitalscientists.com/about/" class="mobile-nav-link">About</a>
+    <a href="https://digitalscientists.com/blog/" class="mobile-nav-link">Blog</a>
+    <a href="https://digitalscientists.com/contact/" class="mobile-nav-link">Contact</a>
+    
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+        <a href="healthcare-assessment.html">Get AI Readiness Assessment</a>
+    </div>
+</div>
+
+<script>
+// Mobile menu toggle
+document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
+    document.getElementById('mobile-nav')?.classList.toggle('open');
+});
+
+// Mobile accordion toggle
+document.querySelectorAll('.mobile-accordion-header').forEach(header => {
+    header.addEventListener('click', function() {
+        const target = this.dataset.accordion;
+        const content = document.getElementById('accordion-' + target);
+        this.classList.toggle('open');
+        content?.classList.toggle('open');
+    });
+});
+</script>
+
+    <!-- Hero Header -->
+    <header class="pt-32 pb-16 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <div>
+                    <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
+                        <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                        Case Study — Virtual Care Platform
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl font-bold text-dsBlack mb-6 leading-tight">
+                        NeverAlone
+                    </h1>
+                    
+                    <p class="text-xl text-gray-600 mb-6">
+                        A scalable virtual care platform for patients, providers, and peace of mind. We didn't just build this—we operate it in production every day.
+                    </p>
+                    
+                    <p class="text-gray-600 mb-8">
+                        NeverAlone connects patients, care teams, and clinical staff through a secure, AI-enabled platform that simplifies care delivery. It's fast to deploy, easy to use, and built by industry insiders—without the inflated costs.
+                    </p>
+                    
+                    <!-- Key Stats -->
+                    <div class="grid grid-cols-3 gap-4 mb-8">
+                        <div class="border border-gray-200 rounded-xl p-4 text-center">
+                            <span class="text-2xl md:text-3xl font-bold text-dsBlack">24/7</span>
+                            <p class="text-gray-500 text-sm">Access to Care</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-4 text-center">
+                            <span class="text-2xl md:text-3xl font-bold text-dsBlue">96%</span>
+                            <p class="text-gray-500 text-sm">Treat-in-Place</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-4 text-center">
+                            <span class="text-2xl md:text-3xl font-bold text-dsBlack">3 min</span>
+                            <p class="text-gray-500 text-sm">Avg Wait Time</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://www.neveralone.com" target="_blank" class="inline-flex items-center gap-2 bg-dsBlue text-white px-5 py-3 rounded-full font-medium hover:bg-dsBlack transition">
+                            Visit NeverAlone.com
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                        <a href="#markets" class="inline-flex items-center gap-2 border border-gray-300 text-dsBlack px-5 py-3 rounded-full font-medium hover:border-dsBlack transition">
+                            View Markets Served
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Video -->
+                <div>
+                    <div class="rounded-xl overflow-hidden bg-gray-900 shadow-2xl relative group">
+                        <video id="hero-video" class="w-full h-auto" poster="images/neveralone-video-call.jpg" preload="metadata" playsinline>
+                            <source src="https://digitalscientists.com/wp-content/uploads/2025/08/Never-Alone-Marketing-Video.mp4" type="video/mp4">
+                        </video>
+                        <div id="video-overlay" class="absolute inset-0 flex items-center justify-center bg-black/20 cursor-pointer transition-opacity" onclick="playVideo()">
+                            <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+                                <svg class="w-8 h-8 text-dsBlack ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Logo Bar -->
+    <section class="border-y border-gray-100 py-8 px-6">
+        <div class="max-w-screen-xl mx-auto flex flex-wrap justify-center items-center gap-8 md:gap-16">
+            <span class="text-xs text-gray-400 uppercase tracking-wider">Trusted By</span>
+            <span class="text-gray-300 font-medium">CommuniCare</span>
+            <span class="text-gray-300 font-medium">Easterseals</span>
+            <span class="text-gray-300 font-medium">Stonerise</span>
+            <span class="text-gray-300 font-medium">Personalized Health Partners</span>
+        </div>
+    </section>
+
+    <!-- Markets Served Section -->
+    <section id="markets" class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-3xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Markets Served</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    One platform. Multiple care settings.
+                </h2>
+                <p class="text-gray-600">
+                    NeverAlone adapts to the unique needs of each care environment while maintaining a consistent, simple experience for patients and providers.
+                </p>
+            </div>
+            
+            <!-- Market Tabs -->
+            <div class="flex flex-wrap gap-2 mb-8">
+                <button onclick="showMarket('snf')" class="market-tab active px-4 py-2 rounded-full border border-gray-300 text-sm font-medium" data-market="snf">Skilled Nursing</button>
+                <button onclick="showMarket('assisted')" class="market-tab px-4 py-2 rounded-full border border-gray-300 text-sm font-medium" data-market="assisted">Assisted Living</button>
+                <button onclick="showMarket('homehealth')" class="market-tab px-4 py-2 rounded-full border border-gray-300 text-sm font-medium" data-market="homehealth">Home Health</button>
+                <button onclick="showMarket('hospice')" class="market-tab px-4 py-2 rounded-full border border-gray-300 text-sm font-medium" data-market="hospice">Hospice</button>
+                <button onclick="showMarket('idd')" class="market-tab px-4 py-2 rounded-full border border-gray-300 text-sm font-medium" data-market="idd">IDD Support</button>
+            </div>
+            
+            <!-- Market Content -->
+            <div class="bg-white rounded-2xl p-8 border border-gray-200">
+                
+                <!-- Skilled Nursing -->
+                <div id="market-snf" class="market-content active">
+                    <div class="grid lg:grid-cols-2 gap-8 items-start">
+                        <div>
+                            <h3 class="text-2xl font-bold text-dsBlack mb-2">Win the night shift.</h3>
+                            <p class="text-lg text-dsBlue font-medium mb-4">Post-Acute Care Telemedicine for Skilled Nursing Facilities</p>
+                            <p class="text-gray-600 mb-4">
+                                Support nurses and ensure re-hospitalization is a last resort with a revolutionarily simple, 24/7 care platform that bridges the gap between healthcare providers, caregivers, and residents, delivering real-time support and personalized care to elevate the quality of life for seniors.
+                            </p>
+                            <p class="text-gray-600 mb-6">
+                                Our platform combines advanced technology with compassionate care to transform how senior nursing facilities deliver quality care, empowering residents and supporting healthcare providers in a seamless, efficient, and cost-effective way.
+                            </p>
+                            
+                            <!-- Platform Features -->
+                            <div class="grid grid-cols-3 gap-3 mb-6">
+                                <div class="text-center p-3 bg-dsGray rounded-lg">
+                                    <div class="w-8 h-8 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-4 h-4 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                                    </div>
+                                    <p class="text-xs text-gray-600 font-medium">Telehealth Access</p>
+                                </div>
+                                <div class="text-center p-3 bg-dsGray rounded-lg">
+                                    <div class="w-8 h-8 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-4 h-4 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                                    </div>
+                                    <p class="text-xs text-gray-600 font-medium">Care Coordination</p>
+                                </div>
+                                <div class="text-center p-3 bg-dsGray rounded-lg">
+                                    <div class="w-8 h-8 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-4 h-4 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                                    </div>
+                                    <p class="text-xs text-gray-600 font-medium">Engagement Tools</p>
+                                </div>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-4 mb-6">
+                                <div class="bg-dsGray rounded-lg p-4">
+                                    <p class="font-medium text-dsBlack mb-2">For Residents</p>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• Timely access to healthcare from their living spaces</li>
+                                        <li>• Increased independence through user-friendly technology</li>
+                                        <li>• Enhanced connection with loved ones via virtual tools</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-dsGray rounded-lg p-4">
+                                    <p class="font-medium text-dsBlack mb-2">For Nursing Facility Teams</p>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• Streamlined workflows for care delivery and records</li>
+                                        <li>• Reduced administrative burden with automation</li>
+                                        <li>• Real-time updates and analytics</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <a href="downloads/neveralone/NeverAlone-Skilled-Nursing.pdf" download class="inline-flex items-center gap-2 text-dsBlue font-medium hover:underline">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                                Download SNF One-Pager (PDF)
+                            </a>
+                        </div>
+                        <div>
+                            <div class="rounded-xl overflow-hidden bg-gray-100 mb-6">
+                                <img src="images/neveralone-concept.jpg" alt="NeverAlone Platform" class="w-full h-auto">
+                            </div>
+                            <div class="bg-dsGray border border-gray-200 rounded-xl p-6">
+                                <div class="flex gap-4">
+                                    <img src="images/testimonials/dr-matthew-wayne.jpg" alt="Dr. Matthew Wayne" class="w-16 h-16 rounded-full object-cover flex-shrink-0">
+                                    <div>
+                                        <p class="text-gray-700 mb-3 text-sm italic">"NeverAlone has transformed how we deliver care at CommuniCare Health Services, enabling us to provide better patient care and achieve stronger clinical outcomes. By supporting over 130 skilled nursing facilities 24/7, their solution ensures we can meet patients' needs more effectively."</p>
+                                        <p class="font-semibold text-dsBlack">Dr. Matthew Wayne</p>
+                                        <p class="text-sm text-gray-500">Chief Medical Officer, CommuniCare Health Services</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Assisted Living -->
+                <div id="market-assisted" class="market-content">
+                    <div class="grid lg:grid-cols-2 gap-8 items-start">
+                        <div>
+                            <h3 class="text-2xl font-bold text-dsBlack mb-2">Empowering Seniors with Independence and 24/7 Care</h3>
+                            <p class="text-lg text-dsBlue font-medium mb-4">Transformative Care Platform for Assisted Living Communities</p>
+                            <p class="text-gray-600 mb-4">
+                                Where compassionate care meets innovative technology to support seniors, helping them live independently in assisted living communities while scaling your business.
+                            </p>
+                            <p class="text-gray-600 mb-6">
+                                Revolutionizing how seniors maintain independence and quality of life through an intuitive digital platform. We connect residents with dedicated Personal Care Partners and healthcare providers, ensuring comprehensive, high-quality care while supporting operational scalability.
+                            </p>
+                            
+                            <!-- Platform Features -->
+                            <div class="grid grid-cols-3 gap-3 mb-6">
+                                <div class="text-center p-3 bg-dsGray rounded-lg">
+                                    <div class="w-8 h-8 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-4 h-4 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                                    </div>
+                                    <p class="text-xs text-gray-600 font-medium">Personal Care Partners</p>
+                                </div>
+                                <div class="text-center p-3 bg-dsGray rounded-lg">
+                                    <div class="w-8 h-8 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-4 h-4 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                    </div>
+                                    <p class="text-xs text-gray-600 font-medium">24/7 Accessibility</p>
+                                </div>
+                                <div class="text-center p-3 bg-dsGray rounded-lg">
+                                    <div class="w-8 h-8 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-4 h-4 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                                    </div>
+                                    <p class="text-xs text-gray-600 font-medium">Provider Integration</p>
+                                </div>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-4 mb-6">
+                                <div class="bg-dsGray rounded-lg p-4">
+                                    <p class="font-medium text-dsBlack mb-2">For Residents</p>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• Personalized care and timely interventions</li>
+                                        <li>• Stay independent while feeling supported</li>
+                                        <li>• 24/7 access providing peace of mind for families</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-dsGray rounded-lg p-4">
+                                    <p class="font-medium text-dsBlack mb-2">For Assisted Living Staff</p>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• Scalability without sacrificing care quality</li>
+                                        <li>• Reduce staff burnout and improve retention</li>
+                                        <li>• Automate tasks so staff can focus on care</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <a href="downloads/neveralone/NeverAlone-Assisted-Living.pdf" download class="inline-flex items-center gap-2 text-dsBlue font-medium hover:underline">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                                Download Assisted Living One-Pager (PDF)
+                            </a>
+                        </div>
+                        <div>
+                            <div class="rounded-xl overflow-hidden bg-gray-100 mb-6">
+                                <img src="images/neveralone-video-call.jpg" alt="NeverAlone Assisted Living" class="w-full h-auto">
+                            </div>
+                            <div class="bg-dsBlue/5 border border-dsBlue/20 rounded-xl p-6">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-dsBlue/10 rounded-full flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-2xl font-bold text-dsBlue">Scalability</p>
+                                        <p class="text-sm text-gray-600">Without Sacrificing Quality</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 text-sm">Streamline operations, manage more residents efficiently, and maintain high standards of care as your community grows.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Home Health -->
+                <div id="market-homehealth" class="market-content">
+                    <div class="grid lg:grid-cols-2 gap-8 items-start">
+                        <div>
+                            <h3 class="text-2xl font-bold text-dsBlack mb-2">Providing Access and Care 24/7 to Your Patients</h3>
+                            <p class="text-lg text-dsBlue font-medium mb-4">Transformative Care Platform for Home Health</p>
+                            <p class="text-gray-600 mb-4">
+                                Where high-touch personal care and innovative technology intersect to create comprehensive home health, empowering your patients and scaling your business.
+                            </p>
+                            <p class="text-gray-600 mb-6">
+                                Transforming how individuals maintain their independence and quality of life through an intuitive digital solution. Empower your patients with access to dedicated Personal Care Partners and healthcare providers, ensuring high-quality, comprehensive care from the comfort of home.
+                            </p>
+                            
+                            <!-- Key Stats -->
+                            <div class="bg-dsBlue/10 rounded-xl p-5 mb-6">
+                                <div class="flex items-center gap-4">
+                                    <span class="text-4xl font-bold text-dsBlue">30%</span>
+                                    <div>
+                                        <p class="font-medium text-dsBlack">Reduction in Hospital Readmissions</p>
+                                        <p class="text-sm text-gray-600">Agencies using our platform have reduced readmission rates by up to 30%</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Key Benefits -->
+                            <div class="space-y-3 mb-6">
+                                <div class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-dsBlue flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                    <div>
+                                        <p class="font-medium text-dsBlack">Decrease Staff Burnout and Turnover</p>
+                                        <p class="text-sm text-gray-600">Intuitive platform minimizes caregiver stress, allowing more time for patient care</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-dsBlue flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                    <div>
+                                        <p class="font-medium text-dsBlack">Scale Your Business</p>
+                                        <p class="text-sm text-gray-600">Manage and support more patients efficiently without sacrificing care quality</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-dsBlue flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                    <div>
+                                        <p class="font-medium text-dsBlack">Keep Patients at Home</p>
+                                        <p class="text-sm text-gray-600">Timely interventions keep individuals safely at home, out of hospitals and facilities</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <a href="downloads/neveralone/NeverAlone-Home-Health.pdf" download class="inline-flex items-center gap-2 text-dsBlue font-medium hover:underline">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                                Download Home Health One-Pager (PDF)
+                            </a>
+                        </div>
+                        <div>
+                            <div class="rounded-xl overflow-hidden bg-gray-100 mb-6">
+                                <img src="images/case-studies/ipad-app-full-schedule.png" alt="NeverAlone Home Health" class="w-full h-auto">
+                            </div>
+                            <!-- Platform Features -->
+                            <div class="grid grid-cols-3 gap-3">
+                                <div class="text-center p-4 bg-dsGray rounded-lg">
+                                    <div class="w-10 h-10 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-5 h-5 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                                    </div>
+                                    <p class="text-xs text-gray-600 font-medium">Personal Care Partners</p>
+                                </div>
+                                <div class="text-center p-4 bg-dsGray rounded-lg">
+                                    <div class="w-10 h-10 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-5 h-5 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                    </div>
+                                    <p class="text-xs text-gray-600 font-medium">24/7 Accessibility</p>
+                                </div>
+                                <div class="text-center p-4 bg-dsGray rounded-lg">
+                                    <div class="w-10 h-10 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-5 h-5 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                                    </div>
+                                    <p class="text-xs text-gray-600 font-medium">Provider Networks</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hospice -->
+                <div id="market-hospice" class="market-content">
+                    <div class="grid lg:grid-cols-2 gap-8 items-start">
+                        <div>
+                            <h3 class="text-2xl font-bold text-dsBlack mb-2">Compassionate End-of-Life Care</h3>
+                            <p class="text-lg text-dsBlue font-medium mb-4">Supporting Hospice Patients and Families</p>
+                            <p class="text-gray-600 mb-6">
+                                Better-managed care plans that significantly improve quality of life for hospice patients. The ability to reach rural patients at the press of a button, reducing travel time while delivering exceptional care.
+                            </p>
+                            
+                            <div class="bg-dsGray border border-gray-200 rounded-xl p-6 mb-6">
+                                <p class="text-gray-700 mb-4 text-sm italic">"NeverAlone has been instrumental in helping us better serve our hospice and home health patients at Stonerise. The ability to reach rural patients at the press of a button has been transformative, significantly reducing travel time for our nursing staff."</p>
+                                <p class="font-semibold text-dsBlack">Ryan McElhinny</p>
+                                <p class="text-sm text-gray-500">CEO, Stonerise Home Health and Hospice</p>
+                            </div>
+                            
+                            <a href="healthcare-markets-home-health-hospice.html" class="inline-flex items-center gap-2 text-dsBlue font-medium hover:underline">
+                                Learn more about Home Health & Hospice solutions →
+                            </a>
+                        </div>
+                        <div class="rounded-xl overflow-hidden bg-gray-100">
+                            <img src="images/nurse-patient.jpg" alt="NeverAlone Hospice" class="w-full h-auto">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- IDD Support -->
+                <div id="market-idd" class="market-content">
+                    <div class="grid lg:grid-cols-2 gap-8 items-start">
+                        <div>
+                            <h3 class="text-2xl font-bold text-dsBlack mb-2">Empowering IDD Individuals with Access to 24/7 Care</h3>
+                            <p class="text-lg text-dsBlue font-medium mb-4">Transformative Care Platform for IDD Support</p>
+                            <p class="text-gray-600 mb-4">
+                                Where compassionate care meets innovative technology to support individuals with intellectual and developmental disabilities (IDD), enabling them to thrive in their own homes or group home settings.
+                            </p>
+                            <p class="text-gray-600 mb-6">
+                                Transforming independence and quality of life for individuals with IDD through an intuitive digital platform. We connect them with dedicated Personal Care Partners and healthcare providers for comprehensive, high-quality care at home.
+                            </p>
+                            
+                            <!-- Platform Features -->
+                            <div class="grid grid-cols-3 gap-3 mb-6">
+                                <div class="text-center p-3 bg-dsGray rounded-lg">
+                                    <div class="w-8 h-8 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-4 h-4 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                    </div>
+                                    <p class="text-xs text-gray-600 font-medium">24/7 Accessibility</p>
+                                </div>
+                                <div class="text-center p-3 bg-dsGray rounded-lg">
+                                    <div class="w-8 h-8 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-4 h-4 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                                    </div>
+                                    <p class="text-xs text-gray-600 font-medium">Personal Care Partners</p>
+                                </div>
+                                <div class="text-center p-3 bg-dsGray rounded-lg">
+                                    <div class="w-8 h-8 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-4 h-4 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                                    </div>
+                                    <p class="text-xs text-gray-600 font-medium">Provider Integration</p>
+                                </div>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-4 mb-6">
+                                <div class="bg-dsGray rounded-lg p-4">
+                                    <p class="font-medium text-dsBlack mb-2">For Individuals</p>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• 24/7 video access & proactive care check-ins</li>
+                                        <li>• Consolidated medical & social calendar</li>
+                                        <li>• Local services: medication delivery, rides, meals</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-dsGray rounded-lg p-4">
+                                    <p class="font-medium text-dsBlack mb-2">For Providers</p>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• Integrated patient records for personalized care</li>
+                                        <li>• Support more patients without sacrificing quality</li>
+                                        <li>• Real-time queue management & multi-way calling</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-3">
+                                <a href="downloads/neveralone/NeverAlone-IDD.pdf" download class="inline-flex items-center gap-2 text-dsBlue font-medium hover:underline">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                                    IDD One-Pager
+                                </a>
+                                <a href="downloads/neveralone/NeverAlone-IDD-Group-Home.pdf" download class="inline-flex items-center gap-2 text-dsBlue font-medium hover:underline">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                                    Group Home One-Pager
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="rounded-xl overflow-hidden bg-gray-100 mb-6">
+                                <img src="images/clinical-team.jpg" alt="NeverAlone IDD Support" class="w-full h-auto">
+                            </div>
+                            <div class="bg-dsGray border border-gray-200 rounded-xl p-6">
+                                <div class="flex gap-4">
+                                    <img src="images/testimonials/donna-elbrecht.jpg" alt="Donna K. Elbrecht" class="w-16 h-16 rounded-full object-cover flex-shrink-0">
+                                    <div>
+                                        <p class="text-gray-700 mb-3 text-sm italic">"NeverAlone has made our processes more efficient, reducing onsite visits and helping our members gain a greater sense of independence. What truly sets the team apart is their commitment to understanding the specific needs of our community. They took the time to learn about our challenges and tailored their solution to fit our goals. The partnership has been invaluable in empowering both our members and our staff."</p>
+                                        <p class="font-semibold text-dsBlack">Donna K. Elbrecht</p>
+                                        <p class="text-sm text-gray-500">CEO, Easterseals Arc of Northeast Indiana</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">How It Works</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    Fast to deploy. Easy to use.
+                </h2>
+                <p class="text-gray-600">
+                    Built by industry insiders, NeverAlone gets your team up and running in under two weeks—without the inflated costs of traditional telehealth platforms.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-dsGray rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-dsBlue">1</span>
+                    </div>
+                    <h3 class="font-bold text-dsBlack mb-2">Onboard and Train</h3>
+                    <p class="text-gray-600 text-sm">Get fully set up in under two weeks. All patient data comes pre-loaded: care plans, insurance info, SBAR, and more.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-dsGray rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-dsBlue">2</span>
+                    </div>
+                    <h3 class="font-bold text-dsBlack mb-2">Request a Call</h3>
+                    <p class="text-gray-600 text-sm">Staff, caregivers, or patients initiate calls with the tap of a button. Contact a care provider for medical or non-medical help.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-dsGray rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-dsBlue">3</span>
+                    </div>
+                    <h3 class="font-bold text-dsBlack mb-2">Meet Within Minutes</h3>
+                    <p class="text-gray-600 text-sm">Connect with a licensed care provider in under three minutes, 24/7/365. Like having a personal physician on-site every day.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Resources -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Resources</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    Download market-specific details
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <a href="downloads/neveralone/NeverAlone-Skilled-Nursing.pdf" download class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue hover:shadow-md transition text-center group">
+                    <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-dsBlue/10 transition">
+                        <svg class="w-6 h-6 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                    </div>
+                    <p class="font-medium text-dsBlack mb-1">Skilled Nursing</p>
+                    <p class="text-xs text-gray-500">PDF Download</p>
+                </a>
+                
+                <a href="downloads/neveralone/NeverAlone-Assisted-Living.pdf" download class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue hover:shadow-md transition text-center group">
+                    <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-dsBlue/10 transition">
+                        <svg class="w-6 h-6 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                    </div>
+                    <p class="font-medium text-dsBlack mb-1">Assisted Living</p>
+                    <p class="text-xs text-gray-500">PDF Download</p>
+                </a>
+                
+                <a href="downloads/neveralone/NeverAlone-Home-Health.pdf" download class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue hover:shadow-md transition text-center group">
+                    <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-dsBlue/10 transition">
+                        <svg class="w-6 h-6 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                    </div>
+                    <p class="font-medium text-dsBlack mb-1">Home Health</p>
+                    <p class="text-xs text-gray-500">PDF Download</p>
+                </a>
+                
+                <a href="downloads/neveralone/NeverAlone-IDD.pdf" download class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue hover:shadow-md transition text-center group">
+                    <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-dsBlue/10 transition">
+                        <svg class="w-6 h-6 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                    </div>
+                    <p class="font-medium text-dsBlack mb-1">IDD Support</p>
+                    <p class="text-xs text-gray-500">PDF Download</p>
+                </a>
+                
+                <a href="downloads/neveralone/NeverAlone-IDD-Group-Home.pdf" download class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue hover:shadow-md transition text-center group">
+                    <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-dsBlue/10 transition">
+                        <svg class="w-6 h-6 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                    </div>
+                    <p class="font-medium text-dsBlack mb-1">IDD Group Home</p>
+                    <p class="text-xs text-gray-500">PDF Download</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Built -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">What We Built</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    A platform we operate every day
+                </h2>
+                <p class="text-gray-600">
+                    We don't just build healthcare technology—we run it in production. That operational experience informs everything we build for clients.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <div class="w-10 h-10 bg-dsGray rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    </div>
+                    <h3 class="font-bold text-dsBlack mb-2">HIPAA Compliant</h3>
+                    <p class="text-gray-600 text-sm">End-to-end encryption, BAA-ready, regular security audits</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <div class="w-10 h-10 bg-dsGray rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h3 class="font-bold text-dsBlack mb-2">Real-Time Video</h3>
+                    <p class="text-gray-600 text-sm">Low-latency video calls optimized for healthcare workflows</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <div class="w-10 h-10 bg-dsGray rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+                    </div>
+                    <h3 class="font-bold text-dsBlack mb-2">EHR Integration</h3>
+                    <p class="text-gray-600 text-sm">Pre-loaded care plans, insurance info, SBAR documentation</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <div class="w-10 h-10 bg-dsGray rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                    </div>
+                    <h3 class="font-bold text-dsBlack mb-2">Analytics Dashboard</h3>
+                    <p class="text-gray-600 text-sm">Call volume, response times, outcomes tracking, reporting</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 px-6 bg-dsBlue">
+        <div class="max-w-screen-xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                Want to build something like this?
+            </h2>
+            <p class="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
+                We built NeverAlone from scratch and operate it at scale. Let us bring that same expertise to your healthcare technology challenges.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="healthcare-assessment.html" class="bg-white text-dsBlue px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition">
+                    Get Your AI Assessment
+                </a>
+                <a href="https://www.neveralone.com" target="_blank" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition inline-flex items-center justify-center gap-2">
+                    Visit NeverAlone.com
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Work -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <h2 class="text-2xl font-bold text-dsBlack mb-8">Related Case Studies</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="work-communicare-mds.html" class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
+                    <div class="h-40 bg-gray-100 overflow-hidden">
+                        <img src="images/case-studies/ard-optimizer.png" alt="MDS Optimization" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <p class="text-sm text-dsBlue font-medium mb-2">MDS Optimization</p>
+                        <p class="font-bold text-dsBlack">$10M PDPM revenue improvement through AI-powered MDS optimization</p>
+                    </div>
+                </a>
+                
+                <a href="work-raf-hcc-coding.html" class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
+                    <div class="h-40 bg-gray-100 overflow-hidden">
+                        <img src="images/case-studies/raf-hero.png" alt="RAF/HCC Coding" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <p class="text-sm text-dsBlue font-medium mb-2">RAF/HCC Coding</p>
+                        <p class="font-bold text-dsBlack">AI-powered risk adjustment serving 20K+ patients across 7 states</p>
+                    </div>
+                </a>
+                
+                <a href="work-healthcontext-ai.html" class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
+                    <div class="h-40 bg-gray-100 overflow-hidden">
+                        <img src="images/case-studies/healthcontext-window.png" alt="HealthContext.AI" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <p class="text-sm text-dsBlue font-medium mb-2">Documentation AI</p>
+                        <p class="font-bold text-dsBlack">Ambient AI reducing documentation time from 45 to 5 minutes</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dsBlack text-white py-12 px-6">
+        <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+            <p>© 2007 - 2026 Digital Scientists, LLC.</p>
+            <div class="flex gap-6 mt-4 md:mt-0">
+                <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition">LinkedIn</a>
+                <a href="tel:4046543855" class="text-dsBlue hover:underline">404.654.3855</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Video player
+        function playVideo() {
+            const video = document.getElementById('hero-video');
+            const overlay = document.getElementById('video-overlay');
+            overlay.style.opacity = '0';
+            overlay.style.pointerEvents = 'none';
+            video.controls = true;
+            video.play();
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('hero-video');
+            const overlay = document.getElementById('video-overlay');
+            if (video && overlay) {
+                video.addEventListener('ended', function() {
+                    overlay.style.opacity = '1';
+                    overlay.style.pointerEvents = 'auto';
+                    video.controls = false;
+                });
+            }
+        });
+        
+        // Market tabs
+        function showMarket(marketId) {
+            document.querySelectorAll('.market-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.market-tab').forEach(el => el.classList.remove('active'));
+            document.getElementById('market-' + marketId).classList.add('active');
+            document.querySelector('[data-market="' + marketId + '"]').classList.add('active');
+        }
+    </script>
+
+</body>
+</html>

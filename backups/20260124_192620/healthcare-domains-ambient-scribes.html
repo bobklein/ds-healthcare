@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambient AI Scribes | Healthcare Domain Expertise | Digital Scientists</title>
+    <meta name="description" content="Ambient AI scribes for healthcare documentation. Reduce clinical documentation time from 45 to 5 minutes per visit. Custom AI scribes for SNFs, home health, hospice.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dsBlue: '#304FFF',
+                        dsBlack: '#050505',
+                        dsGray: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        h1, h2, h3 { letter-spacing: -0.02em; }
+        
+        
+    </style>
+</head>
+<body class="bg-white text-dsBlack antialiased">
+
+    <!-- Simple CSS Hover Navigation - No JavaScript Required -->
+<style>
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-menu { 
+        display: none; 
+        position: absolute; 
+        top: 100%; 
+        left: 0; 
+        padding-top: 8px;
+        z-index: 100;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu.right-aligned { left: auto; right: 0; }
+</style>
+
+<!-- DS Healthcare Mega Menu Navigation -->
+<!-- Desktop: Mega menu on hover | Mobile: Hamburger + Accordion -->
+
+<style>
+/* Mega Menu Styles */
+.mega-menu-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 8px;
+    z-index: 100;
+}
+.nav-item:hover .mega-menu-container {
+    display: block;
+}
+.mega-menu {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 24px;
+    min-width: 820px;
+}
+.mega-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+.mega-menu-section h4 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    margin-bottom: 12px;
+    padding-left: 12px;
+}
+.mega-menu-section a {
+    display: block;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #374151;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+.mega-menu-section a:hover {
+    background: #f3f4f6;
+}
+.mega-menu-cta {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+}
+.mega-menu-cta a {
+    background: #2563eb;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+.mega-menu-cta a:hover {
+    background: #1d4ed8;
+}
+
+/* Mobile Accordion Styles */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    overflow-y: auto;
+    z-index: 90;
+}
+.mobile-nav.open {
+    display: block;
+}
+.mobile-accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #111827;
+    border-bottom: 1px solid #f3f4f6;
+    cursor: pointer;
+}
+.mobile-accordion-header svg {
+    transition: transform 0.2s;
+}
+.mobile-accordion-header.open svg {
+    transform: rotate(180deg);
+}
+.mobile-accordion-content {
+    display: none;
+    background: #f9fafb;
+    padding: 8px 0;
+}
+.mobile-accordion-content.open {
+    display: block;
+}
+.mobile-accordion-section h5 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    padding: 12px 32px 8px;
+}
+.mobile-accordion-content a {
+    display: block;
+    padding: 12px 32px;
+    font-size: 14px;
+    color: #374151;
+    text-decoration: none;
+}
+.mobile-accordion-content a:hover {
+    background: #e5e7eb;
+}
+.mobile-nav-link {
+    display: block;
+    padding: 16px 24px;
+    font-size: 15px;
+    color: #111827;
+    text-decoration: none;
+    border-bottom: 1px solid #f3f4f6;
+}
+.mobile-cta {
+    padding: 24px;
+}
+.mobile-cta a {
+    display: block;
+    background: #2563eb;
+    color: white;
+    text-align: center;
+    padding: 14px 24px;
+    border-radius: 9999px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .desktop-nav { display: none !important; }
+    .mobile-menu-btn { display: flex !important; }
+}
+@media (min-width: 1025px) {
+    .mobile-nav { display: none !important; }
+    .mobile-menu-btn { display: none !important; }
+}
+</style>
+
+<nav class="fixed w-full z-50 bg-white border-b border-gray-100">
+    <div class="max-w-screen-xl mx-auto px-6">
+        <div class="h-20 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center">
+                <img src="1012DS_Logo_Native_Black (1).svg" alt="Digital Scientists" class="h-12">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav hidden lg:flex items-center gap-1">
+                
+                <!-- Healthcare (Mega Menu) -->
+                <div class="nav-item relative">
+                    <a href="healthcare-hub.html" class="flex items-center gap-1 px-4 py-2 text-sm text-gray-600 hover:text-gray-900">
+                        Healthcare
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                    <div class="mega-menu-container">
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <!-- Column 1: Overview + Capabilities -->
+                                <div>
+                                    <div class="mega-menu-section">
+                                        <h4>Overview</h4>
+                                        <a href="healthcare-hub.html">Healthcare Hub</a>
+                                        <a href="healthcare-approach.html">Our Approach</a>
+                                    </div>
+                                    <div class="mega-menu-section" style="margin-top: 20px;">
+                                        <h4>Capabilities</h4>
+                                        <a href="healthcare-capabilities-ai-ml-nlp.html">AI, ML & NLP</a>
+                                        <a href="healthcare-capabilities-mobile.html">Mobile Apps</a>
+                                        <a href="healthcare-capabilities-saas.html">SaaS Platforms</a>
+                                        <a href="healthcare-capabilities-ux-design.html">UX Design</a>
+                                        <a href="healthcare-capabilities-data-analytics.html">Data Analytics</a>
+                                        <a href="healthcare-capabilities-samd.html">SaMD</a>
+                                    </div>
+                                </div>
+                                
+                                <!-- Column 2: AI Solutions -->
+                                <div class="mega-menu-section">
+                                    <h4>AI Solutions</h4>
+                                    <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+                                    <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+                                    <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+                                    <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+                                </div>
+                                
+                                <!-- Column 3: Domains -->
+                                <div class="mega-menu-section">
+                                    <h4>Domains</h4>
+                                    <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+                                    <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+                                    <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+                                    <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+                                    <a href="healthcare-domains-ambient-scribes.html">Ambient Scribes</a>
+                                    <a href="healthcare-domains-ehr-integrations.html">EHR Integrations</a>
+                                </div>
+                                
+                                <!-- Column 4: Markets + Case Studies -->
+                                <div>
+                                    <div class="mega-menu-section">
+                                        <h4>Markets</h4>
+                                        <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+                                        <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+                                        <a href="healthcare-markets-senior-living.html">Senior Living</a>
+                                        <a href="healthcare-markets-idd.html">IDD Services</a>
+                                        <a href="healthcare-markets-health-systems.html">Health Systems</a>
+                                    </div>
+                                    <div class="mega-menu-section" style="margin-top: 20px;">
+                                        <h4>Case Studies</h4>
+                                        <a href="work-never-alone.html">NeverAlone</a>
+                                        <a href="work-communicare-mds.html">CommuniCare MDS</a>
+                                        <a href="work-raf-hcc-coding.html">RAF/HCC Coding</a>
+                                        <a href="work-healthcontext-ai.html">HealthContext AI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mega-menu-cta">
+                                <a href="healthcare-assessment.html">Get AI Readiness Assessment →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Services (links to WP) -->
+                <a href="https://digitalscientists.com/services/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Services</a>
+                
+                <!-- About (links to WP) -->
+                <a href="https://digitalscientists.com/about/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">About</a>
+                
+                <!-- Blog (links to WP) -->
+                <a href="https://digitalscientists.com/blog/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Blog</a>
+                
+                <!-- Contact (links to WP) -->
+                <a href="https://digitalscientists.com/contact/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Contact</a>
+                
+                <!-- CTA Button -->
+                <a href="healthcare-assessment.html" class="ml-4 px-5 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-colors">
+                    Get Assessment
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn hidden items-center justify-center w-10 h-10 text-gray-600" id="mobile-menu-btn" aria-label="Toggle menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav" id="mobile-nav">
+    <!-- Healthcare Accordion -->
+    <div class="mobile-accordion">
+        <div class="mobile-accordion-header" data-accordion="healthcare">
+            Healthcare
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="mobile-accordion-content" id="accordion-healthcare">
+            <div class="mobile-accordion-section">
+                <h5>Overview</h5>
+                <a href="healthcare-hub.html">Healthcare Hub</a>
+                <a href="healthcare-approach.html">Our Approach</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Capabilities</h5>
+                <a href="healthcare-capabilities-ai-ml-nlp.html">AI, ML & NLP</a>
+                <a href="healthcare-capabilities-mobile.html">Mobile Apps</a>
+                <a href="healthcare-capabilities-saas.html">SaaS Platforms</a>
+                <a href="healthcare-capabilities-ux-design.html">UX Design</a>
+                <a href="healthcare-capabilities-data-analytics.html">Data Analytics</a>
+                <a href="healthcare-capabilities-samd.html">SaMD</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>AI Solutions</h5>
+                <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+                <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+                <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+                <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Domains</h5>
+                <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+                <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+                <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+                <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+                <a href="healthcare-domains-ambient-scribes.html">Ambient Scribes</a>
+                <a href="healthcare-domains-ehr-integrations.html">EHR Integrations</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Markets</h5>
+                <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+                <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+                <a href="healthcare-markets-senior-living.html">Senior Living</a>
+                <a href="healthcare-markets-idd.html">IDD Services</a>
+                <a href="healthcare-markets-health-systems.html">Health Systems</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Case Studies</h5>
+                <a href="work-never-alone.html">NeverAlone</a>
+                <a href="work-communicare-mds.html">CommuniCare MDS</a>
+                <a href="work-raf-hcc-coding.html">RAF/HCC Coding</a>
+                <a href="work-healthcontext-ai.html">HealthContext AI</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Other Nav Links -->
+    <a href="https://digitalscientists.com/services/" class="mobile-nav-link">Services</a>
+    <a href="https://digitalscientists.com/about/" class="mobile-nav-link">About</a>
+    <a href="https://digitalscientists.com/blog/" class="mobile-nav-link">Blog</a>
+    <a href="https://digitalscientists.com/contact/" class="mobile-nav-link">Contact</a>
+    
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+        <a href="healthcare-assessment.html">Get AI Readiness Assessment</a>
+    </div>
+</div>
+
+<script>
+// Mobile menu toggle
+document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
+    document.getElementById('mobile-nav')?.classList.toggle('open');
+});
+
+// Mobile accordion toggle
+document.querySelectorAll('.mobile-accordion-header').forEach(header => {
+    header.addEventListener('click', function() {
+        const target = this.dataset.accordion;
+        const content = document.getElementById('accordion-' + target);
+        this.classList.toggle('open');
+        content?.classList.toggle('open');
+    });
+});
+</script>
+
+
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-16 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
+                    <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                    Healthcare Domain Expertise
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dsBlack mb-6 leading-[1.1]">
+                    Ambient AI Scribes
+                </h1>
+                
+                <p class="text-xl text-gray-600 leading-relaxed mb-8">
+                    Your clinicians spend 45 minutes per visit on documentation. That's time stolen from patient care-and the primary driver of burnout. Ambient AI scribes listen to clinical conversations and generate accurate documentation automatically. We build custom scribes that understand your specific documentation requirements.
+                </p>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    <div class="border border-gray-200 rounded-xl p-4">
+                        <span class="text-2xl font-bold text-dsBlue">45→5</span>
+                        <p class="text-gray-500 text-sm">Min Per Visit</p>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl p-4">
+                        <span class="text-2xl font-bold text-dsBlack">2-3</span>
+                        <p class="text-gray-500 text-sm">More Patients/Day</p>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl p-4">
+                        <span class="text-2xl font-bold text-dsBlack">80%</span>
+                        <p class="text-gray-500 text-sm">Time Savings</p>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl p-4">
+                        <span class="text-2xl font-bold text-dsBlack">6-12</span>
+                        <p class="text-gray-500 text-sm">Month Payback</p>
+                    </div>
+                </div>
+                
+                <a href="healthcare-assessment.html" class="inline-flex items-center gap-2 bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">
+                    Assess Your Documentation Opportunity
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- What Are Ambient Scribes -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-3xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Understanding Ambient AI Scribes</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
+                    AI that listens, understands, and documents
+                </h2>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <div >
+                    <p class="text-gray-600 mb-6">
+                        Ambient AI scribes use advanced speech recognition and natural language processing to capture clinical conversations in real-time. Unlike transcription services that produce raw text, ambient scribes understand medical context and generate structured documentation that fits your requirements.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        The technology has matured rapidly. Speech recognition accuracy for medical terminology now exceeds 95%. More importantly, large language models can interpret clinical conversations-identifying diagnoses discussed, treatments recommended, and assessments made-and organize this information into compliant documentation.
+                    </p>
+                    <p class="text-gray-600">
+                        But healthcare documentation isn't one-size-fits-all. OASIS assessments differ from MDS evaluations. Home health visit notes differ from SNF progress notes. Generic ambient scribes miss the mark. Custom solutions, trained on your specific documentation standards and integrated with your EHR, deliver real results.
+                    </p>
+                </div>
+                
+                <div >
+                    <div class="bg-white border border-gray-200 rounded-xl p-6">
+                        <h3 class="font-semibold text-dsBlack mb-4">How Ambient AI Scribes Work</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 bg-dsGray rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-dsBlue font-bold text-sm">1</span>
+                                </div>
+                                <div>
+                                    <p class="text-dsBlack font-medium">Listen</p>
+                                    <p class="text-gray-500 text-sm">AI captures the clinical conversation through mobile device, desktop, or dedicated hardware.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 bg-dsGray rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-dsBlue font-bold text-sm">2</span>
+                                </div>
+                                <div>
+                                    <p class="text-dsBlack font-medium">Understand</p>
+                                    <p class="text-gray-500 text-sm">NLP extracts clinical information: symptoms, assessments, diagnoses, treatments, patient responses.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 bg-dsGray rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-dsBlue font-bold text-sm">3</span>
+                                </div>
+                                <div>
+                                    <p class="text-dsBlack font-medium">Generate</p>
+                                    <p class="text-gray-500 text-sm">AI creates structured documentation in your format-visit notes, OASIS responses, care plan updates.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 bg-dsGray rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-dsBlue font-bold text-sm">4</span>
+                                </div>
+                                <div>
+                                    <p class="text-dsBlack font-medium">Review</p>
+                                    <p class="text-gray-500 text-sm">Clinician reviews, edits if needed, and approves. Documentation flows to EHR.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Problem</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    Documentation burden is unsustainable
+                </h2>
+                <p class="text-gray-600">
+                    The documentation crisis affects every healthcare setting, but the burden varies by care type. Custom solutions address your specific challenges.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-4xl font-bold text-dsBlack">45 min</span>
+                    <h3 class="font-semibold text-dsBlack mt-3 mb-2">Per Visit Documentation</h3>
+                    <p class="text-gray-500 text-sm">Clinicians spend more time typing than treating. This ratio is inverted from what it should be.</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-4xl font-bold text-dsBlack">3+ hrs</span>
+                    <h3 class="font-semibold text-dsBlack mt-3 mb-2">Daily Charting</h3>
+                    <p class="text-gray-500 text-sm">Nurses and clinicians spend significant portions of their day on paperwork instead of patient care.</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-4xl font-bold text-dsBlack">#1</span>
+                    <h3 class="font-semibold text-dsBlack mt-3 mb-2">Burnout Driver</h3>
+                    <p class="text-gray-500 text-sm">Documentation burden consistently ranks as the top contributor to clinician burnout and turnover.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases by Care Setting -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Care Setting Applications</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    Custom scribes for every healthcare setting
+                </h2>
+                <p class="text-gray-600">
+                    Each care setting has unique documentation requirements. Generic solutions miss the nuances. We build scribes tailored to your specific needs.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white border border-gray-200 rounded-xl p-8">
+                    <h3 class="text-xl font-bold text-dsBlack mb-4">Home Health & Hospice</h3>
+                    <p class="text-gray-600 mb-4">
+                        OASIS assessments, visit notes, care plan updates, medication reconciliation-generated from the natural flow of the home visit conversation.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 text-sm">
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>OASIS assessment auto-population from visit conversation</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Skilled visit note generation with intervention documentation</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Care plan updates based on patient progress discussed</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Medication reconciliation from verbal review</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-xl p-8">
+                    <h3 class="text-xl font-bold text-dsBlack mb-4">Skilled Nursing Facilities</h3>
+                    <p class="text-gray-600 mb-4">
+                        Progress notes, shift documentation, MDS support, incident reports-voice-enabled documentation that works during rounds, not after.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 text-sm">
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Progress note generation from rounds discussion</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Shift documentation for CNAs and nurses</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>MDS assessment support with clinical observation capture</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Incident and event documentation</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-xl p-8">
+                    <h3 class="text-xl font-bold text-dsBlack mb-4">Outpatient & Primary Care</h3>
+                    <p class="text-gray-600 mb-4">
+                        Office visit notes, HPI documentation, assessment and plan, orders-comprehensive documentation from the patient encounter.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 text-sm">
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Chief complaint and HPI from patient narrative</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Physical exam documentation with findings</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Assessment and plan with diagnoses and orders</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Patient education documentation</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-xl p-8">
+                    <h3 class="text-xl font-bold text-dsBlack mb-4">Personal Care & Assisted Living</h3>
+                    <p class="text-gray-600 mb-4">
+                        ADL documentation, observation notes, caregiver communication-simplified documentation for non-clinical staff.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 text-sm">
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>ADL assistance documentation via voice</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Behavioral observation notes</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Meal and hydration tracking</li>
+                        <li class="flex items-start gap-2"><span class="text-dsBlue">*</span>Activity participation records</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Technology</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    What makes our ambient scribes different
+                </h2>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <div class="space-y-6">
+                    <div class="border border-gray-200 rounded-xl p-6">
+                        <h3 class="font-semibold text-dsBlack mb-2">Medical-Grade Speech Recognition</h3>
+                        <p class="text-gray-500 text-sm">Trained on healthcare terminology, medication names, diagnoses, and procedures. 95%+ accuracy for clinical vocabulary that generic speech recognition misses.</p>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl p-6">
+                        <h3 class="font-semibold text-dsBlack mb-2">Clinical NLP Understanding</h3>
+                        <p class="text-gray-500 text-sm">Not just transcription-understanding. The AI identifies clinical entities, relationships, and context to generate meaningful documentation.</p>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl p-6">
+                        <h3 class="font-semibold text-dsBlack mb-2">Custom Documentation Templates</h3>
+                        <p class="text-gray-500 text-sm">Output matches your specific documentation requirements. OASIS, MDS support, visit notes, progress notes-whatever format your organization uses.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="border border-gray-200 rounded-xl p-6">
+                        <h3 class="font-semibold text-dsBlack mb-2">EHR Integration</h3>
+                        <p class="text-gray-500 text-sm">Documentation flows directly to your EHR-PointClickCare, Epic, Gehrimed, Elation. No copy-paste, no duplicate entry.</p>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl p-6">
+                        <h3 class="font-semibold text-dsBlack mb-2">HIPAA Compliant</h3>
+                        <p class="text-gray-500 text-sm">PHI handling built in from the start. Audio processing, data transmission, and storage all meet HIPAA requirements.</p>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl p-6">
+                        <h3 class="font-semibold text-dsBlack mb-2">Continuous Learning</h3>
+                        <p class="text-gray-500 text-sm">The system learns from corrections and feedback, improving accuracy for your specific clinicians, terminology, and documentation preferences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI -->
+    <section class="py-20 px-6 bg-dsBlack text-white">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Return on Investment</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
+                    The economics of ambient scribes
+                </h2>
+                <p class="text-gray-400">
+                    Documentation automation delivers clear, measurable ROI through time recovery and capacity expansion.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-gray-900 rounded-xl p-6">
+                    <span class="text-2xl font-bold text-dsBlue">80%</span>
+                    <h3 class="font-semibold text-white mt-2 mb-2">Time Savings</h3>
+                    <p class="text-gray-400 text-sm">Documentation time drops from 45 minutes to 5 minutes per visit.</p>
+                </div>
+                <div class="bg-gray-900 rounded-xl p-6">
+                    <span class="text-2xl font-bold text-white">2-3</span>
+                    <h3 class="font-semibold text-white mt-2 mb-2">Additional Patients</h3>
+                    <p class="text-gray-400 text-sm">Clinicians can see 2-3 more patients daily with the same working hours.</p>
+                </div>
+                <div class="bg-gray-900 rounded-xl p-6">
+                    <span class="text-2xl font-bold text-white">20-30%</span>
+                    <h3 class="font-semibold text-white mt-2 mb-2">Capacity Unlock</h3>
+                    <p class="text-gray-400 text-sm">Serve more patients without hiring additional clinical staff.</p>
+                </div>
+                <div class="bg-gray-900 rounded-xl p-6">
+                    <span class="text-2xl font-bold text-white">6-12 mo</span>
+                    <h3 class="font-semibold text-white mt-2 mb-2">Payback Period</h3>
+                    <p class="text-gray-400 text-sm">Investment typically pays back within the first year through capacity gains.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Solutions -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Solutions</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3">
+                    Often combined with
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="healthcare-ai-documentation-automation.html" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <h3 class="font-bold text-dsBlack mb-2 group-hover:text-dsBlue transition">Documentation Automation</h3>
+                    <p class="text-gray-500 text-sm mb-4">Ambient scribes are part of our broader documentation automation framework-including OASIS, MDS support, and care plans.</p>
+                    <span class="text-dsBlue text-sm font-medium group-hover:underline">See framework→</span>
+                </a>
+                <a href="healthcare-domains-mds-pdpm.html" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <h3 class="font-bold text-dsBlack mb-2 group-hover:text-dsBlue transition">MDS / PDPM Optimization</h3>
+                    <p class="text-gray-500 text-sm mb-4">For SNFs, ambient scribes can capture clinical observations that support accurate MDS assessments and PDPM reimbursement.</p>
+                    <span class="text-dsBlue text-sm font-medium group-hover:underline">Learn more→</span>
+                </a>
+                <a href="healthcare-domains-ehr-integrations.html" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <h3 class="font-bold text-dsBlack mb-2 group-hover:text-dsBlue transition">EHR Integrations</h3>
+                    <p class="text-gray-500 text-sm mb-4">Ambient scribes require seamless EHR integration to deliver value. We have production experience with major platforms.</p>
+                    <span class="text-dsBlue text-sm font-medium group-hover:underline">Learn more→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <!-- Related AI Solutions -->
+    <section class="py-16 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="mb-8">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related AI Solutions</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-dsBlack mt-2">AI frameworks that power this domain.</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <a href="healthcare-ai-documentation-automation.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-bold text-dsBlack">Documentation Automation</h3>
+                        <span class="text-xs font-medium text-dsBlue">Fastest Payback</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-3">Complete ambient AI documentation platform.</p>
+                    <span class="text-dsBlue text-sm font-medium">Learn More →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 bg-dsBlue text-white">
+        <div class="max-w-screen-xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to eliminate documentation burden?</h2>
+            <p class="text-blue-100 mb-8 max-w-2xl mx-auto">
+                Let's assess where ambient AI scribes can recover clinician time and expand your capacity.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="healthcare-assessment.html" class="inline-flex items-center justify-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition">
+                    Schedule Documentation Assessment
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+            </div>
+            <p class="text-blue-200 text-sm mt-6">Or call: <a href="tel:4046543855" class="text-white hover:underline">404.654.3855</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-gray-200">
+        <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+            <p>© 2007 - 2026 Digital Scientists, LLC.</p>
+            <div class="flex gap-6 mt-4 md:mt-0">
+                <a href="#" class="hover:text-dsBlack transition">Privacy Policy</a>
+                <a href="#" class="hover:text-dsBlack transition">LinkedIn</a>
+                <a href="tel:4046543855" class="text-dsBlue hover:underline">404.654.3855</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Animation -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    });
+
+
+    
+
+    </script>
+
+</body>
+</html>

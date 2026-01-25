@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payer Contract Interpretation | Healthcare AI Guides | Digital Scientists</title>
+    <meta name="description" content="AI-powered contract interpretation identifies underpayments by comparing remittances to contract terms. Recover 1-3% of net revenue. 8-14 week implementation.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dsBlue: '#304FFF',
+                        dsBlack: '#050505',
+                        dsGray: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .nav-dropdown { position: relative; }
+        .nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 0; padding-top: 8px; z-index: 100; }
+        .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+        .nav-dropdown-menu.right-aligned { left: auto; right: 0; }
+    </style>
+</head>
+<body class="bg-white text-dsBlack antialiased">
+
+<!-- DS Healthcare Mega Menu Navigation -->
+<!-- Desktop: Mega menu on hover | Mobile: Hamburger + Accordion -->
+
+<style>
+/* Mega Menu Styles */
+.mega-menu-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 8px;
+    z-index: 100;
+}
+.nav-item:hover .mega-menu-container {
+    display: block;
+}
+.mega-menu {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 24px;
+    min-width: 820px;
+}
+.mega-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+.mega-menu-section h4 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    margin-bottom: 12px;
+    padding-left: 12px;
+}
+.mega-menu-section a {
+    display: block;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #374151;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+.mega-menu-section a:hover {
+    background: #f3f4f6;
+}
+.mega-menu-cta {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+}
+.mega-menu-cta a {
+    background: #2563eb;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+.mega-menu-cta a:hover {
+    background: #1d4ed8;
+}
+
+/* Mobile Accordion Styles */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    overflow-y: auto;
+    z-index: 90;
+}
+.mobile-nav.open {
+    display: block;
+}
+.mobile-accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #111827;
+    border-bottom: 1px solid #f3f4f6;
+    cursor: pointer;
+}
+.mobile-accordion-header svg {
+    transition: transform 0.2s;
+}
+.mobile-accordion-header.open svg {
+    transform: rotate(180deg);
+}
+.mobile-accordion-content {
+    display: none;
+    background: #f9fafb;
+    padding: 8px 0;
+}
+.mobile-accordion-content.open {
+    display: block;
+}
+.mobile-accordion-section h5 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    padding: 12px 32px 8px;
+}
+.mobile-accordion-content a {
+    display: block;
+    padding: 12px 32px;
+    font-size: 14px;
+    color: #374151;
+    text-decoration: none;
+}
+.mobile-accordion-content a:hover {
+    background: #e5e7eb;
+}
+.mobile-nav-link {
+    display: block;
+    padding: 16px 24px;
+    font-size: 15px;
+    color: #111827;
+    text-decoration: none;
+    border-bottom: 1px solid #f3f4f6;
+}
+.mobile-cta {
+    padding: 24px;
+}
+.mobile-cta a {
+    display: block;
+    background: #2563eb;
+    color: white;
+    text-align: center;
+    padding: 14px 24px;
+    border-radius: 9999px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .desktop-nav { display: none !important; }
+    .mobile-menu-btn { display: flex !important; }
+}
+@media (min-width: 1025px) {
+    .mobile-nav { display: none !important; }
+    .mobile-menu-btn { display: none !important; }
+}
+</style>
+
+<nav class="fixed w-full z-50 bg-white border-b border-gray-100">
+    <div class="max-w-screen-xl mx-auto px-6">
+        <div class="h-20 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center">
+                <img src="1012DS_Logo_Native_Black (1).svg" alt="Digital Scientists" class="h-12">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav hidden lg:flex items-center gap-1">
+                
+                <!-- Healthcare (Mega Menu) -->
+                <div class="nav-item relative">
+                    <a href="healthcare-hub.html" class="flex items-center gap-1 px-4 py-2 text-sm text-gray-600 hover:text-gray-900">
+                        Healthcare
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                    <div class="mega-menu-container">
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <!-- Column 1: Overview + Capabilities -->
+                                <div>
+                                    <div class="mega-menu-section">
+                                        <h4>Overview</h4>
+                                        <a href="healthcare-hub.html">Healthcare Hub</a>
+                                        <a href="healthcare-approach.html">Our Approach</a>
+                                    </div>
+                                    <div class="mega-menu-section" style="margin-top: 20px;">
+                                        <h4>Capabilities</h4>
+                                        <a href="healthcare-capabilities-ai-ml-nlp.html">AI, ML & NLP</a>
+                                        <a href="healthcare-capabilities-mobile.html">Mobile Apps</a>
+                                        <a href="healthcare-capabilities-saas.html">SaaS Platforms</a>
+                                        <a href="healthcare-capabilities-ux-design.html">UX Design</a>
+                                        <a href="healthcare-capabilities-data-analytics.html">Data Analytics</a>
+                                        <a href="healthcare-capabilities-samd.html">SaMD</a>
+                                    </div>
+                                </div>
+                                
+                                <!-- Column 2: AI Solutions -->
+                                <div class="mega-menu-section">
+                                    <h4>AI Solutions</h4>
+                                    <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+                                    <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+                                    <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+                                    <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+                                </div>
+                                
+                                <!-- Column 3: Domains -->
+                                <div class="mega-menu-section">
+                                    <h4>Domains</h4>
+                                    <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+                                    <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+                                    <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+                                    <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+                                    <a href="healthcare-domains-ambient-scribes.html">Ambient Scribes</a>
+                                    <a href="healthcare-domains-ehr-integrations.html">EHR Integrations</a>
+                                </div>
+                                
+                                <!-- Column 4: Markets + Case Studies -->
+                                <div>
+                                    <div class="mega-menu-section">
+                                        <h4>Markets</h4>
+                                        <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+                                        <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+                                        <a href="healthcare-markets-senior-living.html">Senior Living</a>
+                                        <a href="healthcare-markets-idd.html">IDD Services</a>
+                                        <a href="healthcare-markets-health-systems.html">Health Systems</a>
+                                    </div>
+                                    <div class="mega-menu-section" style="margin-top: 20px;">
+                                        <h4>Case Studies</h4>
+                                        <a href="work-never-alone.html">NeverAlone</a>
+                                        <a href="work-communicare-mds.html">CommuniCare MDS</a>
+                                        <a href="work-raf-hcc-coding.html">RAF/HCC Coding</a>
+                                        <a href="work-healthcontext-ai.html">HealthContext AI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mega-menu-cta">
+                                <a href="healthcare-assessment.html">Get AI Readiness Assessment →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Services (links to WP) -->
+                <a href="https://digitalscientists.com/services/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Services</a>
+                
+                <!-- About (links to WP) -->
+                <a href="https://digitalscientists.com/about/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">About</a>
+                
+                <!-- Blog (links to WP) -->
+                <a href="https://digitalscientists.com/blog/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Blog</a>
+                
+                <!-- Contact (links to WP) -->
+                <a href="https://digitalscientists.com/contact/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Contact</a>
+                
+                <!-- CTA Button -->
+                <a href="healthcare-assessment.html" class="ml-4 px-5 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-colors">
+                    Get Assessment
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn hidden items-center justify-center w-10 h-10 text-gray-600" id="mobile-menu-btn" aria-label="Toggle menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav" id="mobile-nav">
+    <!-- Healthcare Accordion -->
+    <div class="mobile-accordion">
+        <div class="mobile-accordion-header" data-accordion="healthcare">
+            Healthcare
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="mobile-accordion-content" id="accordion-healthcare">
+            <div class="mobile-accordion-section">
+                <h5>Overview</h5>
+                <a href="healthcare-hub.html">Healthcare Hub</a>
+                <a href="healthcare-approach.html">Our Approach</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Capabilities</h5>
+                <a href="healthcare-capabilities-ai-ml-nlp.html">AI, ML & NLP</a>
+                <a href="healthcare-capabilities-mobile.html">Mobile Apps</a>
+                <a href="healthcare-capabilities-saas.html">SaaS Platforms</a>
+                <a href="healthcare-capabilities-ux-design.html">UX Design</a>
+                <a href="healthcare-capabilities-data-analytics.html">Data Analytics</a>
+                <a href="healthcare-capabilities-samd.html">SaMD</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>AI Solutions</h5>
+                <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+                <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+                <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+                <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Domains</h5>
+                <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+                <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+                <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+                <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+                <a href="healthcare-domains-ambient-scribes.html">Ambient Scribes</a>
+                <a href="healthcare-domains-ehr-integrations.html">EHR Integrations</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Markets</h5>
+                <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+                <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+                <a href="healthcare-markets-senior-living.html">Senior Living</a>
+                <a href="healthcare-markets-idd.html">IDD Services</a>
+                <a href="healthcare-markets-health-systems.html">Health Systems</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Case Studies</h5>
+                <a href="work-never-alone.html">NeverAlone</a>
+                <a href="work-communicare-mds.html">CommuniCare MDS</a>
+                <a href="work-raf-hcc-coding.html">RAF/HCC Coding</a>
+                <a href="work-healthcontext-ai.html">HealthContext AI</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Other Nav Links -->
+    <a href="https://digitalscientists.com/services/" class="mobile-nav-link">Services</a>
+    <a href="https://digitalscientists.com/about/" class="mobile-nav-link">About</a>
+    <a href="https://digitalscientists.com/blog/" class="mobile-nav-link">Blog</a>
+    <a href="https://digitalscientists.com/contact/" class="mobile-nav-link">Contact</a>
+    
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+        <a href="healthcare-assessment.html">Get AI Readiness Assessment</a>
+    </div>
+</div>
+
+<script>
+// Mobile menu toggle
+document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
+    document.getElementById('mobile-nav')?.classList.toggle('open');
+});
+
+// Mobile accordion toggle
+document.querySelectorAll('.mobile-accordion-header').forEach(header => {
+    header.addEventListener('click', function() {
+        const target = this.dataset.accordion;
+        const content = document.getElementById('accordion-' + target);
+        this.classList.toggle('open');
+        content?.classList.toggle('open');
+    });
+});
+</script>
+
+<!-- Hero -->
+<header class="pt-32 pb-12 px-6">
+    <div class="max-w-4xl mx-auto">
+        <div class="flex items-center gap-2 text-sm mb-6">
+            <a href="healthcare-ai-guides-landing.html" class="text-dsBlue hover:underline">AI Guides</a>
+            <span class="text-gray-400">/</span>
+            <span class="text-gray-600">Quick Win</span>
+        </div>
+        
+        <div class="inline-flex items-center gap-2 bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm font-medium mb-4">
+            <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+            8-14 weeks to deploy
+        </div>
+        
+        <h1 class="text-4xl md:text-5xl font-bold text-dsBlack mb-6 leading-tight">
+            Payer Contract Interpretation
+        </h1>
+        
+        <p class="text-xl text-gray-600 leading-relaxed mb-8">
+            AI that reads your payer contracts and flags underpayments. Systematic comparison of every remittance against contractual terms—with citations, not guesswork. Recover 1-3% of net revenue you're already owed.
+        </p>
+        
+        <div class="flex flex-wrap gap-4">
+            <a href="healthcare-assessment.html" class="inline-flex items-center gap-2 bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">
+                Get Assessment
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <a href="#fit-assessment" class="inline-flex items-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 text-sm font-medium rounded-full hover:bg-gray-50 transition">
+                5-Minute Fit Check
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- Expected ROI -->
+<section class="py-12 px-6 border-t border-gray-100">
+    <div class="max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="text-center p-6 bg-dsGray rounded-xl fade-up">
+                <span class="text-3xl font-bold text-dsBlack">1-3%</span>
+                <p class="text-gray-600 text-sm mt-1">Net collection lift</p>
+            </div>
+            <div class="text-center p-6 bg-dsGray rounded-xl fade-up">
+                <span class="text-3xl font-bold text-dsBlue">$500K-$1.5M</span>
+                <p class="text-gray-600 text-sm mt-1">Annual recovery (at $50M NPR)</p>
+            </div>
+            <div class="text-center p-6 bg-dsGray rounded-xl fade-up">
+                <span class="text-3xl font-bold text-dsBlack">8-14</span>
+                <p class="text-gray-600 text-sm mt-1">Weeks to production</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- The Problem -->
+<section class="py-16 px-6">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Problem</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">You're almost certainly being underpaid—and you don't know which claims.</h2>
+        
+        <div class="prose prose-lg text-gray-600 space-y-4 fade-up">
+            <p>Payer contracts are dense, multi-hundred-page documents with carve-outs, fee schedule escalators, service-specific provisions, and amendment layers accumulated over years of renegotiation. No human can hold all of that complexity in their head while reviewing thousands of remittances per week.</p>
+            
+            <p>The result: systematic underpayment. Not fraud—just payers applying their interpretation of ambiguous language, and providers lacking the bandwidth to catch every discrepancy.</p>
+            
+            <p>Most healthcare organizations leave 1-3% of net revenue on the table due to contract underpayment they never identify. For an organization with $50M in net patient revenue, that's $500K-$1.5M annually—not in new revenue, but in revenue you've already earned and simply aren't collecting.</p>
+        </div>
+        
+        <div class="mt-8 p-6 bg-amber-50 border-l-4 border-amber-400 rounded-r-xl fade-up">
+            <p class="text-gray-800"><strong>What AI-powered contract interpretation does:</strong> A system ingests your complete payer contract library—PDFs, amendments, fee schedules—and builds a structured understanding of what you should be paid for each service. It then compares every remittance against those contractual terms and flags claims where payment appears below allowable, citing the specific contract language.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Fit Assessment -->
+<section id="fit-assessment" class="py-16 px-6 bg-dsGray">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">5-Minute Fit Assessment</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">Is this right for your organization?</h2>
+        
+        <p class="text-gray-600 mb-8">Check what applies. Four or more suggests strong fit.</p>
+        
+        <div class="space-y-4">
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">You have multiple payer contracts with different terms</span>
+                        <p class="text-gray-500 text-sm mt-1">If you have one dominant payer with straightforward fee schedules, manual auditing may suffice. The complexity advantage emerges with 5+ contracts.</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">Your contracts include provisions beyond simple fee schedules</span>
+                        <p class="text-gray-500 text-sm mt-1">Carve-outs for specific services, escalators tied to volume or quality metrics, outlier provisions, case rate calculations—this is where underpayment hides.</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">You don't have dedicated staff auditing every remittance against contracts</span>
+                        <p class="text-gray-500 text-sm mt-1">If you're spot-checking 10% of remittances or only auditing when something looks wrong, you're missing underpayment on the other 90%.</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">Your contract management is document-based, not structured data</span>
+                        <p class="text-gray-500 text-sm mt-1">If your contracts live in PDFs and Word documents rather than a centralized system, there's no way to audit systematically.</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">You've had successful payment appeals in the past</span>
+                        <p class="text-gray-500 text-sm mt-1">If you've won appeals on underpayment issues, that confirms the problem exists. The question is how much you're missing that you never identified.</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">Someone owns contract performance</span>
+                        <p class="text-gray-500 text-sm mt-1">You need an internal champion—managed care director, CFO, revenue cycle VP—who cares about contractual reimbursement accuracy and will act on findings.</p>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What You Need -->
+<section class="py-16 px-6">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Requirements</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">What you need to have ready</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="fade-up">
+                <h3 class="text-xl font-semibold text-dsBlack mb-4">Contract Library</h3>
+                <ul class="space-y-3 text-gray-600">
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Base contracts for each payer
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        All amendments and addendums
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Current fee schedules
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Electronic remittance data (835s)
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="fade-up">
+                <h3 class="text-xl font-semibold text-dsBlack mb-4">What's NOT Required</h3>
+                <ul class="space-y-3 text-gray-600">
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-gray-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        EHR integration
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-gray-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        Clinical documentation
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-gray-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        IT infrastructure changes
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-gray-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        Workflow disruption
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="mt-8 p-6 bg-blue-50 border border-blue-100 rounded-xl fade-up">
+            <p class="text-gray-700"><strong>Why this is a quick win:</strong> Contract interpretation is a billing/finance solution. You don't need clinical data. You don't need EHR access. The data sources are contracts (documents) and payments (835s/remittances).</p>
+        </div>
+    </div>
+</section>
+
+<!-- Red Flags -->
+<section class="py-16 px-6 bg-dsGray">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Honest Assessment</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">When to wait</h2>
+        
+        <div class="space-y-4">
+            <div class="p-4 border-l-4 border-red-400 bg-white rounded-r-xl fade-up">
+                <p class="text-gray-800"><strong>Your contract library is incomplete or disorganized.</strong> If you can't locate current contracts for your major payers, fix that first. The AI can only interpret contracts you can provide.</p>
+            </div>
+            
+            <div class="p-4 border-l-4 border-red-400 bg-white rounded-r-xl fade-up">
+                <p class="text-gray-800"><strong>You're mid-contract renegotiation.</strong> If major payer contracts are being renegotiated in the next 6 months, wait. The system will need to re-learn the new terms anyway.</p>
+            </div>
+            
+            <div class="p-4 border-l-4 border-red-400 bg-white rounded-r-xl fade-up">
+                <p class="text-gray-800"><strong>You have no recovery capacity.</strong> Identifying underpayment without pursuing recovery is an expensive exercise in frustration. Make sure you have staff or partners who will act on findings.</p>
+            </div>
+            
+            <div class="p-4 border-l-4 border-red-400 bg-white rounded-r-xl fade-up">
+                <p class="text-gray-800"><strong>Your major payers use standard rates with minimal negotiation.</strong> If your top payers are Medicare/Medicaid with standard fee schedules, there's less room for interpretation variance.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related Guides -->
+<section class="py-16 px-6">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Guides</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-8">Other quick wins to consider</h2>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+            <a href="ar-collection-prioritization.html" class="bg-dsGray p-6 rounded-xl border border-gray-200 hover:border-dsBlue transition fade-up">
+                <span class="text-xs font-medium text-green-600 uppercase">Quick Win</span>
+                <h3 class="text-xl font-semibold text-dsBlack mt-2 mb-2">A/R Collection Prioritization</h3>
+                <p class="text-gray-600 text-sm">AI-powered prioritization based on collectability, not just age. 5-15% bad debt reduction.</p>
+            </a>
+            
+            <a href="claim-follow-up-triage.html" class="bg-dsGray p-6 rounded-xl border border-gray-200 hover:border-dsBlue transition fade-up">
+                <span class="text-xs font-medium text-green-600 uppercase">Quick Win</span>
+                <h3 class="text-xl font-semibold text-dsBlack mt-2 mb-2">Claim Follow-Up Triage</h3>
+                <p class="text-gray-600 text-sm">Pattern matching that surfaces high-risk claims before they deny. 15-25% recovery per FTE.</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 px-6 bg-dsBlue">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to recover what you're owed?</h2>
+        <p class="text-blue-100 mb-8 max-w-2xl mx-auto">30-minute call to assess your contract complexity and estimate the opportunity. No pitch, just honest assessment.</p>
+        <a href="healthcare-assessment.html" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-gray-100 transition">
+            Get AI Assessment
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-8 px-6 border-t border-gray-200">
+    <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+        <p>© 2007 - 2026 Digital Scientists, LLC.</p>
+        <div class="flex gap-6 mt-4 md:mt-0">
+            <a href="#" class="hover:text-dsBlack transition">Privacy Policy</a>
+            <a href="#" class="hover:text-dsBlack transition">LinkedIn</a>
+            <a href="tel:4046543855" class="text-dsBlue hover:underline">404.654.3855</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

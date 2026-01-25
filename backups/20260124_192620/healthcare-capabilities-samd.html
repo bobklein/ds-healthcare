@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software as Medical Device (SaMD) Development | Digital Scientists</title>
+    <meta name="description" content="FDA-compliant SaMD development with ISO 13485, IEC 62304, and risk management built in.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dsBlue: '#304FFF',
+                        dsTeal: '#26D9C4',
+                        dsLime: '#D1F259',
+                        dsBlack: '#050505',
+                        dsGray: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['Roboto Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        h1, h2, h3 { letter-spacing: -0.02em; }
+    </style>
+</head>
+<body class="bg-white text-dsBlack antialiased">
+
+<!-- DS Healthcare Mega Menu Navigation -->
+<!-- Desktop: Mega menu on hover | Mobile: Hamburger + Accordion -->
+
+<style>
+/* Mega Menu Styles */
+.mega-menu-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 8px;
+    z-index: 100;
+}
+.nav-item:hover .mega-menu-container {
+    display: block;
+}
+.mega-menu {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 24px;
+    min-width: 820px;
+}
+.mega-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+.mega-menu-section h4 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    margin-bottom: 12px;
+    padding-left: 12px;
+}
+.mega-menu-section a {
+    display: block;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #374151;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+.mega-menu-section a:hover {
+    background: #f3f4f6;
+}
+.mega-menu-cta {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+}
+.mega-menu-cta a {
+    background: #2563eb;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+.mega-menu-cta a:hover {
+    background: #1d4ed8;
+}
+
+/* Mobile Accordion Styles */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    overflow-y: auto;
+    z-index: 90;
+}
+.mobile-nav.open {
+    display: block;
+}
+.mobile-accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #111827;
+    border-bottom: 1px solid #f3f4f6;
+    cursor: pointer;
+}
+.mobile-accordion-header svg {
+    transition: transform 0.2s;
+}
+.mobile-accordion-header.open svg {
+    transform: rotate(180deg);
+}
+.mobile-accordion-content {
+    display: none;
+    background: #f9fafb;
+    padding: 8px 0;
+}
+.mobile-accordion-content.open {
+    display: block;
+}
+.mobile-accordion-section h5 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    padding: 12px 32px 8px;
+}
+.mobile-accordion-content a {
+    display: block;
+    padding: 12px 32px;
+    font-size: 14px;
+    color: #374151;
+    text-decoration: none;
+}
+.mobile-accordion-content a:hover {
+    background: #e5e7eb;
+}
+.mobile-nav-link {
+    display: block;
+    padding: 16px 24px;
+    font-size: 15px;
+    color: #111827;
+    text-decoration: none;
+    border-bottom: 1px solid #f3f4f6;
+}
+.mobile-cta {
+    padding: 24px;
+}
+.mobile-cta a {
+    display: block;
+    background: #2563eb;
+    color: white;
+    text-align: center;
+    padding: 14px 24px;
+    border-radius: 9999px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .desktop-nav { display: none !important; }
+    .mobile-menu-btn { display: flex !important; }
+}
+@media (min-width: 1025px) {
+    .mobile-nav { display: none !important; }
+    .mobile-menu-btn { display: none !important; }
+}
+</style>
+
+<nav class="fixed w-full z-50 bg-white border-b border-gray-100">
+    <div class="max-w-screen-xl mx-auto px-6">
+        <div class="h-20 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center">
+                <img src="1012DS_Logo_Native_Black (1).svg" alt="Digital Scientists" class="h-12">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav hidden lg:flex items-center gap-1">
+                
+                <!-- Healthcare (Mega Menu) -->
+                <div class="nav-item relative">
+                    <a href="healthcare-hub.html" class="flex items-center gap-1 px-4 py-2 text-sm text-gray-600 hover:text-gray-900">
+                        Healthcare
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                    <div class="mega-menu-container">
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <!-- Column 1: Overview + Capabilities -->
+                                <div>
+                                    <div class="mega-menu-section">
+                                        <h4>Overview</h4>
+                                        <a href="healthcare-hub.html">Healthcare Hub</a>
+                                        <a href="healthcare-approach.html">Our Approach</a>
+                                    </div>
+                                    <div class="mega-menu-section" style="margin-top: 20px;">
+                                        <h4>Capabilities</h4>
+                                        <a href="healthcare-capabilities-ai-ml-nlp.html">AI, ML & NLP</a>
+                                        <a href="healthcare-capabilities-mobile.html">Mobile Apps</a>
+                                        <a href="healthcare-capabilities-saas.html">SaaS Platforms</a>
+                                        <a href="healthcare-capabilities-ux-design.html">UX Design</a>
+                                        <a href="healthcare-capabilities-data-analytics.html">Data Analytics</a>
+                                        <a href="healthcare-capabilities-samd.html">SaMD</a>
+                                    </div>
+                                </div>
+                                
+                                <!-- Column 2: AI Solutions -->
+                                <div class="mega-menu-section">
+                                    <h4>AI Solutions</h4>
+                                    <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+                                    <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+                                    <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+                                    <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+                                </div>
+                                
+                                <!-- Column 3: Domains -->
+                                <div class="mega-menu-section">
+                                    <h4>Domains</h4>
+                                    <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+                                    <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+                                    <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+                                    <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+                                    <a href="healthcare-domains-ambient-scribes.html">Ambient Scribes</a>
+                                    <a href="healthcare-domains-ehr-integrations.html">EHR Integrations</a>
+                                </div>
+                                
+                                <!-- Column 4: Markets + Case Studies -->
+                                <div>
+                                    <div class="mega-menu-section">
+                                        <h4>Markets</h4>
+                                        <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+                                        <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+                                        <a href="healthcare-markets-senior-living.html">Senior Living</a>
+                                        <a href="healthcare-markets-idd.html">IDD Services</a>
+                                        <a href="healthcare-markets-health-systems.html">Health Systems</a>
+                                    </div>
+                                    <div class="mega-menu-section" style="margin-top: 20px;">
+                                        <h4>Case Studies</h4>
+                                        <a href="work-never-alone.html">NeverAlone</a>
+                                        <a href="work-communicare-mds.html">CommuniCare MDS</a>
+                                        <a href="work-raf-hcc-coding.html">RAF/HCC Coding</a>
+                                        <a href="work-healthcontext-ai.html">HealthContext AI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mega-menu-cta">
+                                <a href="healthcare-assessment.html">Get AI Readiness Assessment →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Services (links to WP) -->
+                <a href="https://digitalscientists.com/services/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Services</a>
+                
+                <!-- About (links to WP) -->
+                <a href="https://digitalscientists.com/about/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">About</a>
+                
+                <!-- Blog (links to WP) -->
+                <a href="https://digitalscientists.com/blog/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Blog</a>
+                
+                <!-- Contact (links to WP) -->
+                <a href="https://digitalscientists.com/contact/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Contact</a>
+                
+                <!-- CTA Button -->
+                <a href="healthcare-assessment.html" class="ml-4 px-5 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-colors">
+                    Get Assessment
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn hidden items-center justify-center w-10 h-10 text-gray-600" id="mobile-menu-btn" aria-label="Toggle menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav" id="mobile-nav">
+    <!-- Healthcare Accordion -->
+    <div class="mobile-accordion">
+        <div class="mobile-accordion-header" data-accordion="healthcare">
+            Healthcare
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="mobile-accordion-content" id="accordion-healthcare">
+            <div class="mobile-accordion-section">
+                <h5>Overview</h5>
+                <a href="healthcare-hub.html">Healthcare Hub</a>
+                <a href="healthcare-approach.html">Our Approach</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Capabilities</h5>
+                <a href="healthcare-capabilities-ai-ml-nlp.html">AI, ML & NLP</a>
+                <a href="healthcare-capabilities-mobile.html">Mobile Apps</a>
+                <a href="healthcare-capabilities-saas.html">SaaS Platforms</a>
+                <a href="healthcare-capabilities-ux-design.html">UX Design</a>
+                <a href="healthcare-capabilities-data-analytics.html">Data Analytics</a>
+                <a href="healthcare-capabilities-samd.html">SaMD</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>AI Solutions</h5>
+                <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+                <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+                <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+                <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Domains</h5>
+                <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+                <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+                <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+                <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+                <a href="healthcare-domains-ambient-scribes.html">Ambient Scribes</a>
+                <a href="healthcare-domains-ehr-integrations.html">EHR Integrations</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Markets</h5>
+                <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+                <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+                <a href="healthcare-markets-senior-living.html">Senior Living</a>
+                <a href="healthcare-markets-idd.html">IDD Services</a>
+                <a href="healthcare-markets-health-systems.html">Health Systems</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Case Studies</h5>
+                <a href="work-never-alone.html">NeverAlone</a>
+                <a href="work-communicare-mds.html">CommuniCare MDS</a>
+                <a href="work-raf-hcc-coding.html">RAF/HCC Coding</a>
+                <a href="work-healthcontext-ai.html">HealthContext AI</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Other Nav Links -->
+    <a href="https://digitalscientists.com/services/" class="mobile-nav-link">Services</a>
+    <a href="https://digitalscientists.com/about/" class="mobile-nav-link">About</a>
+    <a href="https://digitalscientists.com/blog/" class="mobile-nav-link">Blog</a>
+    <a href="https://digitalscientists.com/contact/" class="mobile-nav-link">Contact</a>
+    
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+        <a href="healthcare-assessment.html">Get AI Readiness Assessment</a>
+    </div>
+</div>
+
+<script>
+// Mobile menu toggle
+document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
+    document.getElementById('mobile-nav')?.classList.toggle('open');
+});
+
+// Mobile accordion toggle
+document.querySelectorAll('.mobile-accordion-header').forEach(header => {
+    header.addEventListener('click', function() {
+        const target = this.dataset.accordion;
+        const content = document.getElementById('accordion-' + target);
+        this.classList.toggle('open');
+        content?.classList.toggle('open');
+    });
+});
+</script>
+
+<!-- Spacer for fixed nav -->
+<div class="h-20"></div>
+
+<!-- Hero -->
+<section class="bg-gradient-to-br from-dsBlack via-gray-900 to-dsBlack text-white py-20 lg:py-28">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <p class="text-sm font-mono text-dsTeal uppercase tracking-widest mb-4">Software as Medical Device</p>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">Software That Diagnoses, Monitors, and Treats</h1>
+                <p class="text-xl text-gray-300 mb-8 leading-relaxed">When software makes clinical decisions, regulatory compliance isn't optional. We build SaMD with ISO 13485, IEC 62304, and FDA requirements built into every sprint—not bolted on at the end.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://calendly.com/bob-klein/digital-scientists" class="inline-flex items-center gap-2 bg-dsBlue text-white px-6 py-3 rounded font-semibold hover:bg-blue-600 transition">Get SaMD Assessment</a>
+                    <a href="https://calendly.com/bob-klein/digital-scientists" class="inline-flex items-center gap-2 border border-white/30 text-white px-6 py-3 rounded font-semibold hover:bg-white/10 transition">Schedule Call</a>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="bg-gradient-to-br from-dsBlue/20 to-dsTeal/20 rounded-2xl p-8 backdrop-blur">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white/10 rounded-xl p-4 text-center">
+                            <div class="text-2xl font-bold text-dsTeal">FDA</div>
+                            <div class="text-sm text-gray-400">Compliant Process</div>
+                        </div>
+                        <div class="bg-white/10 rounded-xl p-4 text-center">
+                            <div class="text-xl font-bold text-dsLime">ISO 13485</div>
+                            <div class="text-sm text-gray-400">Quality Management</div>
+                        </div>
+                        <div class="bg-white/10 rounded-xl p-4 text-center">
+                            <div class="text-xl font-bold text-white">IEC 62304</div>
+                            <div class="text-sm text-gray-400">Software Lifecycle</div>
+                        </div>
+                        <div class="bg-white/10 rounded-xl p-4 text-center">
+                            <div class="text-xl font-bold text-dsTeal">8 wks</div>
+                            <div class="text-sm text-gray-400">To MVP</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Trust Badges -->
+<section class="py-8 border-b border-gray-100">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+            <img src="https://digitalscientists.com/wp-content/uploads/2024/05/Screenshot_2-300x60.png" alt="Duke Health" class="h-8 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://digitalscientists.com/wp-content/uploads/2023/12/Guardian-Logo-Lockup2-White-1.svg" alt="Guardian" class="h-8 object-contain opacity-70 hover:opacity-100 transition invert">
+            <img src="https://digitalscientists.com/wp-content/uploads/2023/12/logo-chs-black.png" alt="CommuniCare" class="h-8 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://digitalscientists.com/wp-content/uploads/2023/12/congruity-health-1.svg" alt="Congruity Health" class="h-8 object-contain opacity-70 hover:opacity-100 transition">
+        </div>
+    </div>
+</section>
+
+<!-- What is SaMD -->
+<section class="py-20">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="text-center mb-16">
+            <p class="text-sm font-mono text-dsBlue uppercase tracking-widest mb-4">What is SaMD?</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Software as Medical Device Defined</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Software intended for medical purposes, without being part of a hardware medical device.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition">
+                <div class="w-16 h-16 bg-dsBlue rounded-xl flex items-center justify-center mb-6">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/05/Group-12010.svg" alt="Medical Purpose" class="w-8 h-8">
+                </div>
+                <h3 class="text-xl font-bold mb-3">Medical Purpose</h3>
+                <p class="text-gray-600 mb-4">Intended for diagnosis, treatment, prevention, or monitoring of disease or medical conditions. The software itself is the medical device.</p>
+                <p class="text-sm text-dsBlue font-medium">Diagnosis, treatment, monitoring</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition">
+                <div class="w-16 h-16 bg-dsTeal rounded-xl flex items-center justify-center mb-6">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/08/Integration-Capabilities.svg" alt="Platform Independent" class="w-8 h-8">
+                </div>
+                <h3 class="text-xl font-bold mb-3">Platform Independent</h3>
+                <p class="text-gray-600 mb-4">Runs on general-purpose computing platforms—mobile devices, web browsers, cloud servers—not dedicated medical hardware.</p>
+                <p class="text-sm text-dsTeal font-medium">Mobile, web, cloud</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition">
+                <div class="w-16 h-16 bg-gray-700 rounded-xl flex items-center justify-center mb-6">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/08/Regulatory-Compliance.svg" alt="Regulatory Oversight" class="w-8 h-8">
+                </div>
+                <h3 class="text-xl font-bold mb-3">Regulatory Oversight</h3>
+                <p class="text-gray-600 mb-4">Subject to FDA regulation based on risk classification. May require 510(k), De Novo, or PMA clearance depending on intended use.</p>
+                <p class="text-sm text-gray-700 font-medium">510(k), De Novo, PMA</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SaMD Categories -->
+<section class="py-20 bg-gray-50">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="text-center mb-16">
+            <p class="text-sm font-mono text-dsBlue uppercase tracking-widest mb-4">Categories</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Types of SaMD We Build</h2>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition">
+                <span class="text-xs bg-dsBlue/10 text-dsBlue px-2 py-1 rounded font-bold mb-3 inline-block">CLASS II</span>
+                <h3 class="font-bold text-lg mb-2">Diagnostic Software</h3>
+                <p class="text-gray-600 text-sm">AI-powered screening, image analysis, risk assessment algorithms that aid clinical diagnosis.</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition">
+                <h3 class="font-bold text-lg mb-2">Monitoring Applications</h3>
+                <p class="text-gray-600 text-sm">Real-time vital sign monitoring, anomaly detection, alert systems for clinical intervention.</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition">
+                <h3 class="font-bold text-lg mb-2">Therapeutic Software</h3>
+                <p class="text-gray-600 text-sm">Digital therapeutics (DTx) that deliver interventions for conditions like diabetes, mental health, chronic pain.</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition">
+                <h3 class="font-bold text-lg mb-2">Informative Applications</h3>
+                <p class="text-gray-600 text-sm">Health data display, trend analysis, patient education tools that inform but don't diagnose.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Case Study -->
+<section class="py-20">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="bg-gradient-to-br from-dsBlack to-gray-900 rounded-2xl overflow-hidden">
+            <div class="grid md:grid-cols-2 gap-0 items-center">
+                <div class="p-8 md:p-12 text-white">
+                    <p class="text-sm font-mono text-dsTeal uppercase tracking-widest mb-4">Case Study</p>
+                    <h3 class="text-3xl font-bold mb-4">Guardian Operating Room Monitoring</h3>
+                    <p class="text-gray-300 mb-6">Real-time monitoring platform for OR environments with AI-powered anomaly detection, mobile alerts, and device integration—built with SaMD regulatory requirements from day one.</p>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div><div class="text-2xl font-bold text-dsTeal">Real-time</div><div class="text-sm text-gray-400">Vital Sign Monitoring</div></div>
+                        <div><div class="text-2xl font-bold text-white">AI-Powered</div><div class="text-sm text-gray-400">Anomaly Detection</div></div>
+                    </div>
+                    <a href="https://digitalscientists.com/case-studies/guardian/" class="inline-flex items-center gap-2 text-dsTeal font-semibold hover:underline">View Case Study →</a>
+                </div>
+                <div class="h-full min-h-[300px]">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2022/01/guardian-monitor-with-text-message-and-background.png" alt="Guardian OR Monitoring" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Regulatory Requirements -->
+<section class="py-20 bg-gray-50">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="text-center mb-16">
+            <p class="text-sm font-mono text-dsBlue uppercase tracking-widest mb-4">Regulatory Framework</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">SaMD Compliance Requirements</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-xl p-6 text-center">
+                <img src="https://digitalscientists.com/wp-content/uploads/2024/08/Regulatory-Compliance.svg" alt="ISO 13485" class="w-12 h-12 mx-auto mb-4">
+                <h3 class="font-bold mb-2">ISO 13485</h3>
+                <p class="text-gray-600 text-sm">Quality Management System for medical device design and development</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 text-center">
+                <img src="https://digitalscientists.com/wp-content/uploads/2024/08/Data-Security.svg" alt="IEC 62304" class="w-12 h-12 mx-auto mb-4">
+                <h3 class="font-bold mb-2">IEC 62304</h3>
+                <p class="text-gray-600 text-sm">Medical device software lifecycle processes</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 text-center">
+                <img src="https://digitalscientists.com/wp-content/uploads/2024/05/Group-12008.svg" alt="ISO 14971" class="w-12 h-12 mx-auto mb-4">
+                <h3 class="font-bold mb-2">ISO 14971</h3>
+                <p class="text-gray-600 text-sm">Risk management for medical devices</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 text-center">
+                <img src="https://digitalscientists.com/wp-content/uploads/2024/08/User-Experience-UX.svg" alt="IEC 62366" class="w-12 h-12 mx-auto mb-4">
+                <h3 class="font-bold mb-2">IEC 62366</h3>
+                <p class="text-gray-600 text-sm">Usability engineering and human factors</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 text-center">
+                <img src="https://digitalscientists.com/wp-content/uploads/2024/08/Interoperability.svg" alt="Cybersecurity" class="w-12 h-12 mx-auto mb-4">
+                <h3 class="font-bold mb-2">Cybersecurity</h3>
+                <p class="text-gray-600 text-sm">FDA cybersecurity guidance and HIPAA requirements</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 text-center">
+                <img src="https://digitalscientists.com/wp-content/uploads/2024/08/Reliability-and-Performance.svg" alt="Performance" class="w-12 h-12 mx-auto mb-4">
+                <h3 class="font-bold mb-2">Clinical Validation</h3>
+                <p class="text-gray-600 text-sm">Performance testing and clinical evidence requirements</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MVP Process -->
+<section class="py-20">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="text-center mb-16">
+            <p class="text-sm font-mono text-dsBlue uppercase tracking-widest mb-4">Our Process</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Regulatory-Ready Development</h2>
+        </div>
+        <div class="grid md:grid-cols-4 gap-8">
+            <div class="text-center">
+                <div class="w-20 h-20 bg-dsBlue rounded-full flex items-center justify-center mx-auto mb-4"><img src="https://digitalscientists.com/wp-content/uploads/2024/10/icon-idea-prioritization-1.svg" alt="Discovery" class="w-10 h-10"></div>
+                <h3 class="font-bold text-lg mb-2">Discovery</h3>
+                <p class="text-gray-600 text-sm">Determine risk classification, regulatory pathway, and user needs.</p>
+                <p class="text-xs text-dsBlue font-medium mt-2">Regulatory strategy + risk class</p>
+            </div>
+            <div class="text-center">
+                <div class="w-20 h-20 bg-dsBlue rounded-full flex items-center justify-center mx-auto mb-4"><img src="https://digitalscientists.com/wp-content/uploads/2024/10/icon-validate-strategy-1.svg" alt="Blueprint" class="w-10 h-10"></div>
+                <h3 class="font-bold text-lg mb-2">Blueprint</h3>
+                <p class="text-gray-600 text-sm">Define requirements, initiate risk file, establish design controls.</p>
+                <p class="text-xs text-dsBlue font-medium mt-2">Requirements + risk management file</p>
+            </div>
+            <div class="text-center">
+                <div class="w-20 h-20 bg-dsBlue rounded-full flex items-center justify-center mx-auto mb-4"><img src="https://digitalscientists.com/wp-content/uploads/2024/10/icon-launch-wh-1.svg" alt="Develop" class="w-10 h-10"></div>
+                <h3 class="font-bold text-lg mb-2">Develop & Validate</h3>
+                <p class="text-gray-600 text-sm">IEC 62304 compliant development with verification and validation.</p>
+                <p class="text-xs text-dsBlue font-medium mt-2">Design History File (DHF)</p>
+            </div>
+            <div class="text-center">
+                <div class="w-20 h-20 bg-dsTeal rounded-full flex items-center justify-center mx-auto mb-4"><img src="https://digitalscientists.com/wp-content/uploads/2024/10/grow-white-1.svg" alt="Submit" class="w-10 h-10"></div>
+                <h3 class="font-bold text-lg mb-2">Submit & Maintain</h3>
+                <p class="text-gray-600 text-sm">FDA submission support, clearance, and post-market surveillance.</p>
+                <p class="text-xs text-dsTeal font-medium mt-2">510(k) / De Novo + maintenance</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Us -->
+<section class="py-20 bg-gray-50">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="text-center mb-16">
+            <p class="text-sm font-mono text-dsBlue uppercase tracking-widest mb-4">Why Us</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">SaMD Development Experts</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center">
+                <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/08/Regulatory-Compliance.svg" alt="Regulatory" class="w-10 h-10">
+                </div>
+                <h3 class="text-xl font-bold mb-3">Regulatory-First Approach</h3>
+                <p class="text-gray-600">QMS, risk management, and design controls are built into our process—not documentation created after the fact.</p>
+            </div>
+            <div class="text-center">
+                <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/08/Reliability-and-Performance.svg" alt="Technical" class="w-10 h-10">
+                </div>
+                <h3 class="text-xl font-bold mb-3">Technical Excellence</h3>
+                <p class="text-gray-600">Production-quality clinical software with the architecture, testing, and documentation required for regulated environments.</p>
+            </div>
+            <div class="text-center">
+                <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/08/Real-time-Functionality.svg" alt="Speed" class="w-10 h-10">
+                </div>
+                <h3 class="text-xl font-bold mb-3">Speed Without Shortcuts</h3>
+                <p class="text-gray-600">We deliver faster because compliance is embedded in our workflow, not because we skip steps.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonial -->
+<section class="py-16">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="max-w-3xl mx-auto text-center">
+            <img src="https://digitalscientists.com/wp-content/uploads/2024/05/Group2.svg" alt="CommuniCare" class="h-12 mx-auto mb-6">
+            <p class="text-xl text-gray-700 mb-6 italic">"I have worked with many technology teams during my career, and Digital Scientists is one of the best. They take the time to understand the customers' needs, deliver innovative solutions, are always professional, and work with your team as a true partner to achieve success."</p>
+            <p class="font-bold text-lg">Amy Severino</p>
+            <p class="text-gray-500">Chief Innovation Officer, CommuniCare Health Services</p>
+        </div>
+    </div>
+</section>
+
+<!-- Technologies -->
+<section class="py-16 bg-gray-50">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <p class="text-sm font-mono text-gray-500 uppercase tracking-widest text-center mb-8">Technologies</p>
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+            <img src="https://digitalscientists.com/wp-content/uploads/2024/05/Vector1.svg" alt="Apple/iOS" class="h-8 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://digitalscientists.com/wp-content/uploads/2024/05/Group1.svg" alt="Android" class="h-8 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://digitalscientists.com/wp-content/uploads/2023/01/hl7fhir-300x74.png" alt="HL7 FHIR" class="h-8 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://digitalscientists.com/wp-content/uploads/2024/01/image-40.png" alt="AWS" class="h-8 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://digitalscientists.com/wp-content/uploads/2024/01/image-43.png" alt="Azure" class="h-8 object-contain opacity-70 hover:opacity-100 transition">
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section with Form -->
+<section class="py-20 bg-dsBlue" id="contact">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <!-- Left Side - Copy -->
+            <div class="text-white">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to discuss your SaMD project?</h2>
+                <p class="text-xl text-blue-100 mb-8">30-minute call. No pitch. Just honest assessment of what's possible for your organization.</p>
+                
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-dsTeal flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span>Understand your clinical workflows and pain points</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-dsTeal flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span>Assess opportunity and realistic ROI range</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-dsTeal flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span>Determine if there's a fit</span>
+                    </div>
+                </div>
+                
+                <p class="text-blue-200">Or call: <a href="tel:4046543855" class="text-white font-semibold hover:underline">404.654.3855</a></p>
+            </div>
+            
+            <!-- Right Side - Form -->
+            <div class="bg-white rounded-2xl p-8 shadow-xl">
+                <form action="https://formspree.io/f/mrbgppby" method="POST" class="space-y-5">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                            <input type="text" name="first_name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-dsBlue focus:border-dsBlue outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                            <input type="text" name="last_name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-dsBlue focus:border-dsBlue outline-none transition">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-dsBlue focus:border-dsBlue outline-none transition">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Organization</label>
+                        <input type="text" name="organization" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-dsBlue focus:border-dsBlue outline-none transition">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Primary Interest</label>
+                        <select name="primary_interest" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-dsBlue focus:border-dsBlue outline-none transition bg-white">
+                            <option value="">Select an option...</option>
+                            <option value="Diagnostic Software">Diagnostic Software</option>
+                            <option value="Monitoring Application">Monitoring Application</option>
+                            <option value="Digital Therapeutic">Digital Therapeutic</option>
+                            <option value="Regulatory Strategy">Regulatory Strategy</option>
+                            <option value="Other SaMD Project">Other SaMD Project</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-dsBlue text-white font-semibold py-4 px-6 rounded-full hover:bg-blue-600 transition text-lg">
+                        Schedule SaMD Consultation
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HIPAA/Compliance -->
+<section class="py-16">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="flex flex-col md:flex-row items-center gap-8">
+            <div class="flex-1">
+                <h3 class="text-2xl font-bold mb-4">Regulatory Compliance & Data Security</h3>
+                <p class="text-gray-600 mb-4">SaMD requires both FDA compliance and data security. We build with HIPAA, FDA cybersecurity guidance, and international requirements (MDR, CE marking) from day one.</p>
+                <a href="https://digitalscientists.com/healthcare/security-phi/" class="text-dsBlue font-semibold hover:underline">Learn more about our compliance approach →</a>
+            </div>
+            <div><img src="https://digitalscientists.com/wp-content/uploads/2024/05/svgviewer-png-output1.png" alt="HIPAA Compliant" class="h-24"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-8 px-6 border-t border-gray-200">
+    <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+        <p>© 2007 - 2026 Digital Scientists, LLC.</p>
+        <div class="flex gap-6 mt-4 md:mt-0">
+            <a href="#" class="hover:text-dsBlack transition">Privacy Policy</a>
+            <a href="#" class="hover:text-dsBlack transition">LinkedIn</a>
+            <a href="tel:4046543855" class="text-dsBlue hover:underline">404.654.3855</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

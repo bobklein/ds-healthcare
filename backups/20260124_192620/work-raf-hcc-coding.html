@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAF/HCC Coding Case Study | Digital Scientists</title>
+    <meta name="description" content="$10M+ risk adjustment improvements, 90%+ diagnosis accuracy. AI-powered RAF/HCC coding serving 20K+ patients across 7 states with 245 providers.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dsBlue: '#304FFF',
+                        dsBlack: '#050505',
+                        dsGray: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        h1, h2, h3 { letter-spacing: -0.02em; }
+        
+        /* Lightbox styles for enlargeable images */
+        .enlargeable-container {
+            position: relative;
+            cursor: zoom-in;
+        }
+        .enlargeable-container::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            width: 28px;
+            height: 28px;
+            background: rgba(0,0,0,0.6);
+            border-radius: 6px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7'/%3E%3C/svg%3E");
+            background-size: 18px;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .enlargeable-container:hover::after {
+            opacity: 1;
+        }
+        
+        /* Lightbox modal */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            cursor: zoom-out;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .lightbox-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-content {
+            max-width: 95%;
+            max-height: 95%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        .lightbox-close:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .lightbox-close svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+        }
+        .lightbox-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            max-width: 80%;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body class="bg-white text-dsBlack antialiased">
+
+    <!-- Simple CSS Hover Navigation - No JavaScript Required -->
+<style>
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-menu { 
+        display: none; 
+        position: absolute; 
+        top: 100%; 
+        left: 0; 
+        padding-top: 8px;
+        z-index: 100;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu.right-aligned { left: auto; right: 0; }
+</style>
+
+<!-- DS Healthcare Mega Menu Navigation -->
+<!-- Desktop: Mega menu on hover | Mobile: Hamburger + Accordion -->
+
+<style>
+/* Mega Menu Styles */
+.mega-menu-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 8px;
+    z-index: 100;
+}
+.nav-item:hover .mega-menu-container {
+    display: block;
+}
+.mega-menu {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 24px;
+    min-width: 820px;
+}
+.mega-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+.mega-menu-section h4 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    margin-bottom: 12px;
+    padding-left: 12px;
+}
+.mega-menu-section a {
+    display: block;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #374151;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+.mega-menu-section a:hover {
+    background: #f3f4f6;
+}
+.mega-menu-cta {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+}
+.mega-menu-cta a {
+    background: #2563eb;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+.mega-menu-cta a:hover {
+    background: #1d4ed8;
+}
+
+/* Mobile Accordion Styles */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    overflow-y: auto;
+    z-index: 90;
+}
+.mobile-nav.open {
+    display: block;
+}
+.mobile-accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #111827;
+    border-bottom: 1px solid #f3f4f6;
+    cursor: pointer;
+}
+.mobile-accordion-header svg {
+    transition: transform 0.2s;
+}
+.mobile-accordion-header.open svg {
+    transform: rotate(180deg);
+}
+.mobile-accordion-content {
+    display: none;
+    background: #f9fafb;
+    padding: 8px 0;
+}
+.mobile-accordion-content.open {
+    display: block;
+}
+.mobile-accordion-section h5 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    padding: 12px 32px 8px;
+}
+.mobile-accordion-content a {
+    display: block;
+    padding: 12px 32px;
+    font-size: 14px;
+    color: #374151;
+    text-decoration: none;
+}
+.mobile-accordion-content a:hover {
+    background: #e5e7eb;
+}
+.mobile-nav-link {
+    display: block;
+    padding: 16px 24px;
+    font-size: 15px;
+    color: #111827;
+    text-decoration: none;
+    border-bottom: 1px solid #f3f4f6;
+}
+.mobile-cta {
+    padding: 24px;
+}
+.mobile-cta a {
+    display: block;
+    background: #2563eb;
+    color: white;
+    text-align: center;
+    padding: 14px 24px;
+    border-radius: 9999px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .desktop-nav { display: none !important; }
+    .mobile-menu-btn { display: flex !important; }
+}
+@media (min-width: 1025px) {
+    .mobile-nav { display: none !important; }
+    .mobile-menu-btn { display: none !important; }
+}
+</style>
+
+<nav class="fixed w-full z-50 bg-white border-b border-gray-100">
+    <div class="max-w-screen-xl mx-auto px-6">
+        <div class="h-20 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center">
+                <img src="1012DS_Logo_Native_Black (1).svg" alt="Digital Scientists" class="h-12">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav hidden lg:flex items-center gap-1">
+                
+                <!-- Healthcare (Mega Menu) -->
+                <div class="nav-item relative">
+                    <a href="healthcare-hub.html" class="flex items-center gap-1 px-4 py-2 text-sm text-gray-600 hover:text-gray-900">
+                        Healthcare
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                    <div class="mega-menu-container">
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <!-- Column 1: Overview + Capabilities -->
+                                <div>
+                                    <div class="mega-menu-section">
+                                        <h4>Overview</h4>
+                                        <a href="healthcare-hub.html">Healthcare Hub</a>
+                                        <a href="healthcare-approach.html">Our Approach</a>
+                                    </div>
+                                    <div class="mega-menu-section" style="margin-top: 20px;">
+                                        <h4>Capabilities</h4>
+                                        <a href="healthcare-capabilities-ai-ml-nlp.html">AI, ML & NLP</a>
+                                        <a href="healthcare-capabilities-mobile.html">Mobile Apps</a>
+                                        <a href="healthcare-capabilities-saas.html">SaaS Platforms</a>
+                                        <a href="healthcare-capabilities-ux-design.html">UX Design</a>
+                                        <a href="healthcare-capabilities-data-analytics.html">Data Analytics</a>
+                                        <a href="healthcare-capabilities-samd.html">SaMD</a>
+                                    </div>
+                                </div>
+                                
+                                <!-- Column 2: AI Solutions -->
+                                <div class="mega-menu-section">
+                                    <h4>AI Solutions</h4>
+                                    <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+                                    <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+                                    <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+                                    <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+                                </div>
+                                
+                                <!-- Column 3: Domains -->
+                                <div class="mega-menu-section">
+                                    <h4>Domains</h4>
+                                    <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+                                    <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+                                    <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+                                    <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+                                    <a href="healthcare-domains-ambient-scribes.html">Ambient Scribes</a>
+                                    <a href="healthcare-domains-ehr-integrations.html">EHR Integrations</a>
+                                </div>
+                                
+                                <!-- Column 4: Markets + Case Studies -->
+                                <div>
+                                    <div class="mega-menu-section">
+                                        <h4>Markets</h4>
+                                        <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+                                        <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+                                        <a href="healthcare-markets-senior-living.html">Senior Living</a>
+                                        <a href="healthcare-markets-idd.html">IDD Services</a>
+                                        <a href="healthcare-markets-health-systems.html">Health Systems</a>
+                                    </div>
+                                    <div class="mega-menu-section" style="margin-top: 20px;">
+                                        <h4>Case Studies</h4>
+                                        <a href="work-never-alone.html">NeverAlone</a>
+                                        <a href="work-communicare-mds.html">CommuniCare MDS</a>
+                                        <a href="work-raf-hcc-coding.html">RAF/HCC Coding</a>
+                                        <a href="work-healthcontext-ai.html">HealthContext AI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mega-menu-cta">
+                                <a href="healthcare-assessment.html">Get AI Readiness Assessment →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Services (links to WP) -->
+                <a href="https://digitalscientists.com/services/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Services</a>
+                
+                <!-- About (links to WP) -->
+                <a href="https://digitalscientists.com/about/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">About</a>
+                
+                <!-- Blog (links to WP) -->
+                <a href="https://digitalscientists.com/blog/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Blog</a>
+                
+                <!-- Contact (links to WP) -->
+                <a href="https://digitalscientists.com/contact/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Contact</a>
+                
+                <!-- CTA Button -->
+                <a href="healthcare-assessment.html" class="ml-4 px-5 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-colors">
+                    Get Assessment
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn hidden items-center justify-center w-10 h-10 text-gray-600" id="mobile-menu-btn" aria-label="Toggle menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav" id="mobile-nav">
+    <!-- Healthcare Accordion -->
+    <div class="mobile-accordion">
+        <div class="mobile-accordion-header" data-accordion="healthcare">
+            Healthcare
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="mobile-accordion-content" id="accordion-healthcare">
+            <div class="mobile-accordion-section">
+                <h5>Overview</h5>
+                <a href="healthcare-hub.html">Healthcare Hub</a>
+                <a href="healthcare-approach.html">Our Approach</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Capabilities</h5>
+                <a href="healthcare-capabilities-ai-ml-nlp.html">AI, ML & NLP</a>
+                <a href="healthcare-capabilities-mobile.html">Mobile Apps</a>
+                <a href="healthcare-capabilities-saas.html">SaaS Platforms</a>
+                <a href="healthcare-capabilities-ux-design.html">UX Design</a>
+                <a href="healthcare-capabilities-data-analytics.html">Data Analytics</a>
+                <a href="healthcare-capabilities-samd.html">SaMD</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>AI Solutions</h5>
+                <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+                <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+                <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+                <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Domains</h5>
+                <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+                <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+                <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+                <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+                <a href="healthcare-domains-ambient-scribes.html">Ambient Scribes</a>
+                <a href="healthcare-domains-ehr-integrations.html">EHR Integrations</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Markets</h5>
+                <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+                <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+                <a href="healthcare-markets-senior-living.html">Senior Living</a>
+                <a href="healthcare-markets-idd.html">IDD Services</a>
+                <a href="healthcare-markets-health-systems.html">Health Systems</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Case Studies</h5>
+                <a href="work-never-alone.html">NeverAlone</a>
+                <a href="work-communicare-mds.html">CommuniCare MDS</a>
+                <a href="work-raf-hcc-coding.html">RAF/HCC Coding</a>
+                <a href="work-healthcontext-ai.html">HealthContext AI</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Other Nav Links -->
+    <a href="https://digitalscientists.com/services/" class="mobile-nav-link">Services</a>
+    <a href="https://digitalscientists.com/about/" class="mobile-nav-link">About</a>
+    <a href="https://digitalscientists.com/blog/" class="mobile-nav-link">Blog</a>
+    <a href="https://digitalscientists.com/contact/" class="mobile-nav-link">Contact</a>
+    
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+        <a href="healthcare-assessment.html">Get AI Readiness Assessment</a>
+    </div>
+</div>
+
+<script>
+// Mobile menu toggle
+document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
+    document.getElementById('mobile-nav')?.classList.toggle('open');
+});
+
+// Mobile accordion toggle
+document.querySelectorAll('.mobile-accordion-header').forEach(header => {
+    header.addEventListener('click', function() {
+        const target = this.dataset.accordion;
+        const content = document.getElementById('accordion-' + target);
+        this.classList.toggle('open');
+        content?.classList.toggle('open');
+    });
+});
+</script>
+
+
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-16 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-3xl">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Case Study</span>
+                    <span class="text-xs text-gray-400">*</span>
+                    <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">RAF / HCC Coding</span>
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl font-bold text-dsBlack mb-6 leading-[1.1]">
+                    $10M+ in risk adjustment improvements. 90%+ diagnosis accuracy. 7 states.
+                </h1>
+                
+                <p class="text-xl text-gray-600 leading-relaxed mb-8">
+                    A value-based care organization serving Medicare Advantage patients needed to improve risk adjustment accuracy. Missed HCC codes were leaving millions on the table. We built an AI-powered platform that transformed their RAF scores while reducing audit risk.
+                </p>
+            </div>
+            
+            <!-- Results Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlue">$10M+</span>
+                    <p class="text-gray-500 text-sm mt-1">RAF Improvements</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">90%+</span>
+                    <p class="text-gray-500 text-sm mt-1">Diagnosis Accuracy</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">20K+</span>
+                    <p class="text-gray-500 text-sm mt-1">Patients Served</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">245</span>
+                    <p class="text-gray-500 text-sm mt-1">Providers</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Image -->
+    <section class="px-6 pb-20">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="rounded-xl overflow-hidden h-80 bg-gray-100 enlargeable-container" onclick="openLightbox(this.querySelector('img'))">
+                <img src="images/case-studies/raf-hero.png" alt="RAF/HCC Coding Platform - Average RAF Score Dashboard with facility filters and CMS scoring algorithms" class="w-full h-full object-cover object-top">
+            </div>
+        </div>
+    </section>
+
+    <!-- The Challenge -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div >
+                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Challenge</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
+                        Millions in missed risk adjustment from incomplete coding.
+                    </h2>
+                    <p class="text-gray-600 mb-6">
+                        In Medicare Advantage and value-based care models, accurate risk adjustment is everything. HCC codes determine payment rates. Missed diagnoses mean missed revenue-and inaccurate patient risk profiles that affect care planning.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        This organization had a problem at scale: 20,000+ patients across 7 states, 245 providers, and no systematic way to ensure diagnoses documented in clinical notes were being captured in claims. The gap between documentation and coding was costing millions.
+                    </p>
+                </div>
+                
+                <div >
+                    <div class="bg-white border border-gray-200 rounded-xl p-8">
+                        <h3 class="font-semibold text-dsBlack mb-4">The Risk Adjustment Challenge</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <span class="text-red-500 text-lg">X</span>
+                                <div>
+                                    <p class="text-dsBlack font-medium">Documentation-to-coding gap</p>
+                                    <p class="text-gray-500 text-sm">Diagnoses documented in notes but not making it to claims</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-red-500 text-lg">X</span>
+                                <div>
+                                    <p class="text-dsBlack font-medium">Chronic condition recapture</p>
+                                    <p class="text-gray-500 text-sm">HCCs from prior years not being recaptured annually</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-red-500 text-lg">X</span>
+                                <div>
+                                    <p class="text-dsBlack font-medium">Audit risk</p>
+                                    <p class="text-gray-500 text-sm">Coding without clear documentation linkage creates exposure</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-red-500 text-lg">X</span>
+                                <div>
+                                    <p class="text-dsBlack font-medium">Scale complexity</p>
+                                    <p class="text-gray-500 text-sm">20K+ patients, 7 states, 245 providers-impossible to review manually</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Solution -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Solution</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    AI-powered risk adjustment with explainable recommendations.
+                </h2>
+                <p class="text-gray-600">
+                    We built a platform that reviews clinical documentation-EHR data, lab results, medications, problem lists-and surfaces HCC coding opportunities with direct links to supporting evidence. Every recommendation is audit-defensible.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="border border-gray-200 rounded-xl p-8">
+                    <div class="rounded-lg overflow-hidden h-48 mb-6 bg-gray-100 enlargeable-container" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="images/case-studies/raf-dashboard-top.png" alt="Missed Opportunity - ICD code recapture flow showing prior year vs current year diagnosis comparison" class="w-full h-full object-contain bg-white p-2">
+                    </div>
+                    <h3 class="text-xl font-bold text-dsBlack mb-3">Holistic Patient Views</h3>
+                    <p class="text-gray-600 mb-4">
+                        Unified view of each patient's clinical data across all sources-EHR, labs, medications, claims history. AI identifies HCC gaps by comparing documented conditions against coded diagnoses.
+                    </p>
+                    <div class="space-y-2 text-sm text-gray-600">
+                        <p>* Multi-source data integration (EHR, claims, labs, medications)</p>
+                        <p>* Prior year HCC recapture identification</p>
+                        <p>* Suspected condition flagging</p>
+                        <p>* Clinical evidence linking</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-8">
+                    <div class="rounded-lg overflow-hidden h-48 mb-6 bg-gray-100 enlargeable-container" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="images/case-studies/raf-dashboard-bottom.png" alt="How We Recapture - Disease detection and code recapture workflow from EHR to accurate RAF scoring" class="w-full h-full object-contain bg-white p-2">
+                    </div>
+                    <h3 class="text-xl font-bold text-dsBlack mb-3">Provider Workflow Integration</h3>
+                    <p class="text-gray-600 mb-4">
+                        Recommendations surface at the point of care, not in a separate system. Providers see HCC opportunities during the visit, with supporting documentation pre-populated.
+                    </p>
+                    <div class="space-y-2 text-sm text-gray-600">
+                        <p>* EHR integration (Gehrimed, PointClickCare, Acclivity)</p>
+                        <p>* Pre-visit preparation reports</p>
+                        <p>* In-visit prompts for missing HCCs</p>
+                        <p>* One-click documentation support</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-8">
+                    <div class="rounded-lg overflow-hidden h-48 mb-6 bg-gray-100 enlargeable-container" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="images/case-studies/raf-hero.png" alt="RAF Score Analytics Dashboard showing facility comparisons, provider performance, and HCC gap analysis" class="w-full h-full object-cover object-top">
+                    </div>
+                    <h3 class="text-xl font-bold text-dsBlack mb-3">Population Analytics</h3>
+                    <p class="text-gray-600 mb-4">
+                        Enterprise visibility into RAF performance across facilities, providers, and patient populations. Identify systematic gaps, track improvement, and prioritize interventions.
+                    </p>
+                    <div class="space-y-2 text-sm text-gray-600">
+                        <p>* RAF score trending by facility</p>
+                        <p>* Provider performance comparisons</p>
+                        <p>* HCC gap analysis by category</p>
+                        <p>* ROI tracking and forecasting</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-8">
+                    <div class="rounded-lg overflow-hidden h-48 mb-6 bg-gray-100 enlargeable-container" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="images/case-studies/mds-approach.png" alt="MDS Optimization approach showing data flow from EHR integration to quality analytics" class="w-full h-full object-cover object-top">
+                    </div>
+                    <h3 class="text-xl font-bold text-dsBlack mb-3">Audit-Ready Documentation</h3>
+                    <p class="text-gray-600 mb-4">
+                        Every HCC recommendation linked directly to clinical evidence. When auditors ask "why did you code this?"-the answer is one click away. Built for defensibility.
+                    </p>
+                    <div class="space-y-2 text-sm text-gray-600">
+                        <p>* Source document linking</p>
+                        <p>* Clinical evidence chains</p>
+                        <p>* Audit trail logging</p>
+                        <p>* Peer-reviewed CMS methodology</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Approach -->
+    <section class="py-20 px-6 bg-dsBlack text-white">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Technical Approach</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
+                    Responsible AI with explainability at the core.
+                </h2>
+                <p class="text-gray-400">
+                    Healthcare AI isn't just about accuracy-it's about explainability. Every recommendation must be defensible. We built this platform with auditability as a first-class requirement.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="border border-gray-800 rounded-xl p-6">
+                    <h3 class="font-semibold text-white mb-3">Peer-Reviewed Methodology</h3>
+                    <p class="text-gray-400 text-sm">AI models built on CMS HCC scoring methodology. Not black-box predictions-transparent, validated approaches.</p>
+                </div>
+                
+                <div class="border border-gray-800 rounded-xl p-6">
+                    <h3 class="font-semibold text-white mb-3">Evidence Linking</h3>
+                    <p class="text-gray-400 text-sm">Every recommendation tied to specific clinical documentation. Auditors can trace from code to evidence in seconds.</p>
+                </div>
+                
+                <div class="border border-gray-800 rounded-xl p-6">
+                    <h3 class="font-semibold text-white mb-3">Multi-Source Integration</h3>
+                    <p class="text-gray-400 text-sm">EHR data, lab results, medications, claims history-all combined for comprehensive patient view.</p>
+                </div>
+                
+                <div class="border border-gray-800 rounded-xl p-6">
+                    <h3 class="font-semibold text-white mb-3">Continuous Learning</h3>
+                    <p class="text-gray-400 text-sm">Platform improves with feedback. Provider corrections and audit results feed back into the model.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Results -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Results</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    $10M+ in improvements across 7 states.
+                </h2>
+                <p class="text-gray-600">
+                    Production deployment serving real patients, real providers, real revenue. These numbers come from actual RAF score improvements tracked over time.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="bg-dsGray rounded-xl p-8">
+                    <h3 class="text-sm font-medium text-dsBlue uppercase tracking-wider mb-4">Financial Impact</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <span class="text-3xl font-bold text-dsBlack">$10M+</span>
+                            <p class="text-gray-500 text-sm">Total RAF improvements</p>
+                        </div>
+                        <div>
+                            <span class="text-3xl font-bold text-dsBlack">Higher</span>
+                            <p class="text-gray-500 text-sm">ICD/HCC recapture rates</p>
+                        </div>
+                        <div>
+                            <span class="text-3xl font-bold text-dsBlack">Reduced</span>
+                            <p class="text-gray-500 text-sm">Audit exposure and claw-back risk</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-dsGray rounded-xl p-8">
+                    <h3 class="text-sm font-medium text-dsBlue uppercase tracking-wider mb-4">Clinical Impact</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <span class="text-3xl font-bold text-dsBlack">90%+</span>
+                            <p class="text-gray-500 text-sm">Diagnosis accuracy</p>
+                        </div>
+                        <div>
+                            <span class="text-3xl font-bold text-dsBlack">Better</span>
+                            <p class="text-gray-500 text-sm">Patient risk profiles for care planning</p>
+                        </div>
+                        <div>
+                            <span class="text-3xl font-bold text-dsBlack">Reduced</span>
+                            <p class="text-gray-500 text-sm">Hospitalizations through better targeting</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-dsGray rounded-xl p-8">
+                    <h3 class="text-sm font-medium text-dsBlue uppercase tracking-wider mb-4">Scale</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <span class="text-3xl font-bold text-dsBlack">20K+</span>
+                            <p class="text-gray-500 text-sm">Patients served</p>
+                        </div>
+                        <div>
+                            <span class="text-3xl font-bold text-dsBlack">7</span>
+                            <p class="text-gray-500 text-sm">States in production</p>
+                        </div>
+                        <div>
+                            <span class="text-3xl font-bold text-dsBlack">245</span>
+                            <p class="text-gray-500 text-sm">Providers using the platform</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EHR Integration -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div >
+                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Integration</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
+                        Wrapped around existing EHR systems.
+                    </h2>
+                    <p class="text-gray-600 mb-6">
+                        No rip-and-replace. The platform integrates with existing EHR systems, pulling data for analysis and surfacing recommendations within provider workflows. Providers don't need to log into another system.
+                    </p>
+                    
+                    <h3 class="font-semibold text-dsBlack mb-3">Production Integrations:</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white border border-gray-200 rounded-lg p-4">
+                            <p class="font-medium text-dsBlack">Gehrimed</p>
+                            <p class="text-gray-500 text-sm">Primary EHR integration</p>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-lg p-4">
+                            <p class="font-medium text-dsBlack">PointClickCare</p>
+                            <p class="text-gray-500 text-sm">SNF data integration</p>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-lg p-4">
+                            <p class="font-medium text-dsBlack">Acclivity</p>
+                            <p class="text-gray-500 text-sm">Claims and billing data</p>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-lg p-4">
+                            <p class="font-medium text-dsBlack">Lab Systems</p>
+                            <p class="text-gray-500 text-sm">Results integration</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div >
+                    <div class="bg-white border border-gray-200 rounded-xl p-8">
+                        <h3 class="font-semibold text-dsBlack mb-4">Why Integration Matters for RAF</h3>
+                        <div class="space-y-4 text-gray-600">
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue mt-1">Y</span>
+                                <div>
+                                    <p class="font-medium text-dsBlack">Complete patient picture</p>
+                                    <p class="text-sm">Lab results, medications, and clinical notes all factor into HCC identification.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue mt-1">Y</span>
+                                <div>
+                                    <p class="font-medium text-dsBlack">Point-of-care delivery</p>
+                                    <p class="text-sm">Recommendations surface during the visit, not in a separate report reviewed later.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue mt-1">Y</span>
+                                <div>
+                                    <p class="font-medium text-dsBlack">No duplicate data entry</p>
+                                    <p class="text-sm">Providers accept or modify recommendations-data flows back automatically.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue mt-1">Y</span>
+                                <div>
+                                    <p class="font-medium text-dsBlack">Audit trail preservation</p>
+                                    <p class="text-sm">Source documentation links maintained through the workflow.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Work -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Work</span>
+                    <h2 class="text-3xl font-bold text-dsBlack mt-3">More healthcare results.</h2>
+                </div>
+                <a href="ds-healthcare-v3-updated.html" class="hidden md:inline-flex items-center gap-2 text-dsBlue font-medium hover:underline">
+                    View All Work→
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <a href="work-communicare-mds.html" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
+                    <div class="h-40 overflow-hidden bg-gray-100">
+                        <img src="images/case-studies/ard-optimizer.png" alt="MDS Optimization Platform" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-gray-400 uppercase tracking-wider">Revenue Optimization</span>
+                        <h3 class="font-bold text-dsBlack mt-1 mb-2">CommuniCare MDS Optimization</h3>
+                        <p class="text-gray-600 text-sm mb-3">$10M+ PDPM revenue recovered, $2M quality incentives from two states.</p>
+                        <span class="text-dsBlue text-sm font-medium">Read Case Study→</span>
+                    </div>
+                </a>
+                
+                <a href="work-never-alone.html" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
+                    <div class="h-40 overflow-hidden bg-gray-100">
+                        <img src="images/case-studies/ipad-app-full-schedule.png" alt="NeverAlone Platform" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-gray-400 uppercase tracking-wider">Virtual Care</span>
+                        <h3 class="font-bold text-dsBlack mt-1 mb-2">NeverAlone</h3>
+                        <p class="text-gray-600 text-sm mb-3">26K+ patients, 96% treat-in-place rate, 7-state platform we built and operate.</p>
+                        <span class="text-dsBlue text-sm font-medium">Read Case Study→</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-6 bg-dsBlue text-white">
+        <div class="max-w-screen-xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">What's your risk adjustment opportunity?</h2>
+            <p class="text-blue-100 mb-8 max-w-2xl mx-auto">
+                If missed HCCs are costing you millions in RAF revenue, let's talk. 30-minute call to assess your opportunity.
+            </p>
+            <a href="healthcare-assessment.html" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition">
+                Schedule Assessment Call
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-gray-200">
+        <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+            <p>© 2007 - 2026 Digital Scientists, LLC.</p>
+            <div class="flex gap-6 mt-4 md:mt-0">
+                <a href="#" class="hover:text-dsBlack transition">Privacy Policy</a>
+                <a href="#" class="hover:text-dsBlack transition">LinkedIn</a>
+                <a href="tel:4046543855" class="text-dsBlue hover:underline">404.654.3855</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Animation -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    });
+
+
+    </script>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+        <img id="lightbox-img" class="lightbox-content" src="" alt="">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+
+    <script>
+        function openLightbox(img) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            
+            lightboxImg.src = img.src;
+            lightboxCaption.textContent = img.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+
+</body>
+</html>

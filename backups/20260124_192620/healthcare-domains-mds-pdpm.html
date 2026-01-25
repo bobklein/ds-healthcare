@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDS Optimization & PDPM Revenue Capture | Digital Scientists</title>
+    <meta name="description" content="AI-powered MDS assessment optimization delivering $10M+ PDPM revenue recovery. Built with MDS coordinators, integrated with PointClickCare.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dsBlue: '#304FFF',
+                        dsBlack: '#050505',
+                        dsGray: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        h1, h2, h3 { letter-spacing: -0.02em; }
+        
+        
+    </style>
+</head>
+<body class="bg-white text-dsBlack antialiased">
+
+    <!-- Simple CSS Hover Navigation - No JavaScript Required -->
+<style>
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-menu { 
+        display: none; 
+        position: absolute; 
+        top: 100%; 
+        left: 0; 
+        padding-top: 8px;
+        z-index: 100;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu.right-aligned { left: auto; right: 0; }
+</style>
+
+<!-- DS Healthcare Mega Menu Navigation -->
+<!-- Desktop: Mega menu on hover | Mobile: Hamburger + Accordion -->
+
+<style>
+/* Mega Menu Styles */
+.mega-menu-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 8px;
+    z-index: 100;
+}
+.nav-item:hover .mega-menu-container {
+    display: block;
+}
+.mega-menu {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 24px;
+    min-width: 820px;
+}
+.mega-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+.mega-menu-section h4 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    margin-bottom: 12px;
+    padding-left: 12px;
+}
+.mega-menu-section a {
+    display: block;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #374151;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+.mega-menu-section a:hover {
+    background: #f3f4f6;
+}
+.mega-menu-cta {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+}
+.mega-menu-cta a {
+    background: #2563eb;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+.mega-menu-cta a:hover {
+    background: #1d4ed8;
+}
+
+/* Mobile Accordion Styles */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    overflow-y: auto;
+    z-index: 90;
+}
+.mobile-nav.open {
+    display: block;
+}
+.mobile-accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #111827;
+    border-bottom: 1px solid #f3f4f6;
+    cursor: pointer;
+}
+.mobile-accordion-header svg {
+    transition: transform 0.2s;
+}
+.mobile-accordion-header.open svg {
+    transform: rotate(180deg);
+}
+.mobile-accordion-content {
+    display: none;
+    background: #f9fafb;
+    padding: 8px 0;
+}
+.mobile-accordion-content.open {
+    display: block;
+}
+.mobile-accordion-section h5 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    padding: 12px 32px 8px;
+}
+.mobile-accordion-content a {
+    display: block;
+    padding: 12px 32px;
+    font-size: 14px;
+    color: #374151;
+    text-decoration: none;
+}
+.mobile-accordion-content a:hover {
+    background: #e5e7eb;
+}
+.mobile-nav-link {
+    display: block;
+    padding: 16px 24px;
+    font-size: 15px;
+    color: #111827;
+    text-decoration: none;
+    border-bottom: 1px solid #f3f4f6;
+}
+.mobile-cta {
+    padding: 24px;
+}
+.mobile-cta a {
+    display: block;
+    background: #2563eb;
+    color: white;
+    text-align: center;
+    padding: 14px 24px;
+    border-radius: 9999px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .desktop-nav { display: none !important; }
+    .mobile-menu-btn { display: flex !important; }
+}
+@media (min-width: 1025px) {
+    .mobile-nav { display: none !important; }
+    .mobile-menu-btn { display: none !important; }
+}
+</style>
+
+<nav class="fixed w-full z-50 bg-white border-b border-gray-100">
+    <div class="max-w-screen-xl mx-auto px-6">
+        <div class="h-20 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center">
+                <img src="1012DS_Logo_Native_Black (1).svg" alt="Digital Scientists" class="h-12">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav hidden lg:flex items-center gap-1">
+                
+                <!-- Healthcare (Mega Menu) -->
+                <div class="nav-item relative">
+                    <a href="healthcare-hub.html" class="flex items-center gap-1 px-4 py-2 text-sm text-gray-600 hover:text-gray-900">
+                        Healthcare
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                    <div class="mega-menu-container">
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <!-- Column 1: Overview + Capabilities -->
+                                <div>
+                                    <div class="mega-menu-section">
+                                        <h4>Overview</h4>
+                                        <a href="healthcare-hub.html">Healthcare Hub</a>
+                                        <a href="healthcare-approach.html">Our Approach</a>
+                                    </div>
+                                    <div class="mega-menu-section" style="margin-top: 20px;">
+                                        <h4>Capabilities</h4>
+                                        <a href="healthcare-capabilities-ai-ml-nlp.html">AI, ML & NLP</a>
+                                        <a href="healthcare-capabilities-mobile.html">Mobile Apps</a>
+                                        <a href="healthcare-capabilities-saas.html">SaaS Platforms</a>
+                                        <a href="healthcare-capabilities-ux-design.html">UX Design</a>
+                                        <a href="healthcare-capabilities-data-analytics.html">Data Analytics</a>
+                                        <a href="healthcare-capabilities-samd.html">SaMD</a>
+                                    </div>
+                                </div>
+                                
+                                <!-- Column 2: AI Solutions -->
+                                <div class="mega-menu-section">
+                                    <h4>AI Solutions</h4>
+                                    <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+                                    <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+                                    <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+                                    <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+                                </div>
+                                
+                                <!-- Column 3: Domains -->
+                                <div class="mega-menu-section">
+                                    <h4>Domains</h4>
+                                    <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+                                    <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+                                    <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+                                    <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+                                    <a href="healthcare-domains-ambient-scribes.html">Ambient Scribes</a>
+                                    <a href="healthcare-domains-ehr-integrations.html">EHR Integrations</a>
+                                </div>
+                                
+                                <!-- Column 4: Markets + Case Studies -->
+                                <div>
+                                    <div class="mega-menu-section">
+                                        <h4>Markets</h4>
+                                        <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+                                        <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+                                        <a href="healthcare-markets-senior-living.html">Senior Living</a>
+                                        <a href="healthcare-markets-idd.html">IDD Services</a>
+                                        <a href="healthcare-markets-health-systems.html">Health Systems</a>
+                                    </div>
+                                    <div class="mega-menu-section" style="margin-top: 20px;">
+                                        <h4>Case Studies</h4>
+                                        <a href="work-never-alone.html">NeverAlone</a>
+                                        <a href="work-communicare-mds.html">CommuniCare MDS</a>
+                                        <a href="work-raf-hcc-coding.html">RAF/HCC Coding</a>
+                                        <a href="work-healthcontext-ai.html">HealthContext AI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mega-menu-cta">
+                                <a href="healthcare-assessment.html">Get AI Readiness Assessment →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Services (links to WP) -->
+                <a href="https://digitalscientists.com/services/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Services</a>
+                
+                <!-- About (links to WP) -->
+                <a href="https://digitalscientists.com/about/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">About</a>
+                
+                <!-- Blog (links to WP) -->
+                <a href="https://digitalscientists.com/blog/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Blog</a>
+                
+                <!-- Contact (links to WP) -->
+                <a href="https://digitalscientists.com/contact/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Contact</a>
+                
+                <!-- CTA Button -->
+                <a href="healthcare-assessment.html" class="ml-4 px-5 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-colors">
+                    Get Assessment
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn hidden items-center justify-center w-10 h-10 text-gray-600" id="mobile-menu-btn" aria-label="Toggle menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav" id="mobile-nav">
+    <!-- Healthcare Accordion -->
+    <div class="mobile-accordion">
+        <div class="mobile-accordion-header" data-accordion="healthcare">
+            Healthcare
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="mobile-accordion-content" id="accordion-healthcare">
+            <div class="mobile-accordion-section">
+                <h5>Overview</h5>
+                <a href="healthcare-hub.html">Healthcare Hub</a>
+                <a href="healthcare-approach.html">Our Approach</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Capabilities</h5>
+                <a href="healthcare-capabilities-ai-ml-nlp.html">AI, ML & NLP</a>
+                <a href="healthcare-capabilities-mobile.html">Mobile Apps</a>
+                <a href="healthcare-capabilities-saas.html">SaaS Platforms</a>
+                <a href="healthcare-capabilities-ux-design.html">UX Design</a>
+                <a href="healthcare-capabilities-data-analytics.html">Data Analytics</a>
+                <a href="healthcare-capabilities-samd.html">SaMD</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>AI Solutions</h5>
+                <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+                <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+                <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+                <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Domains</h5>
+                <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+                <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+                <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+                <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+                <a href="healthcare-domains-ambient-scribes.html">Ambient Scribes</a>
+                <a href="healthcare-domains-ehr-integrations.html">EHR Integrations</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Markets</h5>
+                <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+                <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+                <a href="healthcare-markets-senior-living.html">Senior Living</a>
+                <a href="healthcare-markets-idd.html">IDD Services</a>
+                <a href="healthcare-markets-health-systems.html">Health Systems</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Case Studies</h5>
+                <a href="work-never-alone.html">NeverAlone</a>
+                <a href="work-communicare-mds.html">CommuniCare MDS</a>
+                <a href="work-raf-hcc-coding.html">RAF/HCC Coding</a>
+                <a href="work-healthcontext-ai.html">HealthContext AI</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Other Nav Links -->
+    <a href="https://digitalscientists.com/services/" class="mobile-nav-link">Services</a>
+    <a href="https://digitalscientists.com/about/" class="mobile-nav-link">About</a>
+    <a href="https://digitalscientists.com/blog/" class="mobile-nav-link">Blog</a>
+    <a href="https://digitalscientists.com/contact/" class="mobile-nav-link">Contact</a>
+    
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+        <a href="healthcare-assessment.html">Get AI Readiness Assessment</a>
+    </div>
+</div>
+
+<script>
+// Mobile menu toggle
+document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
+    document.getElementById('mobile-nav')?.classList.toggle('open');
+});
+
+// Mobile accordion toggle
+document.querySelectorAll('.mobile-accordion-header').forEach(header => {
+    header.addEventListener('click', function() {
+        const target = this.dataset.accordion;
+        const content = document.getElementById('accordion-' + target);
+        this.classList.toggle('open');
+        content?.classList.toggle('open');
+    });
+});
+</script>
+
+
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-16 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
+                    <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                    Healthcare Domain Expertise
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dsBlack mb-6 leading-[1.1]">
+                    MDS Optimization & PDPM Revenue Capture
+                </h1>
+                
+                <p class="text-xl text-gray-600 leading-relaxed mb-4">
+                    $10M in PDPM revenue recovered. $2M in quality incentives. Built by shadowing MDS coordinators for 40+ hours before writing a single line of code.
+                </p>
+                <p class="text-xl text-gray-600 leading-relaxed mb-8">
+                    MDS assessments drive everything-reimbursement, quality scores, care planning. Most facilities leave millions on the table through missed diagnoses, incomplete documentation, and assessment timing gaps. Our AI changes that.
+                </p>
+                
+                <a href="healthcare-assessment.html" class="inline-flex items-center gap-2 bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">
+                    Assess Your PDPM Opportunity
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Bar -->
+    <section class="border-y border-gray-100 py-8 px-6">
+        <div class="max-w-screen-xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="text-center">
+                <span class="text-3xl font-bold text-dsBlue">$10M+</span>
+                <p class="text-gray-500 text-sm mt-1">PDPM Revenue Recovered</p>
+            </div>
+            <div class="text-center">
+                <span class="text-3xl font-bold text-dsBlack">$2M</span>
+                <p class="text-gray-500 text-sm mt-1">Quality Incentives</p>
+            </div>
+            <div class="text-center">
+                <span class="text-3xl font-bold text-dsBlack">60/100</span>
+                <p class="text-gray-500 text-sm mt-1">Five-Star QM Score</p>
+            </div>
+            <div class="text-center">
+                <span class="text-3xl font-bold text-dsBlack">40-60%</span>
+                <p class="text-gray-500 text-sm mt-1">Time Savings Per Assessment</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is MDS/PDPM -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div >
+                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Understanding MDS & PDPM</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
+                        MDS drives your reimbursement. PDPM determines your revenue.
+                    </h2>
+                    
+                    <p class="text-gray-600 mb-4">
+                        The Minimum Data Set (MDS) is the comprehensive assessment required for every SNF resident. It captures clinical information, functional status, and diagnoses that directly determine your reimbursement under the Patient-Driven Payment Model (PDPM).
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        PDPM replaced the old RUG system in 2019, fundamentally changing how SNFs get paid. Instead of therapy minutes, payment now depends on patient characteristics-diagnoses, functional status, cognitive impairment, and clinical complexity. This means accurate MDS assessments directly impact your bottom line.
+                    </p>
+                    <p class="text-gray-600">
+                        Every missed diagnosis, every incomplete assessment, every timing gap costs you money. And with CMS's focus on quality measures, MDS accuracy now affects your Five-Star rating too.
+                    </p>
+                </div>
+                
+                <div >
+                    <div class="bg-dsGray rounded-xl p-8">
+                        <h3 class="font-semibold text-dsBlack mb-4">How PDPM Payment Works</h3>
+                        <div class="space-y-4 text-sm text-gray-600">
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue font-bold">PT</span>
+                                <p><strong>Physical Therapy:</strong> Based on functional score and clinical category</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue font-bold">OT</span>
+                                <p><strong>Occupational Therapy:</strong> Based on functional score and clinical category</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue font-bold">SLP</span>
+                                <p><strong>Speech-Language Pathology:</strong> Based on cognitive impairment and swallowing disorders</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue font-bold">NTA</span>
+                                <p><strong>Non-Therapy Ancillary:</strong> Based on extensive conditions and medications</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue font-bold">Nursing</span>
+                                <p><strong>Nursing Component:</strong> Based on clinical classification and ADL score</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 pt-6 border-t border-gray-200">
+                            <p class="text-dsBlack font-medium">Each component is determined by MDS data. Incomplete assessments = lower payments.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Problem</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    MDS coordinators are overwhelmed. Revenue is walking out the door.
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
+                    <span class="text-4xl font-bold text-dsBlack">3-4 hrs</span>
+                    <h3 class="font-semibold text-dsBlack mt-3 mb-2">Per MDS Assessment</h3>
+                    <p class="text-gray-500 text-sm">Chart review, resident observation, family interviews, documentation-each assessment is a multi-hour process that pulls coordinators from other critical tasks.</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
+                    <span class="text-4xl font-bold text-dsBlack">15-20%</span>
+                    <h3 class="font-semibold text-dsBlack mt-3 mb-2">Missed Diagnoses</h3>
+                    <p class="text-gray-500 text-sm">Hidden in clinical notes, lab results, and medication lists. Every missed diagnosis is money left on the table-and potentially a care planning gap.</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
+                    <span class="text-4xl font-bold text-dsBlack">$120+</span>
+                    <h3 class="font-semibold text-dsBlack mt-3 mb-2">Per Day CMI Impact</h3>
+                    <p class="text-gray-500 text-sm">A single missed comorbidity or incorrect clinical category can reduce your daily rate by over $120. Multiply by census and length of stay-the numbers add up fast.</p>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-white border border-gray-200 rounded-xl p-8">
+                <h3 class="font-semibold text-dsBlack mb-4">Why Traditional Approaches Fall Short</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <p class="text-dsBlack font-medium mb-2">Manual Review</p>
+                        <p class="text-gray-600 text-sm">Even experienced MDS coordinators can't catch every diagnosis buried in 6 months of clinical notes. They're doing their best with overwhelming data volume.</p>
+                    </div>
+                    <div>
+                        <p class="text-dsBlack font-medium mb-2">Basic EHR Alerts</p>
+                        <p class="text-gray-600 text-sm">PointClickCare's built-in tools are helpful but generic. They don't learn your documentation patterns or understand your specific payer requirements.</p>
+                    </div>
+                    <div>
+                        <p class="text-dsBlack font-medium mb-2">Consulting Reviews</p>
+                        <p class="text-gray-600 text-sm">Quarterly audits catch errors after the fact. By then, you've already submitted and been paid incorrectly. Retrospective fixes don't recover all the revenue.</p>
+                    </div>
+                    <div>
+                        <p class="text-dsBlack font-medium mb-2">Additional Staff</p>
+                        <p class="text-gray-600 text-sm">Hiring more MDS coordinators doesn't solve the underlying problem-they face the same data overload. And qualified coordinators are increasingly hard to find.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Solution -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Our Solution</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    AI that surfaces diagnoses, recommends assessments, and fits your workflow.
+                </h2>
+                <p class="text-gray-600">
+                    We built our MDS optimization platform by spending 40+ hours shadowing MDS coordinators-watching them work, understanding their challenges, learning their workflows. The result is AI that actually helps, not another tool that creates work.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="border border-gray-200 rounded-xl p-8">
+                    <h3 class="text-xl font-bold text-dsBlack mb-4">Diagnosis Discovery</h3>
+                    <p class="text-gray-600 mb-4">
+                        Our AI continuously monitors clinical documentation, lab results, medication lists, and progress notes to identify diagnoses that should appear on the MDS. It surfaces findings with direct links to supporting documentation-so coordinators can verify quickly instead of hunting through charts.
+                    </p>
+                    <div class="bg-dsGray rounded-lg p-4">
+                        <p class="text-sm text-gray-600"><strong class="text-dsBlack">Example:</strong> Patient on Metformin with elevated A1C in labs but no diabetes diagnosis coded. AI flags for review with supporting documentation linked.</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-8">
+                    <h3 class="text-xl font-bold text-dsBlack mb-4">Assessment Recommendations</h3>
+                    <p class="text-gray-600 mb-4">
+                        Beyond just finding diagnoses, our system recommends optimal assessment timing, clinical categories, and documentation improvements. Every recommendation links to the source documentation and explains the reimbursement impact.
+                    </p>
+                    <div class="bg-dsGray rounded-lg p-4">
+                        <p class="text-sm text-gray-600"><strong class="text-dsBlack">Example:</strong> "Consider Significant Change assessment-functional status decline documented across 3 therapy notes this week. Estimated CMI impact: +$85/day."</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-8">
+                    <h3 class="text-xl font-bold text-dsBlack mb-4">Pre-Submission Validation</h3>
+                    <p class="text-gray-600 mb-4">
+                        Before you transmit, our system validates each MDS against CMS requirements and internal quality standards. It flags errors, inconsistencies, and missed opportunities-catching problems before they become audit findings or revenue losses.
+                    </p>
+                    <div class="bg-dsGray rounded-lg p-4">
+                        <p class="text-sm text-gray-600"><strong class="text-dsBlack">Example:</strong> "ADL score inconsistent with therapy documentation. Review Section GG before submission."</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-8">
+                    <h3 class="text-xl font-bold text-dsBlack mb-4">Quality Measure Optimization</h3>
+                    <p class="text-gray-600 mb-4">
+                        MDS data drives your Five-Star quality measures. Our system tracks quality measure performance in real-time, identifies residents affecting your scores, and recommends documentation or care interventions to improve outcomes.
+                    </p>
+                    <div class="bg-dsGray rounded-lg p-4">
+                        <p class="text-sm text-gray-600"><strong class="text-dsBlack">Result:</strong> CommuniCare achieved Five-Star QM Score of 60/100 and $2M in quality incentives.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Co-Design Story -->
+    <section class="py-20 px-6 bg-dsBlack text-white">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div >
+                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Built With Your Teams</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-6">
+                        40+ hours shadowing MDS coordinators before writing code.
+                    </h2>
+                    
+                    <p class="text-gray-300 mb-4">
+                        We didn't build this in a conference room. We sat with MDS coordinators in their facilities, watched them work through assessments, understood their documentation challenges, and learned what actually helps versus what creates more work.
+                    </p>
+                    <p class="text-gray-300 mb-4">
+                        That's why our system integrates seamlessly with existing workflows. No separate login. No duplicate data entry. Recommendations appear within PointClickCare where coordinators are already working.
+                    </p>
+                    <p class="text-gray-300">
+                        The result: immediate adoption and $10M+ in recovered revenue.
+                    </p>
+                </div>
+                
+                <div >
+                    <div class="bg-gray-900 rounded-xl p-8">
+                        <h3 class="font-semibold text-white mb-6">What We Learned From Shadowing</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue">→</span>
+                                <p class="text-gray-300 text-sm">Coordinators juggle 20+ assessments at once-they need prioritization, not more alerts</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue">→</span>
+                                <p class="text-gray-300 text-sm">Chart review is the bottleneck-they know what to look for but can't find it fast enough</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue">→</span>
+                                <p class="text-gray-300 text-sm">Every facility has different documentation patterns-one-size-fits-all tools fail</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue">→</span>
+                                <p class="text-gray-300 text-sm">Trust matters-recommendations need clear source documentation to be actionable</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue">→</span>
+                                <p class="text-gray-300 text-sm">Timing is everything-catching issues before submission is 10x more valuable than audit findings</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proof Points -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Proven Results</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    $10M+ PDPM revenue at CommuniCare. Financial analyst calculated.
+                </h2>
+                <p class="text-gray-600">
+                    Not vendor estimates. Not projections. Actual revenue recovered, validated by an independent financial analyst, from production deployment across multiple states.
+                </p>
+            </div>
+
+            <div class="bg-dsGray rounded-xl p-8 mb-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-semibold text-dsBlack mb-4">CommuniCare Health Services</h3>
+                        <p class="text-gray-600 mb-4">
+                            One of the nation's largest post-acute care providers. Multiple states, hundreds of facilities. They needed MDS optimization that could scale without adding coordinator headcount.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                                <span class="text-gray-600">PDPM Revenue Recovered</span>
+                                <span class="font-bold text-dsBlue">$10M+ (annualized)</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                                <span class="text-gray-600">Quality Incentives</span>
+                                <span class="font-bold text-dsBlack">$2M (annualized)</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                                <span class="text-gray-600">Five-Star QM Score</span>
+                                <span class="font-bold text-dsBlack">60/100</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2">
+                                <span class="text-gray-600">Assessment Time Savings</span>
+                                <span class="font-bold text-dsBlack">40-60%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="bg-white rounded-lg overflow-hidden h-full">
+                            <img src="images/case-studies/ard-optimizer.png" alt="CommuniCare MDS Optimization Dashboard" class="w-full h-full object-cover object-top">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <h4 class="font-semibold text-dsBlack mb-2">Diagnosis Capture</h4>
+                    <p class="text-gray-600 text-sm">AI identifies 15-20% more billable diagnoses that were present in documentation but not coded on assessments.</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <h4 class="font-semibold text-dsBlack mb-2">CMI Improvement</h4>
+                    <p class="text-gray-600 text-sm">Average Case Mix Index improvement of 0.05-0.10 through better clinical classification and complete capture.</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <h4 class="font-semibold text-dsBlack mb-2">Audit Readiness</h4>
+                    <p class="text-gray-600 text-sm">Every AI recommendation links to source documentation-creating an audit trail that protects your revenue.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EHR Integration -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div >
+                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">EHR Integration</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
+                        Works within PointClickCare. No separate system to manage.
+                    </h2>
+                    
+                    <p class="text-gray-600 mb-4">
+                        Our MDS optimization integrates directly with PointClickCare-the EHR most SNFs already use. No separate login. No switching between systems. Recommendations appear where your coordinators are already working.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        Integration includes bidirectional data flows: we pull clinical documentation and return recommendations. Updates happen in real-time, so coordinators always see current information.
+                    </p>
+                    <p class="text-gray-600">
+                        For facilities using other EHRs, we have integration patterns for Epic, Gehrimed, and custom systems. The key is meeting your coordinators where they work.
+                    </p>
+                </div>
+                
+                <div >
+                    <div class="bg-white border border-gray-200 rounded-xl p-8">
+                        <h3 class="font-semibold text-dsBlack mb-4">Integration Capabilities</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue text-lg">Y</span>
+                                <div>
+                                    <p class="text-dsBlack font-medium">PointClickCare Native</p>
+                                    <p class="text-gray-500 text-sm">Primary integration-production-proven across multiple states</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue text-lg">Y</span>
+                                <div>
+                                    <p class="text-dsBlack font-medium">Real-Time Data</p>
+                                    <p class="text-gray-500 text-sm">Clinical notes, labs, medications-pulled as documented</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue text-lg">Y</span>
+                                <div>
+                                    <p class="text-dsBlack font-medium">Workflow Embedded</p>
+                                    <p class="text-gray-500 text-sm">Recommendations appear within existing MDS workflow</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-dsBlue text-lg">Y</span>
+                                <div>
+                                    <p class="text-dsBlack font-medium">HIPAA Compliant</p>
+                                    <p class="text-gray-500 text-sm">Full compliance with BAAs, audit trails, access controls</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Domains -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Expertise</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3">
+                    MDS optimization often combines with these domains.
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="healthcare-domains-value-based-care.html" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <h3 class="font-semibold text-dsBlack mb-2 group-hover:text-dsBlue transition">Value-Based Care</h3>
+                    <p class="text-gray-600 text-sm mb-4">MDS data drives SNF VBP performance and ACO REACH quality measures. Same assessments, different revenue implications.</p>
+                    <span class="text-dsBlue text-sm font-medium">Learn more→</span>
+                </a>
+                
+                <a href="healthcare-domains-revenue-cycle-ai.html" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <h3 class="font-semibold text-dsBlack mb-2 group-hover:text-dsBlue transition">Revenue Cycle AI</h3>
+                    <p class="text-gray-600 text-sm mb-4">PDPM revenue capture connects to broader revenue cycle optimization-billing, collections, denial management.</p>
+                    <span class="text-dsBlue text-sm font-medium">Learn more→</span>
+                </a>
+                
+                <a href="healthcare-ai-documentation-automation.html" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <h3 class="font-semibold text-dsBlack mb-2 group-hover:text-dsBlue transition">Documentation Automation</h3>
+                    <p class="text-gray-600 text-sm mb-4">Better clinical documentation = better MDS assessments. Ambient scribes and documentation AI feed the MDS pipeline.</p>
+                    <span class="text-dsBlue text-sm font-medium">Learn more→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <!-- Related AI Solutions -->
+    <section class="py-16 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="mb-8">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related AI Solutions</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-dsBlack mt-2">AI frameworks that power this domain.</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <a href="healthcare-ai-documentation-automation.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-bold text-dsBlack">Documentation Automation</h3>
+                        <span class="text-xs font-medium text-dsBlue">Fastest Payback</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-3">AI-powered MDS documentation reduces assessment time by 40-60%.</p>
+                    <span class="text-dsBlue text-sm font-medium">Learn More →</span>
+                </a>
+                <a href="healthcare-ai-back-office-agents.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-bold text-dsBlack">Back-Office Agents</h3>
+                        <span class="text-xs font-medium text-dsBlue">Highest ROI</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-3">Automated PDPM scoring optimization and revenue capture.</p>
+                    <span class="text-dsBlue text-sm font-medium">Learn More →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 bg-dsBlue text-white">
+        <div class="max-w-screen-xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to recover your PDPM revenue?</h2>
+            <p class="text-blue-100 mb-8 max-w-2xl mx-auto">
+                30-minute call. We'll assess your MDS optimization opportunity and share what we've learned from $10M+ in recovered revenue.
+            </p>
+            <a href="healthcare-assessment.html" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition">
+                Assess Your PDPM Opportunity
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <p class="text-blue-100 text-sm mt-6">Or call: <a href="tel:4046543855" class="text-white hover:underline">404.654.3855</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-gray-200">
+        <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+            <p>© 2007 - 2026 Digital Scientists, LLC.</p>
+            <div class="flex gap-6 mt-4 md:mt-0">
+                <a href="#" class="hover:text-dsBlack transition">Privacy Policy</a>
+                <a href="#" class="hover:text-dsBlack transition">LinkedIn</a>
+                <a href="tel:4046543855" class="text-dsBlue hover:underline">404.654.3855</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Animation -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    });
+
+
+    
+
+    </script>
+
+</body>
+</html>

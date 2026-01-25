@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare AI Implementation Guides | 10 Frameworks for ROI | Digital Scientists</title>
+    <meta name="description" content="10 AI implementation frameworks for healthcare organizations. From quick wins (8-14 weeks) to strategic investments. Real ROI guidance for revenue cycle, clinical operations, and documentation.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { dsBlue: '#304FFF', dsBlack: '#050505', dsGray: '#F5F5F5' },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .nav-dropdown { position: relative; }
+        .nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 0; padding-top: 8px; z-index: 100; }
+        .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+        .nav-dropdown-menu.right-aligned { left: auto; right: 0; }
+    </style>
+</head>
+<body class="bg-white text-dsBlack antialiased">
+
+<!-- DS Healthcare Mega Menu Navigation -->
+<!-- Desktop: Mega menu on hover | Mobile: Hamburger + Accordion -->
+
+<style>
+/* Mega Menu Styles */
+.mega-menu-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 8px;
+    z-index: 100;
+}
+.nav-item:hover .mega-menu-container {
+    display: block;
+}
+.mega-menu {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 24px;
+    min-width: 820px;
+}
+.mega-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+.mega-menu-section h4 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    margin-bottom: 12px;
+    padding-left: 12px;
+}
+.mega-menu-section a {
+    display: block;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #374151;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+.mega-menu-section a:hover {
+    background: #f3f4f6;
+}
+.mega-menu-cta {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+}
+.mega-menu-cta a {
+    background: #2563eb;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+.mega-menu-cta a:hover {
+    background: #1d4ed8;
+}
+
+/* Mobile Accordion Styles */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    overflow-y: auto;
+    z-index: 90;
+}
+.mobile-nav.open {
+    display: block;
+}
+.mobile-accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #111827;
+    border-bottom: 1px solid #f3f4f6;
+    cursor: pointer;
+}
+.mobile-accordion-header svg {
+    transition: transform 0.2s;
+}
+.mobile-accordion-header.open svg {
+    transform: rotate(180deg);
+}
+.mobile-accordion-content {
+    display: none;
+    background: #f9fafb;
+    padding: 8px 0;
+}
+.mobile-accordion-content.open {
+    display: block;
+}
+.mobile-accordion-section h5 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    padding: 12px 32px 8px;
+}
+.mobile-accordion-content a {
+    display: block;
+    padding: 12px 32px;
+    font-size: 14px;
+    color: #374151;
+    text-decoration: none;
+}
+.mobile-accordion-content a:hover {
+    background: #e5e7eb;
+}
+.mobile-nav-link {
+    display: block;
+    padding: 16px 24px;
+    font-size: 15px;
+    color: #111827;
+    text-decoration: none;
+    border-bottom: 1px solid #f3f4f6;
+}
+.mobile-cta {
+    padding: 24px;
+}
+.mobile-cta a {
+    display: block;
+    background: #2563eb;
+    color: white;
+    text-align: center;
+    padding: 14px 24px;
+    border-radius: 9999px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .desktop-nav { display: none !important; }
+    .mobile-menu-btn { display: flex !important; }
+}
+@media (min-width: 1025px) {
+    .mobile-nav { display: none !important; }
+    .mobile-menu-btn { display: none !important; }
+}
+</style>
+
+<nav class="fixed w-full z-50 bg-white border-b border-gray-100">
+    <div class="max-w-screen-xl mx-auto px-6">
+        <div class="h-20 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center">
+                <img src="1012DS_Logo_Native_Black (1).svg" alt="Digital Scientists" class="h-12">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav hidden lg:flex items-center gap-1">
+                
+                <!-- Healthcare (Mega Menu) -->
+                <div class="nav-item relative">
+                    <a href="healthcare-hub.html" class="flex items-center gap-1 px-4 py-2 text-sm text-gray-600 hover:text-gray-900">
+                        Healthcare
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                    <div class="mega-menu-container">
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <!-- Column 1: Overview + Capabilities -->
+                                <div>
+                                    <div class="mega-menu-section">
+                                        <h4>Overview</h4>
+                                        <a href="healthcare-hub.html">Healthcare Hub</a>
+                                        <a href="healthcare-approach.html">Our Approach</a>
+                                    </div>
+                                    <div class="mega-menu-section" style="margin-top: 20px;">
+                                        <h4>Capabilities</h4>
+                                        <a href="healthcare-capabilities-ai-ml-nlp.html">AI, ML & NLP</a>
+                                        <a href="healthcare-capabilities-mobile.html">Mobile Apps</a>
+                                        <a href="healthcare-capabilities-saas.html">SaaS Platforms</a>
+                                        <a href="healthcare-capabilities-ux-design.html">UX Design</a>
+                                        <a href="healthcare-capabilities-data-analytics.html">Data Analytics</a>
+                                        <a href="healthcare-capabilities-samd.html">SaMD</a>
+                                    </div>
+                                </div>
+                                
+                                <!-- Column 2: AI Solutions -->
+                                <div class="mega-menu-section">
+                                    <h4>AI Solutions</h4>
+                                    <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+                                    <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+                                    <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+                                    <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+                                </div>
+                                
+                                <!-- Column 3: Domains -->
+                                <div class="mega-menu-section">
+                                    <h4>Domains</h4>
+                                    <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+                                    <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+                                    <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+                                    <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+                                    <a href="healthcare-domains-ambient-scribes.html">Ambient Scribes</a>
+                                    <a href="healthcare-domains-ehr-integrations.html">EHR Integrations</a>
+                                </div>
+                                
+                                <!-- Column 4: Markets + Case Studies -->
+                                <div>
+                                    <div class="mega-menu-section">
+                                        <h4>Markets</h4>
+                                        <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+                                        <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+                                        <a href="healthcare-markets-senior-living.html">Senior Living</a>
+                                        <a href="healthcare-markets-idd.html">IDD Services</a>
+                                        <a href="healthcare-markets-health-systems.html">Health Systems</a>
+                                    </div>
+                                    <div class="mega-menu-section" style="margin-top: 20px;">
+                                        <h4>Case Studies</h4>
+                                        <a href="work-never-alone.html">NeverAlone</a>
+                                        <a href="work-communicare-mds.html">CommuniCare MDS</a>
+                                        <a href="work-raf-hcc-coding.html">RAF/HCC Coding</a>
+                                        <a href="work-healthcontext-ai.html">HealthContext AI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mega-menu-cta">
+                                <a href="healthcare-assessment.html">Get AI Readiness Assessment →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Services (links to WP) -->
+                <a href="https://digitalscientists.com/services/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Services</a>
+                
+                <!-- About (links to WP) -->
+                <a href="https://digitalscientists.com/about/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">About</a>
+                
+                <!-- Blog (links to WP) -->
+                <a href="https://digitalscientists.com/blog/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Blog</a>
+                
+                <!-- Contact (links to WP) -->
+                <a href="https://digitalscientists.com/contact/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Contact</a>
+                
+                <!-- CTA Button -->
+                <a href="healthcare-assessment.html" class="ml-4 px-5 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-colors">
+                    Get Assessment
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn hidden items-center justify-center w-10 h-10 text-gray-600" id="mobile-menu-btn" aria-label="Toggle menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav" id="mobile-nav">
+    <!-- Healthcare Accordion -->
+    <div class="mobile-accordion">
+        <div class="mobile-accordion-header" data-accordion="healthcare">
+            Healthcare
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="mobile-accordion-content" id="accordion-healthcare">
+            <div class="mobile-accordion-section">
+                <h5>Overview</h5>
+                <a href="healthcare-hub.html">Healthcare Hub</a>
+                <a href="healthcare-approach.html">Our Approach</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Capabilities</h5>
+                <a href="healthcare-capabilities-ai-ml-nlp.html">AI, ML & NLP</a>
+                <a href="healthcare-capabilities-mobile.html">Mobile Apps</a>
+                <a href="healthcare-capabilities-saas.html">SaaS Platforms</a>
+                <a href="healthcare-capabilities-ux-design.html">UX Design</a>
+                <a href="healthcare-capabilities-data-analytics.html">Data Analytics</a>
+                <a href="healthcare-capabilities-samd.html">SaMD</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>AI Solutions</h5>
+                <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+                <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+                <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+                <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Domains</h5>
+                <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+                <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+                <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+                <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+                <a href="healthcare-domains-ambient-scribes.html">Ambient Scribes</a>
+                <a href="healthcare-domains-ehr-integrations.html">EHR Integrations</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Markets</h5>
+                <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+                <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+                <a href="healthcare-markets-senior-living.html">Senior Living</a>
+                <a href="healthcare-markets-idd.html">IDD Services</a>
+                <a href="healthcare-markets-health-systems.html">Health Systems</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Case Studies</h5>
+                <a href="work-never-alone.html">NeverAlone</a>
+                <a href="work-communicare-mds.html">CommuniCare MDS</a>
+                <a href="work-raf-hcc-coding.html">RAF/HCC Coding</a>
+                <a href="work-healthcontext-ai.html">HealthContext AI</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Other Nav Links -->
+    <a href="https://digitalscientists.com/services/" class="mobile-nav-link">Services</a>
+    <a href="https://digitalscientists.com/about/" class="mobile-nav-link">About</a>
+    <a href="https://digitalscientists.com/blog/" class="mobile-nav-link">Blog</a>
+    <a href="https://digitalscientists.com/contact/" class="mobile-nav-link">Contact</a>
+    
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+        <a href="healthcare-assessment.html">Get AI Readiness Assessment</a>
+    </div>
+</div>
+
+<script>
+// Mobile menu toggle
+document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
+    document.getElementById('mobile-nav')?.classList.toggle('open');
+});
+
+// Mobile accordion toggle
+document.querySelectorAll('.mobile-accordion-header').forEach(header => {
+    header.addEventListener('click', function() {
+        const target = this.dataset.accordion;
+        const content = document.getElementById('accordion-' + target);
+        this.classList.toggle('open');
+        content?.classList.toggle('open');
+    });
+});
+</script>
+
+<!-- Hero -->
+<header class="pt-32 pb-16 px-6 bg-dsBlack text-white">
+    <div class="max-w-4xl mx-auto text-center">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Healthcare AI Implementation</span>
+        <h1 class="text-4xl md:text-5xl font-bold mt-4 mb-6 leading-tight">10 Frameworks for AI ROI</h1>
+        <p class="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">Practical guides for healthcare operators. Where to start, what data you need, and what results to expect—organized from quick wins to strategic investments.</p>
+        
+        <div class="flex justify-center gap-8 mt-12">
+            <div class="text-center">
+                <span class="text-3xl font-bold text-dsBlue">3</span>
+                <p class="text-gray-400 text-sm">Quick Wins<br>8-14 weeks</p>
+            </div>
+            <div class="text-center">
+                <span class="text-3xl font-bold text-white">4</span>
+                <p class="text-gray-400 text-sm">Build Momentum<br>12-22 weeks</p>
+            </div>
+            <div class="text-center">
+                <span class="text-3xl font-bold text-white">3</span>
+                <p class="text-gray-400 text-sm">Strategic<br>20-32 weeks</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Quick Wins -->
+<section class="py-16 px-6">
+    <div class="max-w-5xl mx-auto">
+        <div class="flex items-center gap-3 mb-8">
+            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">Quick Wins</span>
+            <span class="text-gray-500 text-sm">8-14 weeks to deploy</span>
+        </div>
+        
+        <h2 class="text-2xl font-bold text-dsBlack mb-4">Start Here: Revenue Cycle Quick Wins</h2>
+        <p class="text-gray-600 mb-8">These projects require only billing data exports—no EHR integration, no clinical documentation. They deliver measurable ROI within one quarter and build organizational confidence for larger investments.</p>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+            <a href="ar-collection-prioritization.html" class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <span class="text-xs text-green-600 font-medium">8-14 weeks</span>
+                <h3 class="text-lg font-semibold text-dsBlack mt-2 mb-2">A/R Collection Prioritization</h3>
+                <p class="text-gray-600 text-sm mb-4">AI-powered queue optimization that prioritizes accounts by collectability, not just age—reducing FTE time on uncollectible accounts.</p>
+                <p class="text-sm"><span class="text-gray-500">Expected ROI:</span> <span class="text-dsBlack font-medium">5-15% bad debt reduction</span></p>
+            </a>
+            
+            <a href="claim-follow-up-triage.html" class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <span class="text-xs text-green-600 font-medium">8-14 weeks</span>
+                <h3 class="text-lg font-semibold text-dsBlack mt-2 mb-2">Claim Follow-Up Triage</h3>
+                <p class="text-gray-600 text-sm mb-4">Pattern matching that surfaces high-risk claims before they age out—prioritizing by urgency to past problems.</p>
+                <p class="text-sm"><span class="text-gray-500">Expected ROI:</span> <span class="text-dsBlack font-medium">15-25% recovery per FTE</span></p>
+            </a>
+            
+            <a href="payer-contract-interpretation.html" class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <span class="text-xs text-green-600 font-medium">10-16 weeks</span>
+                <h3 class="text-lg font-semibold text-dsBlack mt-2 mb-2">Payer Contract Interpretation</h3>
+                <p class="text-gray-600 text-sm mb-4">AI that reads your contracts and flags underpayments—catching the carve-outs and escalators you're missing.</p>
+                <p class="text-sm"><span class="text-gray-500">Expected ROI:</span> <span class="text-dsBlack font-medium">1-3% net collection lift</span></p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Medium Complexity -->
+<section class="py-16 px-6 bg-dsGray">
+    <div class="max-w-5xl mx-auto">
+        <div class="flex items-center gap-3 mb-8">
+            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">Building Momentum</span>
+            <span class="text-gray-500 text-sm">12-22 weeks to deploy</span>
+        </div>
+        
+        <h2 class="text-2xl font-bold text-dsBlack mb-4">Scale Your Success: Medium Complexity</h2>
+        <p class="text-gray-600 mb-8">These projects benefit from EHR integration and build on the data pipelines established by quick wins. They address scheduling, denial prevention, and coding accuracy.</p>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+            <a href="no-show-prediction.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <span class="text-xs text-blue-600 font-medium">12-18 weeks</span>
+                <h3 class="text-lg font-semibold text-dsBlack mt-2 mb-2">No-Show Prediction</h3>
+                <p class="text-gray-600 text-sm mb-4">Predict which appointments will no-show—enabling smart overbooking and targeted intervention for high-risk slots.</p>
+                <p class="text-sm"><span class="text-gray-500">Expected ROI:</span> <span class="text-dsBlack font-medium">20-40% no-show reduction</span></p>
+            </a>
+            
+            <a href="claim-denial-prediction.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <span class="text-xs text-blue-600 font-medium">14-20 weeks</span>
+                <h3 class="text-lg font-semibold text-dsBlack mt-2 mb-2">Claim Denial Prediction</h3>
+                <p class="text-gray-600 text-sm mb-4">Predict which claims will deny before submission—with specific reason and fix recommendations.</p>
+                <p class="text-sm"><span class="text-gray-500">Expected ROI:</span> <span class="text-dsBlack font-medium">25-50% denial write-off reduction</span></p>
+            </a>
+            
+            <a href="medical-coding-assistance.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <span class="text-xs text-blue-600 font-medium">16-22 weeks</span>
+                <h3 class="text-lg font-semibold text-dsBlack mt-2 mb-2">Medical Coding Assistance</h3>
+                <p class="text-gray-600 text-sm mb-4">AI that reads clinical notes, suggests codes, and shows evidence—augmenting coders for accuracy and productivity.</p>
+                <p class="text-sm"><span class="text-gray-500">Expected ROI:</span> <span class="text-dsBlack font-medium">20-35% coder productivity gain</span></p>
+            </a>
+            
+            <a href="coding-accuracy-precheck.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <span class="text-xs text-blue-600 font-medium">8-16 weeks</span>
+                <h3 class="text-lg font-semibold text-dsBlack mt-2 mb-2">Coding Accuracy Pre-Check</h3>
+                <p class="text-gray-600 text-sm mb-4">Lightweight pattern matching that catches coding inconsistencies before submission—no EHR integration required.</p>
+                <p class="text-sm"><span class="text-gray-500">Expected ROI:</span> <span class="text-dsBlack font-medium">10-20% coding denial reduction</span></p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Strategic -->
+<section class="py-16 px-6">
+    <div class="max-w-5xl mx-auto">
+        <div class="flex items-center gap-3 mb-8">
+            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">Strategic Investments</span>
+            <span class="text-gray-500 text-sm">20-32 weeks to deploy</span>
+        </div>
+        
+        <h2 class="text-2xl font-bold text-dsBlack mb-4">Transform Operations: High Complexity</h2>
+        <p class="text-gray-600 mb-8">These projects require deep EHR integration and sustained organizational commitment. They deliver the largest ROI but should follow successful quick-win and medium-complexity projects.</p>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+            <a href="discharge-planning.html" class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <span class="text-xs text-purple-600 font-medium">20-28 weeks</span>
+                <h3 class="text-lg font-semibold text-dsBlack mt-2 mb-2">Discharge Planning</h3>
+                <p class="text-gray-600 text-sm mb-4">Predict discharge dates 48+ hours in advance—giving care managers lead time to prevent avoidable bed days.</p>
+                <p class="text-sm"><span class="text-gray-500">Expected ROI:</span> <span class="text-dsBlack font-medium">0.3-0.5 day LOS reduction</span></p>
+            </a>
+            
+            <a href="cdi-auditor.html" class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <span class="text-xs text-purple-600 font-medium">22-30 weeks</span>
+                <h3 class="text-lg font-semibold text-dsBlack mt-2 mb-2">CDI Auditor</h3>
+                <p class="text-gray-600 text-sm mb-4">AI that reviews every encounter for documentation improvement—capturing revenue that traditional CDI sampling misses.</p>
+                <p class="text-sm"><span class="text-gray-500">Expected ROI:</span> <span class="text-dsBlack font-medium">2-5% CMI improvement</span></p>
+            </a>
+            
+            <a href="clinical-trial-matching.html" class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition fade-up">
+                <span class="text-xs text-purple-600 font-medium">24-32 weeks</span>
+                <h3 class="text-lg font-semibold text-dsBlack mt-2 mb-2">Clinical Trial Matching</h3>
+                <p class="text-gray-600 text-sm mb-4">Continuously screen your patient population against trial criteria—capturing enrollment that manual screening misses.</p>
+                <p class="text-sm"><span class="text-gray-500">Expected ROI:</span> <span class="text-dsBlack font-medium">30-50% enrollment increase</span></p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 px-6 bg-dsBlue">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Not Ready to Talk Yet?</h2>
+        <p class="text-blue-100 mb-8 max-w-2xl mx-auto">Each framework includes a self-assessment section. Work through the questions, run your numbers, and see where you land before scheduling any vendor conversations.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="healthcare-assessment.html" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-gray-100 transition">Schedule a Conversation →</a>
+            <a href="healthcare-approach.html" class="inline-flex items-center gap-2 border border-white text-white px-8 py-3 text-sm font-medium rounded-full hover:bg-white hover:text-dsBlue transition">View Our Approach</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-12 px-6 bg-dsBlack text-white">
+    <div class="max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+            <div>
+                <h4 class="font-semibold mb-4">Quick Win Frameworks</h4>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li><a href="ar-collection-prioritization.html" class="hover:text-white">A/R Collection Prioritization</a></li>
+                    <li><a href="claim-follow-up-triage.html" class="hover:text-white">Claim Follow-Up Triage</a></li>
+                    <li><a href="payer-contract-interpretation.html" class="hover:text-white">Payer Contract Interpretation</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Building Momentum</h4>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li><a href="no-show-prediction.html" class="hover:text-white">No-Show Prediction</a></li>
+                    <li><a href="claim-denial-prediction.html" class="hover:text-white">Claim Denial Prediction</a></li>
+                    <li><a href="medical-coding-assistance.html" class="hover:text-white">Coding Assistance</a></li>
+                    <li><a href="coding-accuracy-precheck.html" class="hover:text-white">Coding Pre-Check</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Strategic Investments</h4>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li><a href="discharge-planning.html" class="hover:text-white">Discharge Planning</a></li>
+                    <li><a href="cdi-auditor.html" class="hover:text-white">CDI Auditor</a></li>
+                    <li><a href="clinical-trial-matching.html" class="hover:text-white">Clinical Trial Matching</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Digital Scientists</h4>
+                <p class="text-gray-400 text-sm mb-4">Custom AI solutions for healthcare organizations.</p>
+                <a href="tel:4046543855" class="text-dsBlue hover:underline">404.654.3855</a>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+            <p>© 2025 Digital Scientists, LLC. All rights reserved.</p>
+            <a href="#" class="hover:text-white">Privacy Policy</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

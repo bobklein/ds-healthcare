@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EHR & Practice Management Solutions | Custom Healthcare Software | Digital Scientists</title>
+    <meta name="description" content="Custom EHR and practice management solutions built for your workflows. $10M+ PDPM recovered with CommuniCare. HIPAA-compliant, EHR-integrated healthcare software.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dsBlue: '#304FFF',
+                        dsBlack: '#050505',
+                        dsGray: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        h1, h2, h3 { letter-spacing: -0.02em; }
+        .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="bg-white text-dsBlack antialiased">
+
+    <!-- Navigation -->
+    <!-- DS Healthcare Mega Menu Navigation -->
+<!-- Desktop: Mega menu on hover | Mobile: Hamburger + Accordion -->
+
+<style>
+/* Mega Menu Styles */
+.mega-menu-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 8px;
+    z-index: 100;
+}
+.nav-item:hover .mega-menu-container {
+    display: block;
+}
+.mega-menu {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 24px;
+    min-width: 820px;
+}
+.mega-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+.mega-menu-section h4 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    margin-bottom: 12px;
+    padding-left: 12px;
+}
+.mega-menu-section a {
+    display: block;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #374151;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+.mega-menu-section a:hover {
+    background: #f3f4f6;
+}
+.mega-menu-cta {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+}
+.mega-menu-cta a {
+    background: #2563eb;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+.mega-menu-cta a:hover {
+    background: #1d4ed8;
+}
+
+/* Mobile Accordion Styles */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    overflow-y: auto;
+    z-index: 90;
+}
+.mobile-nav.open {
+    display: block;
+}
+.mobile-accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #111827;
+    border-bottom: 1px solid #f3f4f6;
+    cursor: pointer;
+}
+.mobile-accordion-header svg {
+    transition: transform 0.2s;
+}
+.mobile-accordion-header.open svg {
+    transform: rotate(180deg);
+}
+.mobile-accordion-content {
+    display: none;
+    background: #f9fafb;
+    padding: 8px 0;
+}
+.mobile-accordion-content.open {
+    display: block;
+}
+.mobile-accordion-section h5 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    padding: 12px 32px 8px;
+}
+.mobile-accordion-content a {
+    display: block;
+    padding: 12px 32px;
+    font-size: 14px;
+    color: #374151;
+    text-decoration: none;
+}
+.mobile-accordion-content a:hover {
+    background: #e5e7eb;
+}
+.mobile-nav-link {
+    display: block;
+    padding: 16px 24px;
+    font-size: 15px;
+    color: #111827;
+    text-decoration: none;
+    border-bottom: 1px solid #f3f4f6;
+}
+.mobile-cta {
+    padding: 24px;
+}
+.mobile-cta a {
+    display: block;
+    background: #2563eb;
+    color: white;
+    text-align: center;
+    padding: 14px 24px;
+    border-radius: 9999px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .desktop-nav { display: none !important; }
+    .mobile-menu-btn { display: flex !important; }
+}
+@media (min-width: 1025px) {
+    .mobile-nav { display: none !important; }
+    .mobile-menu-btn { display: none !important; }
+}
+</style>
+
+<nav class="fixed w-full z-50 bg-white border-b border-gray-100">
+    <div class="max-w-screen-xl mx-auto px-6">
+        <div class="h-20 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center">
+                <img src="1012DS_Logo_Native_Black (1).svg" alt="Digital Scientists" class="h-12">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav hidden lg:flex items-center gap-1">
+                
+                <!-- Healthcare (Mega Menu) -->
+                <div class="nav-item relative">
+                    <a href="healthcare-hub.html" class="flex items-center gap-1 px-4 py-2 text-sm text-gray-600 hover:text-gray-900">
+                        Healthcare
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                    <div class="mega-menu-container">
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <!-- Column 1: Overview + Capabilities -->
+                                <div>
+                                    <div class="mega-menu-section">
+                                        <h4>Overview</h4>
+                                        <a href="healthcare-hub.html">Healthcare Hub</a>
+                                        <a href="healthcare-approach.html">Our Approach</a>
+                                    </div>
+                                    <div class="mega-menu-section" style="margin-top: 20px;">
+                                        <h4>Capabilities</h4>
+                                        <a href="healthcare-capabilities-ai-ml-nlp.html">AI, ML & NLP</a>
+                                        <a href="healthcare-capabilities-mobile.html">Mobile Apps</a>
+                                        <a href="healthcare-capabilities-saas.html">SaaS Platforms</a>
+                                        <a href="healthcare-capabilities-ux-design.html">UX Design</a>
+                                        <a href="healthcare-capabilities-data-analytics.html">Data Analytics</a>
+                                        <a href="healthcare-capabilities-samd.html">SaMD</a>
+                                    </div>
+                                </div>
+                                
+                                <!-- Column 2: AI Solutions -->
+                                <div class="mega-menu-section">
+                                    <h4>AI Solutions</h4>
+                                    <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+                                    <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+                                    <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+                                    <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+                                </div>
+                                
+                                <!-- Column 3: Domains -->
+                                <div class="mega-menu-section">
+                                    <h4>Domains</h4>
+                                    <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+                                    <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+                                    <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+                                    <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+                                    <a href="healthcare-domains-ambient-scribes.html">Ambient Scribes</a>
+                                    <a href="healthcare-domains-ehr-integrations.html">EHR Integrations</a>
+                                </div>
+                                
+                                <!-- Column 4: Markets + Case Studies -->
+                                <div>
+                                    <div class="mega-menu-section">
+                                        <h4>Markets</h4>
+                                        <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+                                        <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+                                        <a href="healthcare-markets-senior-living.html">Senior Living</a>
+                                        <a href="healthcare-markets-idd.html">IDD Services</a>
+                                        <a href="healthcare-markets-health-systems.html">Health Systems</a>
+                                    </div>
+                                    <div class="mega-menu-section" style="margin-top: 20px;">
+                                        <h4>Case Studies</h4>
+                                        <a href="work-never-alone.html">NeverAlone</a>
+                                        <a href="work-communicare-mds.html">CommuniCare MDS</a>
+                                        <a href="work-raf-hcc-coding.html">RAF/HCC Coding</a>
+                                        <a href="work-healthcontext-ai.html">HealthContext AI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mega-menu-cta">
+                                <a href="healthcare-assessment.html">Get AI Readiness Assessment →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Services (links to WP) -->
+                <a href="https://digitalscientists.com/services/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Services</a>
+                
+                <!-- About (links to WP) -->
+                <a href="https://digitalscientists.com/about/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">About</a>
+                
+                <!-- Blog (links to WP) -->
+                <a href="https://digitalscientists.com/blog/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Blog</a>
+                
+                <!-- Contact (links to WP) -->
+                <a href="https://digitalscientists.com/contact/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Contact</a>
+                
+                <!-- CTA Button -->
+                <a href="healthcare-assessment.html" class="ml-4 px-5 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-colors">
+                    Get Assessment
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn hidden items-center justify-center w-10 h-10 text-gray-600" id="mobile-menu-btn" aria-label="Toggle menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav" id="mobile-nav">
+    <!-- Healthcare Accordion -->
+    <div class="mobile-accordion">
+        <div class="mobile-accordion-header" data-accordion="healthcare">
+            Healthcare
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="mobile-accordion-content" id="accordion-healthcare">
+            <div class="mobile-accordion-section">
+                <h5>Overview</h5>
+                <a href="healthcare-hub.html">Healthcare Hub</a>
+                <a href="healthcare-approach.html">Our Approach</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Capabilities</h5>
+                <a href="healthcare-capabilities-ai-ml-nlp.html">AI, ML & NLP</a>
+                <a href="healthcare-capabilities-mobile.html">Mobile Apps</a>
+                <a href="healthcare-capabilities-saas.html">SaaS Platforms</a>
+                <a href="healthcare-capabilities-ux-design.html">UX Design</a>
+                <a href="healthcare-capabilities-data-analytics.html">Data Analytics</a>
+                <a href="healthcare-capabilities-samd.html">SaMD</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>AI Solutions</h5>
+                <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+                <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+                <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+                <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Domains</h5>
+                <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+                <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+                <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+                <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+                <a href="healthcare-domains-ambient-scribes.html">Ambient Scribes</a>
+                <a href="healthcare-domains-ehr-integrations.html">EHR Integrations</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Markets</h5>
+                <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+                <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+                <a href="healthcare-markets-senior-living.html">Senior Living</a>
+                <a href="healthcare-markets-idd.html">IDD Services</a>
+                <a href="healthcare-markets-health-systems.html">Health Systems</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Case Studies</h5>
+                <a href="work-never-alone.html">NeverAlone</a>
+                <a href="work-communicare-mds.html">CommuniCare MDS</a>
+                <a href="work-raf-hcc-coding.html">RAF/HCC Coding</a>
+                <a href="work-healthcontext-ai.html">HealthContext AI</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Other Nav Links -->
+    <a href="https://digitalscientists.com/services/" class="mobile-nav-link">Services</a>
+    <a href="https://digitalscientists.com/about/" class="mobile-nav-link">About</a>
+    <a href="https://digitalscientists.com/blog/" class="mobile-nav-link">Blog</a>
+    <a href="https://digitalscientists.com/contact/" class="mobile-nav-link">Contact</a>
+    
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+        <a href="healthcare-assessment.html">Get AI Readiness Assessment</a>
+    </div>
+</div>
+
+<script>
+// Mobile menu toggle
+document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
+    document.getElementById('mobile-nav')?.classList.toggle('open');
+});
+
+// Mobile accordion toggle
+document.querySelectorAll('.mobile-accordion-header').forEach(header => {
+    header.addEventListener('click', function() {
+        const target = this.dataset.accordion;
+        const content = document.getElementById('accordion-' + target);
+        this.classList.toggle('open');
+        content?.classList.toggle('open');
+    });
+});
+</script>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-16 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-up">
+                    <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
+                        <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                        EHR & Practice Management
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl font-bold text-dsBlack mb-6 leading-[1.1]">
+                        Your EHR should work for you—not the other way around.
+                    </h1>
+                    
+                    <p class="text-xl text-gray-600 leading-relaxed mb-4">
+                        Custom EHR and practice management solutions built around your clinical workflows, regulatory requirements, and operational needs. Seamless integration with existing systems, not forced replacement.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                        We've built EHR extensions and practice management tools recovering <strong>$10M+ in PDPM revenue</strong> for CommuniCare and driving operational efficiency across healthcare organizations.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="healthcare-assessment.html" class="inline-flex items-center justify-center gap-2 bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">
+                            Discuss Your EHR Opportunity
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                        <a href="healthcare-approach.html" class="inline-flex items-center justify-center gap-2 border border-gray-300 text-dsBlack px-6 py-3 text-sm font-medium rounded-full hover:border-dsBlack transition">
+                            See How We Work
+                        </a>
+                    </div>
+                </div>
+
+                <div class="fade-up">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/07/EHR-hero-image.png" alt="EHR Practice Management Dashboard" class="rounded-xl w-full">
+                    <p class="text-sm text-gray-500 mt-3 text-center">Custom EHR extensions and practice management solutions</p>
+                </div>
+            </div>
+            
+            <!-- Stats Row -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlue">$10M+</span>
+                    <p class="text-gray-500 text-sm mt-1">PDPM recovered</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">100%</span>
+                    <p class="text-gray-500 text-sm mt-1">Production rate</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">4</span>
+                    <p class="text-gray-500 text-sm mt-1">EHR platforms</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">Since 2007</span>
+                    <p class="text-gray-500 text-sm mt-1">Healthcare software</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Logo Bar -->
+    <section class="border-y border-gray-100 py-8 px-6">
+        <div class="max-w-screen-xl mx-auto flex flex-wrap justify-center items-center gap-8 md:gap-16">
+            <span class="text-xs text-gray-400 uppercase tracking-wider">Trusted By</span>
+            <img src="https://digitalscientists.com/wp-content/uploads/2023/12/logo-chs-black.png" alt="CommuniCare" class="h-8 brightness-0 invert opacity-80 hover:opacity-100 transition">
+            <img src="https://digitalscientists.com/wp-content/uploads/2024/05/Screenshot_2-300x60.png" alt="Duke Health" class="h-6 brightness-0 invert opacity-80 hover:opacity-100 transition">
+            <img src="https://digitalscientists.com/wp-content/uploads/2023/12/Guardian-Logo-Lockup2-White-1.svg" alt="Guardian" class="h-6 brightness-0 invert opacity-80 hover:opacity-100 transition">
+            <img src="https://digitalscientists.com/wp-content/uploads/2024/05/easterseals-300x108.png" alt="Easterseals" class="h-6 brightness-0 invert opacity-80 hover:opacity-100 transition">
+        </div>
+    </section>
+
+    <!-- The Challenge Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">The Challenge</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-4">Off-the-shelf EHRs leave money on the table and workflows broken.</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">Generic EHR systems force clinical teams to adapt to software limitations. The result: missed revenue, compliance gaps, and frustrated staff working around the system instead of with it.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-4xl font-bold text-dsBlue">15-30%</span>
+                    <h3 class="font-semibold mt-2">Revenue Leakage</h3>
+                    <p class="text-gray-500 text-sm mt-1">Undercoding and missed capture from documentation gaps.</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-4xl font-bold text-dsBlack">35%</span>
+                    <h3 class="font-semibold mt-2">Time on Documentation</h3>
+                    <p class="text-gray-500 text-sm mt-1">Clinicians spend over a third of time on EHR tasks.</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-4xl font-bold text-dsBlack">70%</span>
+                    <h3 class="font-semibold mt-2">EHR Dissatisfaction</h3>
+                    <p class="text-gray-500 text-sm mt-1">Clinicians report frustration with current EHR systems.</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-4xl font-bold text-dsBlack">$250K+</span>
+                    <h3 class="font-semibold mt-2">Annual Compliance Risk</h3>
+                    <p class="text-gray-500 text-sm mt-1">Potential penalties from documentation failures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-up">
+                    <span class="text-dsBlue text-sm font-medium">Case Study • EHR & Practice Management</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">CommuniCare: $10M+ PDPM Recovered</h2>
+                    <p class="text-gray-600 mb-6">
+                        Built an MDS coding intelligence platform that integrates with PointClickCare, analyzing resident assessments in real-time to identify PDPM optimization opportunities. The system surfaces actionable insights to MDS coordinators without disrupting existing workflows.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="bg-white rounded-lg p-4">
+                            <span class="text-2xl font-bold text-dsBlue">$10M+</span>
+                            <p class="text-gray-500 text-sm">PDPM recovered</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <span class="text-2xl font-bold text-dsBlack">100%</span>
+                            <p class="text-gray-500 text-sm">Production rate</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <span class="text-2xl font-bold text-dsBlack">Real-time</span>
+                            <p class="text-gray-500 text-sm">EHR integration</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <span class="text-2xl font-bold text-dsBlack">Workflow</span>
+                            <p class="text-gray-500 text-sm">Embedded</p>
+                        </div>
+                    </div>
+                    
+                    <a href="https://digitalscientists.com/case-studies/communicare/" class="inline-flex items-center gap-2 text-dsBlue font-medium hover:underline">
+                        See the CommuniCare Case Study →
+                    </a>
+                </div>
+                
+                <div class="fade-up">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2024/06/image-91.png" alt="CommuniCare MDS Platform" class="rounded-xl shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">Use Cases</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-4">EHR and practice management applications that deliver ROI.</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-xs font-medium text-white bg-dsBlue px-2 py-1 rounded">For CFO</span>
+                        <span class="text-xs text-gray-500">• $10M+ Revenue</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">PDPM Optimization</h3>
+                    <p class="text-gray-600 mb-4">AI-powered MDS analysis that identifies coding opportunities in real-time, ensuring accurate PDPM classification and maximum reimbursement.</p>
+                    <p class="text-sm text-dsBlack font-medium">Outcome: Recovered revenue, accurate coding.</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-xs font-medium text-white bg-dsBlue px-2 py-1 rounded">For COO</span>
+                        <span class="text-xs text-gray-500">• Efficiency</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Workflow Automation</h3>
+                    <p class="text-gray-600 mb-4">Automate routine EHR tasks, from data entry to care plan updates, freeing clinical staff for patient care.</p>
+                    <p class="text-sm text-dsBlack font-medium">Outcome: Reduced admin burden, more patient time.</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-xs font-medium text-white bg-dsBlue px-2 py-1 rounded">For CTO</span>
+                        <span class="text-xs text-gray-500">• Integration</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">EHR Extensions</h3>
+                    <p class="text-gray-600 mb-4">Custom modules that extend your existing EHR capabilities without requiring system replacement. Add what you need, keep what works.</p>
+                    <p class="text-sm text-dsBlack font-medium">Outcome: Enhanced capability, preserved investment.</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-xs font-medium text-white bg-dsBlue px-2 py-1 rounded">For CMO</span>
+                        <span class="text-xs text-gray-500">• Quality</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Clinical Documentation</h3>
+                    <p class="text-gray-600 mb-4">AI-assisted documentation that ensures complete, accurate clinical records while reducing clinician burden.</p>
+                    <p class="text-sm text-dsBlack font-medium">Outcome: Better documentation, happier clinicians.</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-xs font-medium text-white bg-dsBlue px-2 py-1 rounded">For CFO</span>
+                        <span class="text-xs text-gray-500">• Revenue</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Revenue Cycle Integration</h3>
+                    <p class="text-gray-600 mb-4">Connect clinical documentation to billing workflows, ensuring accurate charge capture and clean claims.</p>
+                    <p class="text-sm text-dsBlack font-medium">Outcome: Faster reimbursement, fewer denials.</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-xs font-medium text-white bg-dsBlue px-2 py-1 rounded">For COO</span>
+                        <span class="text-xs text-gray-500">• Operations</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Practice Analytics</h3>
+                    <p class="text-gray-600 mb-4">Operational dashboards and reporting that surface insights from EHR data for informed decision-making.</p>
+                    <p class="text-sm text-dsBlack font-medium">Outcome: Data-driven operations, better decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VBC Integration Section -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-up">
+                    <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">Value-Based Care Integration</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">EHR solutions built for value-based care success.</h2>
+                    <p class="text-gray-600 mb-8">Custom EHR extensions integrate into your VBC technology stack, supporting quality measurement, risk adjustment, and care coordination.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-dsBlue mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <div>
+                                <h4 class="font-semibold">Quality Measure Tracking</h4>
+                                <p class="text-gray-600 text-sm">Real-time visibility into quality measure performance with gap identification.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-dsBlue mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <div>
+                                <h4 class="font-semibold">Risk Adjustment Optimization</h4>
+                                <p class="text-gray-600 text-sm">Ensure accurate RAF/HCC capture through documentation improvement.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-dsBlue mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <div>
+                                <h4 class="font-semibold">Care Coordination Tools</h4>
+                                <p class="text-gray-600 text-sm">Embedded care management workflows within your EHR environment.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-dsBlue mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <div>
+                                <h4 class="font-semibold">Regulatory Compliance</h4>
+                                <p class="text-gray-600 text-sm">Built-in compliance support for CMS requirements and state regulations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-up">
+                    <div class="bg-white rounded-xl p-8 border border-gray-200">
+                        <h3 class="font-bold text-lg mb-6">EHR Platform Features</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-dsBlue rounded-full"></div>
+                                <span class="text-gray-700">Bidirectional EHR Integration</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-dsBlue rounded-full"></div>
+                                <span class="text-gray-700">Real-Time Data Sync</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-dsBlue rounded-full"></div>
+                                <span class="text-gray-700">Clinical Workflow Embedding</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-dsBlue rounded-full"></div>
+                                <span class="text-gray-700">AI-Powered Insights</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-dsBlue rounded-full"></div>
+                                <span class="text-gray-700">Custom Reporting</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-dsBlue rounded-full"></div>
+                                <span class="text-gray-700">Role-Based Access</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-dsBlue rounded-full"></div>
+                                <span class="text-gray-700">Audit Trail & Compliance</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-dsBlue rounded-full"></div>
+                                <span class="text-gray-700">HIPAA Security</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Approach Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">Our Approach</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-4">We don't just build EHR tools. We deliver practice transformation.</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">The difference between a feature and a workflow improvement is everything. Our methodology is built specifically for healthcare IT.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 fade-up">
+                <div class="text-center">
+                    <div class="w-12 h-12 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-dsBlue font-bold">1</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Discovery</h3>
+                    <p class="text-gray-600 text-sm">Map existing workflows, identify pain points, and understand regulatory requirements.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-dsBlue font-bold">2</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Blueprint</h3>
+                    <p class="text-gray-600 text-sm">Design integration architecture, user experience, and data flows.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-dsBlue font-bold">3</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Develop & Launch</h3>
+                    <p class="text-gray-600 text-sm">Iterative development with clinical feedback and real-world testing.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 bg-dsBlue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-dsBlue font-bold">4</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Grow</h3>
+                    <p class="text-gray-600 text-sm">Post-launch optimization and scaling across facilities.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 fade-up">
+                <a href="healthcare-approach.html" class="inline-flex items-center gap-2 text-dsBlue font-medium hover:underline">
+                    See Our Complete Methodology →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Capabilities Section -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">Platform Capabilities</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-4">EHR capabilities built for clinical adoption.</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 fade-up">
+                <div class="bg-white rounded-xl p-6">
+                    <h3 class="font-bold mb-2">Bidirectional Integration</h3>
+                    <p class="text-gray-600 text-sm">Real-time data exchange with your EHR—patient data flows in, clinical decisions flow back.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6">
+                    <h3 class="font-bold mb-2">Workflow Embedding</h3>
+                    <p class="text-gray-600 text-sm">Solutions that live inside clinical workflows, not separate applications to switch to.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6">
+                    <h3 class="font-bold mb-2">AI-Powered Analysis</h3>
+                    <p class="text-gray-600 text-sm">Machine learning models trained on healthcare data for coding, documentation, and decision support.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6">
+                    <h3 class="font-bold mb-2">Custom Reporting</h3>
+                    <p class="text-gray-600 text-sm">Dashboards and reports tailored to your operational and clinical needs.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6">
+                    <h3 class="font-bold mb-2">Compliance Built-In</h3>
+                    <p class="text-gray-600 text-sm">HIPAA security, audit trails, and regulatory compliance from the ground up.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6">
+                    <h3 class="font-bold mb-2">Scalable Architecture</h3>
+                    <p class="text-gray-600 text-sm">Built to grow with your organization across facilities and care settings.</p>
+                </div>
+            </div>
+
+            <!-- EHR Integrations -->
+            <div class="bg-dsBlack rounded-2xl p-8 md:p-12 fade-up">
+                <h3 class="text-center font-semibold text-gray-400 uppercase tracking-wider text-sm mb-8">EHR Integrations</h3>
+                <p class="text-center text-gray-400 mb-8">Production integrations with major platforms</p>
+                <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2023/10/pointclickcare-logo.png" alt="PointClickCare" class="h-10 brightness-0 invert opacity-80 hover:opacity-100 transition">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2023/10/Epic-Partner-Logo.png" alt="Epic" class="h-10 brightness-0 invert opacity-80 hover:opacity-100 transition">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2023/11/gEHRiMed-768x170.png" alt="Gehrimed" class="h-8 brightness-0 invert opacity-80 hover:opacity-100 transition">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2023/10/Netsmart-copy.png" alt="Netsmart" class="h-8 brightness-0 invert opacity-80 hover:opacity-100 transition">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Digital Scientists -->
+    <section class="py-20 px-6 bg-dsBlack text-white">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Why Digital Scientists</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-3">
+                    We're not learning healthcare IT on your dime.
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6 fade-up">
+                <div>
+                    <h3 class="font-semibold text-white mb-2">Since 2007</h3>
+                    <p class="text-gray-400 text-sm">Building production healthcare systems. HIPAA compliant. BAA ready.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white mb-2">EHR Integration</h3>
+                    <p class="text-gray-400 text-sm">PointClickCare, Epic, Gehrimed, Netsmart. We know these systems.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white mb-2">$20M+ Verified ROI</h3>
+                    <p class="text-gray-400 text-sm">$10M PDPM recovered. $2M quality incentives. Financial analyst confirmed.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white mb-2">100% Production</h3>
+                    <p class="text-gray-400 text-sm">vs 5% industry average. We ship what we build.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">What Our Partners Say</span>
+                <h2 class="text-3xl font-bold text-dsBlack mt-3">Trusted by healthcare leaders.</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 fade-up">
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-xl p-8 border border-gray-200">
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                        "I have worked with many technology teams during my career, and Digital Scientists is one of the best. They take the time to understand the customers' needs, deliver innovative solutions, are always professional, and work with your team as a true partner to achieve success."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="images/any-severino.png" 
+                             alt="Amy Severino" 
+                             class="w-14 h-14 rounded-full object-cover"
+                             loading="lazy">
+                        <div>
+                            <p class="font-semibold text-dsBlack">Amy Severino</p>
+                            <p class="text-gray-500 text-sm">Chief Innovation Officer, NeverAlone</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white rounded-xl p-8 border border-gray-200">
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                        "By applying a robust machine learning model to our app, DS helped us create a scalable and accurate solution to improve the operating room experience for the anesthesia team and the patient. They are true collaborators."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="images/justin-scott.png" 
+                             alt="Justin Scott, M.D." 
+                             class="w-14 h-14 rounded-full object-cover"
+                             loading="lazy">
+                        <div>
+                            <p class="font-semibold text-dsBlack">Justin Scott, M.D., FASA</p>
+                            <p class="text-gray-500 text-sm">CEO, Vigilant Medical Solutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">FAQ</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4">Common questions about EHR & practice management.</h2>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-6 fade-up">
+                <div class="bg-dsGray rounded-xl p-6">
+                    <h3 class="font-bold mb-2">Do we need to replace our existing EHR?</h3>
+                    <p class="text-gray-600">No. We build extensions and integrations that work with your existing EHR investment. Enhance what you have rather than rip and replace.</p>
+                </div>
+                <div class="bg-dsGray rounded-xl p-6">
+                    <h3 class="font-bold mb-2">Which EHR systems do you integrate with?</h3>
+                    <p class="text-gray-600">Production integrations with PointClickCare, Epic, Gehrimed, Netsmart, and custom EHRs. Bidirectional, real-time data exchange.</p>
+                </div>
+                <div class="bg-dsGray rounded-xl p-6">
+                    <h3 class="font-bold mb-2">How long does integration take?</h3>
+                    <p class="text-gray-600">Typical EHR integration projects take 3-6 months depending on scope, EHR platform, and customization needs. We can often deliver initial functionality faster.</p>
+                </div>
+                <div class="bg-dsGray rounded-xl p-6">
+                    <h3 class="font-bold mb-2">How do you ensure HIPAA compliance?</h3>
+                    <p class="text-gray-600">HIPAA compliance is built into our architecture from day one—encryption, access controls, audit logging, and BAA-ready infrastructure. We've been doing this since 2007.</p>
+                </div>
+                <div class="bg-dsGray rounded-xl p-6">
+                    <h3 class="font-bold mb-2">What ROI can we expect?</h3>
+                    <p class="text-gray-600">Verified outcomes include $10M+ PDPM recovered, 100% production rates, and significant workflow efficiency gains. All financial analyst calculated.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Solutions -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-12 fade-up">
+                <span class="text-dsBlue text-sm font-medium uppercase tracking-wider">Related Solutions</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4">Often combined with EHR solutions.</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 fade-up">
+                <a href="clinical-decision-support.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition group">
+                    <h3 class="font-bold mb-2 group-hover:text-dsBlue transition">Clinical Decision Support</h3>
+                    <p class="text-gray-600 text-sm">Evidence-based recommendations embedded in EHR workflows.</p>
+                </a>
+                <a href="healthcare-interoperability.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition group">
+                    <h3 class="font-bold mb-2 group-hover:text-dsBlue transition">Interoperability</h3>
+                    <p class="text-gray-600 text-sm">Connect systems and enable seamless data exchange.</p>
+                </a>
+                <a href="healthcare-ai-ml-development.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition group">
+                    <h3 class="font-bold mb-2 group-hover:text-dsBlue transition">AI/ML Development</h3>
+                    <p class="text-gray-600 text-sm">AI-powered features for your EHR environment.</p>
+                </a>
+                <a href="population-health-management.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition group">
+                    <h3 class="font-bold mb-2 group-hover:text-dsBlue transition">Population Health</h3>
+                    <p class="text-gray-600 text-sm">Analytics and risk stratification from EHR data.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-20 px-6 bg-dsBlue text-white">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to discuss your EHR opportunity?</h2>
+                    <p class="text-blue-100 mb-8">30-minute call. No pitch. Just honest assessment of what's possible for your organization.</p>
+                    <ul class="space-y-3 text-blue-100">
+                        <li class="flex items-center gap-2"><svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Understand your EHR environment and pain points</li>
+                        <li class="flex items-center gap-2"><svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Assess opportunity and realistic ROI range</li>
+                        <li class="flex items-center gap-2"><svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Determine if there's a fit</li>
+                    </ul>
+                    <p class="mt-8 text-blue-100">Or call: <a href="tel:4046543855" class="text-white font-semibold hover:underline">404.654.3855</a></p>
+                </div>
+                
+                <div class="fade-up">
+                    <form class="bg-white rounded-xl p-6 md:p-8 text-dsBlack">
+                        <div class="grid md:grid-cols-2 gap-4 mb-4">
+                            <div><label class="block text-sm font-medium mb-1">First Name</label><input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-dsBlue"></div>
+                            <div><label class="block text-sm font-medium mb-1">Last Name</label><input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-dsBlue"></div>
+                        </div>
+                        <div class="mb-4"><label class="block text-sm font-medium mb-1">Email</label><input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-dsBlue"></div>
+                        <div class="mb-4"><label class="block text-sm font-medium mb-1">Organization</label><input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-dsBlue"></div>
+                        <div class="mb-6"><label class="block text-sm font-medium mb-1">Primary Interest</label>
+                            <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-dsBlue bg-white">
+                                <option>EHR Integration</option>
+                                <option>Practice Management</option>
+                                <option>PDPM Optimization</option>
+                                <option>Clinical Documentation</option>
+                                <option>Revenue Cycle</option>
+                                <option>General Healthcare AI Strategy</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">Schedule AI Opportunity Call</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dsBlack text-white py-16 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+                <div class="lg:col-span-2">
+                    <img src="https://digitalscientists.com/wp-content/uploads/2022/11/footer-logo.svg" alt="Digital Scientists" class="h-8 mb-4">
+                    <p class="text-gray-400 text-sm mb-4">21 South Main Street<br>Alpharetta, GA 30009</p>
+                    <a href="tel:4046543855" class="text-gray-400 hover:text-white transition">404.654.3855</a>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Healthcare Solutions</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="ehr-practice-management.html" class="hover:text-white transition">EHR & Practice Management</a></li>
+                        <li><a href="clinical-decision-support.html" class="hover:text-white transition">Clinical Decision Support</a></li>
+                        <li><a href="telemedicine-virtual-care.html" class="hover:text-white transition">Telemedicine</a></li>
+                        <li><a href="population-health-management.html" class="hover:text-white transition">Population Health</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="ds-healthcare-v3-updated.html" class="hover:text-white transition">Healthcare</a></li>
+                        <li><a href="healthcare-approach.html" class="hover:text-white transition">Our Approach</a></li>
+                        <li><a href="work-never-alone.html" class="hover:text-white transition">Case Studies</a></li>
+                        <li><a href="https://digitalscientists.com/blog/" class="hover:text-white transition">Insights</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Getting Started</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="healthcare-assessment.html" class="hover:text-white transition">Healthcare Assessment</a></li>
+                        <li><a href="healthcare-ai-guides-landing.html" class="hover:text-white transition">AI Decision Guides</a></li>
+                        <li><a href="https://digitalscientists.com/contact/" class="hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-400 text-sm">© 2007 - 2026 Digital Scientists, LLC.</p>
+                <div class="flex items-center gap-6">
+                    <a href="https://digitalscientists.com/privacy-policy/" class="text-gray-400 text-sm hover:text-white transition">Privacy Policy</a>
+                    <a href="https://www.linkedin.com/company/digital-scientists_2/" class="text-gray-400 hover:text-white transition">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
