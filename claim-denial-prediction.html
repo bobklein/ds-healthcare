@@ -26,13 +26,19 @@
         }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>body{font-family:'Inter',system-ui,sans-serif}.fade-up{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}.fade-up.visible{opacity:1;transform:translateY(0)}.nav-dropdown{position:relative}.nav-dropdown-menu{display:none;position:absolute;top:100%;left:0;padding-top:8px;z-index:100}.nav-dropdown:hover .nav-dropdown-menu{display:block}.nav-dropdown-menu.right-aligned{left:auto;right:0}</style>
+    <style>
+
+        .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }body{font-family:'Inter',system-ui,sans-serif}.fade-up{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}.fade-up.visible{opacity:1;transform:translateY(0)}.nav-dropdown{position:relative}.nav-dropdown-menu{display:none;position:absolute;top:100%;left:0;padding-top:8px;z-index:100}.nav-dropdown:hover .nav-dropdown-menu{display:block}.nav-dropdown-menu.right-aligned{left:auto;right:0}</style>
 </head>
 <body class="bg-white text-dsBlack antialiased">
 <!-- DS 2.0 Navigation - FINAL -->
 <!-- START DS-NAV -->
 
 <style>
+
+        .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
 /* Utility Bar */
 .ds-utility-bar {
     background: #F5F5F5;
@@ -600,7 +606,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <section class="py-12 px-6 border-t border-gray-100">
     <div class="max-w-4xl mx-auto">
-        <div class="grid md:grid-cols-3 gap-6">
+        <div class="grid md:grid-cols-3 gap-6 fade-up">
             <div class="text-center p-6 bg-dsGray rounded-xl fade-up"><span class="text-3xl font-bold text-dsBlack">25-50%</span><p class="text-gray-600 text-sm mt-1">Denial write-off reduction</p></div>
             <div class="text-center p-6 bg-dsGray rounded-xl fade-up"><span class="text-3xl font-bold text-dsBlue">80-90%</span><p class="text-gray-600 text-sm mt-1">Prediction accuracy</p></div>
             <div class="text-center p-6 bg-dsGray rounded-xl fade-up"><span class="text-3xl font-bold text-dsBlack">14-20</span><p class="text-gray-600 text-sm mt-1">Weeks to production</p></div>
@@ -608,7 +614,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </section>
 
-<section class="py-16 px-6">
+<section class="py-16 px-6 bg-dsGray">
     <div class="max-w-4xl mx-auto">
         <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Problem</span>
         <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">You're submitting claims you know will deny—you just don't know which ones.</h2>
@@ -649,15 +655,19 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </section>
 
-<section class="py-16 px-6">
+<section class="py-16 px-6 bg-dsGray">
     <div class="max-w-4xl mx-auto">
         <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Guides</span>
         <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-8">Complete your denial prevention stack</h2>
-        <div class="grid md:grid-cols-2 gap-6">
+        <div class="grid md:grid-cols-2 gap-6 fade-up">
             <a href="claim-follow-up-triage.html" class="bg-dsGray p-6 rounded-xl border border-gray-200 hover:border-dsBlue transition fade-up">
                 <span class="text-xs font-medium text-green-600 uppercase">Quick Win</span>
                 <h3 class="text-xl font-semibold text-dsBlack mt-2 mb-2">Claim Follow-Up Triage</h3>
                 <p class="text-gray-600 text-sm">Post-submission monitoring for claims that need intervention.</p>
+                <div class="my-8 fade-up">
+                    <img src="images/arch-predictive.png" alt="Denial risk scoring" class="rounded-xl shadow-lg w-full max-w-3xl mx-auto">
+                </div>
+
             </a>
             <a href="coding-accuracy-precheck.html" class="bg-dsGray p-6 rounded-xl border border-gray-200 hover:border-dsBlue transition fade-up">
                 <span class="text-xs font-medium text-blue-600 uppercase">Building Momentum</span>

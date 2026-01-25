@@ -633,7 +633,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- Expected ROI -->
 <section class="py-12 px-6 border-t border-gray-100">
     <div class="max-w-4xl mx-auto">
-        <div class="grid md:grid-cols-3 gap-6">
+        <div class="grid md:grid-cols-3 gap-6 fade-up">
             <div class="text-center p-6 bg-dsGray rounded-xl fade-up">
                 <span class="text-3xl font-bold text-dsBlack">15-25%</span>
                 <p class="text-gray-600 text-sm mt-1">Recovery per FTE</p>
@@ -651,13 +651,18 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <!-- The Problem -->
-<section class="py-16 px-6">
+<section class="py-16 px-6 bg-dsGray">
     <div class="max-w-4xl mx-auto">
         <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Problem</span>
         <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">By the time you see the denial, you've already lost.</h2>
         
         <div class="prose prose-lg text-gray-600 space-y-4 fade-up">
             <p>Most revenue cycle teams work denials after they happen. A claim sits for 30-45 days, gets denied, then enters the appeals queue. By then, you've lost leverage, lost time, and often lost the revenue entirely.</p>
+
+                <div class="my-8 fade-up">
+                    <img src="images/arch-predictive.png" alt="Denial Prediction Model" class="rounded-xl shadow-lg w-full max-w-3xl mx-auto">
+                </div>
+
             
             <p>The patterns that predict denial are visible much earlier—in the claim data itself. Certain payer + code + facility + timing combinations have historically denied at 40%, 60%, or 80% rates. Those claims are sitting in your system right now, aging toward denial, while your team works lower-risk accounts.</p>
             
@@ -743,7 +748,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <!-- What You Need -->
-<section class="py-16 px-6">
+<section class="py-16 px-6 bg-dsGray">
     <div class="max-w-4xl mx-auto">
         <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Requirements</span>
         <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">What you need to have ready</h2>
@@ -813,6 +818,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div>
                         <h3 class="font-semibold text-dsBlack mb-2">Pattern Learning</h3>
                         <p class="text-gray-600">The model analyzes your historical claims and denials, learning which combinations of payer, code, facility, timing, and other factors predict denial. Not generic industry patterns—your specific patterns.</p>
+
+                <div class="my-8 fade-up">
+                    <img src="images/case-raf-dashboard.png" alt="Triage Dashboard" class="rounded-xl shadow-lg w-full max-w-3xl mx-auto">
+                </div>
+
                     </div>
                 </div>
             </div>
@@ -851,7 +861,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <!-- Red Flags -->
-<section class="py-16 px-6">
+<section class="py-16 px-6 bg-dsGray">
     <div class="max-w-4xl mx-auto">
         <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Honest Assessment</span>
         <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">When to wait</h2>
@@ -882,7 +892,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Guides</span>
         <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-8">Other quick wins to consider</h2>
         
-        <div class="grid md:grid-cols-2 gap-6">
+        <div class="grid md:grid-cols-2 gap-6 fade-up">
             <a href="ar-collection-prioritization.html" class="bg-white p-6 rounded-xl border border-gray-200 hover:border-dsBlue transition fade-up">
                 <span class="text-xs font-medium text-green-600 uppercase">Quick Win</span>
                 <h3 class="text-xl font-semibold text-dsBlack mt-2 mb-2">A/R Collection Prioritization</h3>
