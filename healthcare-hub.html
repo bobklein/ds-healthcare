@@ -603,27 +603,35 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- Hero Section -->
     <header class="pt-32 pb-16 px-6">
         <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-3xl mb-12">
-                <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
-                    <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
-                    Healthcare & Life Sciences
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-12">
+                <!-- Left Content -->
+                <div>
+                    <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
+                        <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                        Healthcare & Life Sciences
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dsBlack mb-6 leading-[1.1]">
+                        AI that learns your workflows and gets smarter on your data.
+                    </h1>
+                    
+                    <p class="text-xl text-gray-600 leading-relaxed mb-4">
+                        Generic AI tools don't know your EHR, your payer contracts, or your clinical workflows. That's why 95% of healthcare AI pilots fail. They're built for demos, not your environment.
+                    </p>
+                    <p class="text-xl text-gray-600 leading-relaxed mb-8">
+                        We build systems that integrate with what you have, learn from your operations, and deliver ROI within the calendar year. Not experiments. Production systems with $20M+ in verified impact.
+                    </p>
+                    
+                    <a href="#contact" class="inline-flex items-center gap-2 bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">
+                        Discuss Your AI Opportunity
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
                 </div>
                 
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dsBlack mb-6 leading-[1.1]">
-                    AI that learns your workflows and gets smarter on your data.
-                </h1>
-                
-                <p class="text-xl text-gray-600 leading-relaxed mb-4">
-                    Generic AI tools don't know your EHR, your payer contracts, or your clinical workflows. That's why 95% of healthcare AI pilots fail. They're built for demos, not your environment.
-                </p>
-                <p class="text-xl text-gray-600 leading-relaxed mb-8">
-                    We build systems that integrate with what you have, learn from your operations, and deliver ROI within the calendar year. Not experiments. Production systems with $20M+ in verified impact.
-                </p>
-                
-                <a href="#contact" class="inline-flex items-center gap-2 bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">
-                    Discuss Your AI Opportunity
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </a>
+                <!-- Right Image -->
+                <div class="relative">
+                    <img src="images/case-studies/digital-health-hero.png" alt="Healthcare AI Platform" class="rounded-2xl shadow-xl w-full">
+                </div>
             </div>
 
             <!-- Stats Row -->
@@ -1178,7 +1186,8 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="grid md:grid-cols-3 gap-6">
                 <a href="work-communicare-mds.html" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition group">
                     <div class="aspect-video bg-gray-100 overflow-hidden">
-                        </div>
+                        <img src="images/mds-optimizer.png" alt="MDS Optimizer Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    </div>
                     <div class="p-6">
                         <p class="text-xs font-medium text-dsBlue uppercase tracking-wider mb-2">Revenue Optimization</p>
                         <h3 class="font-bold text-dsBlack mb-3">MDS / PDPM AI</h3>
@@ -1196,7 +1205,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 </a>
                 <a href="work-raf-hcc-coding.html" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition group">
                     <div class="aspect-video bg-gray-100 overflow-hidden">
-                        </div>
+                        <img src="images/case-studies/raf-hero.png" alt="RAF HCC Coding Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    </div>
                     <div class="p-6">
                         <p class="text-xs font-medium text-dsBlue uppercase tracking-wider mb-2">Risk Adjustment</p>
                         <h3 class="font-bold text-dsBlack mb-3">RAF / HCC Coding</h3>
@@ -1214,7 +1224,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 </a>
                 <a href="work-healthcontext-ai.html" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition group">
                     <div class="aspect-video bg-gray-100 overflow-hidden">
-                        </div>
+                        <img src="images/case-studies/healthcontext-window.png" alt="HealthContext AI Interface" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    </div>
                     <div class="p-6">
                         <p class="text-xs font-medium text-dsBlue uppercase tracking-wider mb-2">Documentation</p>
                         <h3 class="font-bold text-dsBlack mb-3">HealthContext.AI</h3>
