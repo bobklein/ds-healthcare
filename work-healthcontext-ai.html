@@ -29,6 +29,25 @@
     </style>
 </head>
 <body class="bg-white text-dsBlack antialiased">
+
+    <!-- Simple CSS Hover Navigation - No JavaScript Required -->
+<style>
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-menu { 
+        display: none; 
+        position: absolute; 
+        top: 100%; 
+        left: 0; 
+        padding-top: 8px;
+        z-index: 100;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu.right-aligned { left: auto; right: 0; }
+</style>
+
+<!-- DS Healthcare Mega Menu Navigation -->
+<!-- Desktop: Mega menu on hover | Mobile: Hamburger + Accordion -->
+
 <!-- DS 2.0 Navigation - FINAL -->
 <!-- START DS-NAV -->
 
@@ -535,27 +554,6 @@
     </div>
 </div>
 <!-- END DS-NAV -->
-
-
-    <!-- Simple CSS Hover Navigation - No JavaScript Required -->
-<style>
-    .nav-dropdown { position: relative; }
-    .nav-dropdown-menu { 
-        display: none; 
-        position: absolute; 
-        top: 100%; 
-        left: 0; 
-        padding-top: 8px;
-        z-index: 100;
-    }
-    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
-    .nav-dropdown-menu.right-aligned { left: auto; right: 0; }
-</style>
-
-<!-- DS Healthcare Mega Menu Navigation -->
-<!-- Desktop: Mega menu on hover | Mobile: Hamburger + Accordion -->
-
-<!-- DS 2.0 Navigation - FINAL -->
 <!-- Hero Image -->
             <div class="mt-12 rounded-xl overflow-hidden bg-gray-100 enlargeable-container" onclick="openLightbox(this.querySelector('img'))">
                 <img src="images/case-studies/digital-health-hero.png" alt="HealthContext.AI Platform" class="w-full h-auto">
@@ -1075,64 +1073,6 @@
 
     <!-- Footer -->
     <!-- DS 2.0 Footer - FINAL -->
-<!-- Scroll Animation -->
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-    });
-
-
-    
-
-    </script>
-
-
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
-        <button class="lightbox-close" onclick="closeLightbox()">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-        </button>
-        <img id="lightbox-img" class="lightbox-content" src="" alt="">
-        <div id="lightbox-caption" class="lightbox-caption"></div>
-    </div>
-
-    <script>
-        function openLightbox(img) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            const lightboxCaption = document.getElementById('lightbox-caption');
-            
-            lightboxImg.src = img.src;
-            lightboxCaption.textContent = img.alt;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        
-        // Close on Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeLightbox();
-            }
-        });
-    </script>
-
-
-<!-- DS 2.0 Footer - FINAL -->
 <!-- START DS-FOOTER -->
 
 <footer class="bg-[#2d2d2d] text-white pt-16 pb-8 px-6">
@@ -1237,6 +1177,63 @@
 <!-- Pipedrive Web Forms Script -->
 <script src="https://webforms.pipedrive.com/f/loader"></script>
 <!-- END DS-FOOTER -->
+
+
+    <!-- Scroll Animation -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    });
+
+
+    
+
+    </script>
+
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+        <img id="lightbox-img" class="lightbox-content" src="" alt="">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+
+    <script>
+        function openLightbox(img) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            
+            lightboxImg.src = img.src;
+            lightboxCaption.textContent = img.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
 
 </body>
 </html>
