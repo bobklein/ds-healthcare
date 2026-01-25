@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skilled Nursing Facilities | Healthcare AI Solutions | Digital Scientists</title>
-    <meta name="description" content="AI solutions for skilled nursing facilities. MDS/PDPM optimization, Five-Star improvement, documentation automation. $10M+ PDPM revenue recovered.">
+    <title>A/R Collection Prioritization | Healthcare AI Guides | Digital Scientists</title>
+    <meta name="description" content="AI-powered accounts receivable prioritization for healthcare. Predict which claims to work first, reduce bad debt 5-15%, improve collections. 8-14 week implementation.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -28,19 +28,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', system-ui, sans-serif; }
-        h1, h2, h3 { letter-spacing: -0.02em; }
-        
-        
-    
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .nav-dropdown { position: relative; }
+        .nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 0; padding-top: 8px; z-index: 100; }
+        .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+        .nav-dropdown-menu.right-aligned { left: auto; right: 0; }
     </style>
 </head>
 <body class="bg-white text-dsBlack antialiased">
@@ -603,368 +596,325 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
-<!-- Hero Section -->
-    <header class="pt-32 pb-16 px-6">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="fade-up">
-
-                <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
-                    <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
-                    Markets We Serve
-                </div>
-                
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dsBlack mb-6 leading-[1.1]">
-                    Skilled Nursing Facilities
-                </h1>
-                
-                <p class="text-xl text-gray-600 leading-relaxed mb-8">
-                    SNFs operate in one of healthcare's most complex environments-PDPM reimbursement, Five-Star pressure, staffing challenges, and value-based care transitions. We've deployed AI solutions across one of the nation's largest post-acute care providers, recovering $10M+ in PDPM revenue and earning $2M in quality incentives.
-                </p>
-                
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 fade-up">
-                    <div class="border border-gray-200 rounded-xl p-4">
-                        <span class="text-2xl font-bold text-dsBlue">$10M+</span>
-                        <p class="text-gray-500 text-sm">PDPM Recovered</p>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl p-4">
-                        <span class="text-2xl font-bold text-dsBlack">$2M</span>
-                        <p class="text-gray-500 text-sm">Quality Incentives</p>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl p-4">
-                        <span class="text-2xl font-bold text-dsBlack">96%</span>
-                        <p class="text-gray-500 text-sm">Treat-in-Place</p>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl p-4">
-                        <span class="text-2xl font-bold text-dsBlack">60/100</span>
-                        <p class="text-gray-500 text-sm">Five-Star QM Score</p>
-                    </div>
-                </div>
-                
-                <a href="healthcare-assessment.html" class="inline-flex items-center gap-2 bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">
-                    Assess Your SNF AI Opportunity
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </a>
-            
-                </div>
-
-                <div class="fade-up">
-                    <img src="images/nurse-patient.jpg" alt="Skilled Nursing Facility Care Technology" class="rounded-xl shadow-lg w-full">
-                    <p class="text-sm text-gray-500 mt-3 text-center">Technology-enabled care in skilled nursing facilities</p>
-                </div>
-            </div>
+<!-- Hero -->
+<header class="pt-32 pb-12 px-6">
+    <div class="max-w-4xl mx-auto">
+        <div class="flex items-center gap-2 text-sm mb-6">
+            <a href="healthcare-ai-guides-landing.html" class="text-dsBlue hover:underline">AI Guides</a>
+            <span class="text-gray-400">/</span>
+            <span class="text-gray-600">Quick Win</span>
         </div>
-    </header>
-
-    <!-- Market Challenges -->
-    <section class="py-20 px-6 bg-dsGray">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="fade-up max-w-2xl mb-12">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Market Challenges</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
-                    The pressures facing skilled nursing facilities
-                </h2>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 fade-up">
-                <div class="bg-white border border-gray-200 rounded-xl p-6">
-                    <h3 class="font-semibold text-dsBlack mb-3">PDPM Revenue Optimization</h3>
-                    <p class="text-gray-500 text-sm">PDPM reimbursement depends on accurate MDS assessments. Missed diagnoses and coding errors leave millions on the table. Most facilities don't have the time or expertise to optimize every assessment.</p>
-                </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6">
-                    <h3 class="font-semibold text-dsBlack mb-3">Five-Star Rating Pressure</h3>
-                    <p class="text-gray-500 text-sm">Quality measures directly impact reimbursement, referrals, and reputation. Meeting quality thresholds requires real-time visibility into measure performance and proactive intervention.</p>
-                </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6">
-                    <h3 class="font-semibold text-dsBlack mb-3">MDS Coordinator Burden</h3>
-                    <p class="text-gray-500 text-sm">MDS assessments take 3-4 hours each. Coordinators are overwhelmed with paperwork while trying to ensure accuracy. Burnout and turnover compound the problem.</p>
-                </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6">
-                    <h3 class="font-semibold text-dsBlack mb-3">Staffing Shortages</h3>
-                    <p class="text-gray-500 text-sm">The nursing shortage hits SNFs hardest. Facilities need to deliver quality care with fewer staff-which requires technology that extends clinician capacity.</p>
-                </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6">
-                    <h3 class="font-semibold text-dsBlack mb-3">Hospital Readmissions</h3>
-                    <p class="text-gray-500 text-sm">Hospital transfers are expensive and affect quality ratings. SNFs in value-based arrangements need to keep residents in place when clinically appropriate.</p>
-                </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6">
-                    <h3 class="font-semibold text-dsBlack mb-3">Value-Based Care Transition</h3>
-                    <p class="text-gray-500 text-sm">SNF VBP, ACO partnerships, and MA contracts are shifting economics from volume to value. Technology infrastructure must support this transition.</p>
-                </div>
-            </div>
+        
+        <div class="inline-flex items-center gap-2 bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm font-medium mb-4">
+            <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+            8-14 weeks to deploy
         </div>
-    </section>
-
-    <!-- Solutions for SNFs -->
-    <section class="py-20 px-6 bg-dsGray">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="fade-up max-w-2xl mb-12">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Solutions for SNFs</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
-                    AI solutions proven in skilled nursing
-                </h2>
-                <p class="text-gray-600">
-                    We've deployed these solutions across one of the nation's largest post-acute care providers-with measurable ROI.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6 fade-up">
-                <a href="healthcare-domains-mds-pdpm.html" class="group border border-gray-200 rounded-xl p-8 hover:border-dsBlue transition">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center">
-                            <span class="text-dsBlue font-bold">MDS</span>
-                        </div>
-                        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">$10M+ Recovered</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-dsBlack mb-2 group-hover:text-dsBlue transition">MDS / PDPM Optimization</h3>
-                    <p class="text-gray-600 text-sm mb-4">AI-powered MDS assessment support that identifies missed diagnoses, recommends accurate coding, and maximizes PDPM reimbursement. Built with 40+ hours shadowing MDS coordinators.</p>
-                    <div class="grid grid-cols-2 gap-4 mb-4">
-                        <div>
-                            <span class="text-lg font-bold text-dsBlue">$10M+</span>
-                            <p class="text-gray-500 text-xs">PDPM Revenue</p>
-                        </div>
-                        <div>
-                            <span class="text-lg font-bold text-dsBlack">$2M</span>
-                            <p class="text-gray-500 text-xs">Quality Incentives</p>
-                        </div>
-                    </div>
-                    <span class="text-dsBlue text-sm font-medium group-hover:underline">Learn more→</span>
-                </a>
-
-                <a href="healthcare-ai-virtual-care-assistants.html" class="group border border-gray-200 rounded-xl p-8 hover:border-dsBlue transition">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center">
-                            <span class="text-dsBlue font-bold">24/7</span>
-                        </div>
-                        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">96% Treat-in-Place</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-dsBlack mb-2 group-hover:text-dsBlue transition">Virtual Care / Treatment-in-Place</h3>
-                    <p class="text-gray-600 text-sm mb-4">24/7 virtual clinical support that enables treatment-in-place for appropriate situations. Reduces hospital transfers while ensuring resident safety.</p>
-                    <div class="grid grid-cols-2 gap-4 mb-4">
-                        <div>
-                            <span class="text-lg font-bold text-dsBlue">96%</span>
-                            <p class="text-gray-500 text-xs">Treat-in-Place</p>
-                        </div>
-                        <div>
-                            <span class="text-lg font-bold text-dsBlack">26K+</span>
-                            <p class="text-gray-500 text-xs">Patients Served</p>
-                        </div>
-                    </div>
-                    <span class="text-dsBlue text-sm font-medium group-hover:underline">Learn more→</span>
-                </a>
-
-                <a href="healthcare-ai-documentation-automation.html" class="group border border-gray-200 rounded-xl p-8 hover:border-dsBlue transition">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                        </div>
-                        <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Staff Efficiency</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-dsBlack mb-2 group-hover:text-dsBlue transition">Documentation Automation</h3>
-                    <p class="text-gray-600 text-sm mb-4">Voice-enabled documentation for CNAs and nurses. Progress notes, shift documentation, and incident reports generated from natural workflow.</p>
-                    <div class="grid grid-cols-2 gap-4 mb-4">
-                        <div>
-                            <span class="text-lg font-bold text-dsBlack">80%</span>
-                            <p class="text-gray-500 text-xs">Time Savings</p>
-                        </div>
-                        <div>
-                            <span class="text-lg font-bold text-dsBlack">More</span>
-                            <p class="text-gray-500 text-xs">Care Time</p>
-                        </div>
-                    </div>
-                    <span class="text-dsBlue text-sm font-medium group-hover:underline">Learn more→</span>
-                </a>
-
-                <a href="healthcare-domains-value-based-care.html" class="group border border-gray-200 rounded-xl p-8 hover:border-dsBlue transition">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center">
-                            <span class="text-dsBlue font-bold">VBC</span>
-                        </div>
-                        <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Quality Performance</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-dsBlack mb-2 group-hover:text-dsBlue transition">Value-Based Care Support</h3>
-                    <p class="text-gray-600 text-sm mb-4">Technology infrastructure for SNF VBP success-quality measure tracking, care gap identification, and performance optimization.</p>
-                    <div class="grid grid-cols-2 gap-4 mb-4">
-                        <div>
-                            <span class="text-lg font-bold text-dsBlack">60/100</span>
-                            <p class="text-gray-500 text-xs">Five-Star QM</p>
-                        </div>
-                        <div>
-                            <span class="text-lg font-bold text-dsBlack">VBP</span>
-                            <p class="text-gray-500 text-xs">Incentives Earned</p>
-                        </div>
-                    </div>
-                    <span class="text-dsBlue text-sm font-medium group-hover:underline">Learn more→</span>
-                </a>
-            </div>
+        
+        <h1 class="text-4xl md:text-5xl font-bold text-dsBlack mb-6 leading-tight">
+            A/R Collection Prioritization
+        </h1>
+        
+        <p class="text-xl text-gray-600 leading-relaxed mb-8">
+            Your collectors are working claims in the wrong order. AI-powered prioritization identifies which accounts to work first based on collectability, not just age or balance. Reduce bad debt 5-15% with the same staff.
+        </p>
+        
+        <div class="flex flex-wrap gap-4">
+            <a href="healthcare-assessment.html" class="inline-flex items-center gap-2 bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">
+                Get Assessment
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <a href="#fit-assessment" class="inline-flex items-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 text-sm font-medium rounded-full hover:bg-dsGray transition">
+                5-Minute Fit Check
+            </a>
         </div>
-    </section>
+    </div>
+</header>
 
-    <!-- Case Study -->
-    <section class="py-20 px-6 bg-dsBlack text-white">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="fade-up" >
-                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Case Study</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-6">
-                        CommuniCare: $10M PDPM + $2M Quality Incentives
-                    </h2>
-                    <p class="text-gray-400 mb-6">
-                        CommuniCare Health Services, one of the nation's largest post-acute care providers, partnered with Digital Scientists to optimize MDS assessments and PDPM revenue capture across their facilities.
-                    </p>
-                    
-                    <div class="grid grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <span class="text-3xl font-bold text-dsBlue">$10M+</span>
-                            <p class="text-gray-400">PDPM Revenue Recovered (2 states, annualized)</p>
-                        </div>
-                        <div>
-                            <span class="text-3xl font-bold text-white">$2M</span>
-                            <p class="text-gray-400">Quality Incentives (annualized)</p>
-                        </div>
-                        <div>
-                            <span class="text-3xl font-bold text-white">60/100</span>
-                            <p class="text-gray-400">Five-Star QM Score Achievement</p>
-                        </div>
-                        <div>
-                            <span class="text-3xl font-bold text-white">40+ hrs</span>
-                            <p class="text-gray-400">Shadowing MDS Coordinators</p>
-                        </div>
-                    </div>
-                    
-                    <a href="work-communicare-mds.html" class="inline-flex items-center gap-2 text-dsBlue font-medium hover:gap-3 transition-all">
-                        Read Full Case Study <span>→</span>
-                    </a>
-                </div>
-                
-                <div >
-                    <div class="bg-gray-900 rounded-xl h-80 overflow-hidden">
-                        </div>
-                </div>
+<!-- Expected ROI -->
+<section class="py-12 px-6 border-t border-gray-100">
+    <div class="max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-6 fade-up">
+            <div class="text-center p-6 bg-dsGray rounded-xl fade-up">
+                <span class="text-3xl font-bold text-dsBlack">5-15%</span>
+                <p class="text-gray-600 text-sm mt-1">Bad debt reduction</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Why DS for SNFs -->
-    <section class="py-20 px-6 bg-dsGray">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="fade-up max-w-2xl mb-12">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Why Digital Scientists</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
-                    We understand skilled nursing operations
-                </h2>
+            <div class="text-center p-6 bg-dsGray rounded-xl fade-up">
+                <span class="text-3xl font-bold text-dsBlue">1-3%</span>
+                <p class="text-gray-600 text-sm mt-1">Net collections increase</p>
             </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 fade-up">
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <h3 class="font-semibold text-dsBlack mb-2">We Operate Too</h3>
-                    <p class="text-gray-500 text-sm">NeverAlone serves 26,000+ SNF residents in production. We don't just build-we operate. We understand the daily reality of skilled nursing.</p>
-                </div>
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <h3 class="font-semibold text-dsBlack mb-2">Co-Design Approach</h3>
-                    <p class="text-gray-500 text-sm">40+ hours shadowing MDS coordinators before writing code. Solutions built with your staff, not imposed on them.</p>
-                </div>
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <h3 class="font-semibold text-dsBlack mb-2">PointClickCare Integration</h3>
-                    <p class="text-gray-500 text-sm">Production-proven integration with PointClickCare. MDS data extraction, documentation flows, bidirectional sync.</p>
-                </div>
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <h3 class="font-semibold text-dsBlack mb-2">Reimbursement Expertise</h3>
-                    <p class="text-gray-500 text-sm">We understand PDPM, SNF VBP, quality measures. Solutions designed to drive revenue and quality performance.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <!-- AI Solutions for This Market -->
-    <section class="py-16 px-6">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="mb-8">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">AI Solution Frameworks</span>
-                <h2 class="text-2xl md:text-3xl font-bold text-dsBlack mt-2">How we solve Skilled Nursing challenges.</h2>
-            </div>
-            <div class="grid md:grid-cols-2 gap-6 fade-up">
-                <a href="healthcare-ai-documentation-automation.html" class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
-                    <div class="flex justify-between items-start mb-3">
-                        <h3 class="font-bold text-dsBlack">Documentation Automation</h3>
-                        <span class="text-xs font-medium text-dsBlue">Fastest Payback</span>
-                    </div>
-                    <p class="text-gray-600 text-sm mb-3">MDS documentation from 3-4 hours to under an hour.</p>
-                    <span class="text-dsBlue text-sm font-medium">Learn More →</span>
-                </a>
-                <a href="healthcare-ai-back-office-agents.html" class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
-                    <div class="flex justify-between items-start mb-3">
-                        <h3 class="font-bold text-dsBlack">Back-Office Agents</h3>
-                        <span class="text-xs font-medium text-dsBlue">Highest ROI</span>
-                    </div>
-                    <p class="text-gray-600 text-sm mb-3">PDPM optimization, denial prevention, RAF scoring.</p>
-                    <span class="text-dsBlue text-sm font-medium">Learn More →</span>
-                </a>
-                <a href="healthcare-ai-virtual-care-assistants.html" class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
-                    <div class="flex justify-between items-start mb-3">
-                        <h3 class="font-bold text-dsBlack">Virtual Care Assistants</h3>
-                        <span class="text-xs font-medium text-dsBlue">Proven at Scale</span>
-                    </div>
-                    <p class="text-gray-600 text-sm mb-3">24/7 coverage, 96% treat-in-place rate.</p>
-                    <span class="text-dsBlue text-sm font-medium">Learn More →</span>
-                </a>
-                <a href="healthcare-ai-intelligent-scheduling.html" class="border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
-                    <div class="flex justify-between items-start mb-3">
-                        <h3 class="font-bold text-dsBlack">Intelligent Scheduling</h3>
-                        <span class="text-xs font-medium text-dsBlue">Quick Win</span>
-                    </div>
-                    <p class="text-gray-600 text-sm mb-3">Therapy scheduling, staff optimization.</p>
-                    <span class="text-dsBlue text-sm font-medium">Learn More →</span>
-                </a>
-            </div>
-        </div>
-    
-<!-- Healthcare Client Logos -->
-<section class="bg-gray-50 py-10">
-    <div class="max-w-screen-xl mx-auto px-6 overflow-x-auto">
-        <div class="flex flex-nowrap justify-center items-center min-w-max">
-            <div class="flex items-center justify-center px-8 py-4 border-r border-gray-300">
-                <img src="images/duke-health.png" alt="Duke Health" class="h-10 w-auto object-contain grayscale">
-            </div>
-            <div class="flex items-center justify-center px-8 py-4 border-r border-gray-300">
-                <img src="images/congruity-health-new.svg" alt="Congruity Health" class="h-10 w-auto object-contain grayscale">
-            </div>
-            <div class="flex items-center justify-center px-8 py-4 border-r border-gray-300">
-                <img src="images/mckesson-full.webp" alt="McKesson" class="h-6 w-auto object-contain">
-            </div>
-            <div class="flex items-center justify-center px-8 py-4 border-r border-gray-300">
-                <img src="images/communicare-black.webp" alt="CommuniCare" class="h-12 w-auto object-contain">
-            </div>
-            <div class="flex items-center justify-center px-8 py-4 border-r border-gray-300">
-                <img src="images/logo-guardian.png" alt="Guardian" class="h-10 w-auto object-contain grayscale">
-            </div>
-            <div class="flex items-center justify-center px-8 py-4">
-                <img src="images/easterseals-gray.png" alt="Easterseals" class="h-10 w-auto object-contain">
+            <div class="text-center p-6 bg-dsGray rounded-xl fade-up">
+                <span class="text-3xl font-bold text-dsBlack">8-14</span>
+                <p class="text-gray-600 text-sm mt-1">Weeks to production</p>
             </div>
         </div>
     </div>
 </section>
 
-    <section class="py-20 px-6 bg-dsBlue text-white">
-        <div class="max-w-screen-xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to transform your skilled nursing operations?</h2>
-            <p class="text-blue-100 mb-8 max-w-2xl mx-auto">
-                Let's assess where AI can deliver ROI in your SNF operations-PDPM, quality, staffing efficiency, or all three.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="healthcare-assessment.html" class="inline-flex items-center justify-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition">
-                    Schedule SNF Assessment
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </a>
-            </div>
-            <p class="text-blue-200 text-sm mt-6">Or call: <a href="tel:4046543855" class="text-white hover:underline">404.654.3855</a></p>
-        </div>
-    </section>
+<!-- The Problem -->
+<section class="py-16 px-6 bg-dsGray">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Problem</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">Your A/R prioritization is based on the wrong signals.</h2>
+        
+        <div class="prose prose-lg text-gray-600 space-y-4 fade-up">
+            <p>Most revenue cycle teams prioritize by age buckets or balance. But a $50,000 claim at 90 days isn't necessarily more valuable than a $5,000 claim at 30 days. The question is: which one are you actually going to collect?</p>
 
-    <!-- Footer -->
-    <!-- DS 2.0 Footer - FINAL -->
-<!-- START DS-FOOTER -->
+                <div class="my-8 fade-up">
+                    </div>
+
+            
+            <p>Traditional prioritization ignores the signals that actually predict payment: payer behavior patterns, historical denial rates by code combination, patient demographics, and facility-specific trends. Your collectors are spending time on claims that were never going to pay while collectible accounts slip past timely filing.</p>
+            
+            <p>The result: higher bad debt, frustrated staff, and the constant feeling that you're working hard but not smart.</p>
+        </div>
+        
+        <div class="mt-8 p-6 bg-amber-50 border-l-4 border-amber-400 rounded-r-xl fade-up">
+            <p class="text-gray-800"><strong>The math:</strong> If your collectors work 100 claims per day and AI prioritization improves their hit rate by 15%, that's 15 additional successful collections daily. At $500 average collection, that's $7,500/day or $1.9M annually—from the same staff.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Fit Assessment -->
+<section id="fit-assessment" class="py-16 px-6 bg-dsGray">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">5-Minute Fit Assessment</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">Is this right for your organization?</h2>
+        
+        <p class="text-gray-600 mb-8">Check what applies. Four or more suggests strong fit.</p>
+        
+        <div class="space-y-4">
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">You have $10M+ in annual A/R</span>
+                        <p class="text-gray-500 text-sm mt-1">Smaller portfolios may not justify the investment. The ROI scales with volume.</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">Your collectors work claims manually (not fully automated)</span>
+                        <p class="text-gray-500 text-sm mt-1">If humans make prioritization decisions, AI guidance adds value. Fully automated workflows have less room for improvement.</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">You have 2+ years of historical claims data</span>
+                        <p class="text-gray-500 text-sm mt-1">The model learns from your payment patterns. More history = better predictions.</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">Bad debt rate is above 3%</span>
+                        <p class="text-gray-500 text-sm mt-1">If you're already at 1-2%, there's less room for improvement. Higher bad debt = bigger opportunity.</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">Multiple payers with different behaviors</span>
+                        <p class="text-gray-500 text-sm mt-1">Single-payer environments are more predictable. Multi-payer complexity is where AI shines.</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">Revenue cycle leadership wants to improve (not just maintain)</span>
+                        <p class="text-gray-500 text-sm mt-1">You need a champion who will act on the recommendations. AI without adoption is worthless.</p>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What You Need -->
+<section class="py-16 px-6 bg-dsGray">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Requirements</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">What you need to have ready</h2>
+        
+        <div class="fade-up grid md:grid-cols-2 gap-8">
+            <div class="fade-up">
+                <h3 class="text-xl font-semibold text-dsBlack mb-4">Data Requirements</h3>
+                <ul class="space-y-3 text-gray-600">
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Historical claims data (24+ months ideal)
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Payment and adjustment history
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Denial reason codes
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Payer and plan information
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="fade-up">
+                <h3 class="text-xl font-semibold text-dsBlack mb-4">What's NOT Required</h3>
+                <ul class="space-y-3 text-gray-600">
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-gray-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        EHR integration (billing data only)
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-gray-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        Clinical documentation
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-gray-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        IT infrastructure changes
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-gray-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        Workflow disruption
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="mt-8 p-6 bg-blue-50 border border-blue-100 rounded-xl fade-up">
+            <p class="text-gray-700"><strong>Why this is a quick win:</strong> A/R prioritization requires only billing system data—no EHR integration, no clinical data, no complex compliance review. Most organizations can export the required data in days, not months.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Build vs Buy -->
+<section class="py-16 px-6 bg-dsGray">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Decision Framework</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-8">Build vs. Buy vs. Partner</h2>
+        
+        <div class="grid md:grid-cols-3 gap-6 fade-up">
+            <div class="bg-white p-6 rounded-xl border border-gray-200 fade-up">
+                <h3 class="font-semibold text-dsBlack mb-3">Build Internally</h3>
+                <p class="text-gray-600 text-sm mb-4">If you have data science capacity and want full control.</p>
+
+                <div class="my-8 fade-up">
+                    <img src="images/arch-predictive.png" alt="AI Architecture" class="rounded-xl shadow-lg w-full max-w-3xl mx-auto">
+                </div>
+
+                <ul class="text-sm text-gray-500 space-y-2">
+                    <li>• 6-12 month timeline</li>
+                    <li>• Requires ML expertise</li>
+                    <li>• Full customization</li>
+                    <li>• Ongoing maintenance burden</li>
+                </ul>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl border border-gray-200 fade-up">
+                <h3 class="font-semibold text-dsBlack mb-3">Buy Off-the-Shelf</h3>
+                <p class="text-gray-600 text-sm mb-4">If your payer mix and workflows are typical.</p>
+                <ul class="text-sm text-gray-500 space-y-2">
+                    <li>• 2-4 month implementation</li>
+                    <li>• Pre-built models</li>
+                    <li>• Limited customization</li>
+                    <li>• Subscription costs</li>
+                </ul>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl border border-dsBlue fade-up">
+                <h3 class="font-semibold text-dsBlue mb-3">Partner for Custom</h3>
+                <p class="text-gray-600 text-sm mb-4">If your data is unique and results matter.</p>
+                <ul class="text-sm text-gray-500 space-y-2">
+                    <li>• 8-14 week timeline</li>
+                    <li>• Trained on YOUR data</li>
+                    <li>• High precision</li>
+                    <li>• Knowledge transfer option</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="mt-8 p-6 bg-white rounded-xl border border-gray-200 fade-up">
+            <p class="text-gray-700"><strong>Our take:</strong> Off-the-shelf tools work for commodity prioritization. But your payer contracts, patient demographics, and service mix are unique. Models trained on your data outperform generic tools by 15-25% in our experience. The question is whether that lift justifies the investment.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Red Flags -->
+<section class="py-16 px-6 bg-dsGray">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Honest Assessment</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">When to wait</h2>
+        
+        <div class="space-y-4">
+            <div class="p-4 border-l-4 border-red-400 bg-red-50 rounded-r-xl fade-up">
+                <p class="text-gray-800"><strong>Your billing data is fragmented or unreliable.</strong> Garbage in, garbage out. If you can't trust your historical data, fix that first.</p>
+            </div>
+            
+            <div class="p-4 border-l-4 border-red-400 bg-red-50 rounded-r-xl fade-up">
+                <p class="text-gray-800"><strong>You're mid-system migration.</strong> Wait until your new billing system is stable. Building on shifting foundations wastes time.</p>
+            </div>
+            
+            <div class="p-4 border-l-4 border-red-400 bg-red-50 rounded-r-xl fade-up">
+                <p class="text-gray-800"><strong>No one owns collections performance.</strong> AI recommendations without accountability don't drive change. You need a champion.</p>
+            </div>
+            
+            <div class="p-4 border-l-4 border-red-400 bg-red-50 rounded-r-xl fade-up">
+                <p class="text-gray-800"><strong>You need results in 30 days.</strong> Even quick-win projects take 8-14 weeks to deploy properly. If you're in crisis mode, address that first.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related Guides -->
+<section class="py-16 px-6 bg-dsGray">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Guides</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-8">Other quick wins to consider</h2>
+        
+        <div class="grid md:grid-cols-2 gap-6 fade-up">
+            <a href="claim-follow-up-triage.html" class="bg-white p-6 rounded-xl border border-gray-200 hover:border-dsBlue transition fade-up">
+                <span class="text-xs font-medium text-green-600 uppercase">Quick Win</span>
+                <h3 class="text-xl font-semibold text-dsBlack mt-2 mb-2">Claim Follow-Up Triage</h3>
+                <p class="text-gray-600 text-sm">Identify which claims need intervention before they deny. 15-25% recovery per FTE improvement.</p>
+            </a>
+            
+            <a href="payer-contract-interpretation.html" class="bg-white p-6 rounded-xl border border-gray-200 hover:border-dsBlue transition fade-up">
+                <span class="text-xs font-medium text-green-600 uppercase">Quick Win</span>
+                <h3 class="text-xl font-semibold text-dsBlack mt-2 mb-2">Payer Contract Interpretation</h3>
+                <p class="text-gray-600 text-sm">AI that reads your contracts and flags underpayments. 1-3% net collection lift.</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 px-6 bg-dsBlue">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to prioritize smarter?</h2>
+        <p class="text-blue-100 mb-8 max-w-2xl mx-auto">30-minute call to assess your A/R data and estimate the opportunity. No pitch, just honest assessment.</p>
+        <a href="healthcare-assessment.html" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-gray-100 transition">
+            Get AI Assessment
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
 
 <!-- DS 2.0 Footer - FINAL -->
 <!-- START DS-FOOTER -->
