@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare AI Opportunity Assessment | Digital Scientists</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dsBlue: '#304FFF',
+                        dsBlack: '#050505',
+                        dsGray: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        h1, h2, h3 { letter-spacing: -0.02em; }
+        
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Process line connector */
+        .process-connector {
+            position: relative;
+        }
+        .process-connector::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -1rem;
+            width: 2rem;
+            height: 2px;
+            background: #e5e7eb;
+        }
+        .process-connector:last-child::after {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .process-connector::after {
+                display: none;
+            }
+        }
+        /* Nav dropdown hover */
+        .nav-dropdown { position: relative; }
+        .nav-dropdown-menu { 
+            display: none; 
+            position: absolute; 
+            top: 100%; 
+            left: 0; 
+            padding-top: 8px;
+            z-index: 100;
+        }
+        .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+        .nav-dropdown-menu.right-aligned { left: auto; right: 0; }
+    </style>
+</head>
+<body class="bg-white text-dsBlack antialiased">
+<!-- DS 2.0 Navigation - FINAL -->
+<!-- START DS-NAV -->
+
+<style>
+/* Utility Bar */
+.ds-utility-bar {
+    background: #F5F5F5;
+}
+.ds-utility-bar a {
+    font-size: 13px;
+    color: #374151;
+    text-decoration: none;
+}
+.ds-utility-bar a:hover {
+    color: #304FFF;
+}
+
+/* Main Nav */
+.ds-main-nav {
+    background: #F5F5F5;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+/* Nav Items */
+.ds-nav-item {
+    position: relative;
+}
+.ds-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 16px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #111827;
+    text-decoration: none;
+    cursor: pointer;
+}
+.ds-nav-link:hover {
+    color: #304FFF;
+}
+
+/* Simple Dropdown */
+.ds-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+    padding: 12px;
+    min-width: 280px;
+    z-index: 100;
+}
+.ds-nav-item:hover .ds-dropdown {
+    display: block;
+}
+.ds-dropdown a {
+    display: block;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: #374151;
+    text-decoration: none;
+    border-radius: 8px;
+}
+.ds-dropdown a:hover {
+    background: #f3f4f6;
+    color: #304FFF;
+}
+
+/* Healthcare Mega Menu */
+.ds-healthcare-mega {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-top: 8px;
+    z-index: 100;
+}
+.ds-nav-item:hover .ds-healthcare-mega {
+    display: block;
+}
+.ds-healthcare-inner {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 24px;
+    min-width: 900px;
+}
+.ds-hc-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+.ds-hc-section h4 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    margin-bottom: 12px;
+    padding-left: 12px;
+}
+.ds-hc-section a {
+    display: block;
+    padding: 6px 12px;
+    font-size: 13px;
+    color: #374151;
+    border-radius: 6px;
+    text-decoration: none;
+}
+.ds-hc-section a:hover {
+    background: #f3f4f6;
+    color: #304FFF;
+}
+.ds-hc-cta {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+}
+.ds-hc-cta a {
+    background: #304FFF;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+}
+.ds-hc-cta a:hover {
+    background: #050505;
+}
+
+/* Contact Button */
+.ds-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #304FFF;
+    color: white !important;
+    padding: 12px 20px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.ds-contact-btn:hover {
+    background: #050505;
+}
+
+/* Mobile */
+.ds-mobile-btn {
+    display: none;
+    padding: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+@media (max-width: 1024px) {
+    .ds-desktop-nav { display: none; }
+    .ds-mobile-btn { display: block; }
+}
+.ds-mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    z-index: 200;
+    overflow-y: auto;
+}
+.ds-mobile-nav.open { display: block; }
+.ds-mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e5e7eb;
+}
+.ds-mobile-close {
+    padding: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.ds-mobile-accordion {
+    border-bottom: 1px solid #f3f4f6;
+}
+.ds-mobile-trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #111827;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+.ds-mobile-trigger svg {
+    transition: transform 0.2s;
+}
+.ds-mobile-trigger.open svg {
+    transform: rotate(180deg);
+}
+.ds-mobile-content {
+    display: none;
+    background: #f9fafb;
+    padding: 8px 0 16px;
+}
+.ds-mobile-content.open { display: block; }
+.ds-mobile-content a {
+    display: block;
+    padding: 12px 40px;
+    font-size: 14px;
+    color: #374151;
+    text-decoration: none;
+}
+.ds-mobile-content h5 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    padding: 12px 40px 8px;
+    margin-top: 8px;
+}
+.ds-mobile-link {
+    display: block;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #111827;
+    text-decoration: none;
+    border-bottom: 1px solid #f3f4f6;
+}
+.ds-mobile-cta {
+    padding: 24px;
+}
+.ds-mobile-cta a {
+    display: block;
+    background: #304FFF;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+</style>
+
+<!-- Utility Bar -->
+<div class="ds-utility-bar">
+    <div class="max-w-screen-xl mx-auto px-6 py-2 flex justify-end items-center gap-6">
+        <a href="https://digitalscientists.com/about/">Our story</a>
+        <a href="https://digitalscientists.com/blog/">Insights</a>
+        <a href="https://digitalscientists.com/events/">Events</a>
+        <a href="tel:4046543855" class="flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            404.654.3855
+        </a>
+    </div>
+</div>
+
+<!-- Main Navigation -->
+<nav class="ds-main-nav">
+    <div class="max-w-screen-xl mx-auto px-6">
+        <div class="h-20 flex justify-between items-center">
+            
+            <!-- Logo -->
+            <a href="index.html" class="flex-shrink-0">
+                <img src="1012DS_Logo_Native_Black (1).svg" alt="Digital Scientists" class="h-10">
+            </a>
+            
+            <!-- Desktop Nav -->
+            <div class="ds-desktop-nav flex items-center gap-1">
+                
+                <!-- Healthcare Mega Menu (FIRST) -->
+                <div class="ds-nav-item">
+                    <a href="healthcare-hub.html" class="ds-nav-link">
+                        Healthcare
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                    <div class="ds-healthcare-mega">
+                        <div class="ds-healthcare-inner">
+                            <!-- Row 1: Overview, Health IT Solutions, AI Solutions, Domains, Markets -->
+                            <div class="ds-hc-grid">
+                                <div class="ds-hc-section">
+                                    <h4>Overview</h4>
+                                    <a href="healthcare-hub.html">Healthcare Hub</a>
+                                    <a href="healthcare-approach.html">Our Approach</a>
+                                    <h4 style="margin-top: 16px;">Capabilities</h4>
+                                    <a href="healthcare-capabilities-ai-ml-nlp.html">AI, ML & NLP</a>
+                                    <a href="healthcare-capabilities-mobile.html">Mobile Apps</a>
+                                    <a href="healthcare-capabilities-saas.html">SaaS Platforms</a>
+                                    <a href="healthcare-capabilities-ux-design.html">UX Design</a>
+                                    <a href="healthcare-capabilities-data-analytics.html">Data Analytics</a>
+                                    <a href="healthcare-capabilities-samd.html">SaMD</a>
+                                </div>
+                                <div class="ds-hc-section">
+                                    <h4>Health IT Solutions</h4>
+                                    <a href="patient-engagement-portal.html">Patient Engagement</a>
+                                    <a href="telemedicine-virtual-care.html">Telemedicine</a>
+                                    <a href="remote-patient-monitoring.html">Remote Monitoring</a>
+                                    <a href="healthcare-interoperability.html">Interoperability</a>
+                                    <a href="clinical-decision-support.html">Clinical Decision Support</a>
+                                    <a href="ehr-practice-management.html">EHR & Practice Mgmt</a>
+                                    <a href="population-health-management.html">Population Health</a>
+                                    <a href="predictive-analytics-healthcare.html">Predictive Analytics</a>
+                                </div>
+                                <div class="ds-hc-section">
+                                    <h4>AI Solutions</h4>
+                                    <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+                                    <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+                                    <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+                                    <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+                                    <h4 style="margin-top: 16px;">Domains</h4>
+                                    <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+                                    <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+                                    <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+                                    <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+                                </div>
+                                <div class="ds-hc-section">
+                                    <h4>Markets</h4>
+                                    <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+                                    <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+                                    <a href="healthcare-markets-senior-living.html">Senior Living</a>
+                                    <a href="healthcare-markets-idd.html">IDD Services</a>
+                                    <a href="healthcare-markets-health-systems.html">Health Systems</a>
+                                    <h4 style="margin-top: 16px;">More</h4>
+                                    <a href="healthcare-domains-ambient-scribes.html">Ambient Scribes</a>
+                                    <a href="healthcare-domains-ehr-integrations.html">EHR Integrations</a>
+                                </div>
+                                <div class="ds-hc-section">
+                                    <h4>Case Studies</h4>
+                                    <a href="work-never-alone.html">NeverAlone</a>
+                                    <a href="work-communicare-mds.html">CommuniCare MDS</a>
+                                    <a href="work-raf-hcc-coding.html">RAF/HCC Coding</a>
+                                    <a href="work-healthcontext-ai.html">HealthContext AI</a>
+                                </div>
+                            </div>
+                            <div class="ds-hc-cta">
+                                <a href="healthcare-assessment.html">Get AI Readiness Assessment →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Dropdown -->
+                <div class="ds-nav-item">
+                    <span class="ds-nav-link">
+                        Services
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="ds-dropdown">
+                        <a href="https://digitalscientists.com/services/mvp-development/">MVP Development</a>
+                        <a href="https://digitalscientists.com/services/platform-modernization/">Platform Modernization</a>
+                        <a href="https://digitalscientists.com/services/innovation-as-a-service/">Innovation as a Service</a>
+                    </div>
+                </div>
+
+                <!-- Capabilities Dropdown -->
+                <div class="ds-nav-item">
+                    <span class="ds-nav-link">
+                        Capabilities
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="ds-dropdown">
+                        <a href="https://digitalscientists.com/mobile-app-development/">Mobile app development</a>
+                        <a href="https://digitalscientists.com/web-application-development/">Web application development</a>
+                        <a href="https://digitalscientists.com/ai-ml-development/">AI & machine learning</a>
+                        <a href="https://digitalscientists.com/cloud-application-development/">Cloud app development</a>
+                        <a href="https://digitalscientists.com/iot-application-development/">IoT & smart device software</a>
+                    </div>
+                </div>
+
+                <!-- Work -->
+                <a href="https://digitalscientists.com/work/" class="ds-nav-link">Work</a>
+
+                <!-- Contact Button -->
+                <a href="https://digitalscientists.com/contact/" class="ds-contact-btn ml-4">
+                    Contact Us
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8l4 4m0 0l-4 4m4-4H8"/></svg>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="ds-mobile-btn" onclick="document.getElementById('ds-mobile-nav').classList.add('open')">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Navigation -->
+<div id="ds-mobile-nav" class="ds-mobile-nav">
+    <div class="ds-mobile-header">
+        <span class="text-lg font-bold leading-tight">DIGITAL<br>SCIENTISTS</span>
+        <button class="ds-mobile-close" onclick="document.getElementById('ds-mobile-nav').classList.remove('open')">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Healthcare Accordion (FIRST) -->
+    <div class="ds-mobile-accordion">
+        <button class="ds-mobile-trigger" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
+            Healthcare
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="ds-mobile-content">
+            <h5>Overview</h5>
+            <a href="healthcare-hub.html">Healthcare Hub</a>
+            <a href="healthcare-approach.html">Our Approach</a>
+            <h5>Health IT Solutions</h5>
+            <a href="patient-engagement-portal.html">Patient Engagement</a>
+            <a href="telemedicine-virtual-care.html">Telemedicine</a>
+            <a href="remote-patient-monitoring.html">Remote Monitoring</a>
+            <a href="healthcare-interoperability.html">Interoperability</a>
+            <a href="clinical-decision-support.html">Clinical Decision Support</a>
+            <a href="ehr-practice-management.html">EHR & Practice Mgmt</a>
+            <a href="population-health-management.html">Population Health</a>
+            <a href="predictive-analytics-healthcare.html">Predictive Analytics</a>
+            <h5>AI Solutions</h5>
+            <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+            <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+            <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+            <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+            <h5>Domains</h5>
+            <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+            <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+            <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+            <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+            <h5>Markets</h5>
+            <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+            <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+            <a href="healthcare-markets-senior-living.html">Senior Living</a>
+            <h5>Case Studies</h5>
+            <a href="work-never-alone.html">NeverAlone</a>
+            <a href="work-communicare-mds.html">CommuniCare MDS</a>
+        </div>
+    </div>
+
+    <!-- Services Accordion -->
+    <div class="ds-mobile-accordion">
+        <button class="ds-mobile-trigger" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
+            Services
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="ds-mobile-content">
+            <a href="https://digitalscientists.com/services/mvp-development/">MVP Development</a>
+            <a href="https://digitalscientists.com/services/platform-modernization/">Platform Modernization</a>
+            <a href="https://digitalscientists.com/services/innovation-as-a-service/">Innovation as a Service</a>
+        </div>
+    </div>
+
+    <!-- Capabilities Accordion -->
+    <div class="ds-mobile-accordion">
+        <button class="ds-mobile-trigger" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
+            Capabilities
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="ds-mobile-content">
+            <a href="https://digitalscientists.com/mobile-app-development/">Mobile app development</a>
+            <a href="https://digitalscientists.com/web-application-development/">Web application development</a>
+            <a href="https://digitalscientists.com/ai-ml-development/">AI & machine learning</a>
+            <a href="https://digitalscientists.com/cloud-application-development/">Cloud app development</a>
+            <a href="https://digitalscientists.com/iot-application-development/">IoT & smart device software</a>
+        </div>
+    </div>
+
+    <a href="https://digitalscientists.com/work/" class="ds-mobile-link">Work</a>
+
+    <div class="ds-mobile-cta">
+        <a href="https://digitalscientists.com/contact/">Contact Us</a>
+    </div>
+
+    <!-- Utility Links -->
+    <div class="px-6 py-4 border-t border-gray-200 flex flex-wrap gap-4 text-sm text-gray-500">
+        <a href="https://digitalscientists.com/about/" class="hover:text-dsBlue">Our story</a>
+        <a href="https://digitalscientists.com/blog/" class="hover:text-dsBlue">Insights</a>
+        <a href="https://digitalscientists.com/events/" class="hover:text-dsBlue">Events</a>
+        <a href="tel:4046543855" class="hover:text-dsBlue">404.654.3855</a>
+    </div>
+</div>
+<!-- END DS-NAV -->
+
+
+
+    <!-- Navigation -->
+    <!-- DS Healthcare Mega Menu Navigation -->
+<!-- Desktop: Mega menu on hover | Mobile: Hamburger + Accordion -->
+
+<style>
+/* Mega Menu Styles */
+.mega-menu-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 8px;
+    z-index: 100;
+}
+.nav-item:hover .mega-menu-container {
+    display: block;
+}
+.mega-menu {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 24px;
+    min-width: 820px;
+}
+.mega-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+.mega-menu-section h4 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    margin-bottom: 12px;
+    padding-left: 12px;
+}
+.mega-menu-section a {
+    display: block;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #374151;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+.mega-menu-section a:hover {
+    background: #f3f4f6;
+}
+.mega-menu-cta {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+}
+.mega-menu-cta a {
+    background: #2563eb;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+.mega-menu-cta a:hover {
+    background: #1d4ed8;
+}
+
+/* Mobile Accordion Styles */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    overflow-y: auto;
+    z-index: 90;
+}
+.mobile-nav.open {
+    display: block;
+}
+.mobile-accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #111827;
+    border-bottom: 1px solid #f3f4f6;
+    cursor: pointer;
+}
+.mobile-accordion-header svg {
+    transition: transform 0.2s;
+}
+.mobile-accordion-header.open svg {
+    transform: rotate(180deg);
+}
+.mobile-accordion-content {
+    display: none;
+    background: #f9fafb;
+    padding: 8px 0;
+}
+.mobile-accordion-content.open {
+    display: block;
+}
+.mobile-accordion-section h5 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    padding: 12px 32px 8px;
+}
+.mobile-accordion-content a {
+    display: block;
+    padding: 12px 32px;
+    font-size: 14px;
+    color: #374151;
+    text-decoration: none;
+}
+.mobile-accordion-content a:hover {
+    background: #e5e7eb;
+}
+.mobile-nav-link {
+    display: block;
+    padding: 16px 24px;
+    font-size: 15px;
+    color: #111827;
+    text-decoration: none;
+    border-bottom: 1px solid #f3f4f6;
+}
+.mobile-cta {
+    padding: 24px;
+}
+.mobile-cta a {
+    display: block;
+    background: #2563eb;
+    color: white;
+    text-align: center;
+    padding: 14px 24px;
+    border-radius: 9999px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .desktop-nav { display: none !important; }
+    .mobile-menu-btn { display: flex !important; }
+}
+@media (min-width: 1025px) {
+    .mobile-nav { display: none !important; }
+    .mobile-menu-btn { display: none !important; }
+}
+</style>
+
+<nav class="fixed w-full z-50 bg-white border-b border-gray-100">
+    <div class="max-w-screen-xl mx-auto px-6">
+        <div class="h-20 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center">
+                <img src="1012DS_Logo_Native_Black (1).svg" alt="Digital Scientists" class="h-12">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav hidden lg:flex items-center gap-1">
+                
+                <!-- Healthcare (Mega Menu) -->
+                <div class="nav-item relative">
+                    <a href="healthcare-hub.html" class="flex items-center gap-1 px-4 py-2 text-sm text-gray-600 hover:text-gray-900">
+                        Healthcare
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                    <div class="mega-menu-container">
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <!-- Column 1: Overview + Capabilities -->
+                                <div>
+                                    <div class="mega-menu-section">
+                                        <h4>Overview</h4>
+                                        <a href="healthcare-hub.html">Healthcare Hub</a>
+                                        <a href="healthcare-approach.html">Our Approach</a>
+                                    </div>
+                                    <div class="mega-menu-section" style="margin-top: 20px;">
+                                        <h4>Capabilities</h4>
+                                        <a href="healthcare-capabilities-ai-ml-nlp.html">AI, ML & NLP</a>
+                                        <a href="healthcare-capabilities-mobile.html">Mobile Apps</a>
+                                        <a href="healthcare-capabilities-saas.html">SaaS Platforms</a>
+                                        <a href="healthcare-capabilities-ux-design.html">UX Design</a>
+                                        <a href="healthcare-capabilities-data-analytics.html">Data Analytics</a>
+                                        <a href="healthcare-capabilities-samd.html">SaMD</a>
+                                    </div>
+                                </div>
+                                
+                                <!-- Column 2: AI Solutions -->
+                                <div class="mega-menu-section">
+                                    <h4>AI Solutions</h4>
+                                    <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+                                    <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+                                    <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+                                    <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+                                </div>
+                                
+                                <!-- Column 3: Domains -->
+                                <div class="mega-menu-section">
+                                    <h4>Domains</h4>
+                                    <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+                                    <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+                                    <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+                                    <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+                                    <a href="healthcare-domains-ambient-scribes.html">Ambient Scribes</a>
+                                    <a href="healthcare-domains-ehr-integrations.html">EHR Integrations</a>
+                                </div>
+                                
+                                <!-- Column 4: Markets + Case Studies -->
+                                <div>
+                                    <div class="mega-menu-section">
+                                        <h4>Markets</h4>
+                                        <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+                                        <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+                                        <a href="healthcare-markets-senior-living.html">Senior Living</a>
+                                        <a href="healthcare-markets-idd.html">IDD Services</a>
+                                        <a href="healthcare-markets-health-systems.html">Health Systems</a>
+                                    </div>
+                                    <div class="mega-menu-section" style="margin-top: 20px;">
+                                        <h4>Case Studies</h4>
+                                        <a href="work-never-alone.html">NeverAlone</a>
+                                        <a href="work-communicare-mds.html">CommuniCare MDS</a>
+                                        <a href="work-raf-hcc-coding.html">RAF/HCC Coding</a>
+                                        <a href="work-healthcontext-ai.html">HealthContext AI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mega-menu-cta">
+                                <a href="healthcare-assessment.html">Get AI Readiness Assessment →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Services (links to WP) -->
+                <a href="https://digitalscientists.com/services/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Services</a>
+                
+                <!-- About (links to WP) -->
+                <a href="https://digitalscientists.com/about/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">About</a>
+                
+                <!-- Blog (links to WP) -->
+                <a href="https://digitalscientists.com/blog/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Blog</a>
+                
+                <!-- Contact (links to WP) -->
+                <a href="https://digitalscientists.com/contact/" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">Contact</a>
+                
+                <!-- CTA Button -->
+                <a href="healthcare-assessment.html" class="ml-4 px-5 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-colors">
+                    Get Assessment
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn hidden items-center justify-center w-10 h-10 text-gray-600" id="mobile-menu-btn" aria-label="Toggle menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav" id="mobile-nav">
+    <!-- Healthcare Accordion -->
+    <div class="mobile-accordion">
+        <div class="mobile-accordion-header" data-accordion="healthcare">
+            Healthcare
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="mobile-accordion-content" id="accordion-healthcare">
+            <div class="mobile-accordion-section">
+                <h5>Overview</h5>
+                <a href="healthcare-hub.html">Healthcare Hub</a>
+                <a href="healthcare-approach.html">Our Approach</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Capabilities</h5>
+                <a href="healthcare-capabilities-ai-ml-nlp.html">AI, ML & NLP</a>
+                <a href="healthcare-capabilities-mobile.html">Mobile Apps</a>
+                <a href="healthcare-capabilities-saas.html">SaaS Platforms</a>
+                <a href="healthcare-capabilities-ux-design.html">UX Design</a>
+                <a href="healthcare-capabilities-data-analytics.html">Data Analytics</a>
+                <a href="healthcare-capabilities-samd.html">SaMD</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>AI Solutions</h5>
+                <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+                <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+                <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+                <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Domains</h5>
+                <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+                <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+                <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+                <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+                <a href="healthcare-domains-ambient-scribes.html">Ambient Scribes</a>
+                <a href="healthcare-domains-ehr-integrations.html">EHR Integrations</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Markets</h5>
+                <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+                <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+                <a href="healthcare-markets-senior-living.html">Senior Living</a>
+                <a href="healthcare-markets-idd.html">IDD Services</a>
+                <a href="healthcare-markets-health-systems.html">Health Systems</a>
+            </div>
+            <div class="mobile-accordion-section">
+                <h5>Case Studies</h5>
+                <a href="work-never-alone.html">NeverAlone</a>
+                <a href="work-communicare-mds.html">CommuniCare MDS</a>
+                <a href="work-raf-hcc-coding.html">RAF/HCC Coding</a>
+                <a href="work-healthcontext-ai.html">HealthContext AI</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Other Nav Links -->
+    <a href="https://digitalscientists.com/services/" class="mobile-nav-link">Services</a>
+    <a href="https://digitalscientists.com/about/" class="mobile-nav-link">About</a>
+    <a href="https://digitalscientists.com/blog/" class="mobile-nav-link">Blog</a>
+    <a href="https://digitalscientists.com/contact/" class="mobile-nav-link">Contact</a>
+    
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+        <a href="healthcare-assessment.html">Get AI Readiness Assessment</a>
+    </div>
+</div>
+
+<script>
+// Mobile menu toggle
+document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
+    document.getElementById('mobile-nav')?.classList.toggle('open');
+});
+
+// Mobile accordion toggle
+document.querySelectorAll('.mobile-accordion-header').forEach(header => {
+    header.addEventListener('click', function() {
+        const target = this.dataset.accordion;
+        const content = document.getElementById('accordion-' + target);
+        this.classList.toggle('open');
+        content?.classList.toggle('open');
+    });
+});
+</script>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-16 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <!-- Left: Content -->
+                <div class="fade-up">
+                    <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
+                        <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                        Healthcare AI Opportunity Assessment
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl lg:text-5xl font-bold text-dsBlack mb-6 leading-[1.1]">
+                        Get clarity before you commit to anything.
+                    </h1>
+                    
+                    <p class="text-xl text-gray-600 leading-relaxed mb-4">
+                        Should you buy a vendor solution? Build something custom? Partner with a specialist? Wait for the technology to mature? We help you figure out the right answer for your organization.
+                    </p>
+                    <p class="text-lg text-gray-500 leading-relaxed mb-8">
+                        Our discovery process gives you a clear-eyed view of your AI opportunity—quantified ROI, technical feasibility, and a business case you can take to your board. No commitment to build with us required.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#schedule" class="inline-flex items-center justify-center gap-2 bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">
+                            Schedule Discovery Call
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                        <a href="tel:4046543855" class="inline-flex items-center justify-center gap-2 border border-gray-300 text-dsBlack px-6 py-3 text-sm font-medium rounded-full hover:border-dsBlue hover:text-dsBlue transition">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            Call 404.654.3855
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Credibility Image/Visual -->
+                <div class="fade-up">
+                    <div class="relative">
+                        <div class="rounded-2xl overflow-hidden">
+                            <img src="ds-office.png" alt="Digital Scientists headquarters in Alpharetta, Georgia" class="w-full h-auto object-cover">
+                        </div>
+                        <!-- Floating credibility badge -->
+                        <div class="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg p-4 border border-gray-100">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-dsBlack">HIPAA Compliant</p>
+                                    <p class="text-xs text-gray-500">BAA Ready</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Second floating element -->
+                        <div class="absolute -top-4 -right-4 bg-white rounded-xl shadow-lg p-4 border border-gray-100">
+                            <div class="text-center">
+                                <p class="text-2xl font-bold text-dsBlue">100%</p>
+                                <p class="text-xs text-gray-500">Production Rate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 fade-up">
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">$20M+</span>
+                    <p class="text-gray-500 text-sm mt-1">Verified ROI Delivered</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlue">100%</span>
+                    <p class="text-gray-500 text-sm mt-1">Production Rate</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">4</span>
+                    <p class="text-gray-500 text-sm mt-1">Solutions Deployed</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">10+</span>
+                    <p class="text-gray-500 text-sm mt-1">Years Healthcare Experience</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- What We Help You Figure Out -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Your Questions, Answered</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    We help you answer the hard questions.
+                </h2>
+                <p class="text-gray-600">
+                    Before you spend six figures on AI, you deserve honest answers—not a sales pitch. Our assessment gives you the clarity to make the right decision for your organization.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 fade-up">
+                <!-- Buy -->
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
+                    <div class="w-10 h-10 bg-amber-50 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6m-3-6v6"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-dsBlack mb-2">Should you buy?</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        There are good vendor solutions for some problems. We'll tell you when off-the-shelf makes sense—and which vendors actually deliver on their promises.
+                    </p>
+                </div>
+
+                <!-- Build -->
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
+                    <div class="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-dsBlack mb-2">Should you build?</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        Custom development makes sense when your workflow, data, or competitive advantage requires it. We'll quantify the ROI and scope what it actually takes.
+                    </p>
+                </div>
+
+                <!-- Partner -->
+                <div class="bg-white border border-gray-200 rounded-xl p-6">
+                    <div class="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-dsBlack mb-2">Should you partner?</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        Sometimes the best path is finding a strategic partner who's already solved the problem. We'll help you evaluate options and structure the right relationship.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Process -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Our Process</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    From discovery call to business case.
+                </h2>
+                <p class="text-gray-600">
+                    A structured process designed to give you clarity—not to sell you something. If we're not the right fit, we'll tell you.
+                </p>
+            </div>
+
+            <!-- Process Steps -->
+            <div class="grid md:grid-cols-4 gap-6 fade-up">
+                <!-- Step 1 -->
+                <div class="relative">
+                    <div class="bg-dsGray rounded-xl p-6 h-full">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-8 h-8 rounded-full bg-dsBlue text-white text-sm font-semibold flex items-center justify-center">1</span>
+                            <span class="text-xs font-medium text-green-600 bg-green-50 px-2 py-1 rounded">Free</span>
+                        </div>
+                        <h3 class="font-semibold text-dsBlack mb-2">Discovery Call</h3>
+                        <p class="text-gray-500 text-sm mb-4">
+                            30 minutes to understand your situation, challenges, and goals. We'll share honest perspective on whether there's an opportunity worth exploring.
+                        </p>
+                        <div class="text-xs text-gray-400">No pitch. No obligation.</div>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gray-200"></div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative">
+                    <div class="bg-dsGray rounded-xl p-6 h-full">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-8 h-8 rounded-full bg-gray-300 text-white text-sm font-semibold flex items-center justify-center">2</span>
+                            <span class="text-xs font-medium text-gray-600">$15-25K</span>
+                        </div>
+                        <h3 class="font-semibold text-dsBlack mb-2">Assessment</h3>
+                        <p class="text-gray-500 text-sm mb-4">
+                            One month deep dive: data landscape, on-site workflow observation, opportunity quantification, technical feasibility. We do the homework.
+                        </p>
+                        <div class="text-xs text-gray-400">4 weeks, on-site discovery</div>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gray-200"></div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative">
+                    <div class="bg-dsGray rounded-xl p-6 h-full">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-8 h-8 rounded-full bg-gray-300 text-white text-sm font-semibold flex items-center justify-center">3</span>
+                            <span class="text-xs font-medium text-gray-600">Included</span>
+                        </div>
+                        <h3 class="font-semibold text-dsBlack mb-2">Business Case</h3>
+                        <p class="text-gray-500 text-sm mb-4">
+                            Executive-ready deliverable: ROI model with your actual numbers, implementation roadmap, risk assessment, and clear recommendation.
+                        </p>
+                        <div class="text-xs text-gray-400">Board-ready documentation</div>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gray-200"></div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative">
+                    <div class="bg-dsGray rounded-xl p-6 h-full">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-8 h-8 rounded-full bg-gray-300 text-white text-sm font-semibold flex items-center justify-center">4</span>
+                            <span class="text-xs font-medium text-gray-600">Your choice</span>
+                        </div>
+                        <h3 class="font-semibold text-dsBlack mb-2">Your Decision</h3>
+                        <p class="text-gray-500 text-sm mb-4">
+                            Armed with clarity, you decide: buy, build with us, partner with someone else, or wait. The business case is yours regardless of what you choose.
+                        </p>
+                        <div class="text-xs text-gray-400">No lock-in. Your IP.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Assess -->
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Assessment Scope</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    Four dimensions that determine AI success.
+                </h2>
+                <p class="text-gray-600">
+                    We don't just evaluate technology. We assess the complete picture—because 95% of healthcare AI failures aren't technical problems.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 fade-up">
+                <!-- Data Landscape -->
+                <div class="bg-dsGray rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-dsBlue/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-dsBlack mb-3">Data Landscape</h3>
+                            <p class="text-gray-600 mb-4">
+                                What data do you actually have? Where does it live? What's the quality? Most organizations overestimate their data readiness. We assess EHR data, claims data, operational data, and integration points to understand what's truly available.
+                            </p>
+                            <p class="text-sm text-dsBlue">
+                                Includes: Data inventory, quality assessment, integration mapping, PHI handling review
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Workflow Analysis -->
+                <div class="bg-dsGray rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-dsBlue/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-dsBlack mb-3">Workflow Analysis</h3>
+                            <p class="text-gray-600 mb-4">
+                                Requirements defined in conference rooms fail. We observe actual workflows on-site. We shadow MDS coordinators, clinicians, and staff to understand how work really happens—not how the org chart says it should.
+                            </p>
+                            <p class="text-sm text-dsBlue">
+                                Includes: On-site observation, staff interviews, pain point mapping, process documentation
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Opportunity Quantification -->
+                <div class="bg-dsGray rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-dsBlue/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-dsBlack mb-3">Opportunity Quantification</h3>
+                            <p class="text-gray-600 mb-4">
+                                Vendor estimates aren't good enough. We build ROI models with your actual numbers—financial analyst methodology, not marketing math. PDPM revenue potential, documentation time savings, denial rate improvements—quantified.
+                            </p>
+                            <p class="text-sm text-dsBlue">
+                                Includes: ROI modeling, payback analysis, opportunity prioritization, risk assessment
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Feasibility -->
+                <div class="bg-dsGray rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-dsBlue/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-dsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-dsBlack mb-3">Technical Feasibility</h3>
+                            <p class="text-gray-600 mb-4">
+                                Can this actually be built? EHR integrations, compliance requirements, security constraints. We've done production integrations with PointClickCare, Epic, Gehrimed, Elation. We know what's possible—and what's not.
+                            </p>
+                            <p class="text-sm text-dsBlue">
+                                Includes: Integration assessment, compliance review, architecture recommendation, build vs. buy analysis
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who This Is For -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Is This For You?</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    This assessment makes sense if...
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 fade-up">
+                <!-- Organization Profile -->
+                <div>
+                    <h3 class="font-semibold text-dsBlack mb-4">Your Organization</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-dsBlue flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-600">Post-acute care, SNF, home health, hospice, senior living, or value-based care organization</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-dsBlue flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-600">3+ facilities (enough scale for meaningful ROI)</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-dsBlue flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-600">CEO, CFO, COO, or CTO with authority to pursue strategic initiatives</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Strategic Priorities -->
+                <div>
+                    <h3 class="font-semibold text-dsBlack mb-4">Your Priorities</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-dsBlue flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-600">Exploring AI but want clarity before committing significant budget</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-dsBlue flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-600">Need a business case that your board or PE sponsor will trust</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-dsBlue flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-600">Tired of vendor demos and want honest technical assessment</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-dsBlue flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-600">Have a specific opportunity in mind (MDS/PDPM, documentation, revenue cycle)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why We're Different -->
+    <section class="py-20 px-6 bg-dsBlack text-white">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Why Digital Scientists</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
+                    Why our assessments lead to production—not shelfware.
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 fade-up">
+                <div>
+                    <h3 class="font-semibold text-white mb-3">On-Site Discovery</h3>
+                    <p class="text-gray-400">
+                        We're in your facilities, observing workflows, interviewing staff. Offshore vendors can't do this. Conference room requirements fail. Real understanding comes from being there.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white mb-3">Healthcare Expertise</h3>
+                    <p class="text-gray-400">
+                        We're not learning healthcare on your dime. We understand PDPM, RAF scoring, MDS assessments, value-based care. We've done the integrations. We know the compliance requirements.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white mb-3">100% Production Rate</h3>
+                    <p class="text-gray-400">
+                        4 healthcare solutions deployed. Every single one in production. Industry average is 5%. The difference? We assess thoroughly before building—and we own the complete value chain.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proof Points -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12 fade-up">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Where Assessments Have Led</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    Real results from organizations like yours.
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 fade-up">
+                <!-- CommuniCare -->
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">MDS Optimization</span>
+                    <h3 class="font-semibold text-dsBlack mt-2 mb-4">CommuniCare Health Services</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <span class="text-2xl font-bold text-dsBlack">$10M</span>
+                            <p class="text-gray-500 text-sm">PDPM Revenue (2 states)</p>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold text-dsBlue">$2M</span>
+                            <p class="text-gray-500 text-sm">Quality Incentives</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NeverAlone -->
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">Virtual Care Platform</span>
+                    <h3 class="font-semibold text-dsBlack mt-2 mb-4">NeverAlone</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <span class="text-2xl font-bold text-dsBlack">26,000+</span>
+                            <p class="text-gray-500 text-sm">Patients Served</p>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold text-dsBlue">96%</span>
+                            <p class="text-gray-500 text-sm">Treatment-in-Place Rate</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RAF/HCC -->
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">Risk Adjustment</span>
+                    <h3 class="font-semibold text-dsBlack mt-2 mb-4">RAF / HCC Coding</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <span class="text-2xl font-bold text-dsBlack">$10M+</span>
+                            <p class="text-gray-500 text-sm">Improvements</p>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold text-dsBlue">90%+</span>
+                            <p class="text-gray-500 text-sm">Diagnosis Accuracy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="schedule" class="py-20 px-6 bg-dsBlue">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <!-- Left: Content -->
+                <div class="fade-up text-white">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Ready to get clarity on your AI opportunity?
+                    </h2>
+                    <p class="text-blue-100 text-lg mb-8">
+                        30-minute discovery call. No pitch, no obligation. Just honest conversation about your situation and whether there's an opportunity worth exploring.
+                    </p>
+                    
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-blue-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-blue-100">Understand your challenges and goals</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-blue-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-blue-100">Share honest perspective on opportunities</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-blue-200" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-blue-100">Determine if there's a fit worth exploring</span>
+                        </div>
+                    </div>
+
+                    <!-- Contact alternatives -->
+                    <div class="pt-6 border-t border-blue-400/30">
+                        <p class="text-blue-200 text-sm mb-3">Prefer to reach out directly?</p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="tel:4046543855" class="inline-flex items-center gap-2 text-white font-medium hover:text-blue-200 transition">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                </svg>
+                                404.654.3855
+                            </a>
+                            <a href="mailto:healthcare@digitalscientists.com" class="inline-flex items-center gap-2 text-white font-medium hover:text-blue-200 transition">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                                healthcare@digitalscientists.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Calendly Scheduling -->
+                <div class="fade-up">
+                    <div class="bg-white rounded-2xl overflow-hidden">
+                        <!-- Calendly inline widget begin -->
+                        <div class="calendly-inline-widget" data-url="https://calendly.com/bob-klein/digital-scientists?hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+                        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                        <!-- Calendly inline widget end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- DS 2.0 Footer - FINAL -->
+<!-- START DS-FOOTER -->
+
+<footer class="bg-[#2d2d2d] text-white pt-16 pb-8 px-6">
+    <div class="max-w-screen-xl mx-auto">
+        
+        <!-- Top Section: Newsletter + Links -->
+        <div class="grid lg:grid-cols-7 gap-10 mb-12">
+            
+            <!-- Newsletter Signup - Pipedrive Form (2 cols) -->
+            <div class="lg:col-span-2">
+                <h3 class="text-xl font-semibold mb-6">Follow our Insights</h3>
+                <div class="pipedriveWebForms" data-pd-webforms="https://webforms.pipedrive.com/f/1E1nwc9ALZntG4SRNIYwJUkjHczvQg85Vl6y3N60DtTeCyFqQQTPIOd3o87vfiuIj"></div>
+            </div>
+
+            <!-- Capabilities -->
+            <div>
+                <h4 class="text-sm font-medium text-white mb-4">Capabilities</h4>
+                <div class="space-y-3">
+                    <a href="https://digitalscientists.com/mobile-app-development/" class="block text-gray-400 hover:text-white text-sm">Mobile app development</a>
+                    <a href="https://digitalscientists.com/web-application-development/" class="block text-gray-400 hover:text-white text-sm">Web application development</a>
+                    <a href="https://digitalscientists.com/ai-ml-development/" class="block text-gray-400 hover:text-white text-sm">AI & machine learning</a>
+                    <a href="https://digitalscientists.com/cloud-application-development/" class="block text-gray-400 hover:text-white text-sm">Cloud application development</a>
+                    <a href="https://digitalscientists.com/iot-application-development/" class="block text-gray-400 hover:text-white text-sm">IoT application development</a>
+                </div>
+            </div>
+
+            <!-- Getting Started -->
+            <div>
+                <h4 class="text-sm font-medium text-white mb-4">Getting Started</h4>
+                <div class="space-y-3">
+                    <a href="https://digitalscientists.com/services/proof-of-concept/" class="block text-gray-400 hover:text-white text-sm">Proof of concept</a>
+                    <a href="https://digitalscientists.com/services/product-blueprint/" class="block text-gray-400 hover:text-white text-sm">Product blueprint</a>
+                    <a href="https://digitalscientists.com/services/mvp-development/" class="block text-gray-400 hover:text-white text-sm">Minimum viable product (MVP)</a>
+                    <a href="https://digitalscientists.com/services/new-product-development/" class="block text-gray-400 hover:text-white text-sm">New product development</a>
+                </div>
+            </div>
+
+            <!-- Experienced Team -->
+            <div>
+                <h4 class="text-sm font-medium text-white mb-4">Experienced Team</h4>
+                <div class="space-y-3">
+                    <a href="https://digitalscientists.com/product-management/" class="block text-gray-400 hover:text-white text-sm">Product management</a>
+                    <a href="https://digitalscientists.com/research-design/" class="block text-gray-400 hover:text-white text-sm">Research & design</a>
+                    <a href="https://digitalscientists.com/development/" class="block text-gray-400 hover:text-white text-sm">Development</a>
+                </div>
+                <h4 class="text-sm font-medium text-white mb-4 mt-6">Value Approach</h4>
+                <div class="space-y-3">
+                    <a href="https://digitalscientists.com/business-value/" class="block text-gray-400 hover:text-white text-sm">Business Value</a>
+                </div>
+            </div>
+
+            <!-- Our Approach + Company -->
+            <div>
+                <h4 class="text-sm font-medium text-white mb-4">Our Approach</h4>
+                <div class="space-y-3">
+                    <a href="https://digitalscientists.com/how-we-work/" class="block text-gray-400 hover:text-white text-sm">How we work</a>
+                    <a href="https://digitalscientists.com/what-we-do/" class="block text-gray-400 hover:text-white text-sm">What we do</a>
+                </div>
+                <h4 class="text-sm font-medium text-white mb-4 mt-6">Company</h4>
+                <div class="space-y-3">
+                    <a href="https://digitalscientists.com/about/" class="block text-gray-400 hover:text-white text-sm">Our story</a>
+                    <a href="https://digitalscientists.com/blog/" class="block text-gray-400 hover:text-white text-sm">Insights</a>
+                    <a href="https://digitalscientists.com/careers/" class="block text-gray-400 hover:text-white text-sm">Careers</a>
+                </div>
+            </div>
+
+            <!-- Case Studies + Social -->
+            <div>
+                <h4 class="text-sm font-medium text-white mb-4">Case studies</h4>
+                <div class="space-y-3">
+                    <a href="https://digitalscientists.com/work/" class="block text-gray-400 hover:text-white text-sm">View all work →</a>
+                </div>
+                <h4 class="text-sm font-medium text-white mb-4 mt-6">Social</h4>
+                <div class="space-y-3">
+                    <a href="https://www.linkedin.com/company/digital-scientists/" class="block text-gray-400 hover:text-white text-sm">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Brand + Address Section -->
+        <div class="border-t border-gray-700 pt-8 mb-8">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+                <div>
+                    <img src="1012DS_Logo_Native_Black (1).svg" alt="Digital Scientists" class="h-10 brightness-0 invert">
+                    <div class="mt-4 text-gray-400 text-sm font-mono">
+                        <p>21 south main street</p>
+                        <p>alpharetta, ga 30009</p>
+                        <p class="mt-2">404.654.3855</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-500 text-sm font-mono">© 2007 - 2026 digital scientists, llc.</p>
+            <a href="https://digitalscientists.com/privacy-policy/" class="text-gray-500 hover:text-white text-sm font-mono">privacy policy</a>
+        </div>
+    </div>
+</footer>
+
+<!-- Pipedrive Web Forms Script -->
+<script src="https://webforms.pipedrive.com/f/loader"></script>
+<!-- END DS-FOOTER -->
+
+
+    <!-- Intersection Observer for Animations -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>

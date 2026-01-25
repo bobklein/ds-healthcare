@@ -553,8 +553,8 @@
 <!-- END DS-NAV -->
 
 
-
-    <!-- Navigation -->
+<!-- DS 2.0 Navigation - FINAL -->
+<!-- Navigation -->
     <style>
         .nav-dropdown { position: relative; }
         .nav-dropdown-menu { 
@@ -1586,6 +1586,40 @@ document.querySelectorAll('.mobile-accordion-header').forEach(header => {
 
     <!-- Footer -->
     <!-- DS 2.0 Footer - FINAL -->
+<script>
+        // Video player
+        function playVideo() {
+            const video = document.getElementById('hero-video');
+            const overlay = document.getElementById('video-overlay');
+            overlay.style.opacity = '0';
+            overlay.style.pointerEvents = 'none';
+            video.controls = true;
+            video.play();
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('hero-video');
+            const overlay = document.getElementById('video-overlay');
+            if (video && overlay) {
+                video.addEventListener('ended', function() {
+                    overlay.style.opacity = '1';
+                    overlay.style.pointerEvents = 'auto';
+                    video.controls = false;
+                });
+            }
+        });
+        
+        // Market tabs
+        function showMarket(marketId) {
+            document.querySelectorAll('.market-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.market-tab').forEach(el => el.classList.remove('active'));
+            document.getElementById('market-' + marketId).classList.add('active');
+            document.querySelector('[data-market="' + marketId + '"]').classList.add('active');
+        }
+    </script>
+
+
+<!-- DS 2.0 Footer - FINAL -->
 <!-- START DS-FOOTER -->
 
 <footer class="bg-[#2d2d2d] text-white pt-16 pb-8 px-6">
@@ -1690,39 +1724,6 @@ document.querySelectorAll('.mobile-accordion-header').forEach(header => {
 <!-- Pipedrive Web Forms Script -->
 <script src="https://webforms.pipedrive.com/f/loader"></script>
 <!-- END DS-FOOTER -->
-
-
-    <script>
-        // Video player
-        function playVideo() {
-            const video = document.getElementById('hero-video');
-            const overlay = document.getElementById('video-overlay');
-            overlay.style.opacity = '0';
-            overlay.style.pointerEvents = 'none';
-            video.controls = true;
-            video.play();
-        }
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const video = document.getElementById('hero-video');
-            const overlay = document.getElementById('video-overlay');
-            if (video && overlay) {
-                video.addEventListener('ended', function() {
-                    overlay.style.opacity = '1';
-                    overlay.style.pointerEvents = 'auto';
-                    video.controls = false;
-                });
-            }
-        });
-        
-        // Market tabs
-        function showMarket(marketId) {
-            document.querySelectorAll('.market-content').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.market-tab').forEach(el => el.classList.remove('active'));
-            document.getElementById('market-' + marketId).classList.add('active');
-            document.querySelector('[data-market="' + marketId + '"]').classList.add('active');
-        }
-    </script>
 
 </body>
 </html>

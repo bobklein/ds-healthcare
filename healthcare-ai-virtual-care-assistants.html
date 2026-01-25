@@ -539,8 +539,8 @@
 <!-- END DS-NAV -->
 
 
-
-    <!-- Simple CSS Hover Navigation - No JavaScript Required -->
+<!-- DS 2.0 Navigation - FINAL -->
+<!-- Simple CSS Hover Navigation - No JavaScript Required -->
 <style>
     .nav-dropdown { position: relative; }
     .nav-dropdown-menu { 
@@ -918,7 +918,6 @@ document.querySelectorAll('.mobile-accordion-header').forEach(header => {
 </script>
 
 
-
     <!-- Hero Section -->
     <header class="pt-32 pb-16 px-6">
         <div class="max-w-screen-xl mx-auto">
@@ -1227,6 +1226,26 @@ document.querySelectorAll('.mobile-accordion-header').forEach(header => {
 
     <!-- Footer -->
     <!-- DS 2.0 Footer - FINAL -->
+<!-- Scroll Animation -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    });
+
+
+    
+
+    </script>
+
+
+<!-- DS 2.0 Footer - FINAL -->
 <!-- START DS-FOOTER -->
 
 <footer class="bg-[#2d2d2d] text-white pt-16 pb-8 px-6">
@@ -1331,25 +1350,6 @@ document.querySelectorAll('.mobile-accordion-header').forEach(header => {
 <!-- Pipedrive Web Forms Script -->
 <script src="https://webforms.pipedrive.com/f/loader"></script>
 <!-- END DS-FOOTER -->
-
-
-    <!-- Scroll Animation -->
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-    });
-
-
-    
-
-    </script>
 
 </body>
 </html>
