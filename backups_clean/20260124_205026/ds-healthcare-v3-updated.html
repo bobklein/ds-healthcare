@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare AI & Custom Software | Digital Scientists</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dsBlue: '#304FFF',
+                        dsBlack: '#050505',
+                        dsGray: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['Roboto Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        h1, h2, h3 { letter-spacing: -0.02em; }
+        
+        
+        
+        
+        /* Video container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #f5f5f5;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="bg-white text-dsBlack antialiased">
+<!-- DS 2.0 Navigation - FINAL -->
+<!-- START DS-NAV -->
+
+<style>
+/* Utility Bar */
+.ds-utility-bar {
+    background: #F5F5F5;
+}
+.ds-utility-bar a {
+    font-size: 13px;
+    color: #374151;
+    text-decoration: none;
+}
+.ds-utility-bar a:hover {
+    color: #304FFF;
+}
+
+/* Main Nav */
+.ds-main-nav {
+    background: #F5F5F5;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+/* Nav Items */
+.ds-nav-item {
+    position: relative;
+}
+.ds-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 16px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #111827;
+    text-decoration: none;
+    cursor: pointer;
+}
+.ds-nav-link:hover {
+    color: #304FFF;
+}
+
+/* Simple Dropdown */
+.ds-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+    padding: 12px;
+    min-width: 280px;
+    z-index: 100;
+}
+.ds-nav-item:hover .ds-dropdown {
+    display: block;
+}
+.ds-dropdown a {
+    display: block;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: #374151;
+    text-decoration: none;
+    border-radius: 8px;
+}
+.ds-dropdown a:hover {
+    background: #f3f4f6;
+    color: #304FFF;
+}
+
+/* Healthcare Mega Menu */
+.ds-healthcare-mega {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-top: 8px;
+    z-index: 100;
+}
+.ds-nav-item:hover .ds-healthcare-mega {
+    display: block;
+}
+.ds-healthcare-inner {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 24px;
+    min-width: 900px;
+}
+.ds-hc-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+.ds-hc-section h4 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    margin-bottom: 12px;
+    padding-left: 12px;
+}
+.ds-hc-section a {
+    display: block;
+    padding: 6px 12px;
+    font-size: 13px;
+    color: #374151;
+    border-radius: 6px;
+    text-decoration: none;
+}
+.ds-hc-section a:hover {
+    background: #f3f4f6;
+    color: #304FFF;
+}
+.ds-hc-cta {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+}
+.ds-hc-cta a {
+    background: #304FFF;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+}
+.ds-hc-cta a:hover {
+    background: #050505;
+}
+
+/* Contact Button */
+.ds-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #304FFF;
+    color: white !important;
+    padding: 12px 20px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.ds-contact-btn:hover {
+    background: #050505;
+}
+
+/* Mobile */
+.ds-mobile-btn {
+    display: none;
+    padding: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+@media (max-width: 1024px) {
+    .ds-desktop-nav { display: none; }
+    .ds-mobile-btn { display: block; }
+}
+.ds-mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    z-index: 200;
+    overflow-y: auto;
+}
+.ds-mobile-nav.open { display: block; }
+.ds-mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e5e7eb;
+}
+.ds-mobile-close {
+    padding: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.ds-mobile-accordion {
+    border-bottom: 1px solid #f3f4f6;
+}
+.ds-mobile-trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #111827;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+.ds-mobile-trigger svg {
+    transition: transform 0.2s;
+}
+.ds-mobile-trigger.open svg {
+    transform: rotate(180deg);
+}
+.ds-mobile-content {
+    display: none;
+    background: #f9fafb;
+    padding: 8px 0 16px;
+}
+.ds-mobile-content.open { display: block; }
+.ds-mobile-content a {
+    display: block;
+    padding: 12px 40px;
+    font-size: 14px;
+    color: #374151;
+    text-decoration: none;
+}
+.ds-mobile-content h5 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    padding: 12px 40px 8px;
+    margin-top: 8px;
+}
+.ds-mobile-link {
+    display: block;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #111827;
+    text-decoration: none;
+    border-bottom: 1px solid #f3f4f6;
+}
+.ds-mobile-cta {
+    padding: 24px;
+}
+.ds-mobile-cta a {
+    display: block;
+    background: #304FFF;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+</style>
+
+<!-- Utility Bar -->
+<div class="ds-utility-bar">
+    <div class="max-w-screen-xl mx-auto px-6 py-2 flex justify-end items-center gap-6">
+        <a href="https://digitalscientists.com/about/">Our story</a>
+        <a href="https://digitalscientists.com/blog/">Insights</a>
+        <a href="https://digitalscientists.com/events/">Events</a>
+        <a href="tel:4046543855" class="flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            404.654.3855
+        </a>
+    </div>
+</div>
+
+<!-- Main Navigation -->
+<nav class="ds-main-nav">
+    <div class="max-w-screen-xl mx-auto px-6">
+        <div class="h-20 flex justify-between items-center">
+            
+            <!-- Logo -->
+            <a href="index.html" class="flex-shrink-0">
+                <img src="1012DS_Logo_Native_Black (1).svg" alt="Digital Scientists" class="h-10">
+            </a>
+            
+            <!-- Desktop Nav -->
+            <div class="ds-desktop-nav flex items-center gap-1">
+                
+                <!-- Healthcare Mega Menu (FIRST) -->
+                <div class="ds-nav-item">
+                    <a href="healthcare-hub.html" class="ds-nav-link">
+                        Healthcare
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                    <div class="ds-healthcare-mega">
+                        <div class="ds-healthcare-inner">
+                            <!-- Row 1: Overview, Health IT Solutions, AI Solutions, Domains, Markets -->
+                            <div class="ds-hc-grid">
+                                <div class="ds-hc-section">
+                                    <h4>Overview</h4>
+                                    <a href="healthcare-hub.html">Healthcare Hub</a>
+                                    <a href="healthcare-approach.html">Our Approach</a>
+                                    <h4 style="margin-top: 16px;">Capabilities</h4>
+                                    <a href="healthcare-capabilities-ai-ml-nlp.html">AI, ML & NLP</a>
+                                    <a href="healthcare-capabilities-mobile.html">Mobile Apps</a>
+                                    <a href="healthcare-capabilities-saas.html">SaaS Platforms</a>
+                                    <a href="healthcare-capabilities-ux-design.html">UX Design</a>
+                                    <a href="healthcare-capabilities-data-analytics.html">Data Analytics</a>
+                                    <a href="healthcare-capabilities-samd.html">SaMD</a>
+                                </div>
+                                <div class="ds-hc-section">
+                                    <h4>Health IT Solutions</h4>
+                                    <a href="patient-engagement-portal.html">Patient Engagement</a>
+                                    <a href="telemedicine-virtual-care.html">Telemedicine</a>
+                                    <a href="remote-patient-monitoring.html">Remote Monitoring</a>
+                                    <a href="healthcare-interoperability.html">Interoperability</a>
+                                    <a href="clinical-decision-support.html">Clinical Decision Support</a>
+                                    <a href="ehr-practice-management.html">EHR & Practice Mgmt</a>
+                                    <a href="population-health-management.html">Population Health</a>
+                                    <a href="predictive-analytics-healthcare.html">Predictive Analytics</a>
+                                </div>
+                                <div class="ds-hc-section">
+                                    <h4>AI Solutions</h4>
+                                    <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+                                    <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+                                    <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+                                    <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+                                    <h4 style="margin-top: 16px;">Domains</h4>
+                                    <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+                                    <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+                                    <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+                                    <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+                                </div>
+                                <div class="ds-hc-section">
+                                    <h4>Markets</h4>
+                                    <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+                                    <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+                                    <a href="healthcare-markets-senior-living.html">Senior Living</a>
+                                    <a href="healthcare-markets-idd.html">IDD Services</a>
+                                    <a href="healthcare-markets-health-systems.html">Health Systems</a>
+                                    <h4 style="margin-top: 16px;">More</h4>
+                                    <a href="healthcare-domains-ambient-scribes.html">Ambient Scribes</a>
+                                    <a href="healthcare-domains-ehr-integrations.html">EHR Integrations</a>
+                                </div>
+                                <div class="ds-hc-section">
+                                    <h4>Case Studies</h4>
+                                    <a href="work-never-alone.html">NeverAlone</a>
+                                    <a href="work-communicare-mds.html">CommuniCare MDS</a>
+                                    <a href="work-raf-hcc-coding.html">RAF/HCC Coding</a>
+                                    <a href="work-healthcontext-ai.html">HealthContext AI</a>
+                                </div>
+                            </div>
+                            <div class="ds-hc-cta">
+                                <a href="healthcare-assessment.html">Get AI Readiness Assessment →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Dropdown -->
+                <div class="ds-nav-item">
+                    <span class="ds-nav-link">
+                        Services
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="ds-dropdown">
+                        <a href="https://digitalscientists.com/services/mvp-development/">MVP Development</a>
+                        <a href="https://digitalscientists.com/services/platform-modernization/">Platform Modernization</a>
+                        <a href="https://digitalscientists.com/services/innovation-as-a-service/">Innovation as a Service</a>
+                    </div>
+                </div>
+
+                <!-- Capabilities Dropdown -->
+                <div class="ds-nav-item">
+                    <span class="ds-nav-link">
+                        Capabilities
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="ds-dropdown">
+                        <a href="https://digitalscientists.com/mobile-app-development/">Mobile app development</a>
+                        <a href="https://digitalscientists.com/web-application-development/">Web application development</a>
+                        <a href="https://digitalscientists.com/ai-ml-development/">AI & machine learning</a>
+                        <a href="https://digitalscientists.com/cloud-application-development/">Cloud app development</a>
+                        <a href="https://digitalscientists.com/iot-application-development/">IoT & smart device software</a>
+                    </div>
+                </div>
+
+                <!-- Work -->
+                <a href="https://digitalscientists.com/work/" class="ds-nav-link">Work</a>
+
+                <!-- Contact Button -->
+                <a href="https://digitalscientists.com/contact/" class="ds-contact-btn ml-4">
+                    Contact Us
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8l4 4m0 0l-4 4m4-4H8"/></svg>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="ds-mobile-btn" onclick="document.getElementById('ds-mobile-nav').classList.add('open')">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Navigation -->
+<div id="ds-mobile-nav" class="ds-mobile-nav">
+    <div class="ds-mobile-header">
+        <span class="text-lg font-bold leading-tight">DIGITAL<br>SCIENTISTS</span>
+        <button class="ds-mobile-close" onclick="document.getElementById('ds-mobile-nav').classList.remove('open')">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Healthcare Accordion (FIRST) -->
+    <div class="ds-mobile-accordion">
+        <button class="ds-mobile-trigger" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
+            Healthcare
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="ds-mobile-content">
+            <h5>Overview</h5>
+            <a href="healthcare-hub.html">Healthcare Hub</a>
+            <a href="healthcare-approach.html">Our Approach</a>
+            <h5>Health IT Solutions</h5>
+            <a href="patient-engagement-portal.html">Patient Engagement</a>
+            <a href="telemedicine-virtual-care.html">Telemedicine</a>
+            <a href="remote-patient-monitoring.html">Remote Monitoring</a>
+            <a href="healthcare-interoperability.html">Interoperability</a>
+            <a href="clinical-decision-support.html">Clinical Decision Support</a>
+            <a href="ehr-practice-management.html">EHR & Practice Mgmt</a>
+            <a href="population-health-management.html">Population Health</a>
+            <a href="predictive-analytics-healthcare.html">Predictive Analytics</a>
+            <h5>AI Solutions</h5>
+            <a href="healthcare-ai-documentation-automation.html">Documentation Automation</a>
+            <a href="healthcare-ai-back-office-agents.html">Back-Office Agents</a>
+            <a href="healthcare-ai-virtual-care-assistants.html">Virtual Care Assistants</a>
+            <a href="healthcare-ai-intelligent-scheduling.html">Intelligent Scheduling</a>
+            <h5>Domains</h5>
+            <a href="healthcare-domains-mds-pdpm.html">MDS / PDPM</a>
+            <a href="healthcare-domains-raf-hcc-coding.html">RAF / HCC Coding</a>
+            <a href="healthcare-domains-revenue-cycle-ai.html">Revenue Cycle AI</a>
+            <a href="healthcare-domains-value-based-care.html">Value-Based Care</a>
+            <h5>Markets</h5>
+            <a href="healthcare-markets-skilled-nursing.html">Skilled Nursing</a>
+            <a href="healthcare-markets-home-health-hospice.html">Home Health & Hospice</a>
+            <a href="healthcare-markets-senior-living.html">Senior Living</a>
+            <h5>Case Studies</h5>
+            <a href="work-never-alone.html">NeverAlone</a>
+            <a href="work-communicare-mds.html">CommuniCare MDS</a>
+        </div>
+    </div>
+
+    <!-- Services Accordion -->
+    <div class="ds-mobile-accordion">
+        <button class="ds-mobile-trigger" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
+            Services
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="ds-mobile-content">
+            <a href="https://digitalscientists.com/services/mvp-development/">MVP Development</a>
+            <a href="https://digitalscientists.com/services/platform-modernization/">Platform Modernization</a>
+            <a href="https://digitalscientists.com/services/innovation-as-a-service/">Innovation as a Service</a>
+        </div>
+    </div>
+
+    <!-- Capabilities Accordion -->
+    <div class="ds-mobile-accordion">
+        <button class="ds-mobile-trigger" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
+            Capabilities
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="ds-mobile-content">
+            <a href="https://digitalscientists.com/mobile-app-development/">Mobile app development</a>
+            <a href="https://digitalscientists.com/web-application-development/">Web application development</a>
+            <a href="https://digitalscientists.com/ai-ml-development/">AI & machine learning</a>
+            <a href="https://digitalscientists.com/cloud-application-development/">Cloud app development</a>
+            <a href="https://digitalscientists.com/iot-application-development/">IoT & smart device software</a>
+        </div>
+    </div>
+
+    <a href="https://digitalscientists.com/work/" class="ds-mobile-link">Work</a>
+
+    <div class="ds-mobile-cta">
+        <a href="https://digitalscientists.com/contact/">Contact Us</a>
+    </div>
+
+    <!-- Utility Links -->
+    <div class="px-6 py-4 border-t border-gray-200 flex flex-wrap gap-4 text-sm text-gray-500">
+        <a href="https://digitalscientists.com/about/" class="hover:text-dsBlue">Our story</a>
+        <a href="https://digitalscientists.com/blog/" class="hover:text-dsBlue">Insights</a>
+        <a href="https://digitalscientists.com/events/" class="hover:text-dsBlue">Events</a>
+        <a href="tel:4046543855" class="hover:text-dsBlue">404.654.3855</a>
+    </div>
+</div>
+<!-- END DS-NAV -->
+
+
+<!-- Hero Section -->
+    <header class="pt-32 pb-16 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-3xl mb-12">
+                <div class="inline-flex items-center gap-2 text-sm text-dsBlue font-medium mb-6">
+                    <span class="w-1.5 h-1.5 bg-dsBlue rounded-full"></span>
+                    Healthcare & Life Sciences
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dsBlack mb-6 leading-[1.1]">
+                    AI that learns your workflows and gets smarter on your data.
+                </h1>
+                
+                <p class="text-xl text-gray-600 leading-relaxed mb-4">
+                    Generic AI tools don't know your EHR, your payer contracts, or your clinical workflows. That's why 95% of healthcare AI pilots fail. They're built for demos, not your environment.
+                </p>
+                <p class="text-xl text-gray-600 leading-relaxed mb-8">
+                    We build systems that integrate with what you have, learn from your operations, and deliver ROI within the calendar year. Not experiments. Production systems with $20M+ in verified impact.
+                </p>
+                
+                <a href="#contact" class="inline-flex items-center gap-2 bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">
+                    Discuss Your AI Opportunity
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">$10M+</span>
+                    <p class="text-gray-500 text-sm mt-1">PDPM Revenue Recovered</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlue">96%</span>
+                    <p class="text-gray-500 text-sm mt-1">Treat-in-Place Rate</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">45→5</span>
+                    <p class="text-gray-500 text-sm mt-1">Minutes Per Visit</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">100%</span>
+                    <p class="text-gray-500 text-sm mt-1">Production Rate</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Logo Bar -->
+    <section class="border-y border-gray-100 py-8 px-6">
+        <div class="max-w-screen-xl mx-auto flex flex-wrap justify-center items-center gap-8 md:gap-16">
+            <div class="flex items-center gap-10 flex-wrap justify-center w-full">
+                <svg style="height:40px;width:auto;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="166" height="46" viewBox="0 0 166 46" fill="none">
+  <rect x="0.0556641" y="-6.6333" width="165.837" height="57.49" fill="url(#pattern0)"></rect>
+  <defs>
+    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+      <use xlink:href="#image0_9213_47666" transform="matrix(0.00157576 0 0 0.00454545 0.100545 0)"></use>
+    </pattern>
+    <image id="image0_9213_47666" width="507" height="220" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfsAAADcCAYAAAB3VQjoAAAAAXNSR0IArs4c6QAAIABJREFUeF7tnQmcJGV5/5/nrbeqe2Z2dpfLBQysQgCNJ9FgVLyDRqLmHzWJ9xFPFFBARTyQG1RuUFRQY+KRGG/UqKhEJUZBxSuKkEUWVO5zd6a7q956n3//eqrH3t6Z6aru6pnp5nk/HwR3q9566/u+Xb/3eA4mLUpACSgBJaAElMBYE+Cxfjt9OSWgBJSAElACSoBU7HUQKAEloASUgBIYcwIq9mPewfp6SkAJKAEloARU7HUMKAEloASUgBIYcwIq9mPewfp6SkAJKAEloARU7HUMKAEloASUgBIYcwIq9mPewfp6SkAJKAEloARU7HUMKAEloASUgBIYcwIq9mPewfp6SkAJKAEloARU7HUMKAEloASUgBIYcwIq9mPewfp6SkAJKAEloARU7HUMKAEloASUgBIYcwIq9mPewfp6SkAJKAEloARU7HUMKAEloASUgBIYcwIq9mPewfp6SkAJKAEloARU7HUMKAEloASUgBIYcwIq9mPewfp6SkAJKAEloARU7HUMKAEloASUgBIYcwIq9mPewfp6SkAJKAEloARU7HUMKAEloASUgBIYcwIq9mPewfp6SkAJKAEloARU7HUMKAEloASUgBIYcwIq9mPewfp6SkAJKAEloARU7HUMKAEloASUgBIYcwIq9mPewfp6SkAJKAEloARU7HUMKAEloASUgBIYcwIq9mPewfp6SkAJKAEloARU7HUMKAEloASUgBIYcwIq9mPewfp6SkAJKAEloARU7HUMKAEloASUgBIYcwIq9mPewfp6SkAJKAEloARU7HUMKAEloASUgBIYcwIq9mPewfp6SkAJKAEloARU7HUMKAEloASUgBIYcwIq9mPewfp6SkAJKAEloARU7HUMKAEloASUgBIYcwIq9mPewfp6SkAJKAEloARU7HUMKAEloASUgBIYcwIq9mPewfp6SkAJKAEloARU7HUMKAEloASUgBIYcwIq9mPewfp6SkAJKAEloARU7HUMKAEloASUgBIYcwIq9mPewfp6SkAJKAEloARU7HUMKAEloASUgBIYcwIq9mPewfp6SkAJKAEloARU7HUMKAEloASUgBIYcwIq9mPewfp6SkAJKAEloARU7HUMKAEloASUgBIY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JioBJaAElIASGISAiv0g9PReJaAElIASUAIjQEDFfgQ6SZuoBJSAElACSmAQAir2g9DTe5WAElACSkAJjAABFfsR6CRtohJQAkpACSiBQQio2A9CT+9VAkpACSgBJTACBFTsR6CTtIlKQAkoASWgBAYhoGI/CD29VwkoASWgBJTACBBQsR+BTtImKgEloASUgBIYhICK/SD09F4loASUgBJQAiNAQMV+BDpJm6gElIASUAJKYBACKvaD0NN7lYASUAJKQAmMAAEV+xHoJG2iElACSkAJKIFBCKjYD0JP71UCSkAJKAElMAIEVOxHoJO0iUpACSgBJaAEBiGgYj8IPb1XCSgBJaAElMAIEFCxH4FO0iYqASWgBJSAEhiEgIr9IPT0XiWgBJSAElACI0BAxX4EOkmbqASUgBJQAkpgEAIq9oPQ03uVgBJQAkpACYwAARX7EegkbaISUAJKQAkogUEIqNgPQk/vVQJKQAkoASUwAgRU7Eegk7SJSkAJKAEloAQGIaBiPwg9vVcJKAEloASUwAgQULEfgU7SJioBJaAElIASGISAiv0g9PReJaAElIASUAIjQEDFfgQ6SZuoBJSAElACSmAQAir2g9DTe5WAElACSkAJjAABFfsR6CRtohJQAkpACSiBQQio2A9CT+9VAkpACSgBJTACBFTsR6CTtIlKQAkoASWgBAYh8P8B0W5TYmSc5WoAAAAASUVORK5CYII="></image>
+  </defs>
+</svg>
+                <img src="data:image/png;base64,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" alt="Easterseals" style="height:36px;width:auto;">
+                <svg style="height:40px;width:auto;" xmlns="http://www.w3.org/2000/svg" width="185" height="46" viewBox="0 0 185 46" fill="none">
+  <g style="mix-blend-mode:luminosity">
+    <path d="M35.6861 30.383C33.14 32.4799 29.4271 33.6481 29.1088 33.738C29.4005 33.5882 32.4505 31.9107 33.8031 30.4129C34.4396 29.694 34.97 28.6456 35.3148 27.7769C35.1556 27.9266 35.023 28.2262 33.4318 29.1848C31.9201 30.0834 29.374 31.1319 29.1088 31.2217C29.321 31.072 31.1509 29.9337 32.2383 28.5257C32.9013 27.687 33.4318 26.9381 33.697 26.1892C32.3974 27.3575 29.4005 28.6156 29.1088 28.7354C29.2945 28.6156 30.4083 27.8368 31.3366 26.6086C32.0261 25.7099 32.0792 25.1408 32.1853 24.6915C30.7796 25.9496 29.321 26.1892 29.1088 26.2192C29.2945 26.0694 30.5144 25.1108 30.5675 23.1637C29.4536 24.302 28.4988 23.9126 28.048 23.4633C27.5971 23.014 27.6236 22.0853 27.6236 22.0853V8.78516H26.1384V10.0133H24.1228V8.78516H22.6376V10.0133H20.6485V8.78516H19.1633V24.0324C19.1633 24.0324 19.1899 28.376 22.7172 31.6711C25.1837 33.9776 29.1353 36.1344 29.1353 36.1344C29.4536 35.9547 33.1931 33.8578 34.8109 32.2402C35.9778 31.072 36.5348 30.2931 36.906 29.3046C36.5613 29.6641 36.1369 30.0235 35.6861 30.383Z" fill="#00539B"></path>
+    <path d="M33.8101 20.632V9.66602H32.4593V22.7396C32.4593 22.7396 32.5113 23.656 32.2775 24.664C34.0439 23.2894 33.8101 20.632 33.8101 20.632Z" fill="#00539B"></path>
+    <path d="M35.3633 22.2157V8.78516H34.1711V24.1257C34.1711 24.1257 34.2179 25.1868 33.8205 26.4298C35.3633 24.7927 35.3633 22.2157 35.3633 22.2157Z" fill="#00539B"></path>
+    <path d="M36.906 23.0918V9.66602H35.7977V25.0947C35.7977 25.0947 35.7108 27.2228 35.3631 28.1929C36.9277 26.722 36.906 23.0918 36.906 23.0918Z" fill="#00539B"></path>
+    <path d="M38.4485 23.796V8.78516H37.4202V25.9616C37.4202 25.9616 37.3608 27.5043 36.906 29.0765C38.5079 26.7626 38.4485 23.796 38.4485 23.796Z" fill="#00539B"></path>
+    <path d="M31.5036 19.666V8.78516H30.763V21.607C30.763 21.607 30.763 22.548 30.7346 22.9009C31.5891 21.4305 31.5036 19.666 31.5036 19.666Z" fill="#00539B"></path>
+    <path d="M54.6487 14.3852H59.9872C65.0892 14.3852 68.6658 16.1525 68.6658 22.3818C68.6658 28.4082 64.984 30.5232 59.9872 30.5232H54.6487V14.3852ZM58.5671 27.3362H60.0661C62.9853 27.3362 64.6158 25.6847 64.6158 22.4687C64.6158 19.2527 62.9064 17.6012 60.0661 17.6012H58.5671V27.3362ZM81.815 18.4994H78.028V23.5986C78.028 26.1773 77.2391 27.3652 75.6875 27.3652C74.6618 27.3652 73.9517 26.6119 73.9517 24.323V18.4994H70.1648V26.0034C70.1648 28.4951 71.3745 30.813 74.3462 30.813C76.0556 30.813 77.5809 30.0597 78.3436 28.3213H78.3962V30.5522H81.8413L81.815 18.4994ZM84.0504 30.5522H87.8374V24.5837H87.89L90.9143 30.5522H95.4902L91.3877 24.0332L95.2009 18.4994H91.0721L87.9163 23.5697H87.8637V13.1973H84.0767L84.0504 30.5522ZM99.1194 25.7427C99.3298 27.3941 100.487 28.0605 102.328 28.0605C103.353 28.0605 104.537 27.7998 105.668 27.1334V30.0597C104.458 30.5812 103.064 30.813 101.67 30.813C98.0675 30.813 95.3061 28.4661 95.3061 24.4968C95.3061 20.5275 97.7519 18.2096 101.171 18.2096C105.221 18.2096 106.693 21.3677 106.693 24.9604V25.7137H99.1194V25.7427ZM103.301 23.3669C103.301 21.9761 102.722 20.8462 101.197 20.8462C99.8295 20.8462 99.172 21.9761 99.0931 23.3669H103.301ZM109.35 30.5522H111.453V23.193H118.475V30.5522H120.579V14.4141H118.475V21.1649H111.453V14.4141H109.35V30.5522ZM131.914 30.0597C131.151 30.3494 130.283 30.813 128.521 30.813C124.708 30.813 122.972 28.2633 122.972 24.4389C122.972 20.9331 124.971 18.4704 127.995 18.4704C131.572 18.4704 132.729 21.3387 132.729 25.1342H125.076C125.076 27.4811 126.733 29.0746 128.6 29.0746C129.915 29.0746 131.414 28.3213 131.887 27.8867V30.0597H131.914ZM130.625 23.5117C130.625 21.7154 129.652 20.2378 127.969 20.2378C126.049 20.2378 125.234 22.0051 125.102 23.5117H130.625ZM135.332 19.5714C136.332 18.934 137.489 18.4704 138.856 18.4704C141.933 18.4704 143.169 20.1219 143.169 23.3379V28.2054C143.169 29.5381 143.222 30.1756 143.248 30.5232H141.407V28.9877H141.355C140.881 29.712 139.856 30.784 138.041 30.784C135.727 30.784 134.123 29.683 134.123 27.1044C134.123 24.1491 137.068 23.222 139.093 23.222C139.856 23.222 140.408 23.222 141.197 23.2799C141.197 21.2518 140.513 20.2088 138.541 20.2088C137.436 20.2088 136.227 20.6724 135.438 21.3967L135.332 19.5714ZM141.197 24.9314C140.776 24.9314 140.355 24.8735 139.935 24.8735C138.856 24.8735 136.227 25.0473 136.227 27.1334C136.227 28.3792 137.305 29.0456 138.225 29.0456C140.171 29.0456 141.197 27.7128 141.197 25.9455V24.9314ZM145.878 30.5522H147.851V13.1973H145.878V30.5522ZM156.634 18.7601H153.794V15.3413L151.822 16.0366V18.7601H149.402V20.5275H151.822V27.4231C151.822 29.7699 153.084 30.8419 155.109 30.8419C155.74 30.8419 156.345 30.6681 156.792 30.5232V28.669C156.503 28.8718 156.056 29.0746 155.451 29.0746C154.557 29.0746 153.794 28.3213 153.794 26.9595V20.4985H156.634V18.7601ZM158.58 30.5522H160.553V25.1052C160.553 22.2369 161.552 20.2378 163.814 20.2378C165.523 20.3536 166.075 21.6864 166.075 24.4389V30.5522H168.048V23.5407C168.048 20.3826 166.812 18.4704 164.024 18.4704C162.525 18.4704 161.289 19.1947 160.579 20.4406H160.526V13.1973H158.554L158.58 30.5522Z" fill="#00539B"></path>
+  </g>
+</svg>
+                <img src="data:image/webp;base64,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" alt="NeverAlone" style="height:32px;width:auto;">
+                <svg style="height:18px;width:auto;" xmlns="http://www.w3.org/2000/svg" width="136" height="19" viewBox="0 0 136 19" fill="none">
+  <path d="M135.887 0.3759V18.6179H130.868C130.868 18.6179 124.784 7.74619 124.1 6.53718V18.6179H120.074V0.3759H125.292C125.292 0.3759 131.199 10.9501 131.866 12.1498V0.3759H135.887ZM12.8429 0.3759C12.8429 0.3759 9.63782 10.4711 9.30688 11.5313C8.96688 10.4665 5.78448 0.3759 5.78448 0.3759H0.113281V18.6179H4.04822V6.16053C4.68742 8.31349 7.72928 18.6179 7.72928 18.6179H10.7122C10.7122 18.6179 13.9127 8.19259 14.5474 6.11403V18.6179H18.5005V0.3759H12.8429ZM65.1485 15.0839H56.2904V10.8478H64.4141V7.31374H56.2904V3.91922H65.1485V0.3759H52.0064V18.6179H65.1485V15.0839ZM44.608 0.3759C44.608 0.3759 39.8525 6.48138 39.168 7.28584V0.3759H35.1242V18.6179H39.168V10.5641C39.8797 11.4616 44.7258 18.6179 44.7258 18.6179H50.3653C50.3653 18.6179 42.908 9.15979 42.636 8.82499C42.9125 8.50879 49.9528 0.37125 49.9528 0.37125H44.608V0.3759ZM100.477 9.44345C100.477 3.83087 103.428 0.0131978 108.886 0.0131978C114.272 0.0131978 117.291 3.90527 117.291 9.44345C117.291 14.9909 114.326 18.9806 108.886 18.9806C103.378 18.9853 100.477 15.0746 100.477 9.44345ZM104.77 9.4574C104.77 12.2939 105.885 15.149 108.886 15.149C111.901 15.149 113.011 12.2939 113.011 9.4574C113.011 6.69528 111.815 3.85877 108.886 3.85877C105.967 3.86342 104.77 6.69528 104.77 9.4574ZM76.441 7.52764C74.5008 6.99753 72.6648 6.67668 72.6285 5.38863C72.6194 5.02127 72.7418 4.71902 73.0093 4.45397C73.6938 3.78902 75.2533 3.59837 76.4864 3.69137C78.3541 3.84947 79.4512 4.17962 80.9336 5.02592L81.8085 1.3152C79.5418 0.5154 77.8056 -0.0147023 75.3394 0.00854782C70.8786 0.0550481 68.1224 2.30566 68.1224 5.88153C68.1224 9.5318 71.5042 10.4665 74.3512 11.3081C76.2008 11.8382 78.0458 12.1219 78.0458 13.5355C78.0458 14.9444 75.8154 15.442 74.3149 15.442C72.565 15.442 70.9784 14.9537 69.088 13.8238L67.9365 17.4973C70.4978 18.5296 72.0527 18.9713 74.528 18.9713C77.2344 18.9713 79.4693 18.1994 80.8202 16.8091C81.804 15.814 82.3162 14.4887 82.3162 12.9821C82.3162 9.2807 79.1429 8.24839 76.441 7.52764ZM92.5797 7.52764C90.6394 6.99753 88.7898 6.67668 88.7626 5.38863C88.7581 5.02127 88.885 4.71902 89.1434 4.45397C89.837 3.78902 91.392 3.59837 92.616 3.69137C94.4837 3.84947 95.5808 4.17962 97.0768 5.02592L97.9426 1.3152C95.676 0.5154 93.9442 -0.0147023 91.4736 0.00854782C87.0173 0.0550481 84.261 2.30566 84.261 5.88153C84.261 9.5318 87.6474 10.4665 90.4898 11.3081C92.3394 11.8382 94.189 12.1219 94.189 13.5355C94.189 14.9444 91.9586 15.442 90.4536 15.442C88.6992 15.442 87.117 14.9537 85.2266 13.8238L84.0706 17.4973C86.6274 18.5296 88.1914 18.9713 90.6712 18.9713C93.373 18.9713 95.608 18.1994 96.9725 16.8091C97.9426 15.814 98.464 14.4887 98.464 12.9821C98.4458 9.2807 95.268 8.24839 92.5797 7.52764ZM28.1293 13.4099C29.6298 13.4099 31.0669 13.1495 32.2455 12.5729L31.0216 9.6248C30.4141 10.0061 29.6842 10.2293 28.9 10.2293C26.8146 10.2293 25.0874 9.16445 25.0874 6.72783C25.0874 4.28657 26.8101 3.22636 28.9 3.22636C29.6842 3.22636 30.4141 3.44492 31.0216 3.81692L32.2455 0.873452C31.0669 0.306149 29.6298 0.036448 28.1293 0.036448C23.877 0.036448 21.1706 2.53816 21.1706 6.72783C21.1706 10.9082 23.877 13.4099 28.1293 13.4099Z" fill="black"></path>
+</svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- NeverAlone Featured -->
+    <section id="work" class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Product Screenshots -->
+                <div class="relative">
+                    <!-- iPad Screenshot -->
+                    <div class="bg-white p-3 rounded-2xl shadow-xl">
+                        <img src="images/neveralone-ipad.png" 
+                             alt="NeverAlone Care Platform - iPad App" 
+                             class="w-full rounded-xl"
+                             loading="lazy">
+                    </div>
+                    <!-- Mobile Screenshot (overlapping) -->
+                    <div class="absolute -bottom-4 -right-4 w-32 md:w-40 bg-white p-2 rounded-xl shadow-xl">
+                        <img src="images/neveralone-mobile.png" 
+                             alt="NeverAlone Mobile Video Call" 
+                             class="w-full rounded-lg"
+                             loading="lazy">
+                    </div>
+                </div>
+                
+                <!-- Content -->
+                <div >
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Featured Case Study</span>
+                        <span class="text-xs text-gray-400">*</span>
+                        <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">We Built & Operate</span>
+                    </div>
+                    
+                    <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mb-4">
+                        NeverAlone
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        24/7 virtual care platform serving 26,000+ patients across 7 states. We didn't just build this-we operate it in production every day.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <span class="text-2xl font-bold text-dsBlack">26,000+</span>
+                            <p class="text-gray-500 text-sm">Patients Served</p>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold text-dsBlue">96%</span>
+                            <p class="text-gray-500 text-sm">Treat-in-Place</p>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold text-dsBlack">7</span>
+                            <p class="text-gray-500 text-sm">States</p>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold text-dsBlack">32%</span>
+                            <p class="text-gray-500 text-sm">Cost Reduction</p>
+                        </div>
+                    </div>
+                    
+                    <a href="work-never-alone.html" class="inline-flex items-center gap-2 text-dsBlue font-medium hover:gap-3 transition-all">
+                        Read Full Case Study <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Challenge</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    95% of healthcare AI never reaches production.
+                </h2>
+                <p class="text-gray-600">
+                    Meanwhile, you're drowning in administrative burden, workforce shortages, and margin pressure.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-4xl font-bold text-dsBlack">45 min</span>
+                    <h3 class="font-semibold text-dsBlack mt-3 mb-2">Documentation per visit</h3>
+                    <p class="text-gray-500 text-sm">Clinicians spend more time on paperwork than patients.</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-4xl font-bold text-dsBlack">45 days</span>
+                    <h3 class="font-semibold text-dsBlack mt-3 mb-2">Revenue cycle length</h3>
+                    <p class="text-gray-500 text-sm">Cash tied up in A/R while denial rates hit 12%.</p>
+                </div>
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <span class="text-4xl font-bold text-dsBlack">15-20%</span>
+                    <h3 class="font-semibold text-dsBlack mt-3 mb-2">Administrative overhead</h3>
+                    <p class="text-gray-500 text-sm">Back-office costs eating into margins.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Custom Solutions - Comparison Layout -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-6xl mx-auto">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Your Data. Your Workflows. Your Advantage.</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
+                    Off-the-shelf AI doesn't know your business.
+                </h2>
+            </div>
+
+            <!-- Comparison Grid -->
+            <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                
+                <!-- Left: Generic AI (The Problem) -->
+                <div class="bg-white rounded-2xl p-8 border-2 border-gray-200">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+                            <span class="text-red-500 font-bold">✗</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-dsBlack">Generic AI Tools</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3 pb-4 border-b border-gray-100">
+                            <span class="text-red-400 mt-1">✗</span>
+                            <div>
+                                <p class="font-medium text-dsBlack">Trained on the internet</p>
+                                <p class="text-gray-500 text-sm">Doesn't know your EHR, payer contracts, or workflows</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 pb-4 border-b border-gray-100">
+                            <span class="text-red-400 mt-1">✗</span>
+                            <div>
+                                <p class="font-medium text-dsBlack">Built for demos</p>
+                                <p class="text-gray-500 text-sm">95% of healthcare AI pilots fail to reach production</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 pb-4 border-b border-gray-100">
+                            <span class="text-red-400 mt-1">✗</span>
+                            <div>
+                                <p class="font-medium text-dsBlack">Static capabilities</p>
+                                <p class="text-gray-500 text-sm">Same tool tomorrow as today—never learns your patterns</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-red-400 mt-1">✗</span>
+                            <div>
+                                <p class="font-medium text-dsBlack">Features, not revenue</p>
+                                <p class="text-gray-500 text-sm">Doesn't understand PDPM, RAF, or value-based care</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Our Approach (The Solution) -->
+                <div class="bg-dsBlue rounded-2xl p-8 text-white">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold">✓</span>
+                        </div>
+                        <h3 class="text-xl font-bold">AI Built for Your Business</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3 pb-4 border-b border-white/20">
+                            <span class="text-green-300 mt-1">✓</span>
+                            <div>
+                                <p class="font-medium">Trained on your data</p>
+                                <p class="text-blue-100 text-sm">Integrates with your EHR, learns your workflows</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 pb-4 border-b border-white/20">
+                            <span class="text-green-300 mt-1">✓</span>
+                            <div>
+                                <p class="font-medium">Built for production</p>
+                                <p class="text-blue-100 text-sm">100% production rate. $20M+ verified impact.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 pb-4 border-b border-white/20">
+                            <span class="text-green-300 mt-1">✓</span>
+                            <div>
+                                <p class="font-medium">Gets smarter over time</p>
+                                <p class="text-blue-100 text-sm">Year 1: learns patterns. Year 2: knows your facilities. Year 3: understands your staff.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-green-300 mt-1">✓</span>
+                            <div>
+                                <p class="font-medium">Drives real revenue</p>
+                                <p class="text-blue-100 text-sm">$10M PDPM recovered. 200-300 bps EBITDA improvement.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom: Why We Deliver - Horizontal Strip -->
+            <div class="bg-white rounded-2xl p-6 border border-gray-200">
+                <div class="grid md:grid-cols-4 gap-6 items-center">
+                    <div class="md:col-span-1">
+                        <p class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Why 100% production rate</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-dsBlue">✓</span>
+                        <p class="text-sm text-dsBlack"><strong>Complete value chain</strong> — 8 steps, no gaps</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-dsBlue">✓</span>
+                        <p class="text-sm text-dsBlack"><strong>Healthcare expertise</strong> — Reimbursement, compliance, workflows</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-dsBlue">✓</span>
+                        <p class="text-sm text-dsBlack"><strong>We operate what we build</strong> — 26K patients on NeverAlone</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 8-Step Value Chain -->
+    <section id="value-chain" class="py-20 px-6 bg-white border-t border-gray-100">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Complete Value Chain</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    8 steps to production. No gaps.
+                </h2>
+                <p class="text-gray-600">
+                    Most vendors deliver steps 1-2 and wish you luck. We deliver all 8—that's why we have a 100% production rate when others fail 95% of the time.
+                </p>
+            </div>
+
+            <!-- Timeline Visualization - Animated -->
+            <div class="bg-dsGray rounded-2xl p-6 md:p-10 overflow-x-auto" id="timeline-container">
+                <div class="min-w-[800px]">
+                    <!-- Phase backgrounds (will highlight as steps animate) -->
+                    <div class="flex mb-2 gap-2">
+                        <div class="flex-1 rounded-xl p-3 transition-all duration-500 phase-bg" style="flex: 3;" data-phase="build">
+                            <span class="inline-block bg-dsBlue text-white text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full opacity-0 phase-label">Build</span>
+                        </div>
+                        <div class="flex-1 rounded-xl p-3 transition-all duration-500 phase-bg" style="flex: 3;" data-phase="deploy">
+                            <span class="inline-block bg-dsBlue text-white text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full opacity-0 phase-label">Deploy</span>
+                        </div>
+                        <div class="flex-1 rounded-xl p-3 transition-all duration-500 phase-bg" style="flex: 2;" data-phase="scale">
+                            <span class="inline-block bg-dsBlue text-white text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full opacity-0 phase-label">Scale</span>
+                        </div>
+                    </div>
+
+                    <!-- Timeline -->
+                    <div class="relative py-4">
+                        <!-- Connecting line background -->
+                        <div class="absolute top-10 left-6 right-6 h-1 bg-gray-300 rounded-full"></div>
+                        <!-- Connecting line progress (animated) -->
+                        <div class="absolute top-10 left-6 h-1 bg-dsBlue rounded-full transition-all duration-700 ease-out" id="progress-line" style="width: 0%;"></div>
+                        
+                        <!-- Steps -->
+                        <div class="flex justify-between relative items-start">
+                            <!-- Step 1 -->
+                            <div class="text-center flex-1 px-1 timeline-step opacity-0" data-step="1" data-phase="build">
+                                <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10 shadow-lg transition-all duration-300 step-circle">
+                                    <span class="text-gray-500 font-bold step-number">1</span>
+                                </div>
+                                <div class="h-10 flex flex-col justify-start">
+                                    <p class="font-semibold text-dsBlack text-sm leading-tight">Data<br>Foundation</p>
+                                </div>
+                                <p class="text-gray-500 text-xs mt-1 hidden md:block">Clean & structure</p>
+                            </div>
+                            <!-- Step 2 -->
+                            <div class="text-center flex-1 px-1 timeline-step opacity-0" data-step="2" data-phase="build">
+                                <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10 shadow-lg transition-all duration-300 step-circle">
+                                    <span class="text-gray-500 font-bold step-number">2</span>
+                                </div>
+                                <div class="h-10 flex flex-col justify-start">
+                                    <p class="font-semibold text-dsBlack text-sm leading-tight">Responsible<br>AI</p>
+                                </div>
+                                <p class="text-gray-500 text-xs mt-1 hidden md:block">Custom build</p>
+                            </div>
+                            <!-- Step 3 -->
+                            <div class="text-center flex-1 px-1 timeline-step opacity-0" data-step="3" data-phase="build">
+                                <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10 shadow-lg transition-all duration-300 step-circle">
+                                    <span class="text-gray-500 font-bold step-number">3</span>
+                                </div>
+                                <div class="h-10 flex flex-col justify-start">
+                                    <p class="font-semibold text-dsBlack text-sm leading-tight">EHR<br>Integration</p>
+                                </div>
+                                <p class="text-gray-500 text-xs mt-1 hidden md:block">Seamless connect</p>
+                            </div>
+                            <!-- Step 4 -->
+                            <div class="text-center flex-1 px-1 timeline-step opacity-0" data-step="4" data-phase="deploy">
+                                <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10 shadow-lg transition-all duration-300 step-circle">
+                                    <span class="text-gray-500 font-bold step-number">4</span>
+                                </div>
+                                <div class="h-10 flex flex-col justify-start">
+                                    <p class="font-semibold text-dsBlack text-sm leading-tight">Co-Design<br>&nbsp;</p>
+                                </div>
+                                <p class="text-gray-500 text-xs mt-1 hidden md:block">With care teams</p>
+                            </div>
+                            <!-- Step 5 -->
+                            <div class="text-center flex-1 px-1 timeline-step opacity-0" data-step="5" data-phase="deploy">
+                                <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10 shadow-lg transition-all duration-300 step-circle">
+                                    <span class="text-gray-500 font-bold step-number">5</span>
+                                </div>
+                                <div class="h-10 flex flex-col justify-start">
+                                    <p class="font-semibold text-dsBlack text-sm leading-tight">Deployment<br>&nbsp;</p>
+                                </div>
+                                <p class="text-gray-500 text-xs mt-1 hidden md:block">Go-live support</p>
+                            </div>
+                            <!-- Step 6 -->
+                            <div class="text-center flex-1 px-1 timeline-step opacity-0" data-step="6" data-phase="deploy">
+                                <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10 shadow-lg transition-all duration-300 step-circle">
+                                    <span class="text-gray-500 font-bold step-number">6</span>
+                                </div>
+                                <div class="h-10 flex flex-col justify-start">
+                                    <p class="font-semibold text-dsBlack text-sm leading-tight">Change<br>Management</p>
+                                </div>
+                                <p class="text-gray-500 text-xs mt-1 hidden md:block">Drive adoption</p>
+                            </div>
+                            <!-- Step 7 -->
+                            <div class="text-center flex-1 px-1 timeline-step opacity-0" data-step="7" data-phase="scale">
+                                <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10 shadow-lg transition-all duration-300 step-circle">
+                                    <span class="text-gray-500 font-bold step-number">7</span>
+                                </div>
+                                <div class="h-10 flex flex-col justify-start">
+                                    <p class="font-semibold text-dsBlack text-sm leading-tight">Knowledge<br>Transfer</p>
+                                </div>
+                                <p class="text-gray-500 text-xs mt-1 hidden md:block">Or ongoing support</p>
+                            </div>
+                            <!-- Step 8 -->
+                            <div class="text-center flex-1 px-1 timeline-step opacity-0" data-step="8" data-phase="scale">
+                                <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10 shadow-lg transition-all duration-300 step-circle">
+                                    <span class="text-gray-500 font-bold step-number">8</span>
+                                </div>
+                                <div class="h-10 flex flex-col justify-start">
+                                    <p class="font-semibold text-dsBlack text-sm leading-tight">Outcome<br>Guarantee</p>
+                                </div>
+                                <p class="text-gray-500 text-xs mt-1 hidden md:block">Tied to your KPIs</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Failure point annotation -->
+                    <div class="mt-8 pt-6 border-t border-gray-300 opacity-0 transition-opacity duration-500" id="timeline-annotation">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                            <div class="flex items-center gap-3">
+                                <span class="text-red-500 text-lg">⚠</span>
+                                <p class="text-sm text-gray-600"><strong class="text-red-600">Where others stop:</strong> Most dev shops and AI vendors deliver steps 1-2, then disappear.</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-green-500 text-lg">✓</span>
+                                <p class="text-sm text-gray-600"><strong class="text-green-600">What we deliver:</strong> All 8 steps, contractually tied to outcomes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Link to Approach page -->
+            <div class="text-center mt-8">
+                <a href="healthcare-approach.html" class="inline-flex items-center gap-2 text-dsBlue font-medium hover:underline">
+                    See our full methodology <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Animation Script -->
+    <script>
+    (function() {
+        const timelineContainer = document.getElementById('timeline-container');
+        const progressLine = document.getElementById('progress-line');
+        const steps = document.querySelectorAll('.timeline-step');
+        const phases = document.querySelectorAll('.phase-bg');
+        const phaseLabels = document.querySelectorAll('.phase-label');
+        const annotation = document.getElementById('timeline-annotation');
+        
+        let animated = false;
+        
+        function animateTimeline() {
+            if (animated) return;
+            animated = true;
+            
+            // Animate each step sequentially
+            steps.forEach((step, index) => {
+                setTimeout(() => {
+                    // Fade in step
+                    step.style.opacity = '1';
+                    step.style.transform = 'translateY(0)';
+                    
+                    // Activate circle
+                    const circle = step.querySelector('.step-circle');
+                    const number = step.querySelector('.step-number');
+                    circle.classList.remove('bg-gray-300');
+                    circle.classList.add('bg-dsBlue');
+                    number.classList.remove('text-gray-500');
+                    number.classList.add('text-white');
+                    
+                    // Update progress line
+                    const progress = ((index + 1) / steps.length) * 100;
+                    progressLine.style.width = `calc(${progress}% - 48px)`;
+                    
+                    // Highlight phase when first step of phase appears
+                    const phase = step.dataset.phase;
+                    const phaseEl = document.querySelector(`.phase-bg[data-phase="${phase}"]`);
+                    const phaseLabelEl = phaseEl.querySelector('.phase-label');
+                    
+                    if (!phaseEl.classList.contains('bg-dsBlue/5')) {
+                        phaseEl.classList.add('bg-dsBlue/5');
+                        phaseLabelEl.style.opacity = '1';
+                    }
+                    
+                    // Show annotation after last step
+                    if (index === steps.length - 1) {
+                        setTimeout(() => {
+                            annotation.style.opacity = '1';
+                        }, 600);
+                    }
+                }, index * 400); // 400ms stagger between steps
+            });
+        }
+        
+        // Set initial state
+        steps.forEach(step => {
+            step.style.transform = 'translateY(10px)';
+            step.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        
+        // Intersection Observer to trigger animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+                    animateTimeline();
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        observer.observe(timelineContainer);
+    })();
+    </script>
+
+    <!-- Healthcare Domain Expertise -->
+    <section id="expertise" class="py-20 px-6 bg-dsBlack text-white">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Healthcare Domain Expertise</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
+                    Deep expertise where it matters.
+                </h2>
+                <p class="text-gray-400">
+                    We're not a dev shop that did a healthcare project once. We understand how providers get paid, how care is delivered, and what it takes to ship in regulated environments.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Post-Acute Care -->
+                <div >
+                    <h3 class="text-sm font-medium text-dsBlue uppercase tracking-wider mb-4">Post-Acute Care - Deep Expertise</h3>
+                    <div class="space-y-3">
+                        <a href="healthcare-domains-mds-pdpm.html" class="flex justify-between items-center py-3 border-b border-gray-800 hover:border-dsBlue transition group">
+                            <div>
+                                <span class="text-white font-medium group-hover:text-dsBlue transition">MDS Assessments / PDPM</span>
+                                <p class="text-gray-500 text-sm">Revenue capture optimization</p>
+                            </div>
+                            <span class="text-dsBlue font-medium">$10M+</span>
+                        </a>
+                        <a href="healthcare-domains-value-based-care.html" class="flex justify-between items-center py-3 border-b border-gray-800 hover:border-dsBlue transition group">
+                            <div>
+                                <span class="text-white font-medium group-hover:text-dsBlue transition">Value-Based Care</span>
+                                <p class="text-gray-500 text-sm">SNF VBP, ACO REACH performance</p>
+                            </div>
+                            <span class="text-gray-600">→</span>
+                        </a>
+                        <a href="healthcare-ai-virtual-care-assistants.html" class="flex justify-between items-center py-3 border-b border-gray-800 hover:border-dsBlue transition group">
+                            <div>
+                                <span class="text-white font-medium group-hover:text-dsBlue transition">Treatment-in-Place</span>
+                                <p class="text-gray-500 text-sm">Hospital transfer avoidance</p>
+                            </div>
+                            <span class="text-dsBlue font-medium">96%</span>
+                        </a>
+                        <a href="healthcare-ai-virtual-care-assistants.html" class="flex justify-between items-center py-3 border-b border-gray-800 hover:border-dsBlue transition group">
+                            <div>
+                                <span class="text-white font-medium group-hover:text-dsBlue transition">Virtual Care / Telehealth</span>
+                                <p class="text-gray-500 text-sm">24/7 coverage without staffing costs</p>
+                            </div>
+                            <span class="text-gray-600">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Horizontal -->
+                <div >
+                    <h3 class="text-sm font-medium text-dsBlue uppercase tracking-wider mb-4">Horizontal Across Healthcare</h3>
+                    <div class="grid grid-cols-2 gap-3">
+                        <a href="healthcare-domains-revenue-cycle-ai.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">Revenue Cycle AI</a>
+                        <a href="healthcare-domains-ambient-scribes.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">Ambient Scribes</a>
+                        <a href="ds-healthcare-v3-updated.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">Patient Engagement</a>
+                        <a href="healthcare-ai-virtual-care-assistants.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">RPM</a>
+                        <a href="ds-healthcare-v3-updated.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">Clinical Decision Support</a>
+                        <a href="ds-healthcare-v3-updated.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">Data Engineering</a>
+                        <a href="healthcare-domains-raf-hcc-coding.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">RAF / HCC Coding</a>
+                        <a href="healthcare-domains-ehr-integrations.html" class="bg-gray-900 px-4 py-3 rounded-lg text-sm text-white hover:bg-gray-800 transition">EHR Integrations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Solution Frameworks -->
+    <section id="solutions" class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">AI Solution Frameworks</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    Four high-impact areas. Proven ROI in each.
+                </h2>
+                <p class="text-gray-600">
+                    Systems built for your workflows, trained on your data, integrated with your EHR. Not off-the-shelf tools-solutions that get smarter the longer you use them.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <a href="healthcare-ai-documentation-automation.html" class="group border border-gray-200 rounded-xl p-8 hover:border-dsBlue transition">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-dsBlack" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        </div>
+                        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Fastest Payback</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-dsBlack mb-2 group-hover:text-dsBlue transition">AI Documentation Automation</h3>
+                    <p class="text-gray-600 text-sm mb-4">45 min→5 min per visit. Ambient AI scribes that generate clinical notes, OASIS assessments, and care plans.</p>
+                    <span class="text-dsBlue text-sm font-medium group-hover:underline">Learn More →</span>
+                </a>
+
+                <a href="healthcare-ai-back-office-agents.html" class="group border border-gray-200 rounded-xl p-8 hover:border-dsBlue transition">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-dsBlack" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                        </div>
+                        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Highest ROI</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-dsBlack mb-2 group-hover:text-dsBlue transition">Intelligent Back-Office Agents</h3>
+                    <p class="text-gray-600 text-sm mb-4">Revenue cycle from 45→28 days. Denial rates from 12%→4%. 200-300 bps EBITDA improvement.</p>
+                    <span class="text-dsBlue text-sm font-medium group-hover:underline">Learn More →</span>
+                </a>
+
+                <a href="healthcare-ai-virtual-care-assistants.html" class="group border border-gray-200 rounded-xl p-8 hover:border-dsBlue transition">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-dsBlack" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                        </div>
+                        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Proven at Scale</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-dsBlack mb-2 group-hover:text-dsBlue transition">Virtual Care Assistants</h3>
+                    <p class="text-gray-600 text-sm mb-4">3x patient capacity per nurse. 40% reduction in after-hours calls. 25% readmission reduction.</p>
+                    <span class="text-dsBlue text-sm font-medium group-hover:underline">Learn More →</span>
+                </a>
+
+                <a href="healthcare-ai-intelligent-scheduling.html" class="group border border-gray-200 rounded-xl p-8 hover:border-dsBlue transition">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 bg-dsGray rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-dsBlack" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                        </div>
+                        <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Quick Win</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-dsBlack mb-2 group-hover:text-dsBlue transition">Intelligent Scheduling</h3>
+                    <p class="text-gray-600 text-sm mb-4">15% improvement in visit completion. 20% reduction in drive time. Predictive no-show management.</p>
+                    <span class="text-dsBlue text-sm font-medium group-hover:underline">Learn More →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Markets -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Markets We Serve</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3">
+                    Built for the complexity of post-acute care.
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6">
+                <a href="healthcare-markets-skilled-nursing.html" class="bg-white border border-gray-200 rounded-xl overflow-hidden group hover:border-dsBlue transition">
+                    <div class="h-32 overflow-hidden">
+                        <img src="images/nurse-patient.jpg" 
+                             alt="Skilled Nursing Care" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                             loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-semibold text-dsBlack mb-2 group-hover:text-dsBlue transition">Skilled Nursing Facilities</h3>
+                        <p class="text-gray-500 text-sm mb-3">MDS optimization, PDPM revenue capture, quality measures.</p>
+                        <span class="text-dsBlue text-sm font-medium">$10M+ PDPM recovered →</span>
+                    </div>
+                </a>
+                <a href="healthcare-markets-home-health-hospice.html" class="bg-white border border-gray-200 rounded-xl overflow-hidden group hover:border-dsBlue transition">
+                    <div class="h-32 overflow-hidden">
+                        <img src="images/sandata-tablet.jpg" 
+                             alt="Home Health Technology" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                             loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-semibold text-dsBlack mb-2 group-hover:text-dsBlue transition">Home Health & Hospice</h3>
+                        <p class="text-gray-500 text-sm mb-3">Documentation automation, scheduling, OASIS assessments.</p>
+                        <span class="text-dsBlue text-sm font-medium">45→5 min documentation →</span>
+                    </div>
+                </a>
+                <a href="healthcare-markets-senior-living.html" class="bg-white border border-gray-200 rounded-xl overflow-hidden group hover:border-dsBlue transition">
+                    <div class="h-32 overflow-hidden">
+                        <img src="images/senior-ui.png" 
+                             alt="Senior Living Platform" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                             loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-semibold text-dsBlack mb-2 group-hover:text-dsBlue transition">Senior Living / CCRCs</h3>
+                        <p class="text-gray-500 text-sm mb-3">Resident engagement, family communication, operations.</p>
+                        <span class="text-dsBlue text-sm font-medium">Platform experience →</span>
+                    </div>
+                </a>
+                <a href="healthcare-markets-health-systems.html" class="bg-white border border-gray-200 rounded-xl overflow-hidden group hover:border-dsBlue transition">
+                    <div class="h-32 overflow-hidden">
+                        <img src="images/clinical-team.jpg" 
+                             alt="Health Systems Team" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                             loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-semibold text-dsBlack mb-2 group-hover:text-dsBlue transition">Health Systems & HealthIT</h3>
+                        <p class="text-gray-500 text-sm mb-3">R&D partnership, platform development, EHR integration.</p>
+                        <span class="text-dsBlue text-sm font-medium">Your R&D partner →</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Work With - Persona Specific -->
+    <section class="py-20 px-6 bg-white border-t border-gray-100">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Who This Is For</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
+                    Different leaders, different questions. Same answer: we deliver.
+                </h2>
+            </div>
+
+            <!-- CXO Personas -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <p class="text-xs text-gray-400 uppercase tracking-wider mb-2">For CEOs</p>
+                    <h3 class="font-bold text-dsBlack mb-3">"Will this transform my business?"</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        CommuniCare went from regional provider to 7-state platform in 18 months. Modern tech stack increases acquisition multiples. Learning systems create sustainable advantage.
+                    </p>
+                    <p class="text-dsBlue text-sm font-medium">Operator→Platform company</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <p class="text-xs text-gray-400 uppercase tracking-wider mb-2">For CFOs</p>
+                    <h3 class="font-bold text-dsBlack mb-3">"What's the ROI and when?"</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        $10M PDPM + $2M Quality Incentives from 2 states. Financial analyst calculated, not vendor estimates. Contractually tied to KPIs. Calendar year returns.
+                    </p>
+                    <p class="text-dsBlue text-sm font-medium">200-300 bps EBITDA improvement</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <p class="text-xs text-gray-400 uppercase tracking-wider mb-2">For COOs</p>
+                    <h3 class="font-bold text-dsBlack mb-3">"Will this disrupt operations?"</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        40+ hours shadowing MDS coordinators before writing code. Change management included. Go-live support. Staff adoption guaranteed, not just deployment.
+                    </p>
+                    <p class="text-dsBlue text-sm font-medium">Built WITH your care teams</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-6">
+                    <p class="text-xs text-gray-400 uppercase tracking-wider mb-2">For CTOs</p>
+                    <h3 class="font-bold text-dsBlack mb-3">"Will this actually work?"</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        100% production rate vs 5% industry average. PointClickCare, Epic, Gehrimed integrations proven. Data engineering through deployment-you're not stuck managing another vendor.
+                    </p>
+                    <p class="text-dsBlue text-sm font-medium">Complete 8-step value chain</p>
+                </div>
+            </div>
+
+            <!-- Organization Types -->
+            <div class="border-t border-gray-200 pt-12">
+                <p class="text-xs text-gray-400 uppercase tracking-wider mb-6">We Work With</p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    
+                    <div class="flex gap-6 items-start p-6 bg-dsGray rounded-xl">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-dsBlack mb-1">Healthcare Operators</h3>
+                            <p class="text-sm text-gray-500 mb-3">SNFs, Home Health, Hospice, Senior Living with 3+ facilities</p>
+                            <p class="text-gray-600 text-sm">
+                                You need solutions that fit your EHR, meet your compliance requirements, and deliver calendar year ROI-not pilots that never reach production.
+                            </p>
+                        </div>
+                        <a href="#contact" class="text-dsBlue text-sm font-medium whitespace-nowrap">AI Assessment→</a>
+                    </div>
+                    
+                    <div class="flex gap-6 items-start p-6 bg-dsGray rounded-xl">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-dsBlack mb-1">PE Portfolio Companies</h3>
+                            <p class="text-sm text-gray-500 mb-3">Operating partners modernizing healthcare platforms</p>
+                            <p class="text-gray-600 text-sm">
+                                You've tried offshore. The timezone gaps, quality issues, HIPAA concerns. We're the nearshore alternative-US leadership, same timezone, US legal jurisdiction.
+                            </p>
+                        </div>
+                        <a href="#contact" class="text-dsBlue text-sm font-medium whitespace-nowrap">Platform Assessment→</a>
+                    </div>
+                    
+                    <div class="flex gap-6 items-start p-6 bg-dsGray rounded-xl">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-dsBlack mb-1">HealthIT & Digital Health</h3>
+                            <p class="text-sm text-gray-500 mb-3">Product leaders needing R&D capacity</p>
+                            <p class="text-gray-600 text-sm">
+                                We're not learning healthcare on your dime. We already build virtual care, documentation tools, and analytics. We integrate with the same EHRs you do.
+                            </p>
+                        </div>
+                        <a href="#contact" class="text-dsBlue text-sm font-medium whitespace-nowrap">R&D Partnership→</a>
+                    </div>
+                    
+                    <div class="flex gap-6 items-start p-6 bg-dsGray rounded-xl">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-dsBlack mb-1">Strategy Consultants</h3>
+                            <p class="text-sm text-gray-500 mb-3">Firms advising on healthcare AI initiatives</p>
+                            <p class="text-gray-600 text-sm">
+                                Your clients need implementation, not just strategy. You advise, we build. 100% production rate-we're the delivery partner that doesn't embarrass you.
+                            </p>
+                        </div>
+                        <a href="#contact" class="text-dsBlue text-sm font-medium whitespace-nowrap">Partner Program→</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- More Case Studies -->
+    <section class="py-20 px-6">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">More Proof Points</span>
+                    <h2 class="text-3xl font-bold text-dsBlack mt-3">Real results. Verified ROI.</h2>
+                </div>
+                <a href="ds-healthcare-v3-updated.html" class="hidden md:inline-flex items-center gap-2 text-dsBlue font-medium hover:underline">
+                    View All Work→
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="work-communicare-mds.html" class="border border-gray-200 rounded-xl overflow-hidden group hover:border-dsBlue transition">
+                    <div class="h-48 overflow-hidden">
+                        <img src="images/mds-optimizer.png" 
+                             alt="MDS Optimization Dashboard" 
+                             class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300"
+                             loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-gray-400 uppercase tracking-wider">Revenue Optimization</span>
+                        <h3 class="font-bold text-dsBlack mt-1 mb-3 group-hover:text-dsBlue transition">MDS / PDPM AI</h3>
+                        <div class="flex gap-6">
+                            <div>
+                                <span class="text-xl font-bold text-dsBlue">$10M+</span>
+                                <p class="text-gray-500 text-xs">PDPM Revenue</p>
+                            </div>
+                            <div>
+                                <span class="text-xl font-bold text-dsBlack">$2M</span>
+                                <p class="text-gray-500 text-xs">Quality Incentives</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="work-raf-hcc-coding.html" class="border border-gray-200 rounded-xl overflow-hidden group hover:border-dsBlue transition">
+                    <div class="h-48 overflow-hidden">
+                        <img src="images/raf-score.png" 
+                             alt="RAF Score Coding AI Dashboard" 
+                             class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300"
+                             loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-gray-400 uppercase tracking-wider">Risk Adjustment</span>
+                        <h3 class="font-bold text-dsBlack mt-1 mb-3 group-hover:text-dsBlue transition">RAF / HCC Coding</h3>
+                        <div class="flex gap-6">
+                            <div>
+                                <span class="text-xl font-bold text-dsBlue">20K+</span>
+                                <p class="text-gray-500 text-xs">Patients</p>
+                            </div>
+                            <div>
+                                <span class="text-xl font-bold text-dsBlack">90%+</span>
+                                <p class="text-gray-500 text-xs">Accuracy</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="work-healthcontext-ai.html" class="border border-gray-200 rounded-xl overflow-hidden group hover:border-dsBlue transition">
+                    <div class="h-48 overflow-hidden">
+                        <img src="images/healthcontext-ai.png" 
+                             alt="HealthContext.AI Transcription Interface" 
+                             class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-300"
+                             loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-gray-400 uppercase tracking-wider">Documentation</span>
+                        <h3 class="font-bold text-dsBlack mt-1 mb-3 group-hover:text-dsBlue transition">HealthContext.AI</h3>
+                        <div class="flex gap-6">
+                            <div>
+                                <span class="text-xl font-bold text-dsBlack">45→5</span>
+                                <p class="text-gray-500 text-xs">Min/Visit</p>
+                            </div>
+                            <div>
+                                <span class="text-xl font-bold text-dsBlack">2-3x</span>
+                                <p class="text-gray-500 text-xs">More Patients</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions & Capabilities Navigation -->
+    <section class="py-20 px-6 border-t border-gray-200">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div >
+                    <h3 class="text-xs font-medium text-dsBlue uppercase tracking-wider mb-4">Healthcare Solutions</h3>
+                    <ul class="space-y-2">
+                        <li><a href="clinical-decision-support.html" class="text-gray-600 hover:text-dsBlack transition text-sm">Clinical Decision Support</a></li>
+                        <li><a href="telemedicine-virtual-care.html" class="text-gray-600 hover:text-dsBlack transition text-sm">Telemedicine & Virtual Care</a></li>
+                        <li><a href="remote-patient-monitoring.html" class="text-gray-600 hover:text-dsBlack transition text-sm">Remote Patient Monitoring</a></li>
+                        <li><a href="healthcare-interoperability.html" class="text-gray-600 hover:text-dsBlack transition text-sm">Interoperability</a></li>
+                        <li><a href="ehr-practice-management.html" class="text-gray-600 hover:text-dsBlack transition text-sm">EHR & Practice Management</a></li>
+                        <li><a href="population-health-management.html" class="text-gray-600 hover:text-dsBlack transition text-sm">Population Health Management</a></li>
+                        <li><a href="patient-engagement-portal.html" class="text-gray-600 hover:text-dsBlack transition text-sm">Patient Engagement Portals</a></li>
+                        <li><a href="healthcare-saas-development.html" class="text-gray-600 hover:text-dsBlack transition text-sm">Healthcare SaaS Development</a></li>
+                        <li><a href="healthcare-ai-ml-development.html" class="text-gray-600 hover:text-dsBlack transition text-sm">Healthcare AI & ML</a></li>
+                    </ul>
+                </div>
+
+                <div >
+                    <h3 class="text-xs font-medium text-dsBlue uppercase tracking-wider mb-4">Capabilities</h3>
+                    <ul class="space-y-2">
+                        <li><a href="healthcare-ai-ml-development.html" class="text-gray-600 hover:text-dsBlack transition text-sm">AI, ML, NLP</a></li>
+                        <li><a href="https://digitalscientists.com/mobile-app-development/" class="text-gray-600 hover:text-dsBlack transition text-sm">Mobile App Development</a></li>
+                        <li><a href="https://digitalscientists.com/web-application-development/" class="text-gray-600 hover:text-dsBlack transition text-sm">Web Application Development</a></li>
+                        <li><a href="healthcare-saas-development.html" class="text-gray-600 hover:text-dsBlack transition text-sm">SaaS Software Development</a></li>
+                        <li><a href="https://digitalscientists.com/healthcare/capabilities/software-as-medical-device-samd/" class="text-gray-600 hover:text-dsBlack transition text-sm">SaMD Medical Device</a></li>
+                        <li><a href="https://digitalscientists.com/healthcare/capabilities/healthcare-data-analytics-engineering/" class="text-gray-600 hover:text-dsBlack transition text-sm">Data Engineering</a></li>
+                        <li><a href="https://digitalscientists.com/cloud-application-development/" class="text-gray-600 hover:text-dsBlack transition text-sm">Cloud App Development</a></li>
+                        <li><a href="https://digitalscientists.com/iot-application-development/" class="text-gray-600 hover:text-dsBlack transition text-sm">IoT & Smart Device</a></li>
+                    </ul>
+                </div>
+
+                <div >
+                    <h3 class="text-xs font-medium text-dsBlue uppercase tracking-wider mb-4">EHR Integrations</h3>
+                    <div class="space-y-2 mb-6">
+                        <div class="text-gray-600 text-sm">PointClickCare</div>
+                        <div class="text-gray-600 text-sm">Epic</div>
+                        <div class="text-gray-600 text-sm">Gehrimed</div>
+                        <div class="text-gray-600 text-sm">Elation</div>
+                    </div>
+                    
+                    <h3 class="text-xs font-medium text-dsBlue uppercase tracking-wider mb-3">Compliance</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-dsGray text-gray-600 text-xs px-2 py-1 rounded">HIPAA</span>
+                        <span class="bg-dsGray text-gray-600 text-xs px-2 py-1 rounded">HL7/FHIR</span>
+                        <span class="bg-dsGray text-gray-600 text-xs px-2 py-1 rounded">SOC 2</span>
+                        <span class="bg-dsGray text-gray-600 text-xs px-2 py-1 rounded">BAA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why DS -->
+    <section class="py-20 px-6 bg-dsBlack text-white">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-2xl mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Why Digital Scientists</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-3">
+                    We're not a dev shop that did a healthcare project once.
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6">
+                <div >
+                    <h3 class="font-semibold text-white mb-2">We Operate</h3>
+                    <p class="text-gray-400 text-sm">26,000+ patients on NeverAlone. We eat our own cooking.</p>
+                </div>
+                <div >
+                    <h3 class="font-semibold text-white mb-2">75 Engineers</h3>
+                    <p class="text-gray-400 text-sm">US leadership + nearshore delivery. Same timezone, US legal.</p>
+                </div>
+                <div >
+                    <h3 class="font-semibold text-white mb-2">Reimbursement</h3>
+                    <p class="text-gray-400 text-sm">PDPM, RAF, VBC-we build software that drives revenue.</p>
+                </div>
+                <div >
+                    <h3 class="font-semibold text-white mb-2">100% Production</h3>
+                    <p class="text-gray-400 text-sm">vs 5% industry average. We ship what we build.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 px-6 bg-dsGray">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">What Our Partners Say</span>
+                <h2 class="text-3xl font-bold text-dsBlack mt-3">Trusted by healthcare leaders.</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-xl p-8 border border-gray-200">
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                        "I have worked with many technology teams during my career, and Digital Scientists is one of the best. They take the time to understand the customers' needs, deliver innovative solutions, are always professional, and work with your team as a true partner to achieve success."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="images/any-severino.png" 
+                             alt="Any Severino" 
+                             class="w-14 h-14 rounded-full object-cover"
+                             loading="lazy">
+                        <div>
+                            <p class="font-semibold text-dsBlack">Any Severino</p>
+                            <p class="text-gray-500 text-sm">Chief Innovation Officer, NeverAlone</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white rounded-xl p-8 border border-gray-200">
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                        "By applying a robust machine learning model to our app, DS helped us create a scalable and accurate solution to improve the operating room experience for the anesthesia team and the patient. They are true collaborators."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="images/justin-scott.png" 
+                             alt="Justin Scott, M.D." 
+                             class="w-14 h-14 rounded-full object-cover"
+                             loading="lazy">
+                        <div>
+                            <p class="font-semibold text-dsBlack">Justin Scott, M.D., FASA</p>
+                            <p class="text-gray-500 text-sm">CEO, Vigilant Medical Solutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 px-6 bg-dsBlue text-white">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div >
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to discuss your healthcare AI opportunity?</h2>
+                    <p class="text-blue-100 mb-6">
+                        30-minute call. No pitch. Just honest assessment of what's possible for your organization.
+                    </p>
+                    <ul class="space-y-2 text-blue-100">
+                        <li class="flex items-center gap-2"><span class="text-white">✓</span> Understand your situation and goals</li>
+                        <li class="flex items-center gap-2"><span class="text-white">✓</span> Assess opportunity and realistic ROI range</li>
+                        <li class="flex items-center gap-2"><span class="text-white">✓</span> Determine if there's a fit</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-8 rounded-xl text-dsBlack">
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-500 uppercase mb-1">First Name</label>
+                                <input type="text" class="w-full bg-dsGray border-none px-4 py-2.5 text-sm rounded-lg focus:ring-2 focus:ring-dsBlue outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-500 uppercase mb-1">Last Name</label>
+                                <input type="text" class="w-full bg-dsGray border-none px-4 py-2.5 text-sm rounded-lg focus:ring-2 focus:ring-dsBlue outline-none">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-500 uppercase mb-1">Email</label>
+                            <input type="email" class="w-full bg-dsGray border-none px-4 py-2.5 text-sm rounded-lg focus:ring-2 focus:ring-dsBlue outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-500 uppercase mb-1">Organization</label>
+                            <input type="text" class="w-full bg-dsGray border-none px-4 py-2.5 text-sm rounded-lg focus:ring-2 focus:ring-dsBlue outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-500 uppercase mb-1">Primary Interest</label>
+                            <select class="w-full bg-dsGray border-none px-4 py-2.5 text-sm rounded-lg focus:ring-2 focus:ring-dsBlue outline-none">
+                                <option>Documentation Automation</option>
+                                <option>Revenue Cycle / Back-Office AI</option>
+                                <option>Virtual Care Platform</option>
+                                <option>MDS / PDPM Optimization</option>
+                                <option>RAF / HCC Coding</option>
+                                <option>Platform Development / R&D</option>
+                                <option>General Healthcare AI Strategy</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">
+                            Schedule AI Opportunity Call
+                        </button>
+                    </form>
+                    <p class="text-center text-gray-500 text-sm mt-4">Or call: <a href="tel:4046543855" class="text-dsBlue font-medium">404.654.3855</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- DS 2.0 Footer - FINAL -->
+<!-- START DS-FOOTER -->
+
+<!-- DS 2.0 Footer - FINAL -->
+<!-- START DS-FOOTER -->
+
+<footer class="bg-[#2d2d2d] text-white pt-16 pb-8 px-6">
+    <div class="max-w-screen-xl mx-auto">
+        
+        <!-- Top Section: Newsletter + Links -->
+        <div class="grid lg:grid-cols-7 gap-10 mb-12">
+            
+            <!-- Newsletter Signup - Pipedrive Form (2 cols) -->
+            <div class="lg:col-span-2">
+                <h3 class="text-xl font-semibold mb-6">Follow our Insights</h3>
+                <div class="pipedriveWebForms" data-pd-webforms="https://webforms.pipedrive.com/f/1E1nwc9ALZntG4SRNIYwJUkjHczvQg85Vl6y3N60DtTeCyFqQQTPIOd3o87vfiuIj"></div>
+            </div>
+
+            <!-- Capabilities -->
+            <div>
+                <h4 class="text-sm font-medium text-white mb-4">Capabilities</h4>
+                <div class="space-y-3">
+                    <a href="https://digitalscientists.com/mobile-app-development/" class="block text-gray-400 hover:text-white text-sm">Mobile app development</a>
+                    <a href="https://digitalscientists.com/web-application-development/" class="block text-gray-400 hover:text-white text-sm">Web application development</a>
+                    <a href="https://digitalscientists.com/ai-ml-development/" class="block text-gray-400 hover:text-white text-sm">AI & machine learning</a>
+                    <a href="https://digitalscientists.com/cloud-application-development/" class="block text-gray-400 hover:text-white text-sm">Cloud application development</a>
+                    <a href="https://digitalscientists.com/iot-application-development/" class="block text-gray-400 hover:text-white text-sm">IoT application development</a>
+                </div>
+            </div>
+
+            <!-- Getting Started -->
+            <div>
+                <h4 class="text-sm font-medium text-white mb-4">Getting Started</h4>
+                <div class="space-y-3">
+                    <a href="https://digitalscientists.com/services/proof-of-concept/" class="block text-gray-400 hover:text-white text-sm">Proof of concept</a>
+                    <a href="https://digitalscientists.com/services/product-blueprint/" class="block text-gray-400 hover:text-white text-sm">Product blueprint</a>
+                    <a href="https://digitalscientists.com/services/mvp-development/" class="block text-gray-400 hover:text-white text-sm">Minimum viable product (MVP)</a>
+                    <a href="https://digitalscientists.com/services/new-product-development/" class="block text-gray-400 hover:text-white text-sm">New product development</a>
+                </div>
+            </div>
+
+            <!-- Experienced Team -->
+            <div>
+                <h4 class="text-sm font-medium text-white mb-4">Experienced Team</h4>
+                <div class="space-y-3">
+                    <a href="https://digitalscientists.com/product-management/" class="block text-gray-400 hover:text-white text-sm">Product management</a>
+                    <a href="https://digitalscientists.com/research-design/" class="block text-gray-400 hover:text-white text-sm">Research & design</a>
+                    <a href="https://digitalscientists.com/development/" class="block text-gray-400 hover:text-white text-sm">Development</a>
+                </div>
+                <h4 class="text-sm font-medium text-white mb-4 mt-6">Value Approach</h4>
+                <div class="space-y-3">
+                    <a href="https://digitalscientists.com/business-value/" class="block text-gray-400 hover:text-white text-sm">Business Value</a>
+                </div>
+            </div>
+
+            <!-- Our Approach + Company -->
+            <div>
+                <h4 class="text-sm font-medium text-white mb-4">Our Approach</h4>
+                <div class="space-y-3">
+                    <a href="https://digitalscientists.com/how-we-work/" class="block text-gray-400 hover:text-white text-sm">How we work</a>
+                    <a href="https://digitalscientists.com/what-we-do/" class="block text-gray-400 hover:text-white text-sm">What we do</a>
+                </div>
+                <h4 class="text-sm font-medium text-white mb-4 mt-6">Company</h4>
+                <div class="space-y-3">
+                    <a href="https://digitalscientists.com/about/" class="block text-gray-400 hover:text-white text-sm">Our story</a>
+                    <a href="https://digitalscientists.com/blog/" class="block text-gray-400 hover:text-white text-sm">Insights</a>
+                    <a href="https://digitalscientists.com/careers/" class="block text-gray-400 hover:text-white text-sm">Careers</a>
+                </div>
+            </div>
+
+            <!-- Case Studies + Social -->
+            <div>
+                <h4 class="text-sm font-medium text-white mb-4">Case studies</h4>
+                <div class="space-y-3">
+                    <a href="https://digitalscientists.com/work/" class="block text-gray-400 hover:text-white text-sm">View all work →</a>
+                </div>
+                <h4 class="text-sm font-medium text-white mb-4 mt-6">Social</h4>
+                <div class="space-y-3">
+                    <a href="https://www.linkedin.com/company/digital-scientists/" class="block text-gray-400 hover:text-white text-sm">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Brand + Address Section -->
+        <div class="border-t border-gray-700 pt-8 mb-8">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+                <div>
+                    <img src="1012DS_Logo_Native_Black (1).svg" alt="Digital Scientists" class="h-10 brightness-0 invert">
+                    <div class="mt-4 text-gray-400 text-sm font-mono">
+                        <p>21 south main street</p>
+                        <p>alpharetta, ga 30009</p>
+                        <p class="mt-2">404.654.3855</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-500 text-sm font-mono">© 2007 - 2026 digital scientists, llc.</p>
+            <a href="https://digitalscientists.com/privacy-policy/" class="text-gray-500 hover:text-white text-sm font-mono">privacy policy</a>
+        </div>
+    </div>
+</footer>
+
+<!-- Pipedrive Web Forms Script -->
+<script src="https://webforms.pipedrive.com/f/loader"></script>
+<!-- END DS-FOOTER -->
+
+
+</body>
+</html>
