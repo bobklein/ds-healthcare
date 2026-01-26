@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intelligent Scheduling | Healthcare AI Solutions | Digital Scientists</title>
+    <title>Patient No-Show Prediction AI | Healthcare AI Framework | Digital Scientists</title>
+    <meta name="description" content="Reduce no-show rates by 20-40% with AI-powered scheduling optimization. Learn implementation requirements, ROI expectations, and fit assessment for healthcare organizations.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -24,24 +28,47 @@
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', system-ui, sans-serif; }
-        h1, h2, h3 { letter-spacing: -0.02em; }
-        
-        
-        
-    
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    <!-- Schema.org FAQ markup for LLM discoverability -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is patient no-show prediction AI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Patient no-show prediction AI uses machine learning to estimate the probability that each scheduled appointment will result in a no-show. The model analyzes patient history, appointment type, lead time, day of week, and historical attendance patterns to generate risk scores that enable smart overbooking and targeted reminder interventions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much can AI reduce patient no-show rates?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Organizations typically see 20-40% relative reduction in no-show rates and 5-10% improvement in provider utilization. For a practice with 15% no-show rate, this could mean reducing to 9-12%, recovering thousands of appointment slots annually."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How long does it take to implement no-show prediction?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Implementation typically takes 12-16 weeks: 4 weeks for data integration and model training, 4-6 weeks for workflow integration and testing, and 4-6 weeks for parallel running and optimization. Full ROI measurement requires 90+ days of production use."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What data is needed for no-show prediction AI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Required data includes scheduling system exports with appointment history, show/no-show outcomes, patient demographics, appointment types, and scheduling lead times. EHR read access is beneficial but not required for basic implementation."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body class="bg-white text-dsBlack antialiased">
 <!-- DS 2.0 Navigation - FINAL -->
@@ -311,7 +338,17 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
-</style>
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 
 <!-- Utility Bar -->
 <div class="ds-utility-bar">
@@ -603,299 +640,315 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
-<!-- Hero Section -->
-    <header class="pt-32 pb-16 px-6">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-3xl">
-                <div class="flex items-center gap-3 mb-6">
-                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">AI Solution Framework</span>
-                    <span class="bg-gray-200 text-gray-700 text-xs font-medium px-2 py-1 rounded">Quick Win</span>
-                </div>
-                
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dsBlack mb-6 leading-[1.1]">
-                    15-20% no-shows. Wasted drive time. Your schedule is leaving money on the table.
-                </h1>
-                
-                <div class="my-8 rounded-xl overflow-hidden shadow-lg fade-up">
-                    <img src="images/case-studies/ipad-app-full-schedule.png" alt="Intelligent Scheduling Interface" class="w-full">
-                </div>
-                
-                <p class="text-xl text-gray-600 leading-relaxed mb-8">
-                    Every missed visit is lost revenue. Every extra mile driven is margin erosion. Intelligent scheduling uses AI to predict no-shows, optimize routes, and match patient needs to staff capabilities-turning your schedule from a cost center into a competitive advantage.
-                </p>
+<!-- Hero -->
+    <header class="py-12 px-6 bg-gradient-to-br from-dsBlack to-gray-800 text-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="bg-amber-500/20 text-amber-300 text-xs font-medium px-3 py-1 rounded-full">Medium Complexity</span>
+                <span class="text-gray-400 text-sm">12-16 weeks to deploy</span>
             </div>
-
-            <!-- Stats Row -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <span class="text-3xl md:text-4xl font-bold text-dsBlue">15%</span>
-                    <p class="text-gray-500 text-sm mt-1">Visit Completion Improvement</p>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Patient No-Show Prediction</h1>
+            <p class="text-xl text-gray-300 mb-6">AI-powered scheduling optimization that predicts which appointments are at risk—enabling smart overbooking and targeted interventions.</p>
+            <div class="grid grid-cols-3 gap-6 pt-6 border-t border-white/20">
+                <div>
+                    <span class="text-3xl font-bold text-dsBlue">20-40%</span>
+                    <p class="text-gray-400 text-sm">Reduction in no-shows</p>
                 </div>
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">20%</span>
-                    <p class="text-gray-500 text-sm mt-1">Drive Time Reduction</p>
+                <div>
+                    <span class="text-3xl font-bold">5-10%</span>
+                    <p class="text-gray-400 text-sm">Provider utilization gain</p>
                 </div>
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">Lower</span>
-                    <p class="text-gray-500 text-sm mt-1">No-Show Rates</p>
-                </div>
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">3 mo</span>
-                    <p class="text-gray-500 text-sm mt-1">Typical Implementation</p>
+                <div>
+                    <span class="text-3xl font-bold">12-16</span>
+                    <p class="text-gray-400 text-sm">Weeks to deploy</p>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Why Quick Win -->
-    <section class="py-20 px-6 bg-dsGray">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="fade-up" >
-                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Why Quick Win</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
-                        Start here. Build momentum. Prove AI works.
-                    </h2>
-                    <p class="text-gray-600 mb-4">
-                        Scheduling optimization is often the ideal first AI project. Why? Clear metrics. Fast implementation. Visible results. It demonstrates AI value to your organization in months, not years-building the confidence to tackle larger initiatives.
-                    </p>
-                    <p class="text-gray-600 mb-4">
-                        The data you need already exists in your systems. The problem is well-defined. The ROI is measurable. And the political risk is low-you're improving operations, not disrupting clinical workflows.
-                    </p>
-                    <p class="text-gray-600">
-                        Many organizations start with scheduling, prove value, and then expand to documentation automation, revenue cycle, or virtual care. The quick win creates the foundation for larger transformation.
-                    </p>
-                </div>
+    <!-- Main Content -->
+    <main class="py-12 px-6">
+        <div class="max-w-4xl mx-auto">
+            
+            <!-- Problem Section -->
+            <section class="mb-16 bg-dsGray" id="problem">
+                <h2 class="text-2xl font-bold mb-6">The Problem in Dollar Terms</h2>
                 
-                <div >
-                    <div class="bg-white border border-gray-200 rounded-xl p-8">
-                        <h3 class="font-semibold text-dsBlack mb-6">Why scheduling works as first AI project:</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-3">
-                                <span class="text-dsBlue mt-0.5">Y</span>
-                                <div>
-                                    <p class="text-dsBlack font-medium">Clear metrics</p>
-                                    <p class="text-gray-500 text-sm">Visit completion, drive time, utilization-easy to measure before and after.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-dsBlue mt-0.5">Y</span>
-                                <div>
-                                    <p class="text-dsBlack font-medium">Fast implementation</p>
-                                    <p class="text-gray-500 text-sm">3-month typical timeline. Results visible quickly.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-dsBlue mt-0.5">Y</span>
-                                <div>
-                                    <p class="text-dsBlack font-medium">Low political risk</p>
-                                    <p class="text-gray-500 text-sm">Operations improvement, not clinical workflow change.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-dsBlue mt-0.5">Y</span>
-                                <div>
-                                    <p class="text-dsBlack font-medium">Builds momentum</p>
-                                    <p class="text-gray-500 text-sm">Proves AI works. Creates foundation for larger initiatives.</p>
-                                </div>
-                            </div>
+                <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg mb-6">
+                    <h3 class="font-semibold text-red-900 mb-2">The cost of empty chairs</h3>
+                    <p class="text-red-800">A practice with 10 providers averaging 20 appointments/day at 15% no-show rate loses 30 appointments daily. At $150 average reimbursement, that's $4,500/day or <strong>$1.1M+ annually</strong> in lost revenue—plus the downstream effects on patient outcomes and staff morale.</p>
+                <div class="my-8 fade-up">
+                    <img src="images/case-studies/ipad-app-full-schedule.png" alt="Scheduling optimization" class="rounded-xl shadow-lg w-full max-w-3xl mx-auto">
+                </div>
+
+                </div>
+
+                <p class="text-gray-700 mb-4">No-show rates in healthcare typically range from 15-25%, but the pattern isn't random. Certain patients, appointment types, and scheduling patterns predictably correlate with higher no-show risk. The problem is that static overbooking rules can't adapt to these patterns—they either leave gaps or create operational chaos.</p>
+
+                <p class="text-gray-700 mb-4">Generic reminder systems help, but they treat all appointments equally. A patient with 95% historical attendance doesn't need the same intervention as one with 40% attendance. Without risk stratification, you're either over-investing in reminders for reliable patients or under-investing for high-risk ones.</p>
+
+                <h3 class="font-semibold text-lg mt-8 mb-4">What no-show prediction actually does</h3>
+                <p class="text-gray-700 mb-4">A predictive model analyzes each scheduled appointment and assigns a no-show probability score based on:</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
+                    <li><strong>Patient history:</strong> Prior attendance patterns, cancellation behavior, demographics</li>
+                    <li><strong>Appointment factors:</strong> Type of visit, provider, time of day, day of week</li>
+                    <li><strong>Scheduling factors:</strong> Lead time (how far in advance booked), source of appointment</li>
+                    <li><strong>External factors:</strong> Weather patterns, holidays, local events (where data available)</li>
+                </ul>
+
+                <p class="text-gray-700">This enables two key interventions: <strong>smart overbooking</strong> (scheduling more appointments when high-risk slots are detected) and <strong>targeted outreach</strong> (extra reminders, transportation offers, or personal calls for high-risk patients).</p>
+            </section>
+
+            <!-- Fit Assessment -->
+            <section class="mb-16 bg-dsGray" id="fit-assessment">
+                <h2 class="text-2xl font-bold mb-6">The 5-Minute Fit Assessment</h2>
+                <p class="text-gray-600 mb-6">Check the boxes that apply. Four or more? This is worth exploring. Fewer than three? You may have simpler problems to solve first.</p>
+
+                <div class="space-y-4">
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">Your no-show rate exceeds 10%</strong>
+                            <p class="text-gray-600 text-sm">Below 10%, the ROI calculation gets tighter. Above 15%, there's almost certainly significant value to capture.</p>
                         </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">You have 12+ months of scheduling data with outcomes</strong>
+                            <p class="text-gray-600 text-sm">The model needs to see seasonal patterns—flu season, summer vacation, holidays. Less than a year of data limits accuracy.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">You schedule at least 500 appointments per week</strong>
+                            <p class="text-gray-600 text-sm">Lower volumes don't generate enough signal for meaningful pattern detection. The math works better at scale.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">Your current overbooking is either nonexistent or crude</strong>
+                            <p class="text-gray-600 text-sm">If you're using flat overbooking rules (e.g., "always book 110%"), there's room for optimization. If you already have sophisticated dynamic overbooking, the lift may be smaller.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">Someone can act on the predictions</strong>
+                            <p class="text-gray-600 text-sm">You need scheduling staff empowered to overbook high-risk slots or patient outreach capacity to contact high-risk appointments. Predictions without action are useless.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">Provider schedules have measurable financial impact</strong>
+                            <p class="text-gray-600 text-sm">If providers are salaried with no productivity component and you're not capacity-constrained, the ROI shifts to patient access rather than revenue.</p>
+                        </div>
+                    </label>
+                </div>
+            </section>
+
+            <!-- What You Need -->
+            <section class="mb-16 bg-dsGray" id="what-you-need">
+                <h2 class="text-2xl font-bold mb-6">What You Need to Have Ready</h2>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-8 fade-up">
+                    <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+                        <h3 class="font-semibold text-green-900 mb-3">✓ Required</h3>
+                        <ul class="text-green-800 space-y-2 text-sm">
+                            <li>• Scheduling system data export capability</li>
+                            <li>• Historical appointments with show/no-show outcomes</li>
+                            <li>• Patient identifiers to link appointments</li>
+                            <li>• Appointment types and provider assignments</li>
+                            <li>• Scheduling timestamps (when booked, when scheduled)</li>
+                        </ul>
+                    </div>
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                        <h3 class="font-semibold text-blue-900 mb-3">◐ Beneficial but optional</h3>
+                        <ul class="text-blue-800 space-y-2 text-sm">
+                            <li>• Patient demographics from EHR</li>
+                            <li>• Insurance/coverage information</li>
+                            <li>• Prior appointment history (cancellations, reschedules)</li>
+                            <li>• Contact information for outreach workflows</li>
+                            <li>• Integration with reminder/outreach systems</li>
+                        </ul>
                     </div>
                 </div>
-            </div>
+
+                <h3 class="font-semibold text-lg mb-4">Organizational readiness</h3>
+                <p class="text-gray-700 mb-4"><strong>Process change authority:</strong> Someone needs the ability to change how scheduling staff work. If the model says "overbook this slot," will anyone do it?</p>
+                <p class="text-gray-700 mb-4"><strong>Intervention capacity:</strong> For high-risk appointments, you need a response mechanism—whether that's automated enhanced reminders, personal phone calls, or transportation assistance.</p>
+                <p class="text-gray-700"><strong>Tolerance for imperfection:</strong> The model will sometimes be wrong. A patient flagged as high-risk will show up; a low-risk patient won't. You need to accept probabilistic improvement, not perfection.</p>
+            </section>
+
+            <!-- Build vs Buy -->
+            <section class="mb-16 bg-dsGray" id="build-buy-partner">
+                <h2 class="text-2xl font-bold mb-6">Build vs. Buy vs. Partner</h2>
+
+                <div class="grid md:grid-cols-3 gap-6 mb-8 fade-up">
+                    <div class="border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-3">Build internally when:</h3>
+                        <ul class="text-gray-600 text-sm space-y-2">
+                            <li>• You have data science resources with healthcare scheduling experience</li>
+                            <li>• You can wait 6-12 months for meaningful results</li>
+                            <li>• You want full model ownership and customization control</li>
+                            <li>• You're willing to maintain and retrain indefinitely</li>
+                        </ul>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-3">Buy off-the-shelf when:</h3>
+                        <ul class="text-gray-600 text-sm space-y-2">
+                            <li>• Your no-show patterns are typical for your specialty</li>
+                            <li>• You want quick deployment with minimal customization</li>
+                            <li>• You're okay with industry-average predictions</li>
+                            <li>• Budget is more constrained than time</li>
+                        </ul>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-6 border-dsBlue bg-blue-50/30">
+                        <h3 class="font-semibold mb-3">Partner for custom when:</h3>
+                        <ul class="text-gray-600 text-sm space-y-2">
+                            <li>• Your patient population has unique characteristics</li>
+                            <li>• You want the model trained on YOUR patterns</li>
+                            <li>• You need integration with existing scheduling workflows</li>
+                            <li>• You want accountability to outcomes, not just software</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg">
+                    <h3 class="font-semibold text-amber-900 mb-2">Why custom matters here</h3>
+                    <p class="text-amber-800 text-sm">No-show patterns are intensely local. The factors that predict no-shows at an urban safety-net clinic (transportation, childcare, work schedules) differ completely from those at a suburban specialty practice (forgetfulness, competing priorities). Generic models trained on industry data systematically miss these local patterns.</p>
+                </div>
+            </section>
+
+            <!-- Red Flags -->
+            <section class="mb-16" id="red-flags">
+                <h2 class="text-2xl font-bold mb-6">Red Flags: When to Wait</h2>
+
+                <div class="space-y-4">
+                    <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+                        <h3 class="font-semibold text-red-900 mb-2">Your scheduling data is unreliable</h3>
+                        <p class="text-red-700 text-sm">If appointments are frequently created, modified, or deleted without tracking—or if no-show vs. cancellation vs. reschedule isn't consistently recorded—fix the data quality first.</p>
+                    </div>
+
+                    <div class="bg-dsGray border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-2">You're changing scheduling systems</h3>
+                        <p class="text-gray-600 text-sm">If you're migrating to a new practice management or scheduling platform within 12 months, wait. The model needs stable data sources and will require retraining after migration.</p>
+                    </div>
+
+                    <div class="bg-dsGray border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-2">Your no-shows are mostly preventable with basic reminders</h3>
+                        <p class="text-gray-600 text-sm">If you're not doing automated appointment reminders at all, start there. Basic SMS reminders often reduce no-shows by 10-20% with minimal investment. Prediction adds value on top of good reminder infrastructure.</p>
+                    </div>
+
+                    <div class="bg-dsGray border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-2">Provider schedules aren't the bottleneck</h3>
+                        <p class="text-gray-600 text-sm">If you have excess provider capacity and patient demand is the constraint, no-show prediction doesn't help. Focus on patient acquisition instead.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Questions to Ask Vendors -->
+            <section class="mb-16" id="questions">
+                <h2 class="text-2xl font-bold mb-6">Questions to Ask Any Vendor</h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-semibold text-dsBlue mb-3">On their approach:</h3>
+                        <ul class="text-gray-700 space-y-2 text-sm">
+                            <li>"How does your model adapt to our specific patient population, not just industry averages?"</li>
+                            <li>"What features drive your predictions? Can we see feature importance for our data?"</li>
+                            <li>"How often is the model retrained? Does accuracy degrade over time?"</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-semibold text-dsBlue mb-3">On implementation:</h3>
+                        <ul class="text-gray-700 space-y-2 text-sm">
+                            <li>"How does the prediction integrate into our scheduling workflow? Where do staff see it?"</li>
+                            <li>"What's the recommended intervention for high-risk appointments?"</li>
+                            <li>"How do you handle overbooking recommendations when providers resist?"</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-semibold text-dsBlue mb-3">On results:</h3>
+                        <ul class="text-gray-700 space-y-2 text-sm">
+                            <li>"What reduction in no-show rate should we expect? Show me comparable customers."</li>
+                            <li>"How do you measure success—prediction accuracy or actual no-show reduction?"</li>
+                            <li>"What happens if we don't see results in 6 months?"</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Self Assessment Calculator -->
+            <section class="mb-16 bg-dsGray rounded-2xl p-8" id="calculator">
+                <h2 class="text-2xl font-bold mb-6">Quick ROI Estimate</h2>
+                <p class="text-gray-600 mb-6">Plug in your numbers for a rough estimate of potential value.</p>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-6 fade-up">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Weekly appointments</label>
+                        <input type="number" placeholder="500" class="w-full border border-gray-300 rounded-lg px-4 py-3">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Current no-show rate (%)</label>
+                        <input type="number" placeholder="15" class="w-full border border-gray-300 rounded-lg px-4 py-3">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Average reimbursement per visit ($)</label>
+                        <input type="number" placeholder="150" class="w-full border border-gray-300 rounded-lg px-4 py-3">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Expected reduction (%)</label>
+                        <input type="number" placeholder="30" class="w-full border border-gray-300 rounded-lg px-4 py-3">
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg p-6 border border-gray-200">
+                    <p class="text-sm text-gray-600 mb-2">Estimated annual value recovery:</p>
+                    <p class="text-3xl font-bold text-dsBlue">$117,000 - $234,000</p>
+                    <p class="text-sm text-gray-500 mt-2">Based on 500 weekly appointments, 15% no-show rate, $150/visit, 20-40% improvement</p>
+                </div>
+            </section>
+
+            <!-- Related Frameworks -->
+            <section class="mb-16" id="related">
+                <h2 class="text-2xl font-bold mb-6">Related Frameworks</h2>
+                <div class="grid md:grid-cols-2 gap-6 fade-up">
+                    <a href="ai-framework-denial-prediction.html" class="border border-gray-200 rounded-lg p-6 hover:border-dsBlue transition group">
+                        <span class="text-xs text-amber-600 font-medium">Medium Complexity</span>
+                        <h3 class="font-semibold mt-2 group-hover:text-dsBlue transition">Claim Denial Prediction</h3>
+                        <p class="text-gray-600 text-sm mt-2">Predict and prevent denials before submission.</p>
+                    </a>
+                    <a href="ai-framework-coding-assistance.html" class="border border-gray-200 rounded-lg p-6 hover:border-dsBlue transition group">
+                        <span class="text-xs text-amber-600 font-medium">Medium Complexity</span>
+                        <h3 class="font-semibold mt-2 group-hover:text-dsBlue transition">Medical Coding Assistance</h3>
+                        <p class="text-gray-600 text-sm mt-2">AI-assisted coding with documentation analysis.</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="bg-dsBlue text-white rounded-2xl p-8 text-center">
+                <h2 class="text-2xl font-bold mb-4">Ready to explore no-show prediction for your organization?</h2>
+                <p class="text-blue-100 mb-6 max-w-xl mx-auto">We'll analyze your scheduling data and estimate the potential impact—no commitment, no sales pitch, just data.</p>
+                <div class="flex gap-4 justify-center">
+                    <a href="healthcare-assessment.html" class="bg-white text-dsBlack px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition">Get Assessment</a>
+                    <a href="healthcare-ai-guides-landing.html" class="border border-white/30 text-white px-6 py-3 rounded-full font-medium hover:bg-white/10 transition">View All Frameworks</a>
+                </div>
+            </section>
+
         </div>
-    </section>
-
-    <!-- The Problem -->
-    <section class="py-20 px-6">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="fade-up max-w-2xl mb-12">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Problem</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
-                    Manual scheduling can't optimize at scale.
-                </h2>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <span class="text-4xl font-bold text-dsBlack">15-20%</span>
-                    <h3 class="font-semibold text-dsBlack mt-3 mb-2">No-show rates</h3>
-                    <p class="text-gray-500 text-sm">Every no-show is a slot you can't fill. Staff sitting idle. Revenue gone. And you couldn't predict which patients would skip.</p>
-                </div>
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <span class="text-4xl font-bold text-dsBlack">Hours</span>
-                    <h3 class="font-semibold text-dsBlack mt-3 mb-2">Wasted on the road</h3>
-                    <p class="text-gray-500 text-sm">Home health staff driving inefficient routes. Criss-crossing territories. Time in cars instead of with patients.</p>
-                </div>
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <span class="text-4xl font-bold text-dsBlack">Mismatch</span>
-                    <h3 class="font-semibold text-dsBlack mt-3 mb-2">Staff to patient needs</h3>
-                    <p class="text-gray-500 text-sm">Complex patients assigned to new staff. Specialists doing routine visits. Capacity not matched to acuity.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Solution -->
-    <section class="py-20 px-6 bg-dsBlack text-white">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="fade-up max-w-2xl mb-12">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Solution</span>
-                <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
-                    AI that learns your patterns and optimizes every dimension.
-                </h2>
-                <p class="text-gray-300">
-                    Not just a prettier calendar. Intelligent scheduling learns from your historical data-which patients no-show, which routes work, which staff excel with which cases. The longer you use it, the smarter it gets.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="border border-gray-700 rounded-xl p-6">
-                    <h3 class="font-semibold text-white mb-3">No-Show Prediction</h3>
-                    <p class="text-gray-400 text-sm">ML models trained on your historical patterns. Identifies which patients are likely to miss. Enables proactive interventions, strategic overbooking, and automatic backfill.</p>
-                </div>
-                <div class="border border-gray-700 rounded-xl p-6">
-                    <h3 class="font-semibold text-white mb-3">Route Optimization</h3>
-                    <p class="text-gray-400 text-sm">Geographic clustering of visits. Traffic-aware routing. Minimize drive time, maximize patient time. Especially impactful for home health.</p>
-                </div>
-                <div class="border border-gray-700 rounded-xl p-6">
-                    <h3 class="font-semibold text-white mb-3">Capacity Matching</h3>
-                    <p class="text-gray-400 text-sm">Patient acuity matched to staff skills and experience. Complex patients get experienced clinicians. Routine visits distributed efficiently.</p>
-                </div>
-                <div class="border border-gray-700 rounded-xl p-6">
-                    <h3 class="font-semibold text-white mb-3">Dynamic Rebalancing</h3>
-                    <p class="text-gray-400 text-sm">Real-time adjustments for cancellations. Automatic rescheduling. Fill gaps as they appear. Keep utilization high.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Use Cases -->
-    <section class="py-20 px-6">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="fade-up max-w-2xl mb-12">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Use Cases</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
-                    Where intelligent scheduling delivers.
-                </h2>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="border border-gray-200 rounded-xl p-8">
-                    <h3 class="text-xl font-bold text-dsBlack mb-3">Home Health & Hospice</h3>
-                    <p class="text-gray-600 mb-4">
-                        Route optimization is the obvious win-20% less driving. But also: predictive no-shows, territory balancing, and skill-based assignment. Clinicians see more patients with less windshield time.
-                    </p>
-                    <p class="text-dsBlue text-sm font-medium">Impact: 20% drive time reduction, more visits per day</p>
-                </div>
-                
-                <div class="border border-gray-200 rounded-xl p-8">
-                    <h3 class="text-xl font-bold text-dsBlack mb-3">Outpatient Clinics</h3>
-                    <p class="text-gray-600 mb-4">
-                        No-show prediction enables smarter overbooking. Wait time reduction through better slot sizing. Provider utilization optimization. Patient satisfaction improvement.
-                    </p>
-                    <p class="text-dsBlue text-sm font-medium">Impact: 15% more completed visits, reduced patient wait times</p>
-                </div>
-                
-                <div class="border border-gray-200 rounded-xl p-8">
-                    <h3 class="text-xl font-bold text-dsBlack mb-3">Skilled Nursing Facilities</h3>
-                    <p class="text-gray-600 mb-4">
-                        Therapy scheduling optimization. Dining and activity coordination. Staff shift optimization. Physician rounding schedules. Multiple scheduling dimensions, one intelligent system.
-                    </p>
-                    <p class="text-dsBlue text-sm font-medium">Impact: Improved therapy minutes, better staff utilization</p>
-                </div>
-                
-                <div class="border border-gray-200 rounded-xl p-8">
-                    <h3 class="text-xl font-bold text-dsBlack mb-3">Multi-Site Operations</h3>
-                    <p class="text-gray-600 mb-4">
-                        Resource sharing across locations. Float pool optimization. Demand balancing between facilities. Centralized visibility with local flexibility.
-                    </p>
-                    <p class="text-dsBlue text-sm font-medium">Impact: Better resource utilization across network</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ROI Model -->
-    <section class="py-20 px-6 bg-dsGray">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="fade-up max-w-2xl mb-12">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">ROI Model</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
-                    Fast payback. Measurable impact.
-                </h2>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white border border-gray-200 rounded-xl p-6">
-                    <h3 class="font-semibold text-dsBlack mb-3">Revenue Recovery</h3>
-                    <p class="text-gray-600 text-sm mb-4">More completed visits from same scheduled slots. Reduced no-show impact. Better slot utilization.</p>
-                    <p class="text-dsBlue font-medium">15% visit completion improvement</p>
-                </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6">
-                    <h3 class="font-semibold text-dsBlack mb-3">Cost Reduction</h3>
-                    <p class="text-gray-600 text-sm mb-4">Less time driving. Less overtime from poor scheduling. Better staff utilization.</p>
-                    <p class="text-dsBlue font-medium">20% drive time reduction</p>
-                </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6">
-                    <h3 class="font-semibold text-dsBlack mb-3">Capacity Unlock</h3>
-                    <p class="text-gray-600 text-sm mb-4">See more patients without adding staff. Time recovered from driving and gaps goes to patient care.</p>
-                    <p class="text-dsBlue font-medium">More patients, same headcount</p>
-                </div>
-            </div>
-
-            <div class="mt-8 p-6 bg-white border border-gray-200 rounded-xl">
-                <p class="text-dsBlack font-medium mb-2">Typical implementation timeline:</p>
-                <p class="text-gray-600">3 months from kickoff to production. Month 1: Data integration and model training. Month 2: Pilot with one team or location. Month 3: Rollout and optimization. Results visible quickly-often within weeks of pilot launch.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Related Solutions -->
-    <section class="py-20 px-6">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="fade-up max-w-2xl mb-12">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">What's Next</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3">
-                    After scheduling, where do you go?
-                </h2>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <a href="healthcare-ai-documentation-automation.html" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
-                    <span class="text-xs text-green-600 font-medium uppercase tracking-wider">Fastest Payback</span>
-                    <h3 class="font-bold text-dsBlack mt-2 mb-2 group-hover:text-dsBlue transition">AI Documentation Automation</h3>
-                    <p class="text-gray-500 text-sm">Now that you have more visits, reduce documentation burden. 45→5 min per visit.</p>
-                </a>
-                
-                <a href="healthcare-ai-back-office-agents.html" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
-                    <span class="text-xs text-dsBlue font-medium uppercase tracking-wider">Highest ROI</span>
-                    <h3 class="font-bold text-dsBlack mt-2 mb-2 group-hover:text-dsBlue transition">Intelligent Back-Office Agents</h3>
-                    <p class="text-gray-500 text-sm">Scheduling proven? Apply AI to revenue cycle. 200-300 bps EBITDA improvement.</p>
-                </a>
-                
-                <a href="healthcare-ai-virtual-care-assistants.html" class="group border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
-                    <span class="text-xs text-purple-600 font-medium uppercase tracking-wider">Proven at Scale</span>
-                    <h3 class="font-bold text-dsBlack mt-2 mb-2 group-hover:text-dsBlue transition">Virtual Care Assistants</h3>
-                    <p class="text-gray-500 text-sm">Extend clinical capacity without more headcount. 3x patients per nurse.</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-20 px-6 bg-dsBlue text-white">
-        <div class="max-w-screen-xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready for a quick win?</h2>
-            <p class="text-blue-100 mb-8 max-w-2xl mx-auto">
-                30-minute discovery call to understand your scheduling challenges and assess the opportunity. Start small, prove value, build momentum.
-            </p>
-            <a href="healthcare-assessment.html" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition">
-                Schedule AI Opportunity Assessment
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
-        </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <!-- DS 2.0 Footer - FINAL -->
