@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAF/HCC Coding Case Study | Digital Scientists</title>
-    <meta name="description" content="$10M+ risk adjustment improvements, 90%+ diagnosis accuracy. AI-powered RAF/HCC coding serving 20K+ patients across 7 states with 245 providers.">
+    <title>A/R Collection Prioritization | Healthcare AI Guides | Digital Scientists</title>
+    <meta name="description" content="AI-powered accounts receivable prioritization for healthcare. Predict which claims to work first, reduce bad debt 5-15%, improve collections. 8-14 week implementation.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -28,103 +28,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', system-ui, sans-serif; }
-        h1, h2, h3 { letter-spacing: -0.02em; }
-        
-        /* Lightbox styles for enlargeable images */
-        .enlargeable-container {
-            position: relative;
-            cursor: zoom-in;
-        }
-        .enlargeable-container::after {
-            content: '';
-            position: absolute;
-            bottom: 8px;
-            right: 8px;
-            width: 28px;
-            height: 28px;
-            background: rgba(0,0,0,0.6);
-            border-radius: 6px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7'/%3E%3C/svg%3E");
-            background-size: 18px;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-        .enlargeable-container:hover::after {
-            opacity: 1;
-        }
-        
-        /* Lightbox modal */
-        .lightbox-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 9999;
-            cursor: zoom-out;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .lightbox-overlay.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .lightbox-content {
-            max-width: 95%;
-            max-height: 95%;
-            object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s;
-        }
-        .lightbox-close:hover {
-            background: rgba(255,255,255,0.2);
-        }
-        .lightbox-close svg {
-            width: 24px;
-            height: 24px;
-            stroke: white;
-        }
-        .lightbox-caption {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: white;
-            font-size: 14px;
-            text-align: center;
-            max-width: 80%;
-            opacity: 0.8;
-        }
-    
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .nav-dropdown { position: relative; }
+        .nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 0; padding-top: 8px; z-index: 100; }
+        .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+        .nav-dropdown-menu.right-aligned { left: auto; right: 0; }
     </style>
 </head>
 <body class="bg-white text-dsBlack antialiased">
@@ -687,431 +596,325 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
-<!-- Hero Section -->
-    <header class="pt-32 pb-16 px-6">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-3xl">
-                <div class="flex items-center gap-3 mb-6">
-                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Case Study</span>
-                    <span class="text-xs text-gray-400">*</span>
-                    <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">RAF / HCC Coding</span>
-                </div>
-                
-                <h1 class="text-4xl md:text-5xl font-bold text-dsBlack mb-6 leading-[1.1]">
-                    $10M+ in risk adjustment improvements. 90%+ diagnosis accuracy. 7 states.
-                </h1>
-                
-                <p class="text-xl text-gray-600 leading-relaxed mb-8">
-                    A value-based care organization serving Medicare Advantage patients needed to improve risk adjustment accuracy. Missed HCC codes were leaving millions on the table. We built an AI-powered platform that transformed their RAF scores while reducing audit risk.
-                </p>
-            </div>
-            
-            <!-- Results Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <span class="text-3xl md:text-4xl font-bold text-dsBlue">$10M+</span>
-                    <p class="text-gray-500 text-sm mt-1">RAF Improvements</p>
-                </div>
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">90%+</span>
-                    <p class="text-gray-500 text-sm mt-1">Diagnosis Accuracy</p>
-                </div>
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">20K+</span>
-                    <p class="text-gray-500 text-sm mt-1">Patients Served</p>
-                </div>
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">245</span>
-                    <p class="text-gray-500 text-sm mt-1">Providers</p>
-                </div>
-            </div>
+<!-- Hero -->
+<header class="pt-32 pb-12 px-6">
+    <div class="max-w-4xl mx-auto">
+        <div class="flex items-center gap-2 text-sm mb-6">
+            <a href="healthcare-ai-guides-landing.html" class="text-dsBlue hover:underline">AI Guides</a>
+            <span class="text-gray-400">/</span>
+            <span class="text-gray-600">Quick Win</span>
         </div>
-    </header>
-
-    <!-- Hero Image -->
-    <section class="px-6 pb-20">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="rounded-xl overflow-hidden h-80 bg-gray-100 enlargeable-container" onclick="openLightbox(this.querySelector('img'))">
-                <img src="images/case-studies/raf-hero.png" alt="RAF/HCC Coding Platform - Average RAF Score Dashboard with facility filters and CMS scoring algorithms" class="w-full h-full object-cover object-top">
-            </div>
+        
+        <div class="inline-flex items-center gap-2 bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm font-medium mb-4">
+            <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+            8-14 weeks to deploy
         </div>
-    </section>
-
-    <!-- The Challenge -->
-    <section class="py-20 px-6 bg-dsGray">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-12">
-                <div >
-                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Challenge</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
-                        Millions in missed risk adjustment from incomplete coding.
-                    </h2>
-                    <p class="text-gray-600 mb-6">
-                        In Medicare Advantage and value-based care models, accurate risk adjustment is everything. HCC codes determine payment rates. Missed diagnoses mean missed revenue-and inaccurate patient risk profiles that affect care planning.
-                    </p>
-                    <p class="text-gray-600 mb-6">
-                        This organization had a problem at scale: 20,000+ patients across 7 states, 245 providers, and no systematic way to ensure diagnoses documented in clinical notes were being captured in claims. The gap between documentation and coding was costing millions.
-                    </p>
-                </div>
-                
-                <div >
-                    <div class="bg-white border border-gray-200 rounded-xl p-8">
-                        <h3 class="font-semibold text-dsBlack mb-4">The Risk Adjustment Challenge</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-3">
-                                <span class="text-red-500 text-lg">X</span>
-                                <div>
-                                    <p class="text-dsBlack font-medium">Documentation-to-coding gap</p>
-                                    <p class="text-gray-500 text-sm">Diagnoses documented in notes but not making it to claims</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-red-500 text-lg">X</span>
-                                <div>
-                                    <p class="text-dsBlack font-medium">Chronic condition recapture</p>
-                                    <p class="text-gray-500 text-sm">HCCs from prior years not being recaptured annually</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-red-500 text-lg">X</span>
-                                <div>
-                                    <p class="text-dsBlack font-medium">Audit risk</p>
-                                    <p class="text-gray-500 text-sm">Coding without clear documentation linkage creates exposure</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-red-500 text-lg">X</span>
-                                <div>
-                                    <p class="text-dsBlack font-medium">Scale complexity</p>
-                                    <p class="text-gray-500 text-sm">20K+ patients, 7 states, 245 providers-impossible to review manually</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Solution -->
-    <section class="py-20 px-6">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="fade-up max-w-2xl mb-12">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Solution</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
-                    AI-powered risk adjustment with explainable recommendations.
-                </h2>
-                <p class="text-gray-600">
-                    We built a platform that reviews clinical documentation-EHR data, lab results, medications, problem lists-and surfaces HCC coding opportunities with direct links to supporting evidence. Every recommendation is audit-defensible.
-                </p>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-8">
-                <div class="border border-gray-200 rounded-xl p-8">
-                    <div class="rounded-lg overflow-hidden h-48 mb-6 bg-gray-100 enlargeable-container" onclick="openLightbox(this.querySelector('img'))">
-                        <img src="images/case-studies/raf-dashboard-top.png" alt="Missed Opportunity - ICD code recapture flow showing prior year vs current year diagnosis comparison" class="w-full h-full object-contain bg-white p-2">
-                    </div>
-                    <h3 class="text-xl font-bold text-dsBlack mb-3">Holistic Patient Views</h3>
-                    <p class="text-gray-600 mb-4">
-                        Unified view of each patient's clinical data across all sources-EHR, labs, medications, claims history. AI identifies HCC gaps by comparing documented conditions against coded diagnoses.
-                    </p>
-                    <div class="space-y-2 text-sm text-gray-600">
-                        <p>* Multi-source data integration (EHR, claims, labs, medications)</p>
-                        <p>* Prior year HCC recapture identification</p>
-                        <p>* Suspected condition flagging</p>
-                        <p>* Clinical evidence linking</p>
-                    </div>
-                </div>
-                
-                <div class="border border-gray-200 rounded-xl p-8">
-                    <div class="rounded-lg overflow-hidden h-48 mb-6 bg-gray-100 enlargeable-container" onclick="openLightbox(this.querySelector('img'))">
-                        <img src="images/case-studies/raf-dashboard-bottom.png" alt="How We Recapture - Disease detection and code recapture workflow from EHR to accurate RAF scoring" class="w-full h-full object-contain bg-white p-2">
-                    </div>
-                    <h3 class="text-xl font-bold text-dsBlack mb-3">Provider Workflow Integration</h3>
-                    <p class="text-gray-600 mb-4">
-                        Recommendations surface at the point of care, not in a separate system. Providers see HCC opportunities during the visit, with supporting documentation pre-populated.
-                    </p>
-                    <div class="space-y-2 text-sm text-gray-600">
-                        <p>* EHR integration (Gehrimed, PointClickCare, Acclivity)</p>
-                        <p>* Pre-visit preparation reports</p>
-                        <p>* In-visit prompts for missing HCCs</p>
-                        <p>* One-click documentation support</p>
-                    </div>
-                </div>
-                
-                <div class="border border-gray-200 rounded-xl p-8">
-                    <div class="rounded-lg overflow-hidden h-48 mb-6 bg-gray-100 enlargeable-container" onclick="openLightbox(this.querySelector('img'))">
-                        <img src="images/case-studies/raf-hero.png" alt="RAF Score Analytics Dashboard showing facility comparisons, provider performance, and HCC gap analysis" class="w-full h-full object-cover object-top">
-                    </div>
-                    <h3 class="text-xl font-bold text-dsBlack mb-3">Population Analytics</h3>
-                    <p class="text-gray-600 mb-4">
-                        Enterprise visibility into RAF performance across facilities, providers, and patient populations. Identify systematic gaps, track improvement, and prioritize interventions.
-                    </p>
-                    <div class="space-y-2 text-sm text-gray-600">
-                        <p>* RAF score trending by facility</p>
-                        <p>* Provider performance comparisons</p>
-                        <p>* HCC gap analysis by category</p>
-                        <p>* ROI tracking and forecasting</p>
-                    </div>
-                </div>
-                
-                <div class="border border-gray-200 rounded-xl p-8">
-                    <div class="rounded-lg overflow-hidden h-48 mb-6 bg-gray-100 enlargeable-container" onclick="openLightbox(this.querySelector('img'))">
-                        </div>
-                    <h3 class="text-xl font-bold text-dsBlack mb-3">Audit-Ready Documentation</h3>
-                    <p class="text-gray-600 mb-4">
-                        Every HCC recommendation linked directly to clinical evidence. When auditors ask "why did you code this?"-the answer is one click away. Built for defensibility.
-                    </p>
-                    <div class="space-y-2 text-sm text-gray-600">
-                        <p>* Source document linking</p>
-                        <p>* Clinical evidence chains</p>
-                        <p>* Audit trail logging</p>
-                        <p>* Peer-reviewed CMS methodology</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technical Approach -->
-    <section class="py-20 px-6 bg-dsBlack text-white">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="fade-up max-w-2xl mb-12">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Technical Approach</span>
-                <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
-                    Responsible AI with explainability at the core.
-                </h2>
-                <p class="text-gray-400">
-                    Healthcare AI isn't just about accuracy-it's about explainability. Every recommendation must be defensible. We built this platform with auditability as a first-class requirement.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="border border-gray-800 rounded-xl p-6">
-                    <h3 class="font-semibold text-white mb-3">Peer-Reviewed Methodology</h3>
-                    <p class="text-gray-400 text-sm">AI models built on CMS HCC scoring methodology. Not black-box predictions-transparent, validated approaches.</p>
-                </div>
-                
-                <div class="border border-gray-800 rounded-xl p-6">
-                    <h3 class="font-semibold text-white mb-3">Evidence Linking</h3>
-                    <p class="text-gray-400 text-sm">Every recommendation tied to specific clinical documentation. Auditors can trace from code to evidence in seconds.</p>
-                </div>
-                
-                <div class="border border-gray-800 rounded-xl p-6">
-                    <h3 class="font-semibold text-white mb-3">Multi-Source Integration</h3>
-                    <p class="text-gray-400 text-sm">EHR data, lab results, medications, claims history-all combined for comprehensive patient view.</p>
-                </div>
-                
-                <div class="border border-gray-800 rounded-xl p-6">
-                    <h3 class="font-semibold text-white mb-3">Continuous Learning</h3>
-                    <p class="text-gray-400 text-sm">Platform improves with feedback. Provider corrections and audit results feed back into the model.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Results -->
-    <section class="py-20 px-6">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="fade-up max-w-2xl mb-12">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Results</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
-                    $10M+ in improvements across 7 states.
-                </h2>
-                <p class="text-gray-600">
-                    Production deployment serving real patients, real providers, real revenue. These numbers come from actual RAF score improvements tracked over time.
-                </p>
-            </div>
-
-            <div class="grid lg:grid-cols-3 gap-8">
-                <div class="bg-dsGray rounded-xl p-8">
-                    <h3 class="text-sm font-medium text-dsBlue uppercase tracking-wider mb-4">Financial Impact</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <span class="text-3xl font-bold text-dsBlack">$10M+</span>
-                            <p class="text-gray-500 text-sm">Total RAF improvements</p>
-                        </div>
-                        <div>
-                            <span class="text-3xl font-bold text-dsBlack">Higher</span>
-                            <p class="text-gray-500 text-sm">ICD/HCC recapture rates</p>
-                        </div>
-                        <div>
-                            <span class="text-3xl font-bold text-dsBlack">Reduced</span>
-                            <p class="text-gray-500 text-sm">Audit exposure and claw-back risk</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-dsGray rounded-xl p-8">
-                    <h3 class="text-sm font-medium text-dsBlue uppercase tracking-wider mb-4">Clinical Impact</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <span class="text-3xl font-bold text-dsBlack">90%+</span>
-                            <p class="text-gray-500 text-sm">Diagnosis accuracy</p>
-                        </div>
-                        <div>
-                            <span class="text-3xl font-bold text-dsBlack">Better</span>
-                            <p class="text-gray-500 text-sm">Patient risk profiles for care planning</p>
-                        </div>
-                        <div>
-                            <span class="text-3xl font-bold text-dsBlack">Reduced</span>
-                            <p class="text-gray-500 text-sm">Hospitalizations through better targeting</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-dsGray rounded-xl p-8">
-                    <h3 class="text-sm font-medium text-dsBlue uppercase tracking-wider mb-4">Scale</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <span class="text-3xl font-bold text-dsBlack">20K+</span>
-                            <p class="text-gray-500 text-sm">Patients served</p>
-                        </div>
-                        <div>
-                            <span class="text-3xl font-bold text-dsBlack">7</span>
-                            <p class="text-gray-500 text-sm">States in production</p>
-                        </div>
-                        <div>
-                            <span class="text-3xl font-bold text-dsBlack">245</span>
-                            <p class="text-gray-500 text-sm">Providers using the platform</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- EHR Integration -->
-    <section class="py-20 px-6 bg-dsGray">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="fade-up" >
-                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Integration</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
-                        Wrapped around existing EHR systems.
-                    </h2>
-                    <p class="text-gray-600 mb-6">
-                        No rip-and-replace. The platform integrates with existing EHR systems, pulling data for analysis and surfacing recommendations within provider workflows. Providers don't need to log into another system.
-                    </p>
-                    
-                    <h3 class="font-semibold text-dsBlack mb-3">Production Integrations:</h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-white border border-gray-200 rounded-lg p-4">
-                            <p class="font-medium text-dsBlack">Gehrimed</p>
-                            <p class="text-gray-500 text-sm">Primary EHR integration</p>
-                        </div>
-                        <div class="bg-white border border-gray-200 rounded-lg p-4">
-                            <p class="font-medium text-dsBlack">PointClickCare</p>
-                            <p class="text-gray-500 text-sm">SNF data integration</p>
-                        </div>
-                        <div class="bg-white border border-gray-200 rounded-lg p-4">
-                            <p class="font-medium text-dsBlack">Acclivity</p>
-                            <p class="text-gray-500 text-sm">Claims and billing data</p>
-                        </div>
-                        <div class="bg-white border border-gray-200 rounded-lg p-4">
-                            <p class="font-medium text-dsBlack">Lab Systems</p>
-                            <p class="text-gray-500 text-sm">Results integration</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div >
-                    <div class="bg-white border border-gray-200 rounded-xl p-8">
-                        <h3 class="font-semibold text-dsBlack mb-4">Why Integration Matters for RAF</h3>
-                        <div class="space-y-4 text-gray-600">
-                            <div class="flex items-start gap-3">
-                                <span class="text-dsBlue mt-1">Y</span>
-                                <div>
-                                    <p class="font-medium text-dsBlack">Complete patient picture</p>
-                                    <p class="text-sm">Lab results, medications, and clinical notes all factor into HCC identification.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-dsBlue mt-1">Y</span>
-                                <div>
-                                    <p class="font-medium text-dsBlack">Point-of-care delivery</p>
-                                    <p class="text-sm">Recommendations surface during the visit, not in a separate report reviewed later.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-dsBlue mt-1">Y</span>
-                                <div>
-                                    <p class="font-medium text-dsBlack">No duplicate data entry</p>
-                                    <p class="text-sm">Providers accept or modify recommendations-data flows back automatically.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-dsBlue mt-1">Y</span>
-                                <div>
-                                    <p class="font-medium text-dsBlack">Audit trail preservation</p>
-                                    <p class="text-sm">Source documentation links maintained through the workflow.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Related Work -->
-    <section class="py-20 px-6">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="flex justify-between items-end mb-12">
-                <div>
-                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Work</span>
-                    <h2 class="text-3xl font-bold text-dsBlack mt-3">More healthcare results.</h2>
-                </div>
-                <a href="ds-healthcare-v3-updated.html" class="hidden md:inline-flex items-center gap-2 text-dsBlue font-medium hover:underline">
-                    View All Work→
-                </a>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6">
-                <a href="work-communicare-mds.html" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
-                    <div class="h-40 overflow-hidden bg-gray-100">
-                        <img src="images/case-studies/mds-coordinator-1.jpg" alt="CommuniCare MDS Optimization" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs text-gray-400 uppercase tracking-wider">Revenue Optimization</span>
-                        <h3 class="font-bold text-dsBlack mt-1 mb-2">CommuniCare MDS Optimization</h3>
-                        <p class="text-gray-600 text-sm mb-3">$10M+ PDPM revenue recovered, $2M quality incentives from two states.</p>
-                        <span class="text-dsBlue text-sm font-medium">Read Case Study→</span>
-                    </div>
-                </a>
-                
-                <a href="work-never-alone.html" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
-                    <div class="h-40 overflow-hidden bg-gray-100">
-                        <img src="images/case-neveralone-senior.png" alt="NeverAlone Virtual Care Platform" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs text-gray-400 uppercase tracking-wider">Virtual Care</span>
-                        <h3 class="font-bold text-dsBlack mt-1 mb-2">NeverAlone</h3>
-                        <p class="text-gray-600 text-sm mb-3">26K+ patients, 96% treat-in-place rate, 7-state platform we built and operate.</p>
-                        <span class="text-dsBlue text-sm font-medium">Read Case Study→</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-20 px-6 bg-dsBlue text-white">
-        <div class="max-w-screen-xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">What's your risk adjustment opportunity?</h2>
-            <p class="text-blue-100 mb-8 max-w-2xl mx-auto">
-                If missed HCCs are costing you millions in RAF revenue, let's talk. 30-minute call to assess your opportunity.
-            </p>
-            <a href="healthcare-assessment.html" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition">
-                Schedule Assessment Call
+        
+        <h1 class="text-4xl md:text-5xl font-bold text-dsBlack mb-6 leading-tight">
+            A/R Collection Prioritization
+        </h1>
+        
+        <p class="text-xl text-gray-600 leading-relaxed mb-8">
+            Your collectors are working claims in the wrong order. AI-powered prioritization identifies which accounts to work first based on collectability, not just age or balance. Reduce bad debt 5-15% with the same staff.
+        </p>
+        
+        <div class="flex flex-wrap gap-4">
+            <a href="healthcare-assessment.html" class="inline-flex items-center gap-2 bg-dsBlue text-white px-6 py-3 text-sm font-medium rounded-full hover:bg-dsBlack transition">
+                Get Assessment
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
+            <a href="#fit-assessment" class="inline-flex items-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 text-sm font-medium rounded-full hover:bg-dsGray transition">
+                5-Minute Fit Check
+            </a>
         </div>
-    </section>
+    </div>
+</header>
 
-    <!-- Footer -->
-    <!-- DS 2.0 Footer - FINAL -->
-<!-- START DS-FOOTER -->
+<!-- Expected ROI -->
+<section class="py-12 px-6 border-t border-gray-100">
+    <div class="max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-6 fade-up">
+            <div class="text-center p-6 bg-dsGray rounded-xl fade-up">
+                <span class="text-3xl font-bold text-dsBlack">5-15%</span>
+                <p class="text-gray-600 text-sm mt-1">Bad debt reduction</p>
+            </div>
+            <div class="text-center p-6 bg-dsGray rounded-xl fade-up">
+                <span class="text-3xl font-bold text-dsBlue">1-3%</span>
+                <p class="text-gray-600 text-sm mt-1">Net collections increase</p>
+            </div>
+            <div class="text-center p-6 bg-dsGray rounded-xl fade-up">
+                <span class="text-3xl font-bold text-dsBlack">8-14</span>
+                <p class="text-gray-600 text-sm mt-1">Weeks to production</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- The Problem -->
+<section class="py-16 px-6 bg-dsGray">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Problem</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">Your A/R prioritization is based on the wrong signals.</h2>
+        
+        <div class="prose prose-lg text-gray-600 space-y-4 fade-up">
+            <p>Most revenue cycle teams prioritize by age buckets or balance. But a $50,000 claim at 90 days isn't necessarily more valuable than a $5,000 claim at 30 days. The question is: which one are you actually going to collect?</p>
+
+                <div class="my-8 fade-up">
+                    </div>
+
+            
+            <p>Traditional prioritization ignores the signals that actually predict payment: payer behavior patterns, historical denial rates by code combination, patient demographics, and facility-specific trends. Your collectors are spending time on claims that were never going to pay while collectible accounts slip past timely filing.</p>
+            
+            <p>The result: higher bad debt, frustrated staff, and the constant feeling that you're working hard but not smart.</p>
+        </div>
+        
+        <div class="mt-8 p-6 bg-amber-50 border-l-4 border-amber-400 rounded-r-xl fade-up">
+            <p class="text-gray-800"><strong>The math:</strong> If your collectors work 100 claims per day and AI prioritization improves their hit rate by 15%, that's 15 additional successful collections daily. At $500 average collection, that's $7,500/day or $1.9M annually—from the same staff.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Fit Assessment -->
+<section id="fit-assessment" class="py-16 px-6 bg-dsGray">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">5-Minute Fit Assessment</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">Is this right for your organization?</h2>
+        
+        <p class="text-gray-600 mb-8">Check what applies. Four or more suggests strong fit.</p>
+        
+        <div class="space-y-4">
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">You have $10M+ in annual A/R</span>
+                        <p class="text-gray-500 text-sm mt-1">Smaller portfolios may not justify the investment. The ROI scales with volume.</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">Your collectors work claims manually (not fully automated)</span>
+                        <p class="text-gray-500 text-sm mt-1">If humans make prioritization decisions, AI guidance adds value. Fully automated workflows have less room for improvement.</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">You have 2+ years of historical claims data</span>
+                        <p class="text-gray-500 text-sm mt-1">The model learns from your payment patterns. More history = better predictions.</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">Bad debt rate is above 3%</span>
+                        <p class="text-gray-500 text-sm mt-1">If you're already at 1-2%, there's less room for improvement. Higher bad debt = bigger opportunity.</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">Multiple payers with different behaviors</span>
+                        <p class="text-gray-500 text-sm mt-1">Single-payer environments are more predictable. Multi-payer complexity is where AI shines.</p>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-200 fade-up">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                    <div>
+                        <span class="font-medium text-dsBlack">Revenue cycle leadership wants to improve (not just maintain)</span>
+                        <p class="text-gray-500 text-sm mt-1">You need a champion who will act on the recommendations. AI without adoption is worthless.</p>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What You Need -->
+<section class="py-16 px-6 bg-dsGray">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Requirements</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">What you need to have ready</h2>
+        
+        <div class="fade-up grid md:grid-cols-2 gap-8">
+            <div class="fade-up">
+                <h3 class="text-xl font-semibold text-dsBlack mb-4">Data Requirements</h3>
+                <ul class="space-y-3 text-gray-600">
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Historical claims data (24+ months ideal)
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Payment and adjustment history
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Denial reason codes
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Payer and plan information
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="fade-up">
+                <h3 class="text-xl font-semibold text-dsBlack mb-4">What's NOT Required</h3>
+                <ul class="space-y-3 text-gray-600">
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-gray-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        EHR integration (billing data only)
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-gray-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        Clinical documentation
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-gray-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        IT infrastructure changes
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-gray-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        Workflow disruption
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="mt-8 p-6 bg-blue-50 border border-blue-100 rounded-xl fade-up">
+            <p class="text-gray-700"><strong>Why this is a quick win:</strong> A/R prioritization requires only billing system data—no EHR integration, no clinical data, no complex compliance review. Most organizations can export the required data in days, not months.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Build vs Buy -->
+<section class="py-16 px-6 bg-dsGray">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Decision Framework</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-8">Build vs. Buy vs. Partner</h2>
+        
+        <div class="grid md:grid-cols-3 gap-6 fade-up">
+            <div class="bg-white p-6 rounded-xl border border-gray-200 fade-up">
+                <h3 class="font-semibold text-dsBlack mb-3">Build Internally</h3>
+                <p class="text-gray-600 text-sm mb-4">If you have data science capacity and want full control.</p>
+
+                <div class="my-8 fade-up">
+                    <img src="images/arch-predictive.png" alt="AI Architecture" class="rounded-xl shadow-lg w-full max-w-3xl mx-auto">
+                </div>
+
+                <ul class="text-sm text-gray-500 space-y-2">
+                    <li>• 6-12 month timeline</li>
+                    <li>• Requires ML expertise</li>
+                    <li>• Full customization</li>
+                    <li>• Ongoing maintenance burden</li>
+                </ul>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl border border-gray-200 fade-up">
+                <h3 class="font-semibold text-dsBlack mb-3">Buy Off-the-Shelf</h3>
+                <p class="text-gray-600 text-sm mb-4">If your payer mix and workflows are typical.</p>
+                <ul class="text-sm text-gray-500 space-y-2">
+                    <li>• 2-4 month implementation</li>
+                    <li>• Pre-built models</li>
+                    <li>• Limited customization</li>
+                    <li>• Subscription costs</li>
+                </ul>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl border border-dsBlue fade-up">
+                <h3 class="font-semibold text-dsBlue mb-3">Partner for Custom</h3>
+                <p class="text-gray-600 text-sm mb-4">If your data is unique and results matter.</p>
+                <ul class="text-sm text-gray-500 space-y-2">
+                    <li>• 8-14 week timeline</li>
+                    <li>• Trained on YOUR data</li>
+                    <li>• High precision</li>
+                    <li>• Knowledge transfer option</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="mt-8 p-6 bg-white rounded-xl border border-gray-200 fade-up">
+            <p class="text-gray-700"><strong>Our take:</strong> Off-the-shelf tools work for commodity prioritization. But your payer contracts, patient demographics, and service mix are unique. Models trained on your data outperform generic tools by 15-25% in our experience. The question is whether that lift justifies the investment.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Red Flags -->
+<section class="py-16 px-6 bg-dsGray">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Honest Assessment</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-6">When to wait</h2>
+        
+        <div class="space-y-4">
+            <div class="p-4 border-l-4 border-red-400 bg-red-50 rounded-r-xl fade-up">
+                <p class="text-gray-800"><strong>Your billing data is fragmented or unreliable.</strong> Garbage in, garbage out. If you can't trust your historical data, fix that first.</p>
+            </div>
+            
+            <div class="p-4 border-l-4 border-red-400 bg-red-50 rounded-r-xl fade-up">
+                <p class="text-gray-800"><strong>You're mid-system migration.</strong> Wait until your new billing system is stable. Building on shifting foundations wastes time.</p>
+            </div>
+            
+            <div class="p-4 border-l-4 border-red-400 bg-red-50 rounded-r-xl fade-up">
+                <p class="text-gray-800"><strong>No one owns collections performance.</strong> AI recommendations without accountability don't drive change. You need a champion.</p>
+            </div>
+            
+            <div class="p-4 border-l-4 border-red-400 bg-red-50 rounded-r-xl fade-up">
+                <p class="text-gray-800"><strong>You need results in 30 days.</strong> Even quick-win projects take 8-14 weeks to deploy properly. If you're in crisis mode, address that first.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related Guides -->
+<section class="py-16 px-6 bg-dsGray">
+    <div class="max-w-4xl mx-auto">
+        <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Guides</span>
+        <h2 class="text-3xl font-bold text-dsBlack mt-3 mb-8">Other quick wins to consider</h2>
+        
+        <div class="grid md:grid-cols-2 gap-6 fade-up">
+            <a href="claim-follow-up-triage.html" class="bg-white p-6 rounded-xl border border-gray-200 hover:border-dsBlue transition fade-up">
+                <span class="text-xs font-medium text-green-600 uppercase">Quick Win</span>
+                <h3 class="text-xl font-semibold text-dsBlack mt-2 mb-2">Claim Follow-Up Triage</h3>
+                <p class="text-gray-600 text-sm">Identify which claims need intervention before they deny. 15-25% recovery per FTE improvement.</p>
+            </a>
+            
+            <a href="payer-contract-interpretation.html" class="bg-white p-6 rounded-xl border border-gray-200 hover:border-dsBlue transition fade-up">
+                <span class="text-xs font-medium text-green-600 uppercase">Quick Win</span>
+                <h3 class="text-xl font-semibold text-dsBlack mt-2 mb-2">Payer Contract Interpretation</h3>
+                <p class="text-gray-600 text-sm">AI that reads your contracts and flags underpayments. 1-3% net collection lift.</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 px-6 bg-dsBlue">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to prioritize smarter?</h2>
+        <p class="text-blue-100 mb-8 max-w-2xl mx-auto">30-minute call to assess your A/R data and estimate the opportunity. No pitch, just honest assessment.</p>
+        <a href="healthcare-assessment.html" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-gray-100 transition">
+            Get AI Assessment
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
 
 <!-- DS 2.0 Footer - FINAL -->
 <!-- START DS-FOOTER -->

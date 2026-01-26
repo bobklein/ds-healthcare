@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAF/HCC Coding Case Study | Digital Scientists</title>
-    <meta name="description" content="$10M+ risk adjustment improvements, 90%+ diagnosis accuracy. AI-powered RAF/HCC coding serving 20K+ patients across 7 states with 245 providers.">
+    <title>Claim Denial Prediction AI | Healthcare AI Framework | Digital Scientists</title>
+    <meta name="description" content="Predict and prevent claim denials before submission. Learn how AI-powered denial prediction can reduce denial rates by 25-50% and cut A/R days by 2-5 days.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -25,107 +28,46 @@
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', system-ui, sans-serif; }
-        h1, h2, h3 { letter-spacing: -0.02em; }
-        
-        /* Lightbox styles for enlargeable images */
-        .enlargeable-container {
-            position: relative;
-            cursor: zoom-in;
-        }
-        .enlargeable-container::after {
-            content: '';
-            position: absolute;
-            bottom: 8px;
-            right: 8px;
-            width: 28px;
-            height: 28px;
-            background: rgba(0,0,0,0.6);
-            border-radius: 6px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7'/%3E%3C/svg%3E");
-            background-size: 18px;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-        .enlargeable-container:hover::after {
-            opacity: 1;
-        }
-        
-        /* Lightbox modal */
-        .lightbox-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 9999;
-            cursor: zoom-out;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .lightbox-overlay.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .lightbox-content {
-            max-width: 95%;
-            max-height: 95%;
-            object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s;
-        }
-        .lightbox-close:hover {
-            background: rgba(255,255,255,0.2);
-        }
-        .lightbox-close svg {
-            width: 24px;
-            height: 24px;
-            stroke: white;
-        }
-        .lightbox-caption {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: white;
-            font-size: 14px;
-            text-align: center;
-            max-width: 80%;
-            opacity: 0.8;
-        }
-    
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is claim denial prediction AI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Claim denial prediction AI uses machine learning trained on your historical denial patterns to predict which claims are likely to be denied before submission. The system identifies specific error types—missing documentation, coding mismatches, authorization gaps—allowing staff to correct issues before the claim leaves your organization."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much can AI reduce healthcare claim denials?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Organizations typically see 2-5% improvement in clean claim rate, 25-50% reduction in denial write-offs, and 2-5 day reduction in A/R days. For a health system processing $100M in claims annually with 8% denial rate, this could mean $800K-2M in recovered revenue."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How long does denial prediction AI take to implement?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Implementation typically takes 14-20 weeks: 4-6 weeks for data integration and model training on 2-3 years of historical claims, 4-6 weeks for workflow integration, and 4-8 weeks for parallel testing and optimization."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What data is needed for denial prediction AI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Required: 2-3 years of historical claims with denial outcomes, denial reason codes, and claim details. Beneficial: EHR documentation signals, prior authorization data, and payer contract terms for enhanced accuracy."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body class="bg-white text-dsBlack antialiased">
 <!-- DS 2.0 Navigation - FINAL -->
@@ -395,7 +337,17 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
-</style>
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 
 <!-- Utility Bar -->
 <div class="ds-utility-bar">
@@ -687,427 +639,317 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
-<!-- Hero Section -->
-    <header class="pt-32 pb-16 px-6">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-3xl">
-                <div class="flex items-center gap-3 mb-6">
-                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Case Study</span>
-                    <span class="text-xs text-gray-400">*</span>
-                    <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">RAF / HCC Coding</span>
-                </div>
-                
-                <h1 class="text-4xl md:text-5xl font-bold text-dsBlack mb-6 leading-[1.1]">
-                    $10M+ in risk adjustment improvements. 90%+ diagnosis accuracy. 7 states.
-                </h1>
-                
-                <p class="text-xl text-gray-600 leading-relaxed mb-8">
-                    A value-based care organization serving Medicare Advantage patients needed to improve risk adjustment accuracy. Missed HCC codes were leaving millions on the table. We built an AI-powered platform that transformed their RAF scores while reducing audit risk.
-                </p>
+<!-- Hero -->
+    <header class="py-12 px-6 bg-gradient-to-br from-dsBlack to-gray-800 text-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="bg-amber-500/20 text-amber-300 text-xs font-medium px-3 py-1 rounded-full">Medium Complexity</span>
+                <span class="text-gray-400 text-sm">14-20 weeks to deploy</span>
             </div>
-            
-            <!-- Results Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <span class="text-3xl md:text-4xl font-bold text-dsBlue">$10M+</span>
-                    <p class="text-gray-500 text-sm mt-1">RAF Improvements</p>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Claim Denial Prediction</h1>
+            <p class="text-xl text-gray-300 mb-6">Predict which claims will deny before submission—and fix them before they become rework.</p>
+            <div class="grid grid-cols-3 gap-6 pt-6 border-t border-white/20">
+                <div>
+                    <span class="text-3xl font-bold text-dsBlue">25-50%</span>
+                    <p class="text-gray-400 text-sm">Reduction in denial write-offs</p>
                 </div>
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">90%+</span>
-                    <p class="text-gray-500 text-sm mt-1">Diagnosis Accuracy</p>
+                <div>
+                    <span class="text-3xl font-bold">2-5%</span>
+                    <p class="text-gray-400 text-sm">Clean claim rate improvement</p>
                 </div>
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">20K+</span>
-                    <p class="text-gray-500 text-sm mt-1">Patients Served</p>
-                </div>
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">245</span>
-                    <p class="text-gray-500 text-sm mt-1">Providers</p>
+                <div>
+                    <span class="text-3xl font-bold">2-5</span>
+                    <p class="text-gray-400 text-sm">Days reduction in A/R</p>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Hero Image -->
-    <section class="px-6 pb-20">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="rounded-xl overflow-hidden h-80 bg-gray-100 enlargeable-container" onclick="openLightbox(this.querySelector('img'))">
-                <img src="images/case-studies/raf-hero.png" alt="RAF/HCC Coding Platform - Average RAF Score Dashboard with facility filters and CMS scoring algorithms" class="w-full h-full object-cover object-top">
-            </div>
+    <!-- Main Content -->
+    <main class="py-12 px-6">
+        <div class="max-w-4xl mx-auto">
+            
+            <!-- Problem Section -->
+            <section class="mb-16 bg-dsGray" id="problem">
+                <h2 class="text-2xl font-bold mb-6">The Problem in Dollar Terms</h2>
+                
+                <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg mb-6">
+                    <h3 class="font-semibold text-red-900 mb-2">The true cost of denials</h3>
+                    <p class="text-red-800">A health system with $100M in annual claims at 8% initial denial rate faces $8M in at-risk revenue. Even with 60% recovery through appeals, that's <strong>$3.2M in write-offs</strong>—plus $25-35 per claim in rework costs. Most of these denials were preventable.</p>
+                <div class="my-8 fade-up">
+                    <img src="images/arch-predictive.png" alt="Denial risk analysis" class="rounded-xl shadow-lg w-full max-w-3xl mx-auto">
+                </div>
+
+                </div>
+
+                <p class="text-gray-700 mb-4">The industry average initial denial rate hovers around 5-10%, but here's what the numbers miss: every denied claim costs $25-35 to rework, takes 14-21 additional days to resolve, and still fails 40% of the time on appeal. The real cost isn't the denial—it's the cascade of rework, delayed cash, and eventual write-offs.</p>
+
+                <p class="text-gray-700 mb-4">Most denial prevention today is reactive. You analyze last month's denials, find patterns, update your scrubbing rules, and hope the same issues don't recur. But denial patterns shift constantly—payer rules change, new services launch, staff turn over—and static rules can't keep up.</p>
+
+                <h3 class="font-semibold text-lg mt-8 mb-4">What denial prediction actually does</h3>
+                <p class="text-gray-700 mb-4">A predictive model analyzes each claim before submission and assigns a denial risk score based on:</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
+                    <li><strong>Claim characteristics:</strong> Procedure codes, diagnosis codes, modifiers, place of service</li>
+                    <li><strong>Payer patterns:</strong> Historical denial rates by payer, plan, and service type</li>
+                    <li><strong>Provider patterns:</strong> Which providers/coders have higher denial rates for which services</li>
+                    <li><strong>Documentation signals:</strong> Missing elements, unsigned notes, pending authorizations</li>
+                    <li><strong>Timing factors:</strong> Claims submitted near timely filing deadlines, retroactive eligibility</li>
+                </ul>
+
+                <p class="text-gray-700">High-risk claims get flagged with specific reasons—"likely to deny for medical necessity, missing documentation element X"—so staff can fix issues before submission rather than fighting appeals later.</p>
+            </section>
+
+            <!-- Fit Assessment -->
+            <section class="mb-16 bg-dsGray" id="fit-assessment">
+                <h2 class="text-2xl font-bold mb-6">The 5-Minute Fit Assessment</h2>
+                <p class="text-gray-600 mb-6">Check the boxes that apply. Four or more? This is worth exploring. Fewer than three? Start with simpler revenue cycle improvements first.</p>
+
+                <div class="space-y-4">
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">Your initial denial rate exceeds 5%</strong>
+                            <p class="text-gray-600 text-sm">Below 5%, you're already performing well and the marginal gains shrink. Above 8%, there's almost certainly significant preventable denials.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">You have 2-3 years of claims history with denial outcomes</strong>
+                            <p class="text-gray-600 text-sm">The model needs to learn YOUR denial patterns—which payers deny which services for which reasons. Less history means less accurate predictions.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">You process at least 10,000 claims per month</strong>
+                            <p class="text-gray-600 text-sm">Lower volumes don't generate enough denial signal for meaningful pattern detection. The ROI calculation also requires scale.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">Your denials are diverse (not one root cause)</strong>
+                            <p class="text-gray-600 text-sm">If 80% of your denials come from one fixable issue (e.g., missing prior auth), fix that first. AI shines when denial patterns are complex and multifactorial.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">Someone can act on predictions before claim submission</strong>
+                            <p class="text-gray-600 text-sm">You need a workflow where flagged claims can be reviewed and corrected. If claims auto-drop without human review, you need a process change.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">You can connect claims data to documentation</strong>
+                            <p class="text-gray-600 text-sm">The best predictions incorporate documentation signals. If you can't link claims to clinical notes, you can still proceed but with reduced accuracy.</p>
+                        </div>
+                    </label>
+                </div>
+            </section>
+
+            <!-- What You Need -->
+            <section class="mb-16 bg-dsGray" id="what-you-need">
+                <h2 class="text-2xl font-bold mb-6">What You Need to Have Ready</h2>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-8 fade-up">
+                    <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+                        <h3 class="font-semibold text-green-900 mb-3">✓ Required</h3>
+                        <ul class="text-green-800 space-y-2 text-sm">
+                            <li>• 2-3 years of claims with denial outcomes</li>
+                            <li>• Denial reason codes (CARC/RARC)</li>
+                            <li>• Claim details (CPT, ICD-10, modifiers, payer)</li>
+                            <li>• Submission and adjudication dates</li>
+                            <li>• Provider and facility identifiers</li>
+                        </ul>
+                    </div>
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                        <h3 class="font-semibold text-blue-900 mb-3">◐ Significantly enhances accuracy</h3>
+                        <ul class="text-blue-800 space-y-2 text-sm">
+                            <li>• EHR documentation (for completeness signals)</li>
+                            <li>• Prior authorization status</li>
+                            <li>• Patient eligibility verification timing</li>
+                            <li>• Coder/biller identifiers (for pattern detection)</li>
+                            <li>• Appeal outcomes (to weight denial severity)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="font-semibold text-lg mb-4">The organizational requirement</h3>
+                <p class="text-gray-700 mb-4"><strong>Pre-submission review workflow:</strong> This only works if you can pause claims before they go out. Whether that's a queue for billing staff, an integration with your clearinghouse, or a hold on auto-drop—you need a mechanism to act on predictions.</p>
+                <p class="text-gray-700 mb-4"><strong>Cross-functional buy-in:</strong> Denial prevention often requires action from multiple teams—coding, clinical documentation, prior auth, billing. If these teams are siloed and won't collaborate, predictions go nowhere.</p>
+                <p class="text-gray-700"><strong>Tolerance for false positives:</strong> The model will sometimes flag claims that would have paid. Staff need to understand they're trading some unnecessary reviews for significantly reduced denials.</p>
+            </section>
+
+            <!-- Build vs Buy -->
+            <section class="mb-16 bg-dsGray" id="build-buy-partner">
+                <h2 class="text-2xl font-bold mb-6">Build vs. Buy vs. Partner</h2>
+
+                <div class="grid md:grid-cols-3 gap-6 mb-8 fade-up">
+                    <div class="border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-3">Build internally when:</h3>
+                        <ul class="text-gray-600 text-sm space-y-2">
+                            <li>• You have data scientists with healthcare billing expertise</li>
+                            <li>• You can dedicate 6-12 months to development</li>
+                            <li>• You want complete control over model logic</li>
+                            <li>• You have resources for ongoing maintenance and retraining</li>
+                        </ul>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-3">Buy off-the-shelf when:</h3>
+                        <ul class="text-gray-600 text-sm space-y-2">
+                            <li>• Your denial patterns are typical for your specialty</li>
+                            <li>• You want quick deployment with minimal setup</li>
+                            <li>• You're okay with industry-average predictions</li>
+                            <li>• Your payer mix is common (major nationals)</li>
+                        </ul>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-6 border-dsBlue bg-blue-50/30">
+                        <h3 class="font-semibold mb-3">Partner for custom when:</h3>
+                        <ul class="text-gray-600 text-sm space-y-2">
+                            <li>• You have unique payer contracts with specific requirements</li>
+                            <li>• Your service mix includes complex procedures</li>
+                            <li>• You want the model trained on YOUR denial patterns</li>
+                            <li>• You need deep integration with existing workflows</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg">
+                    <h3 class="font-semibold text-amber-900 mb-2">Why your data matters</h3>
+                    <p class="text-amber-800 text-sm">Denial patterns are organization-specific. The payer that denies everything at Health System A may pay clean at Health System B—because of different contracts, different documentation practices, different coding conventions. Generic models trained on industry data miss these patterns entirely.</p>
+                </div>
+            </section>
+
+            <!-- Red Flags -->
+            <section class="mb-16" id="red-flags">
+                <h2 class="text-2xl font-bold mb-6">Red Flags: When to Wait</h2>
+
+                <div class="space-y-4">
+                    <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+                        <h3 class="font-semibold text-red-900 mb-2">Your denial data is incomplete or unreliable</h3>
+                        <p class="text-red-700 text-sm">If denial reason codes aren't consistently captured, or claims are marked "denied" without details, fix your data capture first. The model can only learn from what you record.</p>
+                    </div>
+
+                    <div class="bg-dsGray border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-2">You're changing billing systems or clearinghouses</h3>
+                        <p class="text-gray-600 text-sm">Model training depends on stable data sources. If you're migrating within 12 months, wait until the new system is established.</p>
+                    </div>
+
+                    <div class="bg-dsGray border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-2">One issue drives 80% of denials</h3>
+                        <p class="text-gray-600 text-sm">If most denials come from a single root cause—missing prior auth, eligibility issues, one problematic payer—fix that specific issue first. AI shines on complex, multifactorial patterns.</p>
+                    </div>
+
+                    <div class="bg-dsGray border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-2">No one reviews claims before submission</h3>
+                        <p class="text-gray-600 text-sm">If claims auto-drop to payers without human review, you need a workflow change before predictions have value. Build the review process first.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Questions to Ask Vendors -->
+            <section class="mb-16" id="questions">
+                <h2 class="text-2xl font-bold mb-6">Questions to Ask Any Vendor</h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-semibold text-dsBlue mb-3">On their model:</h3>
+                        <ul class="text-gray-700 space-y-2 text-sm">
+                            <li>"Does your model train on our historical denials, or industry averages?"</li>
+                            <li>"What features drive predictions? Can you show feature importance for our data?"</li>
+                            <li>"How do you handle payer-specific denial patterns?"</li>
+                            <li>"What's your false positive rate? How many good claims will we review unnecessarily?"</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-semibold text-dsBlue mb-3">On implementation:</h3>
+                        <ul class="text-gray-700 space-y-2 text-sm">
+                            <li>"Where in the workflow do predictions appear? Before or after claim scrubbing?"</li>
+                            <li>"What specific actions do you recommend when a claim is flagged?"</li>
+                            <li>"How does the system integrate with our clearinghouse or billing software?"</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-semibold text-dsBlue mb-3">On results:</h3>
+                        <ul class="text-gray-700 space-y-2 text-sm">
+                            <li>"What reduction in denial rate should we expect? Show me comparable customers."</li>
+                            <li>"How long before we see statistically significant improvement?"</li>
+                            <li>"Are you willing to tie fees to denial reduction outcomes?"</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ROI Calculator -->
+            <section class="mb-16 bg-dsGray rounded-2xl p-8" id="calculator">
+                <h2 class="text-2xl font-bold mb-6">Quick ROI Estimate</h2>
+                <p class="text-gray-600 mb-6">Plug in your numbers for a rough estimate of potential value.</p>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-6 fade-up">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Annual claims volume ($)</label>
+                        <input type="number" placeholder="100000000" class="w-full border border-gray-300 rounded-lg px-4 py-3">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Current denial rate (%)</label>
+                        <input type="number" placeholder="8" class="w-full border border-gray-300 rounded-lg px-4 py-3">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Current appeal success rate (%)</label>
+                        <input type="number" placeholder="60" class="w-full border border-gray-300 rounded-lg px-4 py-3">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Expected denial reduction (%)</label>
+                        <input type="number" placeholder="30" class="w-full border border-gray-300 rounded-lg px-4 py-3">
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg p-6 border border-gray-200">
+                    <p class="text-sm text-gray-600 mb-2">Estimated annual value recovery:</p>
+                    <p class="text-3xl font-bold text-dsBlue">$800,000 - $1,600,000</p>
+                    <p class="text-sm text-gray-500 mt-2">Based on $100M claims, 8% denial rate, 60% appeal success, 25-50% denial reduction</p>
+                </div>
+            </section>
+
+            <!-- Related Frameworks -->
+            <section class="mb-16" id="related">
+                <h2 class="text-2xl font-bold mb-6">Related Frameworks</h2>
+                <div class="grid md:grid-cols-2 gap-6 fade-up">
+                    <a href="ai-framework-coding-assistance.html" class="border border-gray-200 rounded-lg p-6 hover:border-dsBlue transition group">
+                        <span class="text-xs text-amber-600 font-medium">Medium Complexity</span>
+                        <h3 class="font-semibold mt-2 group-hover:text-dsBlue transition">Medical Coding Assistance</h3>
+                        <p class="text-gray-600 text-sm mt-2">AI-assisted coding to improve accuracy and reduce denial risk at the source.</p>
+                    </a>
+                    <a href="payer-contract-interpretation.html" class="border border-gray-200 rounded-lg p-6 hover:border-dsBlue transition group">
+                        <span class="text-xs text-green-600 font-medium">Quick Win</span>
+                        <h3 class="font-semibold mt-2 group-hover:text-dsBlue transition">Payer Contract Interpretation</h3>
+                        <p class="text-gray-600 text-sm mt-2">Ensure you're paid per contract terms—catch underpayments automatically.</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="bg-dsBlue text-white rounded-2xl p-8 text-center">
+                <h2 class="text-2xl font-bold mb-4">Ready to explore denial prediction for your organization?</h2>
+                <p class="text-blue-100 mb-6 max-w-xl mx-auto">We'll analyze your denial patterns and estimate the potential impact—no commitment, no sales pitch, just data.</p>
+                <div class="flex gap-4 justify-center">
+                    <a href="healthcare-assessment.html" class="bg-white text-dsBlack px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition">Get Assessment</a>
+                    <a href="healthcare-ai-guides-landing.html" class="border border-white/30 text-white px-6 py-3 rounded-full font-medium hover:bg-white/10 transition">View All Frameworks</a>
+                </div>
+            </section>
+
         </div>
-    </section>
-
-    <!-- The Challenge -->
-    <section class="py-20 px-6 bg-dsGray">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-12">
-                <div >
-                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Challenge</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
-                        Millions in missed risk adjustment from incomplete coding.
-                    </h2>
-                    <p class="text-gray-600 mb-6">
-                        In Medicare Advantage and value-based care models, accurate risk adjustment is everything. HCC codes determine payment rates. Missed diagnoses mean missed revenue-and inaccurate patient risk profiles that affect care planning.
-                    </p>
-                    <p class="text-gray-600 mb-6">
-                        This organization had a problem at scale: 20,000+ patients across 7 states, 245 providers, and no systematic way to ensure diagnoses documented in clinical notes were being captured in claims. The gap between documentation and coding was costing millions.
-                    </p>
-                </div>
-                
-                <div >
-                    <div class="bg-white border border-gray-200 rounded-xl p-8">
-                        <h3 class="font-semibold text-dsBlack mb-4">The Risk Adjustment Challenge</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-3">
-                                <span class="text-red-500 text-lg">X</span>
-                                <div>
-                                    <p class="text-dsBlack font-medium">Documentation-to-coding gap</p>
-                                    <p class="text-gray-500 text-sm">Diagnoses documented in notes but not making it to claims</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-red-500 text-lg">X</span>
-                                <div>
-                                    <p class="text-dsBlack font-medium">Chronic condition recapture</p>
-                                    <p class="text-gray-500 text-sm">HCCs from prior years not being recaptured annually</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-red-500 text-lg">X</span>
-                                <div>
-                                    <p class="text-dsBlack font-medium">Audit risk</p>
-                                    <p class="text-gray-500 text-sm">Coding without clear documentation linkage creates exposure</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-red-500 text-lg">X</span>
-                                <div>
-                                    <p class="text-dsBlack font-medium">Scale complexity</p>
-                                    <p class="text-gray-500 text-sm">20K+ patients, 7 states, 245 providers-impossible to review manually</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Solution -->
-    <section class="py-20 px-6">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="fade-up max-w-2xl mb-12">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Solution</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
-                    AI-powered risk adjustment with explainable recommendations.
-                </h2>
-                <p class="text-gray-600">
-                    We built a platform that reviews clinical documentation-EHR data, lab results, medications, problem lists-and surfaces HCC coding opportunities with direct links to supporting evidence. Every recommendation is audit-defensible.
-                </p>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-8">
-                <div class="border border-gray-200 rounded-xl p-8">
-                    <div class="rounded-lg overflow-hidden h-48 mb-6 bg-gray-100 enlargeable-container" onclick="openLightbox(this.querySelector('img'))">
-                        <img src="images/case-studies/raf-dashboard-top.png" alt="Missed Opportunity - ICD code recapture flow showing prior year vs current year diagnosis comparison" class="w-full h-full object-contain bg-white p-2">
-                    </div>
-                    <h3 class="text-xl font-bold text-dsBlack mb-3">Holistic Patient Views</h3>
-                    <p class="text-gray-600 mb-4">
-                        Unified view of each patient's clinical data across all sources-EHR, labs, medications, claims history. AI identifies HCC gaps by comparing documented conditions against coded diagnoses.
-                    </p>
-                    <div class="space-y-2 text-sm text-gray-600">
-                        <p>* Multi-source data integration (EHR, claims, labs, medications)</p>
-                        <p>* Prior year HCC recapture identification</p>
-                        <p>* Suspected condition flagging</p>
-                        <p>* Clinical evidence linking</p>
-                    </div>
-                </div>
-                
-                <div class="border border-gray-200 rounded-xl p-8">
-                    <div class="rounded-lg overflow-hidden h-48 mb-6 bg-gray-100 enlargeable-container" onclick="openLightbox(this.querySelector('img'))">
-                        <img src="images/case-studies/raf-dashboard-bottom.png" alt="How We Recapture - Disease detection and code recapture workflow from EHR to accurate RAF scoring" class="w-full h-full object-contain bg-white p-2">
-                    </div>
-                    <h3 class="text-xl font-bold text-dsBlack mb-3">Provider Workflow Integration</h3>
-                    <p class="text-gray-600 mb-4">
-                        Recommendations surface at the point of care, not in a separate system. Providers see HCC opportunities during the visit, with supporting documentation pre-populated.
-                    </p>
-                    <div class="space-y-2 text-sm text-gray-600">
-                        <p>* EHR integration (Gehrimed, PointClickCare, Acclivity)</p>
-                        <p>* Pre-visit preparation reports</p>
-                        <p>* In-visit prompts for missing HCCs</p>
-                        <p>* One-click documentation support</p>
-                    </div>
-                </div>
-                
-                <div class="border border-gray-200 rounded-xl p-8">
-                    <div class="rounded-lg overflow-hidden h-48 mb-6 bg-gray-100 enlargeable-container" onclick="openLightbox(this.querySelector('img'))">
-                        <img src="images/case-studies/raf-hero.png" alt="RAF Score Analytics Dashboard showing facility comparisons, provider performance, and HCC gap analysis" class="w-full h-full object-cover object-top">
-                    </div>
-                    <h3 class="text-xl font-bold text-dsBlack mb-3">Population Analytics</h3>
-                    <p class="text-gray-600 mb-4">
-                        Enterprise visibility into RAF performance across facilities, providers, and patient populations. Identify systematic gaps, track improvement, and prioritize interventions.
-                    </p>
-                    <div class="space-y-2 text-sm text-gray-600">
-                        <p>* RAF score trending by facility</p>
-                        <p>* Provider performance comparisons</p>
-                        <p>* HCC gap analysis by category</p>
-                        <p>* ROI tracking and forecasting</p>
-                    </div>
-                </div>
-                
-                <div class="border border-gray-200 rounded-xl p-8">
-                    <div class="rounded-lg overflow-hidden h-48 mb-6 bg-gray-100 enlargeable-container" onclick="openLightbox(this.querySelector('img'))">
-                        </div>
-                    <h3 class="text-xl font-bold text-dsBlack mb-3">Audit-Ready Documentation</h3>
-                    <p class="text-gray-600 mb-4">
-                        Every HCC recommendation linked directly to clinical evidence. When auditors ask "why did you code this?"-the answer is one click away. Built for defensibility.
-                    </p>
-                    <div class="space-y-2 text-sm text-gray-600">
-                        <p>* Source document linking</p>
-                        <p>* Clinical evidence chains</p>
-                        <p>* Audit trail logging</p>
-                        <p>* Peer-reviewed CMS methodology</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technical Approach -->
-    <section class="py-20 px-6 bg-dsBlack text-white">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="fade-up max-w-2xl mb-12">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Technical Approach</span>
-                <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
-                    Responsible AI with explainability at the core.
-                </h2>
-                <p class="text-gray-400">
-                    Healthcare AI isn't just about accuracy-it's about explainability. Every recommendation must be defensible. We built this platform with auditability as a first-class requirement.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="border border-gray-800 rounded-xl p-6">
-                    <h3 class="font-semibold text-white mb-3">Peer-Reviewed Methodology</h3>
-                    <p class="text-gray-400 text-sm">AI models built on CMS HCC scoring methodology. Not black-box predictions-transparent, validated approaches.</p>
-                </div>
-                
-                <div class="border border-gray-800 rounded-xl p-6">
-                    <h3 class="font-semibold text-white mb-3">Evidence Linking</h3>
-                    <p class="text-gray-400 text-sm">Every recommendation tied to specific clinical documentation. Auditors can trace from code to evidence in seconds.</p>
-                </div>
-                
-                <div class="border border-gray-800 rounded-xl p-6">
-                    <h3 class="font-semibold text-white mb-3">Multi-Source Integration</h3>
-                    <p class="text-gray-400 text-sm">EHR data, lab results, medications, claims history-all combined for comprehensive patient view.</p>
-                </div>
-                
-                <div class="border border-gray-800 rounded-xl p-6">
-                    <h3 class="font-semibold text-white mb-3">Continuous Learning</h3>
-                    <p class="text-gray-400 text-sm">Platform improves with feedback. Provider corrections and audit results feed back into the model.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Results -->
-    <section class="py-20 px-6">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="fade-up max-w-2xl mb-12">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Results</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
-                    $10M+ in improvements across 7 states.
-                </h2>
-                <p class="text-gray-600">
-                    Production deployment serving real patients, real providers, real revenue. These numbers come from actual RAF score improvements tracked over time.
-                </p>
-            </div>
-
-            <div class="grid lg:grid-cols-3 gap-8">
-                <div class="bg-dsGray rounded-xl p-8">
-                    <h3 class="text-sm font-medium text-dsBlue uppercase tracking-wider mb-4">Financial Impact</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <span class="text-3xl font-bold text-dsBlack">$10M+</span>
-                            <p class="text-gray-500 text-sm">Total RAF improvements</p>
-                        </div>
-                        <div>
-                            <span class="text-3xl font-bold text-dsBlack">Higher</span>
-                            <p class="text-gray-500 text-sm">ICD/HCC recapture rates</p>
-                        </div>
-                        <div>
-                            <span class="text-3xl font-bold text-dsBlack">Reduced</span>
-                            <p class="text-gray-500 text-sm">Audit exposure and claw-back risk</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-dsGray rounded-xl p-8">
-                    <h3 class="text-sm font-medium text-dsBlue uppercase tracking-wider mb-4">Clinical Impact</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <span class="text-3xl font-bold text-dsBlack">90%+</span>
-                            <p class="text-gray-500 text-sm">Diagnosis accuracy</p>
-                        </div>
-                        <div>
-                            <span class="text-3xl font-bold text-dsBlack">Better</span>
-                            <p class="text-gray-500 text-sm">Patient risk profiles for care planning</p>
-                        </div>
-                        <div>
-                            <span class="text-3xl font-bold text-dsBlack">Reduced</span>
-                            <p class="text-gray-500 text-sm">Hospitalizations through better targeting</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-dsGray rounded-xl p-8">
-                    <h3 class="text-sm font-medium text-dsBlue uppercase tracking-wider mb-4">Scale</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <span class="text-3xl font-bold text-dsBlack">20K+</span>
-                            <p class="text-gray-500 text-sm">Patients served</p>
-                        </div>
-                        <div>
-                            <span class="text-3xl font-bold text-dsBlack">7</span>
-                            <p class="text-gray-500 text-sm">States in production</p>
-                        </div>
-                        <div>
-                            <span class="text-3xl font-bold text-dsBlack">245</span>
-                            <p class="text-gray-500 text-sm">Providers using the platform</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- EHR Integration -->
-    <section class="py-20 px-6 bg-dsGray">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="fade-up" >
-                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Integration</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
-                        Wrapped around existing EHR systems.
-                    </h2>
-                    <p class="text-gray-600 mb-6">
-                        No rip-and-replace. The platform integrates with existing EHR systems, pulling data for analysis and surfacing recommendations within provider workflows. Providers don't need to log into another system.
-                    </p>
-                    
-                    <h3 class="font-semibold text-dsBlack mb-3">Production Integrations:</h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-white border border-gray-200 rounded-lg p-4">
-                            <p class="font-medium text-dsBlack">Gehrimed</p>
-                            <p class="text-gray-500 text-sm">Primary EHR integration</p>
-                        </div>
-                        <div class="bg-white border border-gray-200 rounded-lg p-4">
-                            <p class="font-medium text-dsBlack">PointClickCare</p>
-                            <p class="text-gray-500 text-sm">SNF data integration</p>
-                        </div>
-                        <div class="bg-white border border-gray-200 rounded-lg p-4">
-                            <p class="font-medium text-dsBlack">Acclivity</p>
-                            <p class="text-gray-500 text-sm">Claims and billing data</p>
-                        </div>
-                        <div class="bg-white border border-gray-200 rounded-lg p-4">
-                            <p class="font-medium text-dsBlack">Lab Systems</p>
-                            <p class="text-gray-500 text-sm">Results integration</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div >
-                    <div class="bg-white border border-gray-200 rounded-xl p-8">
-                        <h3 class="font-semibold text-dsBlack mb-4">Why Integration Matters for RAF</h3>
-                        <div class="space-y-4 text-gray-600">
-                            <div class="flex items-start gap-3">
-                                <span class="text-dsBlue mt-1">Y</span>
-                                <div>
-                                    <p class="font-medium text-dsBlack">Complete patient picture</p>
-                                    <p class="text-sm">Lab results, medications, and clinical notes all factor into HCC identification.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-dsBlue mt-1">Y</span>
-                                <div>
-                                    <p class="font-medium text-dsBlack">Point-of-care delivery</p>
-                                    <p class="text-sm">Recommendations surface during the visit, not in a separate report reviewed later.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-dsBlue mt-1">Y</span>
-                                <div>
-                                    <p class="font-medium text-dsBlack">No duplicate data entry</p>
-                                    <p class="text-sm">Providers accept or modify recommendations-data flows back automatically.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-dsBlue mt-1">Y</span>
-                                <div>
-                                    <p class="font-medium text-dsBlack">Audit trail preservation</p>
-                                    <p class="text-sm">Source documentation links maintained through the workflow.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Related Work -->
-    <section class="py-20 px-6">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="flex justify-between items-end mb-12">
-                <div>
-                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Work</span>
-                    <h2 class="text-3xl font-bold text-dsBlack mt-3">More healthcare results.</h2>
-                </div>
-                <a href="ds-healthcare-v3-updated.html" class="hidden md:inline-flex items-center gap-2 text-dsBlue font-medium hover:underline">
-                    View All Work→
-                </a>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6">
-                <a href="work-communicare-mds.html" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
-                    <div class="h-40 overflow-hidden bg-gray-100">
-                        <img src="images/case-studies/mds-coordinator-1.jpg" alt="CommuniCare MDS Optimization" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs text-gray-400 uppercase tracking-wider">Revenue Optimization</span>
-                        <h3 class="font-bold text-dsBlack mt-1 mb-2">CommuniCare MDS Optimization</h3>
-                        <p class="text-gray-600 text-sm mb-3">$10M+ PDPM revenue recovered, $2M quality incentives from two states.</p>
-                        <span class="text-dsBlue text-sm font-medium">Read Case Study→</span>
-                    </div>
-                </a>
-                
-                <a href="work-never-alone.html" class="border border-gray-200 rounded-xl overflow-hidden hover:border-dsBlue transition">
-                    <div class="h-40 overflow-hidden bg-gray-100">
-                        <img src="images/case-neveralone-senior.png" alt="NeverAlone Virtual Care Platform" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs text-gray-400 uppercase tracking-wider">Virtual Care</span>
-                        <h3 class="font-bold text-dsBlack mt-1 mb-2">NeverAlone</h3>
-                        <p class="text-gray-600 text-sm mb-3">26K+ patients, 96% treat-in-place rate, 7-state platform we built and operate.</p>
-                        <span class="text-dsBlue text-sm font-medium">Read Case Study→</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-20 px-6 bg-dsBlue text-white">
-        <div class="max-w-screen-xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">What's your risk adjustment opportunity?</h2>
-            <p class="text-blue-100 mb-8 max-w-2xl mx-auto">
-                If missed HCCs are costing you millions in RAF revenue, let's talk. 30-minute call to assess your opportunity.
-            </p>
-            <a href="healthcare-assessment.html" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition">
-                Schedule Assessment Call
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
-        </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <!-- DS 2.0 Footer - FINAL -->
