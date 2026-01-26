@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="170px" height="170px" viewBox="0 0 170 170" version="1.1">
+  <title>Group 6</title>
+  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Mobile-Requirements-in-Healthcare" transform="translate(-1249, -112)">
+      <g id="Group-6" transform="translate(1249, 112)">
+        <rect id="Rectangle" fill="#FFFFFF" fill-rule="nonzero" x="0" y="0" width="170" height="170" rx="85"></rect>
+        <path d="M100.26,108.452 L123,108.452 C126.31,108.452 129,105.765 129,102.452 L129,52 C129,48.686 126.31,46 123,46 L47,46 C43.69,46 41,48.686 41,52 L41,102.452 C41,105.765 43.69,108.452 47,108.452 L69.03,108.452" id="Path" stroke="#333333" stroke-width="3" stroke-linecap="round"></path>
+        <line x1="41.35" y1="59.858" x2="128.29" y2="59.858" id="Path" stroke="#333333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></line>
+        <g id="Group-5" transform="translate(63.1, 67.169)" stroke="#333333" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+          <path d="M27.49,57.603 C27.49,57.603 31.82,43.331 32.8,41.785 L22.55,23.566 L20.76,23.601 L10.54,41.789 C11.95,43.981 15.85,57.606 15.85,57.606 L27.49,57.606 L27.49,57.603 Z" id="Path" fill="#26D9C4" fill-rule="nonzero"></path>
+          <line x1="21.68" y1="24.961" x2="21.68" y2="36.099" id="Path"></line>
+          <path d="M21.6,41.125 C23,41.125 24.14,40 24.14,38.612 C24.14,37.224 23,36.1 21.6,36.1 C20.2,36.1 19.06,37.224 19.06,38.612 C19.06,40 20.2,41.125 21.6,41.125 Z" id="Path" fill="#FFFFFF" fill-rule="nonzero"></path>
+          <polygon id="Path" fill="#26D9C4" fill-rule="nonzero" points="24.89 13.093 19.06 13.093 19.06 18.857 24.89 18.857"></polygon>
+          <polygon id="Path" fill="#26D9C4" fill-rule="nonzero" points="5.82 0 0 0 0 5.764 5.82 5.764"></polygon>
+          <path d="M14.44,16.707 C9.07,17.433 5.29,15.33 3.22,10.227" id="Path"></path>
+        </g>
+        <line x1="47.93" y1="52.929" x2="50.7" y2="52.929" id="Path" stroke="#333333" stroke-width="3" stroke-linejoin="round"></line>
+        <line x1="54.86" y1="52.929" x2="57.63" y2="52.929" id="Path" stroke="#333333" stroke-width="3" stroke-linejoin="round"></line>
+        <line x1="61.79" y1="52.929" x2="64.56" y2="52.929" id="Path" stroke="#333333" stroke-width="3" stroke-linejoin="round"></line>
+      </g>
+    </g>
+  </g>
+</svg>
