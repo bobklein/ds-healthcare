@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intelligent Back-Office Agents | Healthcare AI Solutions | Digital Scientists</title>
+    <title>Clinical Trial Patient Matching AI | Healthcare AI Framework | Digital Scientists</title>
+    <meta name="description" content="AI-powered clinical trial patient matching that screens your entire population against active trial criteria. Increase enrollment by 30-50% and capture $10K-50K+ per enrolled patient.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -24,24 +28,46 @@
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', system-ui, sans-serif; }
-        h1, h2, h3 { letter-spacing: -0.02em; }
-        
-        
-        
-    
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is AI clinical trial patient matching?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "AI clinical trial patient matching continuously screens your patient population against active trial eligibility criteria using deep EHR integration. The system analyzes clinical notes, labs, medications, problem lists, and procedures to identify patients who may qualify for trials—surfacing matches for research coordinators to verify and approach."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much can AI improve clinical trial enrollment?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Organizations typically see 30-50% increase in trial enrollment rates by identifying eligible patients that manual screening misses. With trial milestone revenue ranging from $10K-50K+ per enrolled patient depending on the trial, even modest enrollment increases translate to significant revenue."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How long does clinical trial matching AI take to implement?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "This is a strategic investment requiring 24-32 weeks: 10-12 weeks for comprehensive EHR integration and NLP model training, 8-10 weeks for trial criteria ingestion and matching logic, and 6-10 weeks for validation with research coordinators and workflow integration."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What data is needed for clinical trial patient matching?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Required: Comprehensive EHR access including clinical notes, labs, medications, problem lists, procedures, and demographics. Also needed: active trial eligibility criteria in structured format and research coordinator workflows for match review."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body class="bg-white text-dsBlack antialiased">
 <!-- DS 2.0 Navigation - FINAL -->
@@ -311,7 +337,17 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
-</style>
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 
 <!-- Utility Bar -->
 <div class="ds-utility-bar">
@@ -603,300 +639,323 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
-<!-- Hero Section -->
-    <header class="pt-32 pb-16 px-6">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-3xl">
-                <div class="flex items-center gap-3 mb-6">
-                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">AI Solution Framework</span>
-                    <span class="bg-blue-100 text-dsBlue text-xs font-medium px-2 py-1 rounded">Highest ROI</span>
-                </div>
-                
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dsBlack mb-6 leading-[1.1]">
-                    45-day revenue cycles. 12% denial rates. Back-office is bleeding you dry.
-                </h1>
-                
-                <div class="my-8 rounded-xl overflow-hidden shadow-lg fade-up">
-                    <img src="images/case-studies/raf-dashboard-top.png" alt="Revenue Cycle Dashboard" class="w-full">
-                </div>
-                
-                <p class="text-xl text-gray-600 leading-relaxed mb-8">
-                    50% of AI budgets go to sales and marketing. But back-office automation delivers the fastest, clearest ROI. Revenue cycle, coding, scheduling, intake-these are the workflows where AI agents create hard dollar returns within the calendar year.
-                </p>
+<!-- Hero -->
+    <header class="py-12 px-6 bg-gradient-to-br from-dsBlack to-gray-800 text-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="bg-red-500/20 text-red-300 text-xs font-medium px-3 py-1 rounded-full">High Complexity</span>
+                <span class="text-gray-400 text-sm">24-32 weeks to deploy</span>
             </div>
-
-            <!-- Stats Row -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">45→28</span>
-                    <p class="text-gray-500 text-sm mt-1">Days Revenue Cycle</p>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Clinical Trial Patient Matching</h1>
+            <p class="text-xl text-gray-300 mb-6">AI that continuously screens your patient population against trial eligibility criteria—capturing revenue that manual screening misses.</p>
+            <div class="grid grid-cols-3 gap-6 pt-6 border-t border-white/20">
+                <div>
+                    <span class="text-3xl font-bold text-dsBlue">30-50%</span>
+                    <p class="text-gray-400 text-sm">Enrollment increase</p>
                 </div>
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <span class="text-3xl md:text-4xl font-bold text-dsBlue">12→4%</span>
-                    <p class="text-gray-500 text-sm mt-1">Denial Rate Reduction</p>
+                <div>
+                    <span class="text-3xl font-bold">$10-50K+</span>
+                    <p class="text-gray-400 text-sm">Revenue per patient</p>
                 </div>
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">200-300</span>
-                    <p class="text-gray-500 text-sm mt-1">EBITDA bps Improvement</p>
-                </div>
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <span class="text-3xl md:text-4xl font-bold text-dsBlack">30-40%</span>
-                    <p class="text-gray-500 text-sm mt-1">Admin Cost Reduction</p>
+                <div>
+                    <span class="text-3xl font-bold">24-32</span>
+                    <p class="text-gray-400 text-sm">Weeks to deploy</p>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- The Problem -->
-    <section class="py-20 px-6 bg-dsGray">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="fade-up max-w-2xl mb-12">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Problem</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
-                    Administrative overhead is eating your margins.
-                </h2>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white border border-gray-200 rounded-xl p-6">
-                    <span class="text-4xl font-bold text-dsBlack">45 days</span>
-                    <h3 class="font-semibold text-dsBlack mt-3 mb-2">Revenue cycle length</h3>
-                    <p class="text-gray-500 text-sm">Cash tied up in A/R while you wait. Working capital that could be deployed elsewhere. And the longer claims age, the less likely you are to collect.</p>
-                </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6">
-                    <span class="text-4xl font-bold text-dsBlack">12%</span>
-                    <h3 class="font-semibold text-dsBlack mt-3 mb-2">Denial rates</h3>
-                    <p class="text-gray-500 text-sm">Every denial is revenue delayed or lost. Appeals take staff time. Many denials are preventable with better front-end processes and coding accuracy.</p>
-                </div>
-                <div class="bg-white border border-gray-200 rounded-xl p-6">
-                    <span class="text-4xl font-bold text-dsBlack">15-20%</span>
-                    <h3 class="font-semibold text-dsBlack mt-3 mb-2">Admin overhead</h3>
-                    <p class="text-gray-500 text-sm">Back-office costs consuming margin. Manual processes that don't scale. Staff doing repetitive work that should be automated.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Solution -->
-    <section class="py-20 px-6">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="fade-up" >
-                    <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">The Solution</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-6">
-                        AI agents that work your back-office 24/7.
-                    </h2>
-                    <p class="text-gray-600 mb-4">
-                        Intelligent agents that handle revenue cycle tasks, coding assistance, scheduling optimization, and intake processing. Not chatbots-actual workflow automation that processes transactions, makes decisions, and escalates exceptions.
-                    </p>
-                    <p class="text-gray-600 mb-4">
-                        These agents learn your specific payer rules, contract terms, and denial patterns. They prioritize A/R based on collectability. They catch coding errors before claims go out. They identify the 12% of claims likely to deny-before you submit them.
-                    </p>
-                    <p class="text-gray-600">
-                        Built for your environment and trained on your data. Your payer mix. Your EHR. Your workflows. Not a generic tool that requires you to change how you work-AI that learns how you actually operate and gets smarter every month.
-                    </p>
-                </div>
+    <!-- Main Content -->
+    <main class="py-12 px-6">
+        <div class="max-w-4xl mx-auto">
+            
+            <!-- Problem Section -->
+            <section class="mb-16 bg-dsGray" id="problem">
+                <h2 class="text-2xl font-bold mb-6">The Problem in Dollar Terms</h2>
                 
-                <div >
-                    <div class="h-80 rounded-xl overflow-hidden bg-gray-100">
-                        </div>
+                <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg mb-6">
+                    <h3 class="font-semibold text-red-900 mb-2">The enrollment gap</h3>
+                    <p class="text-red-800">80% of clinical trials fail to meet enrollment timelines. A health system with 10 active trials, each needing 50 patients at $25K per enrollment, faces <strong>$12.5M in potential revenue</strong>—most of which goes unrealized because eligible patients aren't identified. Manual screening catches perhaps 20% of matches.</p>
+                <div class="my-8 fade-up">
+                    <img src="images/hero-pharma.png" alt="Clinical trial landscape" class="rounded-xl shadow-lg w-full max-w-3xl mx-auto">
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Strategic Insight -->
-    <section class="py-20 px-6 bg-dsBlack text-white">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="max-w-3xl">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Strategic Insight</span>
-                <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-6">
-                    Back-office beats front-office for AI ROI.
-                </h2>
-                <p class="text-gray-300 mb-4">
-                    Industry data shows 50% of AI budgets go to sales and marketing. But back-office automation delivers faster payback and clearer cost reduction. Why?
-                </p>
-                <div class="grid md:grid-cols-2 gap-6 mt-8">
-                    <div class="border border-gray-700 rounded-xl p-6">
-                        <p class="text-white font-medium mb-2">Front-office AI:</p>
-                        <p class="text-gray-400 text-sm">Theoretical revenue gains. Hard to measure. Long feedback loops. Success depends on customer behavior you don't control.</p>
-                    </div>
-                    <div class="border-2 border-dsBlue rounded-xl p-6">
-                        <p class="text-white font-medium mb-2">Back-office AI:</p>
-                        <p class="text-gray-400 text-sm">Direct cost reduction. Measurable from day one. Short feedback loops. Success depends on processes you control. $2-10M annually in BPO elimination potential.</p>
-                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Use Cases -->
-    <section class="py-20 px-6">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="fade-up max-w-2xl mb-12">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Use Cases</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
-                    Where back-office AI delivers.
-                </h2>
-            </div>
+                <p class="text-gray-700 mb-4">Clinical trial enrollment is a paradox: sponsors desperately need patients, patients often want access to cutting-edge treatments, and health systems want the revenue—yet trials consistently under-enroll. The bottleneck is identification. Eligible patients exist in your EHR; they just aren't being found.</p>
 
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="border border-gray-200 rounded-xl p-8">
-                    <h3 class="text-xl font-bold text-dsBlack mb-3">Revenue Cycle Management</h3>
-                    <p class="text-gray-600 mb-4">
-                        A/R prioritization based on collectability scoring. Denial prediction before submission. Automated appeals for common denial patterns. Contract term interpretation for billing accuracy.
-                    </p>
-                    <p class="text-dsBlue text-sm font-medium">Impact: 45→28 days, millions in faster collections</p>
-                </div>
-                
-                <div class="border border-gray-200 rounded-xl p-8">
-                    <h3 class="text-xl font-bold text-dsBlack mb-3">RAF / HCC Coding</h3>
-                    <p class="text-gray-600 mb-4">
-                        Risk adjustment accuracy for Medicare Advantage and value-based care. Documentation gaps identified. Diagnosis recommendations with supporting evidence. Higher ICD/HCC recapture rates.
-                    </p>
-                    <p class="text-dsBlue text-sm font-medium">Impact: $10M+ improvements, 90%+ accuracy</p>
-                </div>
-                
-                <div class="border border-gray-200 rounded-xl p-8">
-                    <h3 class="text-xl font-bold text-dsBlack mb-3">Scheduling & Capacity</h3>
-                    <p class="text-gray-600 mb-4">
-                        Predictive no-show management with automated fill. Route optimization for home health. Patient acuity matching to staff capabilities. Capacity utilization optimization.
-                    </p>
-                    <p class="text-dsBlue text-sm font-medium">Impact: 15% visit completion improvement, 20% less drive time</p>
-                </div>
-                
-                <div class="border border-gray-200 rounded-xl p-8">
-                    <h3 class="text-xl font-bold text-dsBlack mb-3">Intake & Eligibility</h3>
-                    <p class="text-gray-600 mb-4">
-                        Insurance verification automation. Prior authorization status tracking. Assessment scheduling coordination. Referral source management and follow-up.
-                    </p>
-                    <p class="text-dsBlue text-sm font-medium">Impact: Faster admissions, fewer coverage surprises</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                <p class="text-gray-700 mb-4">Research coordinators screen patients manually—reviewing clinic schedules, checking problem lists, asking physicians for referrals. It's labor-intensive, error-prone, and systematically misses patients. The coordinator reviews charts in the oncology clinic but misses the eligible patient in cardiology. The patient who meets criteria arrives after hours when no one's screening.</p>
 
-    <!-- Proof Points -->
-    <section class="py-20 px-6 bg-dsGray">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="fade-up max-w-2xl mb-12">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Proof Points</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3">
-                    Back-office results we've delivered.
-                </h2>
-            </div>
+                <h3 class="font-semibold text-lg mt-8 mb-4">What AI trial matching actually does</h3>
+                <p class="text-gray-700 mb-4">An AI matching system continuously screens your entire patient population against active trial eligibility criteria:</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
+                    <li><strong>Eligibility parsing:</strong> Converts complex inclusion/exclusion criteria into computable rules</li>
+                    <li><strong>Deep EHR analysis:</strong> Scans diagnoses, labs, medications, procedures, notes—not just problem lists</li>
+                    <li><strong>Continuous monitoring:</strong> Re-evaluates patients as new data arrives (new labs, new diagnoses)</li>
+                    <li><strong>Match confidence:</strong> Ranks matches by likelihood of true eligibility, not just criteria met</li>
+                    <li><strong>Coordinator workflow:</strong> Surfaces matches in actionable format for verification and outreach</li>
+                </ul>
 
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white border border-gray-200 rounded-xl p-8">
-                    <span class="text-xs text-gray-400 uppercase tracking-wider">MDS / PDPM Optimization</span>
-                    <h3 class="font-bold text-dsBlack mt-2 mb-4">CommuniCare Health Services</h3>
-                    <div class="space-y-3 mb-4">
+                <p class="text-gray-700">Research coordinators shift from chart hunting to match verification—reviewing AI-surfaced candidates rather than manually screening schedules. The system catches patients they would have missed.</p>
+
+                <div class="bg-blue-50 border-l-4 border-dsBlue p-6 rounded-r-lg mt-6">
+                    <h3 class="font-semibold text-blue-900 mb-2">Why this requires deep integration</h3>
+                    <p class="text-blue-800 text-sm">Trial criteria are often buried in clinical details: "LVEF < 40%," "no prior treatment with checkpoint inhibitors," "hemoglobin > 9.0 within 28 days." Matching requires reading echocardiogram reports, medication histories, and lab values—data scattered across the EHR. This is the most integration-intensive project in this framework series.</p>
+                </div>
+            </section>
+
+            <!-- Fit Assessment -->
+            <section class="mb-16 bg-dsGray" id="fit-assessment">
+                <h2 class="text-2xl font-bold mb-6">The 5-Minute Fit Assessment</h2>
+                <p class="text-gray-600 mb-6">This is the most complex framework in the series. Check the boxes carefully.</p>
+
+                <div class="space-y-4">
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
                         <div>
-                            <span class="text-2xl font-bold text-dsBlue">$10M</span>
-                            <p class="text-gray-500 text-sm">PDPM Revenue (2 states, annualized)</p>
+                            <strong class="text-dsBlack">You have an active clinical research program</strong>
+                            <p class="text-gray-600 text-sm">With at least 10+ active trials and dedicated research coordinators. If you have 2-3 trials, manual screening may suffice.</p>
                         </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
                         <div>
-                            <span class="text-2xl font-bold text-dsBlack">$2M</span>
-                            <p class="text-gray-500 text-sm">Quality Incentives</p>
+                            <strong class="text-dsBlack">Trial enrollment is a recognized problem</strong>
+                            <p class="text-gray-600 text-sm">You're missing enrollment targets, turning away sponsors, or losing trials to competitors due to slow enrollment.</p>
                         </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">You have comprehensive EHR access for integration</strong>
+                            <p class="text-gray-600 text-sm">This requires reading clinical notes, labs, medications, problem lists, and procedures. API access with broad data scope is essential.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">Research coordinators will adopt AI-surfaced matches</strong>
+                            <p class="text-gray-600 text-sm">The value comes from coordinators acting on matches. If your research team is resistant to technology or won't trust AI suggestions, adoption will suffer.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">You can provide trial criteria in structured format</strong>
+                            <p class="text-gray-600 text-sm">The system needs to ingest eligibility criteria. This works best when criteria are structured; unstructured protocol PDFs require additional processing.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:border-dsBlue transition cursor-pointer">
+                        <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-dsBlue">
+                        <div>
+                            <strong class="text-dsBlack">Executive sponsorship exists for an 8+ month project</strong>
+                            <p class="text-gray-600 text-sm">This is the longest implementation in the framework series. You need sustained commitment and patience.</p>
+                        </div>
+                    </label>
+                </div>
+            </section>
+
+            <!-- What You Need -->
+            <section class="mb-16 bg-dsGray" id="what-you-need">
+                <h2 class="text-2xl font-bold mb-6">What You Need to Have Ready</h2>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-8 fade-up">
+                    <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+                        <h3 class="font-semibold text-green-900 mb-3">✓ Required</h3>
+                        <ul class="text-green-800 space-y-2 text-sm">
+                            <li>• Comprehensive EHR access (notes, labs, meds, problems, procedures)</li>
+                            <li>• Active trial eligibility criteria</li>
+                            <li>• Research coordinator team</li>
+                            <li>• IRB framework for AI-assisted screening</li>
+                            <li>• Patient population of sufficient size</li>
+                        </ul>
                     </div>
-                    <p class="text-gray-600 text-sm">AI-assisted MDS assessment tool that identifies documentation gaps, suggests diagnosis codes, and optimizes PDPM scoring. Financial analyst validated ROI.</p>
-                </div>
-                
-                <div class="bg-white border border-gray-200 rounded-xl p-8">
-                    <span class="text-xs text-gray-400 uppercase tracking-wider">Risk Adjustment</span>
-                    <h3 class="font-bold text-dsBlack mt-2 mb-4">RAF / HCC Coding Platform</h3>
-                    <div class="space-y-3 mb-4">
-                        <div>
-                            <span class="text-2xl font-bold text-dsBlue">$10M+</span>
-                            <p class="text-gray-500 text-sm">Risk Adjustment Improvements</p>
-                        </div>
-                        <div>
-                            <span class="text-2xl font-bold text-dsBlack">90%+</span>
-                            <p class="text-gray-500 text-sm">Diagnosis Accuracy</p>
-                        </div>
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                        <h3 class="font-semibold text-blue-900 mb-3">◐ Significantly enhances value</h3>
+                        <ul class="text-blue-800 space-y-2 text-sm">
+                            <li>• CTMS integration for trial management</li>
+                            <li>• Structured eligibility criteria (vs. PDF protocols)</li>
+                            <li>• Historical enrollment data for validation</li>
+                            <li>• Patient consent preferences</li>
+                            <li>• Physician notification workflow</li>
+                        </ul>
                     </div>
-                    <p class="text-gray-600 text-sm">20K+ patients, 7 states, 245 providers. Peer-reviewed CMS models. Every recommendation linked to source documentation. Audit-defensible.</p>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ROI Model -->
-    <section class="py-20 px-6">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="fade-up max-w-2xl mb-12">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">ROI Model</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3 mb-4">
-                    EBITDA improvement you can measure.
-                </h2>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <h3 class="font-semibold text-dsBlack mb-3">Revenue Cycle Impact</h3>
-                    <p class="text-gray-600 text-sm mb-4">Faster A/R turns = better working capital. Reduced denials = higher net collections. Contract compliance = capturing what you're owed.</p>
-                    <p class="text-dsBlue font-medium">200-300 bps EBITDA</p>
+                <h3 class="font-semibold text-lg mb-4">The criteria ingestion challenge</h3>
+                <p class="text-gray-700 mb-4">Trial eligibility criteria are often complex and nested:</p>
+                <div class="bg-dsGray rounded-lg p-6 mb-6 text-sm font-mono">
+                    <p class="text-gray-700">Inclusion: Age ≥ 18 AND confirmed diagnosis of [condition] AND ECOG ≤ 2 AND (prior treatment with [drug class] OR treatment-naive)</p>
+                    <p class="text-gray-700 mt-2">Exclusion: Prior checkpoint inhibitor within 6 months OR active autoimmune disease OR LVEF < 40% OR creatinine clearance < 30</p>
                 </div>
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <h3 class="font-semibold text-dsBlack mb-3">Cost Reduction</h3>
-                    <p class="text-gray-600 text-sm mb-4">Reduced administrative staff requirements. BPO elimination potential. Lower external agency spend.</p>
-                    <p class="text-dsBlue font-medium">30-40% admin reduction</p>
+                <p class="text-gray-700">Converting these criteria into computable queries against your EHR—especially when data lives in unstructured notes—is the core technical challenge. This is why implementation takes 6-8 months.</p>
+            </section>
+
+            <!-- Build vs Buy -->
+            <section class="mb-16 bg-dsGray" id="build-buy-partner">
+                <h2 class="text-2xl font-bold mb-6">Build vs. Buy vs. Partner</h2>
+
+                <div class="grid md:grid-cols-3 gap-6 mb-8 fade-up">
+                    <div class="border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-3">Build internally when:</h3>
+                        <ul class="text-gray-600 text-sm space-y-2">
+                            <li>• You have clinical NLP and EHR integration expertise</li>
+                            <li>• You have 18-24 months for development</li>
+                            <li>• You want complete IP ownership</li>
+                            <li>• Your trial portfolio is specialized and stable</li>
+                        </ul>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-3">Buy off-the-shelf when:</h3>
+                        <ul class="text-gray-600 text-sm space-y-2">
+                            <li>• Your EHR vendor offers trial matching</li>
+                            <li>• Your trials are common (oncology Phase III)</li>
+                            <li>• You want faster deployment</li>
+                            <li>• You're okay with limited customization</li>
+                        </ul>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-6 border-dsBlue bg-blue-50/30">
+                        <h3 class="font-semibold mb-3">Partner for custom when:</h3>
+                        <ul class="text-gray-600 text-sm space-y-2">
+                            <li>• Your trials have complex/unique criteria</li>
+                            <li>• You need NLP trained on YOUR documentation</li>
+                            <li>• Integration requirements exceed vendor limits</li>
+                            <li>• Match accuracy matters more than speed</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="border border-gray-200 rounded-xl p-6">
-                    <h3 class="font-semibold text-dsBlack mb-3">Risk Adjustment</h3>
-                    <p class="text-gray-600 text-sm mb-4">Higher RAF scores = higher MA payments. Better HCC capture = accurate risk profiles. Audit-defensible documentation.</p>
-                    <p class="text-dsBlue font-medium">$10M+ improvement potential</p>
+
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg">
+                    <h3 class="font-semibold text-amber-900 mb-2">The documentation interpretation challenge</h3>
+                    <p class="text-amber-800 text-sm">Trial criteria often require interpreting clinical nuance: "no significant cardiac history" isn't a checkbox—it requires understanding what your cardiologists document and how. Generic matching systems miss these patterns. Custom NLP training on your documentation is the difference between noise and signal.</p>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Related Solutions -->
-    <section class="py-20 px-6 bg-dsGray">
-        <div class="max-w-screen-xl mx-auto">
-            <div class="fade-up max-w-2xl mb-12">
-                <span class="text-xs font-medium text-dsBlue uppercase tracking-wider">Related Solutions</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dsBlack mt-3">
-                    Often combined with...
-                </h2>
-            </div>
+            <!-- Red Flags -->
+            <section class="mb-16" id="red-flags">
+                <h2 class="text-2xl font-bold mb-6">Red Flags: When to Wait</h2>
 
-            <div class="grid md:grid-cols-3 gap-6">
-                <a href="healthcare-ai-documentation-automation.html" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
-                    <span class="text-xs text-green-600 font-medium uppercase tracking-wider">Fastest Payback</span>
-                    <h3 class="font-bold text-dsBlack mt-2 mb-2 group-hover:text-dsBlue transition">AI Documentation Automation</h3>
-                    <p class="text-gray-500 text-sm">45→5 min per visit. Clinician time recovery.</p>
-                </a>
-                
-                <a href="healthcare-ai-virtual-care-assistants.html" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
-                    <span class="text-xs text-dsBlue font-medium uppercase tracking-wider">Proven at Scale</span>
-                    <h3 class="font-bold text-dsBlack mt-2 mb-2 group-hover:text-dsBlue transition">Virtual Care Assistants</h3>
-                    <p class="text-gray-500 text-sm">RPM, medication management, patient support.</p>
-                </a>
-                
-                <a href="healthcare-ai-intelligent-scheduling.html" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-dsBlue transition">
-                    <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Quick Win</span>
-                    <h3 class="font-bold text-dsBlack mt-2 mb-2 group-hover:text-dsBlue transition">Intelligent Scheduling</h3>
-                    <p class="text-gray-500 text-sm">Route optimization, no-show prediction.</p>
-                </a>
-            </div>
-        </div>
-    </section>
+                <div class="space-y-4">
+                    <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+                        <h3 class="font-semibold text-red-900 mb-2">You have a small research program</h3>
+                        <p class="text-red-700 text-sm">With fewer than 10 active trials, the ROI calculation changes dramatically. Manual screening may be more cost-effective. This solution shines at scale.</p>
+                    </div>
 
-    <!-- CTA Section -->
-    <section class="py-20 px-6 bg-dsBlue text-white">
-        <div class="max-w-screen-xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">See how back-office AI applies to your revenue cycle.</h2>
-            <p class="text-blue-100 mb-8 max-w-2xl mx-auto">
-                30-minute discovery call to understand your back-office challenges and quantify the opportunity. Calendar year ROI is possible.
-            </p>
-            <a href="healthcare-assessment.html" class="inline-flex items-center gap-2 bg-white text-dsBlue px-8 py-3 text-sm font-medium rounded-full hover:bg-dsBlack hover:text-white transition">
-                Schedule AI Opportunity Assessment
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
+                    <div class="bg-dsGray border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-2">Research coordinators are already overwhelmed</h3>
+                        <p class="text-gray-600 text-sm">AI surfaces more matches—which is only valuable if someone can follow up. If your team can't handle current volume, adding matches creates frustration, not enrollment.</p>
+                    </div>
+
+                    <div class="bg-dsGray border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-2">Your EHR data quality is poor</h3>
+                        <p class="text-gray-600 text-sm">If problem lists aren't maintained, labs aren't flowing, or clinical notes are sparse—matching accuracy suffers. Fix data quality first.</p>
+                    </div>
+
+                    <div class="bg-dsGray border border-gray-200 rounded-lg p-6">
+                        <h3 class="font-semibold mb-2">You haven't done simpler AI projects</h3>
+                        <p class="text-gray-600 text-sm">This is the most complex project in the framework series. If your organization is new to AI, start with quick wins to build muscle and confidence first.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Questions to Ask Vendors -->
+            <section class="mb-16" id="questions">
+                <h2 class="text-2xl font-bold mb-6">Questions to Ask Any Vendor</h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-semibold text-dsBlue mb-3">On their matching approach:</h3>
+                        <ul class="text-gray-700 space-y-2 text-sm">
+                            <li>"How do you handle criteria that require interpreting clinical notes, not just structured data?"</li>
+                            <li>"What's your false positive rate? How many non-eligible patients will be surfaced?"</li>
+                            <li>"How do you handle complex nested criteria with AND/OR logic?"</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-semibold text-dsBlue mb-3">On integration:</h3>
+                        <ul class="text-gray-700 space-y-2 text-sm">
+                            <li>"What EHR data elements do you require? How deep is the integration?"</li>
+                            <li>"How do you ingest trial eligibility criteria? Structured input or PDF parsing?"</li>
+                            <li>"How do matches surface for research coordinators?"</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-semibold text-dsBlue mb-3">On results:</h3>
+                        <ul class="text-gray-700 space-y-2 text-sm">
+                            <li>"What enrollment improvement should we expect? Show me comparable sites."</li>
+                            <li>"How do you measure success—matches generated or patients enrolled?"</li>
+                            <li>"What's your typical time from match surfaced to patient approached?"</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ROI Calculator -->
+            <section class="mb-16 bg-dsGray rounded-2xl p-8" id="calculator">
+                <h2 class="text-2xl font-bold mb-6">Quick ROI Estimate</h2>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-6 fade-up">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Number of active trials</label>
+                        <input type="number" placeholder="15" class="w-full border border-gray-300 rounded-lg px-4 py-3">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Average enrollment target per trial</label>
+                        <input type="number" placeholder="30" class="w-full border border-gray-300 rounded-lg px-4 py-3">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Average revenue per enrolled patient ($)</label>
+                        <input type="number" placeholder="25000" class="w-full border border-gray-300 rounded-lg px-4 py-3">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Expected enrollment improvement (%)</label>
+                        <input type="number" placeholder="40" class="w-full border border-gray-300 rounded-lg px-4 py-3">
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg p-6 border border-gray-200">
+                    <p class="text-sm text-gray-600 mb-2">Estimated annual value:</p>
+                    <p class="text-3xl font-bold text-dsBlue">$2,250,000 - $5,625,000</p>
+                    <p class="text-sm text-gray-500 mt-2">Based on 15 trials, 30 patients each, $25K per patient, 30-50% enrollment improvement</p>
+                </div>
+            </section>
+
+            <!-- Related Frameworks -->
+            <section class="mb-16" id="related">
+                <h2 class="text-2xl font-bold mb-6">Related Frameworks</h2>
+                <div class="grid md:grid-cols-2 gap-6 fade-up">
+                    <a href="ai-framework-cdi-auditor.html" class="border border-gray-200 rounded-lg p-6 hover:border-dsBlue transition group">
+                        <span class="text-xs text-red-600 font-medium">High Complexity</span>
+                        <h3 class="font-semibold mt-2 group-hover:text-dsBlue transition">CDI Auditor</h3>
+                        <p class="text-gray-600 text-sm mt-2">Similar deep EHR integration—organizations often tackle both.</p>
+                    </a>
+                    <a href="ai-framework-discharge-planning.html" class="border border-gray-200 rounded-lg p-6 hover:border-dsBlue transition group">
+                        <span class="text-xs text-red-600 font-medium">High Complexity</span>
+                        <h3 class="font-semibold mt-2 group-hover:text-dsBlue transition">Discharge Planning</h3>
+                        <p class="text-gray-600 text-sm mt-2">Another strategic investment requiring deep clinical integration.</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="bg-dsBlue text-white rounded-2xl p-8 text-center">
+                <h2 class="text-2xl font-bold mb-4">Ready to explore clinical trial matching?</h2>
+                <p class="text-blue-100 mb-6 max-w-xl mx-auto">This is our most complex framework. Let's assess your research program and estimate the potential impact.</p>
+                <div class="flex gap-4 justify-center">
+                    <a href="healthcare-assessment.html" class="bg-white text-dsBlack px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition">Get Assessment</a>
+                    <a href="healthcare-ai-guides-landing.html" class="border border-white/30 text-white px-6 py-3 rounded-full font-medium hover:bg-white/10 transition">View All Frameworks</a>
+                </div>
+            </section>
+
         </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <!-- DS 2.0 Footer - FINAL -->
